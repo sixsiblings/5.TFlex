@@ -31,14 +31,13 @@
 <link href="${ pageContext.request.contextPath }/resources/scss/_variables.scss" rel="stylesheet">--%>
 <link href="${ pageContext.request.contextPath }/resources/scss/landing-page.scss" rel="stylesheet"> 
 
-
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/popper.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/typeit.min.js"></script>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
 
 
