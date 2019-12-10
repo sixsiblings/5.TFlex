@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+<link href="${ pageContext.request.contextPath }/resources/css/modal.css" rel="stylesheet">
 <link href="${ pageContext.request.contextPath }/resources/css/main.css" rel="stylesheet">
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/bootstrap-grid.min.css" />
