@@ -10,64 +10,38 @@
 <title>회원가입하기</title>
 <c:import url="../common/commonUtil.jsp"/>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
-   <style>
-        #wrap{
-            width:530px;
-            margin-left:auto; 
-            margin-right:auto;
-            text-align:center;
-        }
-        
-        table{
-            border:3px solid skyblue
-        }
-        
-        td{
-            border:1px solid skyblue
-        }
-        
-        #title{
-            background-color:skyblue
-        }
-    </style>
 
 </head>
 <body>
 
 <!-- Material form register -->
-	<section class="outer"><br>
-<div class="card">
 
-    <h3 class="card-header info-color white-text text-center py-4">
+	<div class="card" style=" width : 800px;" >
+
+    <h3 class="card-header info-color white-tfext text-center py-4">
         <strong>회원가입</strong>
     </h3>
-
+	<br /><br />
       <form id="joinForm" action="${pageContext.request.contextPath }/insert.me" method="post">
 
 
 
     <!--Card content-->
-    <div class="card-body px-lg-5 pt-0">
-
-        <!-- Form -->
-        <form class="text-left" style="color: #757575;" action="#!">
-
-            <div class="form-row">
+    <div class="card-body px-lg-5 pt-0" >
+     <div class="form-row">
+           <div class="col">
+              <div class="md-form">
+            <label for="materialRegisterFormPhone">아이디</label>
+ 		<input type="text" id="materialRegisterFormPhone" class="form-control" 
+ 								aria-describedby="materialRegisterFormPhoneHelpBlock">
+			 </div><br />
+				
+		<div class="form-row">
                 <div class="col">
-                    <!-- First name -->
-                    <div class="md-form"><label for="materialRegisterFormFirstName">아이디</label>
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
-                    </div>
-                </div>
-              
-                <div class="col">
-                    <!-- Last name -->
-                    <div class="md-form">
-                     <label for="materialRegisterFormLastName">닉네임</label>
-                        <input type="email" id="materialRegisterFormLastName" class="form-control">
-                    </div><br />
-                </div>
-            </div>
+                 <div class="md-form">
+            <label for="materialRegisterFormPhone">닉네임</label>
+                <input type="text" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+			 </div></div><br />
 
             <!-- Password -->
             <div class="form-row">
@@ -94,21 +68,22 @@
 
             <!-- Newsletter -->
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;
                 <label class="form-check-label" for="materialRegisterFormNewsletter">개인정보수집동의</label>
             </div>
 
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">회원가입</button>
-       
-                <div class="btns" align="center">
-		    <div id="goMain" onclick="goMain();">메인으로</div> 
-            <div id="joinBtn" onclick="insertMember();">Join</div>
-         </div>
-       
-       
-        </form>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" 
+            			type="submit">회 원 가 입</button>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" 
+            			type="button"  id="joinBtn" onclick="insertMember();">가 입 취 소</button>
+            	</div>		
+        	</form>
+       	 </div>
 
+	
+		
+		
 <!-- ----------------------------------------------------------------------------------------------------------- -->
 	
     
