@@ -50,6 +50,7 @@ public class MemberInsertServlet extends HttpServlet {
 		// 회원 가입용 Member 확인하기
 		Member m = new Member(userId, uName, userPwd, userName, birthNo, 
 							iNo, rPerson, eStatus, aComment, aNotice, event, aItem, aChat );
+		
 		System.out.println("받은정보 확인 : " + m);
 		
 		// 회원가입 서비스 실행

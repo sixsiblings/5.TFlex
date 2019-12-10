@@ -5,9 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 	<br />
 	<br />
-	<br />
-	<br />
-	<br />
 <section class="testimonials text-center bg-light">
     <div class="container">
       <h2 class="mb-5">여기는 무엇을 넣을까요</h2>

@@ -1,5 +1,6 @@
 package com.six.semi.member.model.DAO;
 
+import static com.six.semi.common.JDBCTemplate.*;
 
 import java.io.FileReader;
 import java.sql.Connection;
@@ -62,10 +63,10 @@ public class MemberDAO {
 		Member result = null;
 		
 		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		
 		try {
 		
-		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectMember");
 		
@@ -94,7 +95,8 @@ public class MemberDAO {
 			result.setaItem(rset.getString("AITEM"));
 			result.setEvent(rset.getString("EVENT"));
 			result.setaChat(rset.getString("ACHAT"));			
-			
+		}
+		
 		} catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("오류발생");
@@ -105,11 +107,6 @@ public class MemberDAO {
 		}
 		return result;
 	}
-		
-		
-	
-
-}
 
 	public int updateMember(Connection con, Member m) {
 
@@ -128,3 +125,4 @@ public class MemberDAO {
 		
 		return 0;
 	}
+}

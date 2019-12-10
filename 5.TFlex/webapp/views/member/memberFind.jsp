@@ -7,10 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보수정</title>
-<c:import url="../common/commonUtil.jsp" />
+<title>아이디/비밀번호 찾기</title>
+
 </head>
 <body>
+	<h1>아이디 찾기</h1>
 	
+	<h1>비밀번호 찾기</h1>
 </body>
 </html>
