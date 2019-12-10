@@ -9,24 +9,36 @@
 <!--  상단 네비바  -->
 	<!--  로고 이미지 -->
 <nav class="navbar navbar-light bg-light static-top">
-	<div class="container" style="width: 100%; height: auto; float: left;">
-		<a class="mainPage" href="${pageContext.request.contextPath}/index.jsp"> 
-			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png" 
-						style="width: 160px; height: 80px; float: left;" /></a>
-
-		<div class="menu" style="align: right;">
-		
-			<button type="button" class="btn btn-lg" onclick="goNotice();">Notice</button>
-			&nbsp;
-			<button type="button" class="btn btn-lg" onclick="goKBO();">KBO</button>
-			&nbsp;
-			<button type="button" class="btn btn-lg" onclick="goMLB();">MLB</button>
-			&nbsp;
-			<button type="button" class="btn btn-lg" onclick="goTicket();">Ticket</button>
-			&nbsp;
-			<button type="button" class="btn btn-lg" onclick="goGoods();">Goods</button>
-			&nbsp;
+	<div class="container-fluid" style="width: 100%; height: auto;">
+		<div class="col-md-2">
+			<a class="mainPage" href="${pageContext.request.contextPath}/index.jsp"> 
+				<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png" 
+							style="width: 160px; height: 80px; float: left;" /></a>	
 		</div>
+		<div class="col-md-8">
+			<div class="menu" style="align: right;">			
+			
+				<button type="button" class="btn btn-lg" onclick="goNotice();">Notice</button>
+				&nbsp;
+				<button type="button" class="btn btn-lg" onclick="goKBO();">KBO</button>
+				&nbsp;
+				<button type="button" class="btn btn-lg" onclick="goMLB();">MLB</button>
+				&nbsp;
+				<button type="button" class="btn btn-lg" onclick="goTicket();">Ticket</button>
+				&nbsp;
+				<button type="button" class="btn btn-lg" onclick="goGoods();">Goods</button>
+				&nbsp;
+			</div>
+		</div>
+		<div class="col-md-2">
+		
+			<div class="text-right">
+				<a href="" class="btn btn-default btn-rounded mb-4"
+					data-toggle="modal" data-target="#modalSubscriptionForm"
+					style="background: #A63340; color: snow; margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
+			</div>
+	</div>
+
 	</div>
 	
 <!-- 	버튼
@@ -65,16 +77,14 @@
 						<div class="options text-center text-md-right mt-1">
 							<p>Not a member?
  							<a href="${ pageContext.request.contextPath }/views/member/memberJoinForm.jsp" class="blue-text" >
- 									<strong>Sign UP</strong>
+ 									<strong>Join</strong>
  							</a>
 							</p>
-							
 							<p>Forgot 
 							<a href="${pageContext.request.contextPath}/views/member/memberFind.jsp" class="blue-text">
 							<strong>Id? Password?</strong>
 							</a>
 							</p>
-							
 						</div>
 					</div>
 				</div>
@@ -83,12 +93,13 @@
 							style="background: red; color: #F7F3EF; " id="loginBtn" onclick="login()">
 						Login<i class="fas fa-paper-plane-o ml-1"></i>
 					</button>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</div>
-	</form>
-			</c:if> <c:if test="${ !empty member }">
+</form>
+
+</c:if> <c:if test="${ !empty member }">
 			<div id="userInfo">
 				
 			<label>${ member.nName }님의 방문을 환영합니다.</label>
@@ -99,14 +110,12 @@
 			</div>
 	</c:if>
 	
-	<div class="text-center">
+<!-- 	<div class="text-right">
 		<a href="" class="btn btn-default btn-rounded mb-4"
 			data-toggle="modal" data-target="#modalSubscriptionForm"
 			style="background: #A63340; color: snow; margin-top:35px; margin-right:25px;"><b>LOGIN</b></a>
-	</div>
-	&nbsp;&nbsp;&nbsp;
-	
-	
+	</div> -->
+
 </nav>
 
 <script>
@@ -128,7 +137,6 @@
 			}
 		</script>
 
-<!-- <br clear="all"> -->
 
 
 
