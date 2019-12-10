@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <c:import url="../common/commonUtil.jsp"/>
 <title>회원 정보 수정</title>
+
 </head>
 <body>
 <c:import url="../common/header.jsp"></c:import>
@@ -17,7 +18,7 @@
 		<br>
 		<h2 align="center">회원 정보 수정</h2>
 		
-		<form id="updateForm" action="${pageContext.request.contextPath}/update.me" method="post">
+		<form id="updateForm" action="${ pageContext.request.contextPath }/update.me" method="post">
 			
 			<table align="center">
 				<tr>
@@ -50,8 +51,17 @@
 				</tr>
 				<tr>
 					<td>생년월일 </td>
-					<td><input type="date" name="birth_no" value="${member.birth_no}"
+					<td><input type="date" name="age" min="10" max="100" value="${member.age}"
 					      style="width:140px;">&nbsp;
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>연락처 </td>
+					<td>
+						<input type="text" maxlength="3" name="tel1" size="2">-
+						<input type="text" maxlength="4" name="tel2" size="4">-
+						<input type="text" maxlength="4" name="tel3" size="4">
 					</td>
 					<td></td>
 				</tr>
@@ -72,7 +82,7 @@
                     <button onclick="updateMember">수정하기</button>
                 </div> &nbsp;
                 <div id="deleteBtn" onclick="deleteMember();">
-                    <input type="submit"  value="탈퇴하기"/>
+                    <button onclick="deleteMember">회원탈퇴</button>
                 </div>
 			</div>
 			</form>
@@ -84,25 +94,7 @@
 						else 
 						  $(this).prop('checked', false);
 					});
-					
-					var phoneArr = '${member.phone}'.split('-');
-				
-					$('input[name*="tel"]').each(function(index){
-						$(this).val(phoneArr[index]);
-					});
-					
-					var addressArr = '${member.address}'.split(', ');
-					
-					$('#zipCode').val(addressArr[0]);
-					$('#address1').val(addressArr[1]);
-					$('#address2').val(addressArr[2]);
-					
-					var hobbyArr = '${member.hobby}'.split(', ');
-					// console.log(hobbyArr);
-					$('input:checkbox').each(function(){
-						if($.inArray($(this).val(),hobbyArr) > -1)
-							$(this).prop('checked', true);
-					});
+			
 				});
 				
 				function updateMember() {
@@ -112,11 +104,7 @@
 				function deleteMember() {
 					location.href = "${pageContext.request.contextPath}/delete.me?mid=${member.userId}";
 				}
-			</script>
-		</div>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
 
-	<c:import url="../common/footer.jsp"/>
+			<c:import url="../common/footer.jsp"></c:import>
 </body>
 </html>
