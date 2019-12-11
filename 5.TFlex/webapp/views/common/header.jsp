@@ -7,7 +7,7 @@
 <%--   <c:import url="views/common/commonUtil.jsp"/> --%>
 
 <!--  상단 네비바  -->
-	<!--  로고 이미지 -->
+<!--  로고 이미지 -->
 <header>
 <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top" style="margin-bottom: 0px;">
 	<div class="container-fluid" style="width: 100%; height: auto;">
@@ -47,7 +47,7 @@
 			</ul>
 		</div>
 		<div class="col-md-2">
-		
+
 			<div class="text-right">
 				<a href="" class="btn btn-default btn-rounded mb-4"
 					data-toggle="modal" data-target="#modalSubscriptionForm"
@@ -55,9 +55,7 @@
 			</div>
 	</div>
 
-	</div>
-	
-<!-- 	버튼
+	<!-- 	버튼
 <button type="button" class="btn btn-success" id="memberJoinBtn" onclick="memberJoin()">Join</button>  
 <button type="button" class="btn btn-info" id="loginBtn" onclick="memberLogin()">Login</button> -->
 
