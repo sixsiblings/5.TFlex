@@ -8,27 +8,43 @@
 
 <!--  상단 네비바  -->
 	<!--  로고 이미지 -->
-<nav class="navbar navbar-light bg-light static-top">
+<header>
+<nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top" style="margin-bottom: 0px;">
 	<div class="container-fluid" style="width: 100%; height: auto;">
 		<div class="col-md-2">
-			<a class="mainPage" href="${pageContext.request.contextPath}/index.jsp"> 
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp" style="margin-bottom: 20px;"> 
 				<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png" 
-							style="width: 160px; height: 80px; float: left;" /></a>	
+				style="width: 160px; height: 50px; float: left; margin-bottom: 0px;"/>
+			</a>	
 		</div>
-		<div class="col-md-8">
-			<div class="menu" style="align: right;">			
-			
-				<button type="button" class="btn btn-lg" onclick="goNotice();">Notice</button>
-				&nbsp;
-				<button type="button" class="btn btn-lg" onclick="goKBO();">KBO</button>
-				&nbsp;
-				<button type="button" class="btn btn-lg" onclick="goMLB();">MLB</button>
-				&nbsp;
-				<button type="button" class="btn btn-lg" onclick="goTicket();">Ticket</button>
-				&nbsp;
-				<button type="button" class="btn btn-lg" onclick="goGoods();">Goods</button>
-				&nbsp;
-			</div>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" style="margin-right: 50px; color: blue; font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
+						Home
+              		</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-right: 30px; font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
+						KBO
+              		</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-right: 30px; font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
+						MLB
+              		</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-right: 70px; font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
+						Ticket
+              		</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style=" font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
+						Goods
+              		</a>
+				</li>
+			</ul>
 		</div>
 		<div class="col-md-2">
 		
@@ -47,7 +63,7 @@
 
 
 	<!--  로그인 팝업 버튼  -->
-<header>
+
 <c:if test="${ empty member }">
 <form action="${ pageContext.request.contextPath }/login.me"  method="post" id="loginPop">
 
@@ -99,7 +115,8 @@
 	</div>
 </form>
 
-</c:if> <c:if test="${ !empty member }">
+</c:if> 
+<c:if test="${ !empty member }">
 			<div id="userInfo">
 				
 			<label>${ member.nName }님의 방문을 환영합니다.</label>
@@ -117,8 +134,9 @@
 	</div> -->
 
 </nav>
+</header>
 
-<script>
+		<script>
 
 			function login(){
 				$('#loginPop').submit();
@@ -139,16 +157,3 @@
 
 
 
-
-<script>
-			function goNotice(){
-				location.href="${pageContext.request.contextPath}/ ";
-			}
-			function goKBO(){
-				location.href="${pageContext.request.contextPath}/ ";
-			}
-			function goMLB(){
-				location.href="${pageContext.request.contextPath}/ ";
-			}
-		</script>
-</header>

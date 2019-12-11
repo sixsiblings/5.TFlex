@@ -20,27 +20,33 @@
 
 	<c:import url="views/common/header.jsp"></c:import>
 	
-	 <!-- Masthead -->
-  <header class="masthead text-white text-center" style="height: 700px;">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5"></h1>
-        </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-              </div>
-              <div class="col-12 col-md-3">
-              </div>
-            </div>
-          </form>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 700px;">
+    <ol class="carousel-indicators" style="display: none;">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="height: 700px;">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="height: 700px; background-image: url('${pageContext.request.contextPath}/resources/img/bg-stadium1.jpg">
+        <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="height: 700px; background-image: url('${pageContext.request.contextPath}/resources/img/bg-stadium2.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="height: 700px; background-image: url('${pageContext.request.contextPath}/resources/img/bg-stadium3.jpg">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item" style="height: 700px; background-image: url('${pageContext.request.contextPath}/resources/img/Ryu.jpg">
+      </div>
     </div>
-	</header>
+  </div>
 
   <!-- Icons Grid -->
   <section class="features-icons bg-light text-center">
