@@ -14,29 +14,29 @@ public class JDBCTemplate {
 	
 	public static Connection getConnection() {
 		
-		Connection conn = null;
+		Connection con = null;
 		
 		try {
 			Context cntx = new InitialContext();
 			DataSource ds = (DataSource)cntx.lookup("java:comp/env/oracleDB");
 			
-			conn = ds.getConnection();
+			con = ds.getConnection();
 			
-			conn.setAutoCommit(false);
+			con.setAutoCommit(false);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
 		
-		return conn;
+		return con;
 	}
 
-	public static void close(Connection conn) {
+	public static void close(Connection con) {
 		
 		try {
-			if(!conn.isClosed()) {
-				conn.close();
+			if(!con.isClosed()) {
+				con.close();
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();

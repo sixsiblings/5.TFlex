@@ -3,7 +3,7 @@
 /* 내꺼니까 아무것도 건들지마라 */
 
 	body {
-      background: url("/myWeb/resources/images/background.jpg") no-repeat;
+      background: white;
       background-size: cover;
    }
    .wrap {
@@ -101,6 +101,20 @@
    		width : 100%;
    		height : 400px;
    }
+   
+   .carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Base */
+/*사진 밑 선*/
+
    
    
    

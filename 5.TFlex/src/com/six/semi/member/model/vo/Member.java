@@ -13,6 +13,7 @@ public class Member implements Serializable {
 	private String  userPwd; // 비밀번호
 	private String  userName; // 회원 이름
 	private String  birthNo; // 회원 생년월일
+	private String  email; // 회원 이메일
 	private Date  enrollDate; // 회원 가입일
 	private int  iNo; // 관심사 번호
 	private String  rPerson; // 추천인
@@ -40,19 +41,14 @@ public class Member implements Serializable {
 	public Member(String userId, String nName, String userPwd, String userName, String birthNo, int iNo, String rPerson,
 			String eStatus, String aComment, String aNotice, String event, String aItem, String aChat) {
 		super();
-		this.userId = userId;
-		this.nName = nName;
-		this.userPwd = userPwd;
-		this.userName = userName;
-		this.birthNo = birthNo;
-		this.iNo = iNo;
-		this.rPerson = rPerson;
-		this.eStatus = eStatus;
-		this.aComment = aComment;
-		this.aNotice = aNotice;
-		this.event = event;
-		this.aItem = aItem;
-		this.aChat = aChat;
+		this.userId = userId;  // 아이디
+		this.nName = nName;  // 닉네임
+		this.userPwd = userPwd; // 비번
+		this.userName = userName;  // 이름
+		this.birthNo = birthNo; // 생년월일
+		this.email = email; // 이메일
+		this.rPerson = rPerson; // 추천인
+		
 	}
 	
 	
@@ -77,12 +73,25 @@ public class Member implements Serializable {
 	}
 
 	
+	// 매개변수 생성자 - 아이디/비번 찾기용
+	
+	public Member(String nName, String userName, String birthNo, String email) {
+		super();
+		this.nName = nName;
+		this.userName = userName;
+		this.birthNo = birthNo;
+		this.email = email;
+	}
+	
+	
+	
 	// ----------------------------------------------------------------------------------
 	// GETTER & SETTER
 	
 	public int getuNo() {
 		return uNo;
 	}
+
 
 
 	public void setuNo(int uNo) {
