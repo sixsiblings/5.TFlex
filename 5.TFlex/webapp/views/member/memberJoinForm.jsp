@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<c:import url="../common/header.jsp"/>   
+  
 
 
 <!-- Material form register -->
@@ -191,10 +191,5 @@
             });
 
          </script>
-            
-
-   
-
-<c:import url="../common/footer.jsp"/>
 </body>
 </html>

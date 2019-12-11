@@ -18,7 +18,7 @@
 
 <body>
 
-	<c:import url="views/common/header.jsp"></c:import>
+	<c:import url="views/common/header.jsp"/>
 	
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 700px;">
@@ -144,7 +144,7 @@
          </div>
       </div>
    </section>
-	<c:import url="views/common/footer.jsp"></c:import>
+	<c:import url="views/common/footer.jsp"/>
 </body>
 
 </html>

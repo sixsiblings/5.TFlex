@@ -9,6 +9,9 @@
    <br />
    <br />
   
+	<!--  로그인 팝업 버튼  -->
+
+
 <footer >
   <!-- 쫓아오는 푸터 -->
   
@@ -64,6 +67,12 @@
 </div>
 </div>
 </footer>
+
+<c:if test="${ empty member }">
+
+	<c:import url="views/common/loginUtil.jsp"/>
+	
+</c:if>
 
 
 
