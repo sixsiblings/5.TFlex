@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>KBO</title>
 <c:import url="../common/commonUtil.jsp"/>
-	<c:import url="../common/header.jsp"/>
+   
 <style>
 #yu{
   background-size: 380px;
@@ -17,19 +17,20 @@
   background-position: right;
 }
 .tableArea{
-	
-	    width:750px;
-		height:350px;
-		color : navy;
-		margin-left:auto;
-		margin-right:auto;
+   
+       width:750px;
+      height:350px;
+      color : navy;
+      margin-left:auto;
+      margin-right:auto;
 }
 
 
 </style>
-	</head>
-	<body>
-	<section>
+   </head>
+   <body>
+   <c:import url="../common/header.jsp"/>
+   <section>
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/KBO.jpg'); background-position: 50% -71.3333px;" data-aos="fade" data-stellar-background-ratio="0.5">
     <br><br>
       <div class="container">
@@ -42,31 +43,32 @@
         </div>
       </div>
     </div>
-		</section>
-		
-	<section>
-	
-			<div class="tableArea" align="center">
-			
-			<br>
-<span>
-	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
-		<div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
-			<div class="ed flex flex-wrap flex-left flex-middle">
-				<a href="#" id="ed-search-toggle" class="ed button button-link">
-					<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-search"></i> -->
-				</a>
-			</div>
-		</div>	
-	</div>
-</span>			
+      </section>
+      
+   <section>
+   
+<div class="tableArea" align="center">
+         
+         
+         <br>
+
+   <div class="ed padding-horizontal-small@s" style="display : inline-block;">
+      <div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
+         <div class="ed flex flex-wrap flex-left flex-middle">
+            <a href="#" id="ed-search-toggle" class="ed button button-link">
+               <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-search"></i> -->
+            </a>
+         </div>
+      </div>   
+   </div>
+
 <span class="badge badge-pill badge-dark">두산</span>
 <span class="badge badge-pill badge">한화</span>
 <span class="badge badge-pill badge-light">NC</span>
 <span class="badge badge-pill badge-light">삼성</span>
-			<br>
-			<br>
-	<table class="table table-hover">
+         <br>
+         <br>
+   <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -133,9 +135,10 @@
     
   </tbody>
 </table>
-<button type="button" onclick="go();">글쓰기</button>
-			  <nav aria-label="Page navigation example">
-			
+
+<a href="KBOboardInsertForm.jsp" class="btn btn-primary pull-right">글쓰기</a>
+           <nav aria-label="Page navigation example">
+         
   <ul class="pagination pagination-circle pg-blue justify-content-center">
     
   <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
@@ -160,34 +163,23 @@
   </ul>
 </nav>
 
-	
-	
-	</section>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br><br>
-	<br>
-	<br>
-	<br>
-	<br>
+</div>
+   
+   </section>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br><br>
+   <br>
+   <br>
+   <br>
+   <br>
 <br>
 
-<script>
-	function go(){
-		location.href="${ pageContext.request.contextPath }/views/board/boardInsertForm.jsp";
-	}
-</script>
 
-	<c:import url="../common/footer.jsp"/>
-	
+
+   <c:import url="../common/footer.jsp"/>
+   
 </body>
 </html>
-
-
-
-
-
-
-

@@ -44,8 +44,9 @@ public class MemberDAO {
 			pstmt.setString(6, m.getEmail());
 			pstmt.setInt(7, m.getiNo());
 			pstmt.setString(8, m.getrPerson());
-			pstmt.setString(9, m.getSignal());
+			//pstmt.setString(9, m.getSignal());
 			
+			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();

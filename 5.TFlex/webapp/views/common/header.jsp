@@ -49,34 +49,39 @@
             </li>
          </ul>
       </div>
+      
+        <!--  마이페이지로 이동하는 버튼 -->
+		<div>
+		   <a href="${pageContext.request.contextPath}/views/member/memberMyPage.jsp">MyPage</a>
+		</div>
 
       
 <c:if test="${ empty member }">
-      
-   <!--  로그인 창 불러오는 버튼 -->         
-      <div class="col-md-1">
+		
+	<!--  로그인 창 불러오는 버튼 -->			
+		<div class="col-md-1">
          <div class="text-right">
             <a href="" class="btn btn-danger  btn-rounded mb-4"
                data-toggle="modal" data-target="#modalSubscriptionForm"
                style=" /* background: blue; */  color: snow; margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
          </div>
-        </div>
+   	  </div>
    </c:if>
 </div>
 
 <c:if test="${ empty member }">
-      <form action="${ pageContext.request.contextPath }/login.me"
-         method="post" id="loginPop">
+		<form action="${ pageContext.request.contextPath }/login.me"
+			method="post" id="logBtn">
 </form>
-      </c:if><c:if test="${ !empty member }">
-      <div id="userInfo">
-         <label>${ member.userName }님의 방문을 환영합니다.</label>
-         <div class="btns" align="right" style="display:inline-block">
-            <div id="changeInfo" onclick="">MyPage</div>
-            <div id="logoutBtn" onclick='logout()'>Logout</div> 
-         </div>
-      </div>
-      </c:if>
+		</c:if><c:if test="${ !empty member }">
+		<div id="userInfo">
+			<label>${ member.userName }님의 방문을 환영합니다.</label>
+			<div class="btns" align="right" style="display:inline-block">
+				<div id="changeInfo" onclick="">MyPage</div>
+				<div id="logoutBtn" onclick='logout()'>Logout</div> 
+			</div>
+		</div>
+		</c:if>
 
 </nav>
 </header>

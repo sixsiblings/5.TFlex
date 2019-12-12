@@ -17,7 +17,7 @@ public class Member implements Serializable {
 	private Date  enrollDate; // 회원 가입일8
 	private int  iNo; // 관심사 번호9
 	private String  rPerson; // 추천인10
-	private String  signal; // 채팅 알림11
+	private String  signal; //  알림11
 	private int  dCount; // 신고 횟수12
 	private String  uGrade; // 회원 등급13
 	private String  uStatus; // 회원 탈퇴 여부14

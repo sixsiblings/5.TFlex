@@ -5,7 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-<%-- <c:if test="${ empty member }"> --%>
 
 <form action="${ pageContext.request.contextPath }/login.me"  method="post" id="loginPop">
 
@@ -60,21 +59,7 @@
       </div>
    </div>
 </form>
-<%-- </c:if>
 
-<c:if test="${ empty member }">
-		<form action="${ pageContext.request.contextPath }/login.me"
-			method="post" id="loginArea">
-</form>
-		</c:if><c:if test="${ !empty member }">
-		<div id="userInfo">
-			<label>${ member.userName }님의 방문을 환영합니다.</label>
-			<div class="btns" align="right">
-				<div id="changeInfo" onclick="">MyPage</div>
-				<div id="logoutBtn" onclick='logout()'>Logout</div> 
-			</div>
-		</div>
-		</c:if> --%>
 
 		<script>
 

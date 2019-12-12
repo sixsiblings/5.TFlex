@@ -41,7 +41,7 @@ public class MemberInsertServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		int iNo = Integer.parseInt(request.getParameter("iNo"));
 		String rPerson = request.getParameter("rPerson");
-		String signal = request.getParameter("SIGNAL");
+		String signal = request.getParameter("signal");
 					
 		
 		// 
