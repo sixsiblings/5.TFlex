@@ -7,27 +7,25 @@ public class Member implements Serializable {
 	
 	// 필드변수생성
 	
-	private int  uNo; // 회원 번호
-	private String  userId; // 회원 아이디
-	private String  nName; // 회원 닉네임
-	private String  userPwd; // 비밀번호
-	private String  userName; // 회원 이름
-	private String  birthNo; // 회원 생년월일
-	private String  email; // 회원 이메일
-	private Date  enrollDate; // 회원 가입일
-	private int  iNo; // 관심사 번호
-	private String  rPerson; // 추천인
-	private String  eStatus; // 이메일 수신 여부
-	private String  aComment; // 내 게시글 댓글 알림
-	private String  aNotice; // 공지사항 알림
-	private String  event; // 각종 이벤트 알림
-	private String  aItem; // 매물 알림 
-	private String  aChat; // 채팅 알림
-	private int  dCount; // 신고 횟수
-	private String  userBank; // 회원 은행
-	private String  bankNo; // 회원 계좌
-	private String  uGrade; // 회원 등급
-	private String  uStatus; // 회원 탈퇴 여부
+	private int  uNo; // 회원 번호1
+	private String  userId; // 회원 아이디2
+	private String  nName; // 회원 닉네임3
+	private String  userPwd; // 비밀번호4
+	private String  userName; // 회원 이름5
+	private String  birthNo; // 회원 생년월일6
+	private String  email; // 회원 이메일7
+	private Date  enrollDate; // 회원 가입일8
+	private int  iNo; // 관심사 번호9
+	private String  rPerson; // 추천인10
+	private String  eStatus; // 이메일 수신 여부11
+	private String  aComment; // 내 게시글 댓글 알림12
+	private String  aNotice; // 공지사항 알림13
+	private String  event; // 각종 이벤트 알림14
+	private String  aItem; // 매물 알림 15
+	private String  aChat; // 채팅 알림16
+	private int  dCount; // 신고 횟수17
+	private String  uGrade; // 회원 등급18
+	private String  uStatus; // 회원 탈퇴 여부19
 	
 	// ----------------------------------------------------------------------------------
 	
@@ -38,19 +36,25 @@ public class Member implements Serializable {
 
 	
 	// 매개변수 생성자 - 회원가입용
-	public Member(String userId, String nName, String userPwd, String userName, String birthNo, int iNo, String rPerson,
-			String eStatus, String aComment, String aNotice, String event, String aItem, String aChat) {
+	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email, int iNo,
+			String rPerson, String eStatus, String aComment, String aNotice, String event, String aItem, String aChat) {
 		super();
-		this.userId = userId;  // 아이디
-		this.nName = nName;  // 닉네임
-		this.userPwd = userPwd; // 비번
-		this.userName = userName;  // 이름
-		this.birthNo = birthNo; // 생년월일
-		this.email = email; // 이메일
-		this.rPerson = rPerson; // 추천인
-		
+		this.userId = userId;
+		this.nName = nName;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.birthNo = birthNo;
+		this.email = email;
+		this.iNo = iNo;
+		this.rPerson = rPerson;
+		this.eStatus = eStatus;
+		this.aComment = aComment;
+		this.aNotice = aNotice;
+		this.event = event;
+		this.aItem = aItem;
+		this.aChat = aChat;
 	}
-	
+
 	
 	// ----------------------------------------------------------------------------------
 	
@@ -63,27 +67,15 @@ public class Member implements Serializable {
 
 	// ----------------------------------------------------------------------------------
 	
-	// 매개변수 생성자 - 결재용
-	public Member(String userId, String userName, String birthNo, String userBank, String bankNo) {
-		this.userId = userId;
-		this.userName = userName;
-		this.birthNo = birthNo;
-		this.userBank = userBank;
-		this.bankNo = bankNo;
-	}
-
 	
 	// 매개변수 생성자 - 아이디/비번 찾기용
 	
-	public Member(String nName, String userName, String birthNo, String email) {
+	public Member(String userName, String birthNo, String email) {
 		super();
-		this.nName = nName;
 		this.userName = userName;
 		this.birthNo = birthNo;
 		this.email = email;
 	}
-	
-	
 	
 	// ----------------------------------------------------------------------------------
 	// GETTER & SETTER
@@ -91,7 +83,6 @@ public class Member implements Serializable {
 	public int getuNo() {
 		return uNo;
 	}
-
 
 
 	public void setuNo(int uNo) {
@@ -146,6 +137,16 @@ public class Member implements Serializable {
 
 	public void setBirthNo(String birthNo) {
 		this.birthNo = birthNo;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
@@ -249,26 +250,6 @@ public class Member implements Serializable {
 	}
 
 
-	public String getUserBank() {
-		return userBank;
-	}
-
-
-	public void setUserBank(String userBank) {
-		this.userBank = userBank;
-	}
-
-
-	public String getBankNo() {
-		return bankNo;
-	}
-
-
-	public void setBankNo(String bankNo) {
-		this.bankNo = bankNo;
-	}
-
-
 	public String getuGrade() {
 		return uGrade;
 	}
@@ -288,16 +269,17 @@ public class Member implements Serializable {
 		this.uStatus = uStatus;
 	}
 
-	
+
 	// ----------------------------------------------------------------------------------
 	// 투스트링
-	
 	@Override
 	public String toString() {
-		return "Member [userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName=" + userName
-				+ ", birthNo=" + birthNo + ", iNo=" + iNo + ", rPerson=" + rPerson + ", eStatus=" + eStatus + "]";
+		return "Member [uNo=" + uNo + ", userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName="
+				+ userName + ", birthNo=" + birthNo + ", email=" + email + ", enrollDate=" + enrollDate + ", iNo=" + iNo
+				+ ", rPerson=" + rPerson + ", eStatus=" + eStatus + ", aComment=" + aComment + ", aNotice=" + aNotice
+				+ ", event=" + event + ", aItem=" + aItem + ", aChat=" + aChat + ", dCount=" + dCount + ", "
+						+ " uGrade=" + uGrade + ", uStatus=" + uStatus + "]";
 	}
-
 
 
 }

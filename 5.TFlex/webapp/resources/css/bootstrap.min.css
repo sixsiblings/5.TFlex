@@ -1679,6 +1679,9 @@ pre code {
 .table-hover .table-dark:hover {
 	background-color: #b9bbbe
 }
+.table-hover td{
+	cursor:pointer;
+}
 
 .table-hover .table-dark:hover>td, .table-hover .table-dark:hover>th {
 	background-color: #b9bbbe
@@ -5934,13 +5937,13 @@ a.close.disabled {
 
 @media ( min-width :992px) {
 	.modal-lg, .modal-xl {
-		max-width: 800px
+		max-width: 3000px
 	}
 }
 
 @media ( min-width :1200px) {
 	.modal-xl {
-		max-width: 1140px
+		max-width: 3000px
 	}
 }
 

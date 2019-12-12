@@ -23,7 +23,7 @@
 
 <section>
 
-<div class="dropdown" >
+<div class="dropdown"  align="center">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown button
   </button>
@@ -37,18 +37,17 @@
   </div>
 </div>
 
-
 <br />
 
 <table class="table table-hover" align="center" style="max-width:100rem;">
   <thead>
     <tr>
-      <th scope="col">번호</th>
-      <th scope="col">판매자</th>
-      <th scope="col">구매자</th>
-      <th scope="col">상품명</th>
-      <th scope="col">입금 여부</th>
-      <th scope="col">작성 일자</th>
+      <th scope="col" width="30px">번호</th>
+      <th scope="col" width="100px">판매자</th>
+      <th scope="col" width="100px">구매자</th>
+      <th scope="col" width="200px">상품명</th>
+      <th scope="col" width="100px">입금 여부</th>
+      <th scope="col" width="100px">작성 일자</th>
     </tr>
   </thead>
   <tbody>
@@ -120,7 +119,7 @@
   </tbody>
 </table>
 
- <div class="pageselect" style="align:center;">
+ <div class="pageselect" align="center">
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">

@@ -34,10 +34,11 @@ public class MemberInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String userId = request.getParameter("userId");
-		String uName = request.getParameter("uName");
+		String nName = request.getParameter("nName");
 		String userPwd = request.getParameter("userPwd");
 		String userName = request.getParameter("userName");
 		String birthNo = request.getParameter("birthNo");
+		String email = request.getParameter("email");
 		int iNo = Integer.parseInt(request.getParameter("iNo"));
 		String rPerson = request.getParameter("rPerson");
 		String eStatus = request.getParameter("eStatus");
@@ -48,7 +49,7 @@ public class MemberInsertServlet extends HttpServlet {
 		String aChat = request.getParameter("aChat");
 		
 		// 회원 가입용 Member 확인하기
-		Member m = new Member(userId, uName, userPwd, userName, birthNo, 
+		Member m = new Member(userId, nName, userPwd, userName, birthNo, email,
 							iNo, rPerson, eStatus, aComment, aNotice, event, aItem, aChat );
 		
 		System.out.println("받은정보 확인 : " + m);

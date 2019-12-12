@@ -83,4 +83,16 @@ public class MemberService {
 		
 		return result;
 	}
+	
+
+	public int nNameCheck(String nName) {
+		
+		con = getConnection();
+		
+		int result = mDao.nNameDupCheck(con, nName);
+		
+		close(con);
+		
+		return result;
+	}
 }

@@ -44,7 +44,7 @@
     		  maxTotal="20"
     		  maxIdle="10"
     		  maxWaitMillis="100000"
-    		  dirverClassName="oracle.jdbc.OracleDriver"
+    		  driverClassName="oracle.jdbc.OracleDriver"
     		  url="jdbc:oracle:thin:@localhost:1521:XE"
     		  username="FIVE"
     		  password="FIVE"/>
