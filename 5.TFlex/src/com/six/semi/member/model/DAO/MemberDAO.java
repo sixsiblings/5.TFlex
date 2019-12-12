@@ -77,7 +77,7 @@ public class MemberDAO {
 		pstmt = con.prepareStatement(sql);
 		
 		pstmt.setString(1, m.getUserId());
-		pstmt.setString(2, m.getnName());
+		pstmt.setString(2, m.getUserPwd());
 		
 		rset = pstmt.executeQuery();
 		
@@ -86,11 +86,10 @@ public class MemberDAO {
 			
 			result.setUserId(m.getUserId());
 			result.setUserPwd(m.getUserPwd());
-			
-			result.setUserId(rset.getString("USERID"));
-			result.setUserName(rset.getString("USERNAME"));
-			result.setUserPwd(rset.getString("USERPWD"));
+
 			result.setnName(rset.getString("NNAME"));
+
+			result.setUserName(rset.getString("USERNAME"));
 			result.setBirthNo(rset.getString("BIRTHNO"));
 			result.setEmail(rset.getString("EMAIL"));
 			result.setiNo(rset.getInt("INO"));
