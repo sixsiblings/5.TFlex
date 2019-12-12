@@ -1679,6 +1679,9 @@ pre code {
 .table-hover .table-dark:hover {
 	background-color: #b9bbbe
 }
+.table-hover td{
+	cursor:pointer;
+}
 
 .table-hover .table-dark:hover>td, .table-hover .table-dark:hover>th {
 	background-color: #b9bbbe
