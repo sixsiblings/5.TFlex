@@ -3,32 +3,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-   <br />
-   <br />
-   <br />
-   <br />
-   <br />
-  
-	<!--  로그인 팝업 버튼  -->
-
-
 <footer >
   <!-- 쫓아오는 푸터 -->
   
   	<button type="button" id="fixedbutton" class="btn btn-circle" data-toggle="modal" data-target="#exampleModalLong">
-  		<i class="fas fa-comments fa-4x" style="color: green;"></i>
+  		<i class="fab fa-facebook-messenger fa-4x" style="color: blue"></i>
 	</button>
 	
 	<div class="modal fade right" id="exampleModalLong">
-  		<div class="modal-dialog" role="document"  style="height: 700px; width: 1500px;">
+  		<div class="modal-dialog" role="document"  style="margin-top: 300px; height: 700px; width:400px;">
     		<div class="modal-content">
-    			
+    			<ul class="nav nav-tabs">
+    				<li class="nav-item">
+						  <a id="chatBtn" class="nav-link active" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+						    <i class="far fa-comments fa-3x" style="color: green;"></i>
+						  </a>
+					</li>
+					<li class="nav-item">
+						<a id="alamBtn" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+						    <i class="far fa-bell fa-3x" style="color: red;"></i>
+						</a>
+					</li>
+    			</ul>
+	    		<div id="chatdiv" class="collapse">
+				  <div class="card card-body" style="border: 0px;">
+				    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+				  </div>
+				</div>
+				<div id="alamdiv" class="collapse">
+				  <div class="card card-body" style="border: 0px;">
+				  	afjalsjfl;sadjfl;jf;lasjfj
+				  </div>
+				</div>
     		</div>
   		</div>
-	</div>
-	
+	</div>	
 </footer>
-
 
 <footer>
 <!-- 고정된 푸터 -->
@@ -67,6 +77,29 @@
 </div>
 </div>
 </footer>
+
+<script>
+	$('#fixedbutton').click(function(){
+		$('#alamdiv').hide();
+		$('#chatdiv').show();
+		$('#alamBtn').removeClass('active');
+		$('#chatBtn').addClass('active');
+	});
+	
+	$('#alamBtn').click(function(){
+		$('#chatdiv').hide();
+		$('#alamdiv').show();
+		$('#chatBtn').removeClass('active');
+		$('#alamBtn').addClass('active');
+	});
+	
+	$('#chatBtn').click(function(){
+		$('#alamdiv').hide();
+		$('#chatdiv').show();
+		$('#alamBtn').removeClass('active');
+		$('#chatBtn').addClass('active');
+	});
+</script>
 
 <c:if test="${ empty member }">
 

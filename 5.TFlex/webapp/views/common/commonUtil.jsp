@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/img/Tflexpabicon.png" />
+
 
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/transition.min.js"></script>
@@ -14,7 +16,6 @@
 
  
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap-3.4.1/bootstrap.min.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap-3.4.1/npm.js"></script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
