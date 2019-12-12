@@ -11,7 +11,7 @@
 	</button>
 	
 	<div class="modal fade right" id="exampleModalLong">
-  		<div class="modal-dialog" role="document"  style="margin-top: 300px; height: 700px; width:400px;">
+  		<div class="modal-dialog" role="document"  style="bottom: 0px; height: 700px; width:400px;">
     		<div class="modal-content">
     			<ul class="nav nav-tabs">
     				<li class="nav-item">
@@ -26,12 +26,18 @@
 					</li>
     			</ul>
 	    		<div id="chatdiv" class="collapse">
-				  <div class="card card-body" style="border: 0px;">
-				    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+				  <div class="card card-body" style="border: none;">
+					  <div id="chatbox">
+							<fieldset style="display: inline-block; width: 65%;">
+								<div id="messageWindow"></div><br />
+								<textarea id="inputText" style="width:70%; resize: none;" onkeyup="enterKey();"></textarea>
+								<i class="far fa-paper-plane fa-2x" id="sendBtn"></i>
+							</fieldset>
+					  </div>
 				  </div>
 				</div>
 				<div id="alamdiv" class="collapse">
-				  <div class="card card-body" style="border: 0px;">
+				  <div class="card card-body" style="border: none;">
 				  	afjalsjfl;sadjfl;jf;lasjfj
 				  </div>
 				</div>
@@ -99,6 +105,8 @@
 		$('#alamBtn').removeClass('active');
 		$('#chatBtn').addClass('active');
 	});
+	
+	
 </script>
 
 

@@ -41,16 +41,19 @@ public class MemberInsertServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		int iNo = Integer.parseInt(request.getParameter("iNo"));
 		String rPerson = request.getParameter("rPerson");
-		String eStatus = request.getParameter("eStatus");
-		String aComment = request.getParameter("aComment");
-		String aNotice = request.getParameter("aNotice");
-		String event = request.getParameter("event");
-		String aItem = request.getParameter("aItem");
-		String aChat = request.getParameter("aChat");
+		String signal = request.getParameter("signal");
+					
+		
+		// 
+		
+		
+		
+		
+		
+		
 		
 		// 회원 가입용 Member 확인하기
-		Member m = new Member(userId, nName, userPwd, userName, birthNo, email,
-							iNo, rPerson, eStatus, aComment, aNotice, event, aItem, aChat );
+		Member m = new Member(userId, nName, userPwd, userName, birthNo, email, iNo, rPerson, signal);
 		
 		System.out.println("받은정보 확인 : " + m);
 		

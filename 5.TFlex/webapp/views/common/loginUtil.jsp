@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-<c:if test="${ empty member }">
+
 <form action="${ pageContext.request.contextPath }/login.me"  method="post" id="loginPop">
 
    <div class="modal fade" id="modalSubscriptionForm" tabindex="-1"
@@ -17,18 +17,19 @@
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button></div>
                   
-            <div class="modal-body mx-3">
-               <div class="md-form mb-5">
+            	<div class="modal-body mx-3">
+               		<div class="md-form mb-5">
                   <i class="fas fa-user prefix grey-text"></i> 
-                  <input type="text" id="form3" class="form-control validate"> 
                   <label data-error="wrong" data-success="right" for="form3">아이디</label>
-               </div>
+      			  <input type="text" id="form3" name="userId" class="form-control validate">                
+      </div>
 
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"></i> <input
-                     type="password" id="form2" class="form-control validate">
-                  <label data-error="wrong" data-success="right" for="form2">비밀번호</label>
+                  <i class="fas fa-envelope prefix grey-text"></i> 
+                  <label data-error="wrong" data-success="right" for="userPwd">비밀번호</label>
+                 <input type="password"  id="form2"  name="userPwd"  class="form-control validate">
                </div>
+               
                <!--로그인 팝업 Footer-->
                <div class="modal-footer">
                   <div class="options text-center text-md-right mt-1">
@@ -37,6 +38,7 @@
                             <strong>회원가입</strong>
                       </a>
                      </p>
+                     
                      <p>
                      <a href="${pageContext.request.contextPath}/views/member/idFind.jsp" class="blue-text">
                      <strong>아이디 찾기</strong></a>    
@@ -50,29 +52,14 @@
             
             <div class="modal-footer d-flex justify-content-center">
                <button type="submit" class="btn btn-indigo" 
-                     style="background: #A63340; color: snow; " id="loginBtn" onclick="login()">
-                                       Login<i class="fas fa-paper-plane-o ml-1"></i>
-               </button>
+                     style="background: #A63340; color: snow; "  id="loginBtn" onclick="login()">
+                                       Login<i class="fas fa-paper-plane-o ml-1"></i></button>
             </div>            
          </div>
       </div>
    </div>
 </form>
-</c:if>
 
-<c:if test="${ empty member }">
-		<form action="${ pageContext.request.contextPath }/login.me"
-			method="post" id="loginArea">
-</form>
-		</c:if><c:if test="${ !empty member }">
-		<div id="userInfo">
-			<label>${ member.userName }님의 방문을 환영합니다.</label>
-			<div class="btns" align="right">
-				<div id="changeInfo" onclick="">MyPage</div>
-				<div id="logoutBtn" onclick='logout()'>Logout</div> 
-			</div>
-		</div>
-		</c:if>
 
 		<script>
 

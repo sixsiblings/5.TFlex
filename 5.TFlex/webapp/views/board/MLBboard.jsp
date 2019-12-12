@@ -171,15 +171,19 @@
 </nav>
 
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 	
 	</section>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+<br>
 	<c:import url="../common/footer.jsp"/>
 	
 </body>

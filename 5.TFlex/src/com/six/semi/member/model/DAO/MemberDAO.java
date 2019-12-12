@@ -12,33 +12,30 @@ import java.util.Properties;
 import com.six.semi.member.model.vo.Member;
 
 public class MemberDAO {
-	
+
 	private Properties prop = new Properties();
-	
+
 	public MemberDAO() {
-		
+
 		try {
-			prop.load(new FileReader(
-							MemberDAO.class
-								.getResource("/mappers/member.properties").getPath()));
-			
+			prop.load(new FileReader(MemberDAO.class.getResource("/mappers/member.properties").getPath()));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public int insertMember(Connection con, Member m) {
-		
+
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("insertMember");
-		
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getnName());
 			pstmt.setString(3, m.getUserPwd());
@@ -47,66 +44,69 @@ public class MemberDAO {
 			pstmt.setString(6, m.getEmail());
 			pstmt.setInt(7, m.getiNo());
 			pstmt.setString(8, m.getrPerson());
-			pstmt.setString(9, m.geteStatus());
-			pstmt.setString(10, m.getaComment());
-			pstmt.setString(11, m.getaNotice());
-			pstmt.setString(12, m.getaItem());
-			pstmt.setString(13, m.getEvent());
-			pstmt.setString(14, m.getaChat());
+			//pstmt.setString(9, m.getSignal());
 			
-		} catch(Exception e) {
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("에러확인");
-		}		
+		}
 		return result;
 	}
 
 	public Member selectOne(Connection con, Member m) {
-		
+
 		Member result = null;
-		
+
 		PreparedStatement pstmt = null;
-		
+
 		ResultSet rset = null;
-		
+
 		try {
-		
-		
-		String sql = prop.getProperty("selectMember");
-		
-		pstmt = con.prepareStatement(sql);
-		
-		pstmt.setString(1, m.getUserId());
-		pstmt.setString(2, m.getUserPwd());
-		
-		rset = pstmt.executeQuery();
-		
-		if(rset.next()) {
-			result = new Member();
-			
-			result.setUserId(m.getUserId());
-			result.setUserPwd(m.getUserPwd());
 
-			result.setnName(rset.getString("NNAME"));
+			String sql = prop.getProperty("selectMember");
 
-			result.setUserName(rset.getString("USERNAME"));
-			result.setBirthNo(rset.getString("BIRTHNO"));
-			result.setEmail(rset.getString("EMAIL"));
-			result.setiNo(rset.getInt("INO"));
-			result.setrPerson(rset.getString("RPERSON"));
-			result.seteStatus(rset.getString("ESTATUS"));
-			result.setaComment(rset.getString("ACOMMENT"));
-			result.setaItem(rset.getString("AITEM"));
-			result.setEvent(rset.getString("EVENT"));
-			result.setaChat(rset.getString("ACHAT"));			
-		}
-		
-		} catch(SQLException e) {
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, m.getUserId());
+			pstmt.setString(2, m.getUserPwd());
+
+			rset = pstmt.executeQuery();
+
+			if (rset.next()) {
+				result = new Member();
+
+				result.setUserId(m.getUserId());
+				result.setUserPwd(m.getUserPwd());
+
+				result.setnName(rset.getString(3)); 
+				result.setUserName(rset.getString(5));
+				result.setBirthNo(rset.getString(6));
+				result.setEmail(rset.getString(7)); 
+				result.setiNo(rset.getInt(9));
+				result.setrPerson(rset.getString(10));
+				result.setSignal(rset.getString(11));
+				
+				
+				/*
+				 * result.setnName(rset.getString(3)); result.setUserName(rset.getString(5));
+				 * result.setBirthNo(rset.getString(6)); result.setEmail(rset.getString(7));
+				 * result.setiNo(rset.getInt(9)); result.setrPerson(rset.getString(10));
+				 * result.seteStatus(rset.getString(11));
+				 * result.setaComment(rset.getString(12)); result.setaItem(rset.getString(13));
+				 * result.setaItem(rset.getString(14)); result.setEvent(rset.getString(15));
+				 * result.setaChat(rset.getString(16));
+				 */
+				
+			}
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("오류발생");
-		
-		}finally {
-			close(rset); 
+
+		} finally {
+			close(rset);
 			close(pstmt);
 		}
 		return result;
@@ -114,32 +114,30 @@ public class MemberDAO {
 
 	public int updateMember(Connection con, Member m) {
 
-		
 		return 0;
 	}
 
 	public int deleteMember(Connection con, String userId) {
 
-		
 		return 0;
 	}
 
 	public int idDupCheck(Connection con, String userId) {
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String sql = prop.getProperty("idDupCheck");
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, userId);
-			
+
 			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
+
+			if (rset.next()) {
 				result = rset.getInt(1);
 			}
 		} catch (SQLException e) {
@@ -148,27 +146,27 @@ public class MemberDAO {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
 	public int nNameDupCheck(Connection con, String nName) {
-		
+
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String sql = prop.getProperty("nNameDupCheck");
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, nName);
-			
+
 			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
+
+			if (rset.next()) {
 				result = rset.getInt(1);
 			}
 		} catch (SQLException e) {
@@ -177,7 +175,7 @@ public class MemberDAO {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 

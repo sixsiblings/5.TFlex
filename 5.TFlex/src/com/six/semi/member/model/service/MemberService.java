@@ -32,9 +32,13 @@ public class MemberService {
 		
 		Member result = mDao.selectOne(con, m);
 		
-		if(result != null) commit(con);
+		if(result != null) {
+			commit(con);
+		}
 		
-		else rollback(con);
+		else {
+			rollback(con);
+		}
 		
 		close(con);
 		

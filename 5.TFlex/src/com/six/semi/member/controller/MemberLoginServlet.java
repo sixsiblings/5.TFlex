@@ -40,15 +40,16 @@ public class MemberLoginServlet extends HttpServlet {
 		
 		Member m = new Member(userId, userPwd);
 		
-		m = ms.selectOne(m);
+		Member result = ms.selectOne(m);
 		
-		if( m != null ) {
+		if( result != null ) {
 			
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("member", m);
 			
 			response.sendRedirect("index.jsp");
+			
 			
 		} else {
 			
