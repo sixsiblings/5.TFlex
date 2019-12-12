@@ -133,6 +133,7 @@
     
   </tbody>
 </table>
+<button type="button" onclick="go();">글쓰기</button>
 			  <nav aria-label="Page navigation example">
 			
   <ul class="pagination pagination-circle pg-blue justify-content-center">
@@ -160,15 +161,24 @@
 </nav>
 
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	</section>
 	
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+<br>
 
-
+<script>
+	function go(){
+		location.href="${ pageContext.request.contextPath }/views/board/boardInsertForm.jsp";
+	}
+</script>
 
 	<c:import url="../common/footer.jsp"/>
 	

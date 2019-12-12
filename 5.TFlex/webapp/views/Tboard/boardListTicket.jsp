@@ -14,9 +14,11 @@
 .tableArea {
 	width: 750px;
 	height: 350px;
-	color: navy;
 	margin-left: auto;
 	margin-right: auto;
+}
+.tableArea thead{
+	background-color:lightgray;
 }
 
 .alert{
@@ -37,6 +39,9 @@
 	color : white;
 	
 	
+}
+.table{
+	width:900px;
 }
 
 
@@ -88,65 +93,37 @@
 			<br><br>
 			
 			
-		<div class="tableArea" align="center">
+		<div class="tableArea">
 					
-					<table class="table">
-						<thead>
-							<tr class="table-secondary">
-								<th scope="col">상품 및 정보</th>
-								<th scope="col">수량</th>
-								<th scope="col">가격</th>
-								<th scope="col">등록일</th>
-								<th scope="col">찜쿵</th>
-							</tr>
-						</thead>
-					
-						<tbody>
-							<tr class="table-light">
-								<td><a href="boardTicketDetail.jsp" class="alert-link">블루응원석
-										판매합니다</a>
-									
-								<td>
-								<td>Yu</td>
-								<td>Thornton</td>
-								<td><i class="fas fa-graduation-cap mr-2  grey-text"
-									aria-hidden="true"></i>Cell 6</td>
-
-							</tr>
-							<tr class="table-light">
-								<td>블루 응원석 판매합니다
-								<td>
-								<td>Yu</td>
-								<td>Thornton</td>
-								<td><i class="fas fa-graduation-cap mr-2  grey-text"
-									aria-hidden="true"></i>Cell 6</td>
-
-							</tr>
-							<tr class="table-light">
-								<td>블루 응원석 판매합니다
-								<td>
-								<td>Yu</td>
-								<td>Thornton</td>
-								<td><i class="fas fa-graduation-cap mr-2  grey-text"
-									aria-hidden="true"></i>Cell 6</td>
-
-							</tr>
-							<tr class="table-light">
-								<td>블루 응원석 판매합니다
-								<td>
-								<td>Yu</td>
-								<td>Thornton</td>
-								<td><i class="fas fa-graduation-cap mr-2  grey-text"
-									aria-hidden="true"></i>Cell 6</td>
-
-							</tr>
-
-
-
-						</tbody>
-					</table>
+					<table class="table table-bordered" style="border-top-right-radius:5px;" >
+  <thead>
+    <tr>
+      
+      <th scope="col">상품 정보</th>
+      <th scope="col">가격</th>
+      <th scope="col">판매자</th>
+      <th scope="col">등록일</th>
+      <th scope="col">찜하기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" colspan="5" height="100px;"></th>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row" colspan="5" height="100px;"></th>
+      
+    </tr>
+    <tr>
+      <th scope="row" colspan="5" height="100px;"></th>
+      
+    </tr>
+  </tbody>
+</table>
 				</div>
-			</div>
+			
 			
 	</section>
 	

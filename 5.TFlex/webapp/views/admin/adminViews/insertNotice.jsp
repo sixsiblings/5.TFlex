@@ -14,13 +14,12 @@
 <c:import url="../../common/commonUtil.jsp" />
 
 <!-- 썸머노트 css, js 설정 -->
-<script src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
+
 <script src="${ pageContext.request.contextPath }/resources/js/summernote.js"></script>
 
 <!-- include summernote css/js -->
 <link href="${ pageContext.request.contextPath }/resources/css/summernote.css" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/css/bootstrap.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -28,10 +27,11 @@
 <br />
 <br />
 
+
 <div align="center">
 <div class="input-group mb-3" style="width:900px;">
-
-<select style="border-color:lightgray; border-radius:2px;">
+<div align="left">
+<select style="border-color:lightgray; border-radius:2px;" >
                             <option>-- 선택 --</option>
                             <option value="1">공지사항</option>
                             <option value="2">티켓게시판</option>
@@ -39,6 +39,9 @@
                             <option value="4">KBO</option>
                             <option value="5">MLB</option>
                         </select>
+</div>
+<br />
+
   <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="제목을 입력하세요.">
 </div>
 

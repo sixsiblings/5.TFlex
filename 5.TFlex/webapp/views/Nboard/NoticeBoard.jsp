@@ -7,14 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>KBO</title>
+<title>TFLEX 공지사항</title>
 <c:import url="../common/commonUtil.jsp"/>
 	<c:import url="../common/header.jsp"/>
 <style>
 #yu{
-  background-size: 200px;
+  width:500px;
+  height:150px;
+  background-size: 400px;
   background-repeat:no-repeat;
-  background-position: right;
 }
 .tableArea{
 	
@@ -24,59 +25,21 @@
 		margin-left:auto;
 		margin-right:auto;
 }
-#yuJ{
-	
-	box-sizing : border-box;
-	color : rgb(85,91,97);
-	display : block;
-	font-size: 14px;
-	font-weight: 400px;
-	line-height: 21px;
-	text-size-adjust : 100%;
-	
-}
-
 
 </style>
 	</head>
-	<body>
-	<section>
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/MLB.jpg'); background-position: 50% -100px;" data-aos="fade" data-stellar-background-ratio="0.5">
-    <br><br>
-      <div class="container">
-        <div class="row align-items-center justify-content-start">
-          <div class="col-md-6 text-center text-md-left aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="bg-text-line"></h3>
-            <p class="mt-4"></p>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-		</section>
-		
-	<section>
 	
-			<div class="tableArea" align="center">
-			
-			<br>
-<span>
-	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
-		<div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
-			<div class="ed flex flex-wrap flex-left flex-middle">
-				<a href="#" id="ed-search-toggle" class="ed button button-link">
-					<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-search"></i> -->
-				</a>
-			</div>
-		</div>	
+	<body>
+	<br />
+	<section>
+	<div align="center" >
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/notice.PNG');">
+    </div>
 	</div>
-</span>		
-<span class="badge badge-pill badge-dark">LA다저스</span>
-<span class="badge badge-pill badge">시카고컵스</span>
-<span class="badge badge-pill badge-light">뉴욕양키스</span>
-<span class="badge badge-pill badge-light">워싱턴</span>
-			<br>
-			<br>
+		<br />
+
+			<div class="tableArea" align="center">
+		
 	<table class="table table-hover">
   <thead>
     <tr>
@@ -91,7 +54,7 @@
   <tbody>
     <tr>
       <th scope="row"><button type="button" class="btn btn-link">공지</button></th>
-      <td>MLB 자유게시판 공지입니더</td>
+      <td>공지사항 게시판 입니다.</td>
        <td>admin</td>
         <td>2019.12.20</td>
          <td>30</td>
@@ -172,7 +135,6 @@
 
 	
 	
-	
 	</section>
 	<br>
 	<br>
@@ -184,6 +146,9 @@
 	<br>
 	<br>
 <br>
+	
+
+
 	<c:import url="../common/footer.jsp"/>
 	
 </body>
