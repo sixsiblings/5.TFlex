@@ -70,7 +70,7 @@
           
          <div class="md-form">
             <label for="materialRegisterFormPhone">이메일</label>
-            <input type="email" class="form-control" id="email" data-rule-required="true" placeholder=" @example.com" maxlength="40">
+            <input type="email" class="form-control" id="email" name="email" data-rule-required="true" placeholder=" @example.com" maxlength="40">
        </div><br />
        <div class="md-form">
             <label for="materialRegisterFormPhone">추천인</label>
@@ -116,60 +116,16 @@
 	  </div>                    
     </fieldset><br />
        
-       
-    
-       
+ 
        <!--  알림 여부 체크박스  -->
    <label for="materialRegisterFormPhone">알림 여부 동의</label>
-      <fieldset class="form-check" style="border: 0.5px solid lightgrey; padding-top:10px; padding: 10px; border-radius : 5px; text-align : center;">
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">이메일 수신여부</label>
-        
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">공지사항 알림 여부</label>
-                
-            	<input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">게시글 댓글 알림 여부</label>                    
-			</div><br />
-            
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">각종 이벤트 알림 여부</label>
-        
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">티켓 알림 여부</label>
-                
-            	<input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">채팅 알림 여부</label>                    
+                <input type="checkbox" class="form-check-input" name="signal" id="signal" value="N">&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="form-check-label" for="siganl">알림 수신 여부</label>
+              
 			</div>            
-	</fieldset><br />            
+           
             
-            
-            
-<!--             <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">게시글 댓글 알림 여부</label>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">각종 이벤트 알림 여부</label>
-            </div><br />
- 
-            <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">티켓 알림 여부</label>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">채팅 알림 여부</label>
-            </div><br />           
-             -->
- 
-<!--             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-check-label" for="materialRegisterFormNewsletter">개인정보수집동의</label>
-            </div><br />
- -->
             <!-- Sign up button -->
 
             <button class="btn btn-warning btn-rounded btn-block my-4 waves-effect z-depth-0" 

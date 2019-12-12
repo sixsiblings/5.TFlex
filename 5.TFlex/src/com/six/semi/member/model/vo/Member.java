@@ -17,15 +17,10 @@ public class Member implements Serializable {
 	private Date  enrollDate; // 회원 가입일8
 	private int  iNo; // 관심사 번호9
 	private String  rPerson; // 추천인10
-	private String  eStatus; // 이메일 수신 여부11
-	private String  aComment; // 내 게시글 댓글 알림12
-	private String  aNotice; // 공지사항 알림13
-	private String  event; // 각종 이벤트 알림14
-	private String  aItem; // 매물 알림 15
-	private String  aChat; // 채팅 알림16
-	private int  dCount; // 신고 횟수17
-	private String  uGrade; // 회원 등급18
-	private String  uStatus; // 회원 탈퇴 여부19
+	private String  signal; // 채팅 알림11
+	private int  dCount; // 신고 횟수12
+	private String  uGrade; // 회원 등급13
+	private String  uStatus; // 회원 탈퇴 여부14
 	
 	// ----------------------------------------------------------------------------------
 	
@@ -34,10 +29,10 @@ public class Member implements Serializable {
 		super();
 	}
 
-	
 	// 매개변수 생성자 - 회원가입용
+	
 	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email, int iNo,
-			String rPerson, String eStatus, String aComment, String aNotice, String event, String aItem, String aChat) {
+			String rPerson, String signal) {
 		super();
 		this.userId = userId;
 		this.nName = nName;
@@ -47,25 +42,16 @@ public class Member implements Serializable {
 		this.email = email;
 		this.iNo = iNo;
 		this.rPerson = rPerson;
-		this.eStatus = eStatus;
-		this.aComment = aComment;
-		this.aNotice = aNotice;
-		this.event = event;
-		this.aItem = aItem;
-		this.aChat = aChat;
+		this.signal = signal;
 	}
 
-	
-	// ----------------------------------------------------------------------------------
+
 	
 	// 매개변수 생성자 - 로그인용
 	public Member(String userId, String userPwd) {
 		this.userId = userId;
 		this.userPwd = userPwd;
 	}
-	
-
-	// ----------------------------------------------------------------------------------
 	
 	
 	// 매개변수 생성자 - 아이디/비번 찾기용
@@ -77,209 +63,132 @@ public class Member implements Serializable {
 		this.email = email;
 	}
 	
-	// ----------------------------------------------------------------------------------
-	// GETTER & SETTER
 	
+	
+	@Override
+	public String toString() {
+		return "Member [uNo=" + uNo + ", userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName="
+				+ userName + ", birthNo=" + birthNo + ", email=" + email + ", enrollDate=" + enrollDate + ", iNo=" + iNo
+				+ ", rPerson=" + rPerson + ", signal=" + signal + ", dCount=" + dCount + ", uGrade=" + uGrade
+				+ ", uStatus=" + uStatus + "]";
+	}
+	
+	
+	// GETTER & SETTER
 	public int getuNo() {
 		return uNo;
 	}
-
 
 	public void setuNo(int uNo) {
 		this.uNo = uNo;
 	}
 
-
 	public String getUserId() {
 		return userId;
 	}
-
 
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-
 	public String getnName() {
 		return nName;
 	}
-
 
 	public void setnName(String nName) {
 		this.nName = nName;
 	}
 
-
 	public String getUserPwd() {
 		return userPwd;
 	}
-
 
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
 
-
 	public String getUserName() {
 		return userName;
 	}
-
 
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-
 	public String getBirthNo() {
 		return birthNo;
 	}
-
 
 	public void setBirthNo(String birthNo) {
 		this.birthNo = birthNo;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
-
 
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
 
-
 	public int getiNo() {
 		return iNo;
 	}
-
 
 	public void setiNo(int iNo) {
 		this.iNo = iNo;
 	}
 
-
 	public String getrPerson() {
 		return rPerson;
 	}
-
 
 	public void setrPerson(String rPerson) {
 		this.rPerson = rPerson;
 	}
 
-
-	public String geteStatus() {
-		return eStatus;
+	public String getSignal() {
+		return signal;
 	}
 
-
-	public void seteStatus(String eStatus) {
-		this.eStatus = eStatus;
+	public void setSignal(String signal) {
+		this.signal = signal;
 	}
-
-
-	public String getaComment() {
-		return aComment;
-	}
-
-
-	public void setaComment(String aComment) {
-		this.aComment = aComment;
-	}
-
-
-	public String getaNotice() {
-		return aNotice;
-	}
-
-
-	public void setaNotice(String aNotice) {
-		this.aNotice = aNotice;
-	}
-
-
-	public String getEvent() {
-		return event;
-	}
-
-
-	public void setEvent(String event) {
-		this.event = event;
-	}
-
-
-	public String getaItem() {
-		return aItem;
-	}
-
-
-	public void setaItem(String aItem) {
-		this.aItem = aItem;
-	}
-
-
-	public String getaChat() {
-		return aChat;
-	}
-
-
-	public void setaChat(String aChat) {
-		this.aChat = aChat;
-	}
-
 
 	public int getdCount() {
 		return dCount;
 	}
 
-
 	public void setdCount(int dCount) {
 		this.dCount = dCount;
 	}
-
 
 	public String getuGrade() {
 		return uGrade;
 	}
 
-
 	public void setuGrade(String uGrade) {
 		this.uGrade = uGrade;
 	}
 
-
 	public String getuStatus() {
 		return uStatus;
 	}
-
 
 	public void setuStatus(String uStatus) {
 		this.uStatus = uStatus;
 	}
 
 
-	// ----------------------------------------------------------------------------------
-	// 투스트링
-	@Override
-	public String toString() {
-		return "Member [uNo=" + uNo + ", userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName="
-				+ userName + ", birthNo=" + birthNo + ", email=" + email + ", enrollDate=" + enrollDate + ", iNo=" + iNo
-				+ ", rPerson=" + rPerson + ", eStatus=" + eStatus + ", aComment=" + aComment + ", aNotice=" + aNotice
-				+ ", event=" + event + ", aItem=" + aItem + ", aChat=" + aChat + ", dCount=" + dCount + ", "
-						+ " uGrade=" + uGrade + ", uStatus=" + uStatus + "]";
-	}
 
-
+	
+	
 }
