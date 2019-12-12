@@ -9,10 +9,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.mb-3{
-		display:inline-block;
-	}
-	#yu{
+   .mb-3{
+      display:inline-block;
+   }
+   #yu{
   width:500px;
   height:150px;
   background-size: 400px;
@@ -38,7 +38,7 @@
  <div align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/KBO.jpg');">
     </div>
-	</div>
+   </div>
 <div class="mb-2" align="center">
 <div class="input-group mb-3" style="width:900px;">
 <div align="left">
@@ -63,7 +63,7 @@
 </div>
 </div>
 
-
+<br ><br ><br ><br >
 
 <c:import url="../common/footer.jsp" />
 
