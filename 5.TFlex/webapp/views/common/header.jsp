@@ -20,7 +20,7 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" style="margin-right: 50px; color: blue; font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/">
-						Home
+						Notice
               		</a>
 				</li>
 				<li class="nav-item">

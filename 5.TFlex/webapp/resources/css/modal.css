@@ -29,7 +29,6 @@
 
 .modal.right .modal-content {
 	height: 100%;
-	overflow-y: auto;
 }
 
 .modal.right .modal-body {
@@ -95,3 +94,53 @@
 	color: #fff;
 }
 /* 모달 확인 용 */
+
+/* -------------------------- */
+
+/* chat Box Css */
+
+#messageWindow {
+    background: #AFC2D4;
+    height:500px;
+    overflow:auto;
+    border-top-right-radius : 10px;
+    border-top-left-radius : 10px;
+    border-bottom-right-radius : 10px;
+    border-bottom-left-radius : 10px;
+}
+
+#sendBtn{
+	margin-left: 15px;
+    margin-top:-35px; 
+    vertical-align: middle;
+    color: blue;
+}
+
+#inputText{
+	border-top-right-radius : 10px;
+    border-top-left-radius : 10px;
+    border-bottom-right-radius : 10px;
+    border-bottom-left-radius : 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
