@@ -124,18 +124,18 @@ url(resources/img/base7.jpg);
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-entry">
 						<div class="image">
-							<img src="resources/img/base4.jpg" alt="Image" class="img-fluid">
+							<iframe width="350" height="250" src="https://www.youtube.com/embed/fqp-U-Jq6hg" 
+							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+							allowfullscreen></iframe>
 						</div>
 						<div class="text p-4">
 							<h2 class="h5 text-black">
-								<a class="redfont" href="#">RealMad vs Striker Who Will Win?</a>
+								<a class="redfont" href="#">아니 이게 일주일치?!!???</a>
 							</h2>
 							<span class="text-uppercase date d-block mb-3"
-								style="color: gray"><small>By Colorlib &bullet;
-									Sep 25, 2018</small></span>
-							<p class="mb-0">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Fugiat beatae doloremque, ex corrupti
-								perspiciatis.</p>
+								style="color: gray"><small>TFLEX &bullet;
+									2019-12-12</small></span>
+							<p class="mb-0">각종 명장면들로 가득한 MLB 수비 명장면을 만나 보세요 :)</p>
 						</div>
 					</div>
 				</div>
