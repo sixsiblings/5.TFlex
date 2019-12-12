@@ -13,13 +13,13 @@ import com.six.semi.member.model.service.MemberService;
  * Servlet implementation class MemberIdDupServlet
  */
 @WebServlet("/idDup.me")
-public class MemberIdDupServlet extends HttpServlet {
+public class IdDupServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberIdDupServlet() {
+    public IdDupServlet() {
         super();
 
     }
@@ -34,6 +34,10 @@ public class MemberIdDupServlet extends HttpServlet {
       MemberService ms = new MemberService();
       
       int result = ms.idDupCheck(userId);
+      
+      response.getWriter().print(result > 0 ? false : true);
+      
+
    }
 
    /**

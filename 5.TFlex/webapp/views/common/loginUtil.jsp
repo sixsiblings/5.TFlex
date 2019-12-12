@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
+<c:if test="${ empty member }">
 <form action="${ pageContext.request.contextPath }/login.me"  method="post" id="loginPop">
 
    <div class="modal fade" id="modalSubscriptionForm" tabindex="-1"
@@ -30,16 +32,18 @@
                <!--로그인 팝업 Footer-->
                <div class="modal-footer">
                   <div class="options text-center text-md-right mt-1">
-                     <p>Not a member?
+                     <p>
                       <a href="${ pageContext.request.contextPath }/views/member/memberJoinForm.jsp" class="blue-text" >
-                            <strong>Join</strong>
+                            <strong>회원가입</strong>
                       </a>
                      </p>
-                     <p>Forgot 
-                     <a href="${pageContext.request.contextPath}/views/member/memberFind.jsp" class="blue-text">
-                     <strong>Id? Password?</strong>
-                     </a>
-                     </p>
+                     <p>
+                     <a href="${pageContext.request.contextPath}/views/member/idFind.jsp" class="blue-text">
+                     <strong>아이디 찾기</strong></a>    
+                     					/                
+                     <a href="${pageContext.request.contextPath}/views/member/passwordFind.jsp" class="blue-text">
+                     <strong>비밀번호 찾기</strong></a>
+                     </p>                      
                   </div>
                </div>
             </div>
@@ -49,8 +53,44 @@
                      style="background: #A63340; color: snow; " id="loginBtn" onclick="login()">
                                        Login<i class="fas fa-paper-plane-o ml-1"></i>
                </button>
-            </div> 
+            </div>            
          </div>
       </div>
    </div>
 </form>
+</c:if>
+
+<c:if test="${ empty member }">
+		<form action="${ pageContext.request.contextPath }/login.me"
+			method="post" id="loginArea">
+</form>
+		</c:if><c:if test="${ !empty member }">
+		<div id="userInfo">
+			<label>${ member.userName }님의 방문을 환영합니다.</label>
+			<div class="btns" align="right">
+				<div id="changeInfo" onclick="">MyPage</div>
+				<div id="logoutBtn" onclick='logout()'>Logout</div> 
+			</div>
+		</div>
+		</c:if>
+
+		<script>
+
+			function login(){
+				$('#loginPop').submit();
+			}
+
+			function memberJoin(){
+				location.href = "${pageContext.request.contextPath}/views/member/memberJoinForm.jsp";
+			}
+			
+			function logout(){
+				location.href = "${pageContext.request.contextPath}/logout.me";
+			}
+			
+			function changeInfo(){
+				location.href = "${pageContext.request.contextPath}/views/member/memberUpdateForm.jsp";
+			}
+		</script>
+
+

@@ -244,6 +244,10 @@ url(resources/img/base7.jpg);
 	
 	<c:import url="views/common/footer.jsp"></c:import>
 
+	
+
+	<c:import url="views/common/loginUtil.jsp"/>
+	
 </body>
 
 </html>

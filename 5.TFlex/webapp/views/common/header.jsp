@@ -45,6 +45,14 @@
 				</li>
 			</ul>
 		</div>
+		
+	<!--  마이페이지로 이동하는 버튼 -->
+<div>
+	<a href="${pageContext.request.contextPath}/views/member/memberMyPage.jsp"></a>
+</div>
+		
+		
+	<!--  로그인 창 불러오는 버튼 -->			
 		<div class="col-md-1">
          <div class="text-right">
             <a href="" class="btn btn-danger  btn-rounded mb-4"
@@ -55,25 +63,12 @@
 </div>
 
 
+
+
 	<!-- 	버튼
 <button type="button" class="btn btn-success" id="memberJoinBtn" onclick="memberJoin()">Join</button>  
 <button type="button" class="btn btn-info" id="loginBtn" onclick="memberLogin()">Login</button> -->
 
-
-
-
-
-
-<c:if test="${ !empty member }">
-         <div id="userInfo">
-            
-         <label>${ member.nName }님의 방문을 환영합니다.</label>
-            <div class="btns" align="right">
-            <div id="changeInfo" onclick="changeInfo()">MyPage</div>
-            <div id="logoutBtn" onclick='logout()'>Logout</div> 
-            </div>
-         </div>
-   </c:if>
 	
 <!-- 	<div class="text-right">
 		<a href="" class="btn btn-default btn-rounded mb-4"
@@ -83,25 +78,6 @@
 
 </nav>
 </header>
-
-		<script>
-
-			function login(){
-				$('#loginPop').submit();
-			}
-
-			function memberJoin(){
-				location.href = "${pageContext.request.contextPath}/views/member/memberJoinForm.jsp";
-			}
-			
-			function logout(){
-				location.href = "${pageContext.request.contextPath}/logout.me";
-			}
-			
-			function changeInfo(){
-				location.href = "${pageContext.request.contextPath}/views/member/memberUpdateForm.jsp";
-			}
-		</script>
 
 
 

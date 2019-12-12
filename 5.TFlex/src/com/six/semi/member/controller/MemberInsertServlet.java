@@ -38,6 +38,7 @@ public class MemberInsertServlet extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String userName = request.getParameter("userName");
 		String birthNo = request.getParameter("birthNo");
+		String email = request.getParameter("email");
 		int iNo = Integer.parseInt(request.getParameter("iNo"));
 		String rPerson = request.getParameter("rPerson");
 		String eStatus = request.getParameter("eStatus");

@@ -101,11 +101,7 @@
 	});
 </script>
 
-<c:if test="${ empty member }">
 
-	<c:import url="views/common/loginUtil.jsp"/>
-	
-</c:if>
 
 
 
