@@ -12,6 +12,22 @@
 </head>
 <body>
 <c:import url="../common/header.jsp"/>
+	
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">회원정보수정</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">장바구니</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">프로필 변경</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="#">회원 탈퇴</a>
+  </li>
+</ul>
+	
 
 	<h1>My Page</h1>
 	
@@ -19,9 +35,15 @@
 
 		
 		<h4 align="center">비밀 번호 입력</h4>
+		<div align="center">
+		<button type="password"  id="password" name="password" align="right"></button>
 		
-		<input type="password"  id="password" name="password"/>
-		<button onclick= "submit">확인</button>
+		</div>
+		
+		<script>
+		
+		</script>
+		
 		
 		
 		<br><br><br><br><br>

@@ -7,7 +7,6 @@
 <html>
 
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +18,6 @@
 	background-image: url('resources/img/base6.jpg');
 }
 */
-
 .h3{
 position: absolute;
   top: 70px;
@@ -101,6 +99,10 @@ th, td {
     BORDER-BOTTOM: gray 1px dashed; 
 
   }
+  
+	#loginBtn_btn:hover, #csBtn:hover, #myPageBtn:hover, #logoutBtn_btn:hover {
+		color : white;
+	}
   
 hr{
 	position:relative;

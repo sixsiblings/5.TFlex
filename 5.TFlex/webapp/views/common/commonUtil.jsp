@@ -13,7 +13,6 @@
 <script src="${ pageContext.request.contextPath }/resources/js/popper.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/typeit.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
  
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap-3.4.1/bootstrap.min.js"></script>
 

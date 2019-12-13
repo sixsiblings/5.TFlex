@@ -29,51 +29,48 @@
     <div class="card-body_ px-lg-6 pt-0" >
          
          <div class="col-md">
+            <!--  아이디  -->
             <div class="md-form">
-            <label for="materialRegisterFormId">아이디</label>
                 <input type="text"  class="form-control"  id="userId"  name="userId"  required="required"
-                         aria-describedby="materialRegisterFormIdHelpBlock">
+                         aria-describedby="materialRegisterFormIdHelpBlock"  placeholder="아이디를 입력하세요">
                 <button class="btn btn-info btn-rounded btn-block my-2 waves-effect z-depth-0" 
                             type="button"  id="idCheck">아이디 중복확인</button><br />
           </div>
+			<!-- 닉네임  -->
             <div class="md-form">
-            <label for="materialRegisterFormPhone" >닉네임</label>
                 <input type="text" class="form-control"  id="nName"  name="nName" required="required"
-                         aria-describedby="materialRegisterFormPhoneHelpBlock">
+                         aria-describedby="materialRegisterFormPhoneHelpBlock"  placeholder="닉네임을 입력하세요">
           </div>
          <button class="btn btn-info btn-rounded btn-block my-2 waves-effect z-depth-0" 
                         type="button" id="nNameCheck" >닉네임 중복확인</button><br />
-
+                        
+			<!-- 비밀번호 -->
             <div class="md-form">
-            <label for="materialRegisterFormPhone">비밀번호</label>
                 <input type="password"  class="form-control"  id="userPwd"  name="userPwd" required="required"
-                         aria-describedby="materialRegisterFormPhoneHelpBlock">
-          </div>
-          <br />
+                         aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="비밀번호를 입력하세요">
+          </div><br />
             <div class="md-form">
-            <label for="materialRegisterFormPhone">비밀번호 확인</label>
                 <input type="password"  class="form-control"  id="userPwd2" name="userPwd2"  required="required"
-                         aria-describedby="materialRegisterFormPhoneHelpBlock">
+                         aria-describedby="materialRegisterFormPhoneHelpBlock" placeholder="비밀번호를 입력하세요">
           </div><br />
-
+			<!-- 이름 -->
             <div class="md-form">
-            <label for="materialRegisterFormPhone">이름</label>
                 <input type="text"  class="form-control"  id="userName" name="userName"  required="required"
-                         maxlength="5"   aria-describedby="materialRegisterFormPhoneHelpBlock">
+                         maxlength="5"   aria-describedby="materialRegisterFormPhoneHelpBlock"
+                         placeholder="이름을 입력하세요">
           </div><br />
-
+			<!-- 생년월일 -->
             <div class="md-form">
-            <label for="materialRegisterFormPhone">생년월일</label>
                 <input type="text" class="form-control" id="birthNo"  name="birthNo" 
-                      placeholder="yyyy / mm / dd"   aria-describedby="materialRegisterFormPhoneHelpBlock">
+                      placeholder="생년월일을 입력하세요(yy / mm / dd)"   
+                      aria-describedby="materialRegisterFormPhoneHelpBlock">
           </div><br />
-          
+          <!-- 이메일 -->
          <div class="md-form">
-            <label for="materialRegisterFormPhone">이메일</label>
             <input type="email" class="form-control" id="email" name="email" data-rule-required="true" placeholder=" @example.com" maxlength="40">
        </div><br />
+       	<!--추천인아이디  -->
        <div class="md-form">
-            <label for="materialRegisterFormPhone">추천인</label>
             <input type="text" class="form-control" id="rPerson" data-rule-required="true"  placeholder="추천인 아이디를 입력하세요" maxlength="40">
        </div><br />
        
@@ -137,12 +134,9 @@
            </form>
            </div>
    
-   
-      
       
 <!-- ----------------------------------------------------------------------------------------------------------- -->
    
-    
          <script>
             function insertMember() {
                $("#joinForm").submit();
@@ -165,26 +159,6 @@
                event.preventDefault();
                
             });
-            
-/*             
-              var chk = false;
-              
-            $(function(){
-                $('#userName').keyup(function(){
-                    // 한글 이름 : (특수문자, 영어, 숫자);
-                    var reg = /^[가-힣]+$/;
-
-                    if(reg.test($('#userName').val())) {
-                        $('#nameResult').text('멋진 이름이군요!').css('color', 'palegreen');
-                        chk = true;
-                    } else {
-                        $('#nameResult').text('한글로 입력해주세요!!').css('color','red');
-                        $('#userName').focus();
-                        chk = false;
-                    }
-                });
-            
-             */
             
             
             function goMain(){
@@ -247,18 +221,7 @@
                 
                 });
              });
-
-            
-  /*           function formSubmit(obj){
-                if($("#email").val() == "") {
-                   alert("이메일 입력 해주세요");
-                } else if($(obj).hasClass('btnDisable') || idCheck == false){
-                   alert('이메일 중복 확인해주세요!');
-                } else {
-                   $('#joinForm').submit();
-                }
-             } */
-            
+  
          </script>
 </body>
 </html>

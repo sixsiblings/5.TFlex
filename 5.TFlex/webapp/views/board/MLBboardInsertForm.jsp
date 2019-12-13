@@ -35,36 +35,30 @@
 <body>
 <c:import url="../common/header.jsp" />
 <br />
+<section>
  <div align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/MLB.jpg');">
     </div>
    </div>
 <div class="mb-2" align="center">
 <div class="input-group mb-3" style="width:900px;">
-<div align="left">
-<select style="border-color:lightgray; border-radius:2px;">
-                            <option>-- 선택 --</option>
-                            <option value="1">공지사항</option>
-                            <option value="2">티켓게시판</option>
-                            <option value="3">굿즈게시판</option>
-                            <option value="4">KBO</option>
-                            <option value="5">MLB</option>
-                        </select>
-</div>
+
 <br />
-  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="제목을 입력하세요.">
+  <input type="text" class="form-control" aria-label="Text input with dropdown button" name="title" placeholder="제목을 입력하세요.">
 </div>
 
-
+<form action="${pageContext.request.contextPath }/mInsert.bo" 
+				method="post" enctype="multipart/form-data">
 <div class="editorArea"  style="margin-top:20px;">
-<form method="post">
   <textarea id="summernote" name="editordata" ></textarea>
-</form>
 </div>
 </div>
-
+<div align="center">
 <a href="MLBboard.jsp" class="btn btn-primary">취소</a>
 <a href="MLBboard.jsp" class="btn btn-primary">확인</a>
+</div>
+</form>
+</section>
 <br ><br ><br ><br ><br >
 
 <c:import url="../common/footer.jsp" />
@@ -85,7 +79,7 @@ $('#summernote').summernote({
     }
  });
 
- // $('.dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown()
  
  function sendFile(file, el) {
     
@@ -114,5 +108,6 @@ $('#summernote').summernote({
 }
  
 </script>
+
 </body>
 </html>

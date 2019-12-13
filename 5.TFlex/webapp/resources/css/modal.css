@@ -100,13 +100,15 @@
 /* chat Box Css */
 
 #messageWindow {
-    background: #AFC2D4;
     height:500px;
     overflow:auto;
+    border-style: solid;
+    border-color: #AFC2D4;
     border-top-right-radius : 10px;
     border-top-left-radius : 10px;
     border-bottom-right-radius : 10px;
     border-bottom-left-radius : 10px;
+	/* background: #AFC2D4; */
 }
 
 #sendBtn{
@@ -114,13 +116,6 @@
     margin-top:-35px; 
     vertical-align: middle;
     color: blue;
-}
-
-#inputText{
-	border-top-right-radius : 10px;
-    border-top-left-radius : 10px;
-    border-bottom-right-radius : 10px;
-    border-bottom-left-radius : 10px;
 }
 
 

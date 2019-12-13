@@ -9,12 +9,13 @@
 <meta charset="UTF-8">
 <title>KBO</title>
 <c:import url="../common/commonUtil.jsp"/>
-	<c:import url="../common/header.jsp"/>
+	
 <style>
 #yu{
-  background-size: 200px;
+  width:500px;
+  height:200px;
+  background-size: 400px;
   background-repeat:no-repeat;
-  background-position: right;
 }
 .tableArea{
 	
@@ -35,30 +36,20 @@
 	text-size-adjust : 100%;
 	
 }
-
-
-</style>
+	</style>
 	</head>
 	<body>
-	<section>
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/MLB.jpg'); background-position: 50% -100px;" data-aos="fade" data-stellar-background-ratio="0.5">
-    <br><br>
-      <div class="container">
-        <div class="row align-items-center justify-content-start">
-          <div class="col-md-6 text-center text-md-left aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="bg-text-line"></h3>
-            <p class="mt-4"></p>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-		</section>
-		
-	<section>
 	
+	<c:import url="../common/header.jsp"/>
+	
+	<section>
+   <div align="center" >
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
+    </div>
+	</div>
+    <br /><br />
+    
 			<div class="tableArea" align="center">
-			
 			<br>
 <span>
 	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
@@ -71,12 +62,15 @@
 		</div>	
 	</div>
 </span>		
-<span class="badge badge-pill badge-dark">LA다저스</span>
-<span class="badge badge-pill badge">시카고컵스</span>
-<span class="badge badge-pill badge-light">뉴욕양키스</span>
-<span class="badge badge-pill badge-light">워싱턴</span>
+	<span class="badge badge-pill badge-dark">LA다저스</span>
+	<span class="badge badge-pill badge">시카고컵스</span>
+	<span class="badge badge-pill badge-light">뉴욕양키스</span>
+	<span class="badge badge-pill badge-light">워싱턴</span>
 			<br>
 			<br>
+<c:if test="${!empty member }">
+<a href="MLBboardInsertForm.jsp" class="btn btn-primary pull-right">글쓰기</a>
+</c:if>
 	<table class="table table-hover">
   <thead>
     <tr>
@@ -88,91 +82,92 @@
       <th scope="col">첨부파일</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><button type="button" class="btn btn-link">공지</button></th>
-      <td>MLB 자유게시판 공지입니더</td>
-       <td>admin</td>
-        <td>2019.12.20</td>
-         <td>30</td>
-           <td>◎</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Yu</td>
-      <td>Thornton</td>
-      <td><i class="fas fa-graduation-cap mr-2  grey-text" aria-hidden="true"></i>Cell 6</td>
-      <td>@fat</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td colspan="2">Larry the Bird</td>
-      <td><i class="fas fa-leaf mr-2 blue-text" aria-hidden="true"></i>Cell 9</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-    </tr>
-      <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-       <td><i class="fas fa-download mr-2 green-text" aria-hidden="true"></i>Cell 9</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-    </tr>
-      <tr>
-      <th scope="row">4</th>
-      <td colspan="2">Larry the Bird</td>
-      <td><i class="fas fa-book mr-2 red-text" aria-hidden="true"></i>Cell 9</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-    </tr>
-      <tr>
-      <th scope="row">5</th>
-      <td colspan="2">Larry the Bird</td>
-      <td><i class="fas fa-magic mr-2 grey-text" aria-hidden="true"></i>Cell 9</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-    </tr>
-      <tr>
-      <th scope="row">6</th>
-      <td colspan="2">Larry the Bird</td>
-      <td><i class="fas fa-magic mr-2 grey-text" aria-hidden="true"></i>Cell 9</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-     
-    </tr>
-    
-  </tbody>
+  <c:forEach var="board" items="${list}">
+  <tr>
+  <td>
+  <input type="hidden" value="${board.bno}"/>
+  				${board.bno}
+  </td>
+  <td>${board.btitle}</td>
+  <td>${board.uno}</td>
+  <td>${board.bbenrolldate}</td>
+  <td>${board.bcount}</td>
+  <c:if test="${!empty board.bfile}">
+  			<td> o </td>
+  </c:if><c:if test="${empty board.bfile}">
+  			<td> x </td>
+  </c:if>
+  </tr>
+  </c:forEach>
 </table>
-			  <nav aria-label="Page navigation example">
-			
-  <ul class="pagination pagination-circle pg-blue justify-content-center">
-    
-  <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-    <li class="page-item disabled">
-      <a class="page-link" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item active"><a class="page-link">1</a></li>
-    <li class="page-item"><a class="page-link">2</a></li>
-    <li class="page-item"><a class="page-link">3</a></li>
-    <li class="page-item"><a class="page-link">4</a></li>
-    <li class="page-item"><a class="page-link">5</a></li>
-    <li class="page-item">
-      <a class="page-link" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link">Last</a></li>
-  </ul>
-</nav>
+<br /><br />
 
+
+			  
+			
+  <%-- 페이지 처리 구현하기 --%>
+		<div class="pagingArea" align="center" aria-label="Page navigation example">
+			  <c:url var="mselectList" value="mselectList.bo"/>
+			
+			<!-- 처음 페이지 버튼 -->
+			<button onclick="location.href='${mselectList}?currentPage=1'">
+				&lt;&lt;
+			</button>
+			
+			<!-- 이전 페이지 버튼 -->
+			<c:if test="${ pi.currentPage le 1 }">
+				<button disabled>&lt;</button>
+			</c:if>
+			<c:if test="${ pi.currentPage gt 1 }">
+				<button onclick="location.href='${mselectList}?currentPage=${pi.currentPage - 1}'">
+					&lt;
+				</button>
+			</c:if>
+			
+			<!-- 상세 페이지 구현을 위한 반복문 -->
+			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
+				<c:if test="${p eq pi.currentPage }">
+					<button disabled>
+						<b>${p}</b>
+					</button>
+				</c:if>
+				<c:if test="${ p ne pi.currentPage}">
+					<button onclick="location.href='${mselectList}?currentPage=${p}'">
+						${p}
+					</button>
+				</c:if>
+			</c:forEach>
+			
+			
+			<!-- 다음 페이지 버튼 -->
+			<c:if test="${ pi.currentPage ge pi.maxPage }">
+				<button disabled>&gt;</button>
+			</c:if>
+			<c:if test="${ pi.currentPage lt pi.maxPage }">
+				<button onclick="location.href='${mselectList}?currentPage=${pi.currentPage + 1}'">
+					&gt;
+				</button>
+			</c:if>
+			
+			<!-- 마지막 페이지 버튼 -->
+			<button onclick="location.href='${mselectList}?currentPage=${pi.maxPage}'">
+				&gt;&gt;
+			</button>
+		</div>
 	
-	
-	
+		<script>
+		$(function(){
+			$("#listArea td").mouseenter(function(){
+				$(this).parent().css({"background":"lightblue", "cursor":"pointer"});
+			}).mouseout(function(){
+				$(this).parent().css({"background":"rgba(70,70,70,0.5)"});
+			}).click(function(){
+				var bno = $(this).parent().find("input").val();
+				location.href="${pageContext.request.contextPath}/selectOne.bo?bno=" + bno;
+			});
+		});
+		</script>
+
 	</section>
 	<br>
 	<br>

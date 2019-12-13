@@ -4,8 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
-
 <form action="${ pageContext.request.contextPath }/login.me"  method="post" id="loginPop">
 
    <div class="modal fade" id="modalSubscriptionForm" tabindex="-1"
@@ -22,7 +20,7 @@
                   <i class="fas fa-user prefix grey-text"></i> 
                   <label data-error="wrong" data-success="right" for="form3">아이디</label>
       			  <input type="text" id="form3" name="userId" class="form-control validate">                
-      </div>
+      			</div>
 
                <div class="md-form mb-4">
                   <i class="fas fa-envelope prefix grey-text"></i> 
@@ -51,15 +49,16 @@
             </div>
             
             <div class="modal-footer d-flex justify-content-center">
-               <button type="submit" class="btn btn-indigo" 
-                     style="background: #A63340; color: snow; "  id="loginBtn" onclick="login()">
-                                       Login<i class="fas fa-paper-plane-o ml-1"></i></button>
+            
+            <button type="submit" class="btn btn-outline-info"  id="loginBtn_btn" onclick="login();" 
+            		style=" margin-bottom:20px; font-size:30px; width:160px;">
+					<strong>Login</strong>
+				</button>
             </div>            
          </div>
       </div>
    </div>
 </form>
-
 
 		<script>
 
@@ -69,15 +68,22 @@
 
 			function memberJoin(){
 				location.href = "${pageContext.request.contextPath}/views/member/memberJoinForm.jsp";
-			}
+			} 
+			
 			
 			function logout(){
 				location.href = "${pageContext.request.contextPath}/logout.me";
 			}
 			
+			
+ 			$('#myPageBtn').click(function(){
+ 				location.href = "${pageContext.request.contextPath}/views/member/memberMyPage.jsp";
+ 			});
+			
+			
 			function changeInfo(){
 				location.href = "${pageContext.request.contextPath}/views/member/memberUpdateForm.jsp";
 			}
 		</script>
-
-
+		
+		

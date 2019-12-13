@@ -36,16 +36,20 @@ public class MemberDAO {
 		try {
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getnName());
-			pstmt.setString(3, m.getUserPwd());
-			pstmt.setString(4, m.getUserName());
-			pstmt.setString(5, m.getBirthNo());
-			pstmt.setString(6, m.getEmail());
-			pstmt.setInt(7, m.getiNo());
-			pstmt.setString(8, m.getrPerson());
-			//pstmt.setString(9, m.getSignal());
-			
+			pstmt.setInt(1, m.getuNo());
+			pstmt.setString(2, m.getUserId());
+			pstmt.setString(3, m.getnName());
+			pstmt.setString(4, m.getUserPwd());
+			pstmt.setString(5, m.getUserName());
+			pstmt.setString(6, m.getBirthNo());
+			pstmt.setString(7, m.getEmail());
+			pstmt.setInt(8, m.getiNo());
+			pstmt.setString(9, m.getrPerson());
+			pstmt.setString(10, m.getSignal());
+			pstmt.setInt(11, m.getdCount());
+			pstmt.setString(12, m.getuGrade());
+			pstmt.setString(13, m.getuStatus());
+					
 			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {

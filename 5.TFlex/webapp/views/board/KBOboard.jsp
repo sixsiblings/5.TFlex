@@ -12,9 +12,10 @@
    
 <style>
 #yu{
-  background-size: 380px;
+  width:500px;
+  height:230px;
+  background-size: 400px;
   background-repeat:no-repeat;
-  background-position: right;
 }
 .tableArea{
    
@@ -31,21 +32,11 @@
    <body>
    <c:import url="../common/header.jsp"/>
    <section>
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/KBO.jpg'); background-position: 50% -71.3333px;" data-aos="fade" data-stellar-background-ratio="0.5">
-    <br><br>
-      <div class="container">
-        <div class="row align-items-center justify-content-start">
-          <div class="col-md-6 text-center text-md-left aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="bg-text-line"></h3>
-            <p class="mt-4"></p>
-            
-          </div>
-        </div>
-      </div>
+    <div align="center" >
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/KBO.jpg');">
     </div>
-      </section>
-      
-   <section>
+	</div>
+      <br /><br />
    
 <div class="tableArea" align="center">
          
