@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<style>
+	footer{
+		color: white;
+	}
+</style>
 <footer >
   <!-- 쫓아오는 푸터 -->
   
@@ -48,7 +54,7 @@
 
 <footer>
 <!-- 고정된 푸터 -->
-<div style="background: #294550;">
+<div style="background: rgb(29,66,138)">
 <div class="container">
   <div class="row">
     	<div class="col-lg-5 col-xs-12 about-company">
