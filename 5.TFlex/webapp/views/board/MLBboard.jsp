@@ -49,9 +49,9 @@
 	</div>
     <br /><br />
     
-			<div class="tableArea" align="center">
+	<div class="tableArea" align="center">
 			<br>
-<span>
+
 	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
 		<div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
 			<div class="ed flex flex-wrap flex-left flex-middle">
@@ -61,7 +61,7 @@
 			</div>
 		</div>	
 	</div>
-</span>		
+	
 	<span class="badge badge-pill badge-dark">LA다저스</span>
 	<span class="badge badge-pill badge">시카고컵스</span>
 	<span class="badge badge-pill badge-light">뉴욕양키스</span>
@@ -100,6 +100,7 @@
   </tr>
   </c:forEach>
 </table>
+</div>
 <br /><br />
 
 
@@ -169,16 +170,20 @@
 		</script>
 
 	</section>
-	<br>
-	<br>
-	<br>
-	<br>
 	<br><br>
 	<br>
 	<br>
 	<br>
 	<br>
-<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
 	<c:import url="../common/footer.jsp"/>
 	
 </body>

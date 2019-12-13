@@ -36,6 +36,7 @@
 		
 		<h4 align="center">비밀 번호 입력</h4>
 		<div align="center">
+		<input type="password"  id="password" name="password"/>
 		<button type="password"  id="password" name="password" align="right"></button>
 		
 		</div>

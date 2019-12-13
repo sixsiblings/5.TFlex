@@ -114,7 +114,7 @@
 		
 		if(!conChk){
 			
-			webSocket = new WebSocket('ws://192.168.20.157:8088${pageContext.request.contextPath}/broadcast');			
+			webSocket = new WebSocket('ws://192.168.20.159:8088${pageContext.request.contextPath}/broadcast');			
 			
 		// 웹 소켓 연결이 이루어 질때 동작할 함수
 			webSocket.onopen = function(event){
