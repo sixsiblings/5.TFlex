@@ -2788,12 +2788,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-info {
-  color: #17a2b8;
+
+  color: white;
   border-color: #17a2b8;
 }
 
 .btn-outline-info:hover {
-  color: #fff;
+  color: white;
   background-color: #17a2b8;
   border-color: #17a2b8;
 }

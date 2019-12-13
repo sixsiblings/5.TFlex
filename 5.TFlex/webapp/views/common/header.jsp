@@ -21,7 +21,7 @@
             <li class="nav-item">
                <a class="nav-link" style="margin-right: 50px; color: blue; font-size: 30px; width: 70px; height: 50px;" 
                      href="${ pageContext.request.contextPath }/views/Nboard/NoticeBoard.jsp">
-                  Notice
+                  
                     </a>
             </li>
             <li class="nav-item">
@@ -37,33 +37,31 @@
                     </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" style="margin-right: 70px; font-size: 30px; width: 70px; height: 50px;" 
+               <a class="nav-link" style="margin-right: 50px; font-size: 30px; width: 70px; height: 50px;" 
                      href="${ pageContext.request.contextPath }/views/Tboard/boardListTicket.jsp">
                   Ticket
                     </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" style=" font-size: 30px; width: 70px; height: 50px;" href="${ pageContext.request.contextPath }/views/Gboard/GoodsBoard.jsp">
+               <a class="nav-link" style="margin-right: 50px;  font-size: 30px; width: 70px; height: 50px;" 
+               				href="${ pageContext.request.contextPath }/views/Gboard/GoodsBoard.jsp">
                   Goods
                     </a>
             </li>
+           
          </ul>
       </div>
-      
-        <!--  마이페이지로 이동하는 버튼 -->
-		<div>
-		   <a href="${pageContext.request.contextPath}/views/member/memberMyPage.jsp">MyPage</a>
-		</div>
 
-      
+
+	<!--  로그인 버튼 / 로그아웃 버튼 영역 -->	
 <c:if test="${ empty member }">
 		
 	<!--  로그인 창 불러오는 버튼 -->			
 		<div class="col-md-1">
          <div class="text-right">
-            <a href="" class="btn btn-danger  btn-rounded mb-4"
+            <a href="" class="btn btn-success btn-rounded mb-4"
                data-toggle="modal" data-target="#modalSubscriptionForm"
-               style=" /* background: blue; */  color: snow; margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
+               style=" margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
          </div>
    	  </div>
    </c:if>
@@ -75,13 +73,26 @@
 </form>
 		</c:if><c:if test="${ !empty member }">
 		<div id="userInfo">
-			<label>${ member.userName }님의 방문을 환영합니다.</label>
-			<div class="btns" align="right" style="display:inline-block">
-				<div id="changeInfo" onclick="">MyPage</div>
-				<div id="logoutBtn" onclick='logout()'>Logout</div> 
+			<label>${ member.userName }님! 반가워요~!^0^.</label>
+			<div class="btnss" align="right" style="display:inline-block">
+			
+				<button type="button" class="btn btn-outline-success"  id="csBtn" onclick="customerService();"
+						style="font-size:17px; margin-right:10px">
+					Customer Service 
+				</button>			
+			
+				<button type="button" class="btn btn-outline-primary"  id="myPageBtn" onclick="myPage();"
+						style="font-size:17px; margin-right:10px">
+					MyPage 
+				</button>
+
+				<button type="button" class="btn btn-outline-danger" id="logoutBtn_btn"  onclick="logout();"
+						style="font-size:17px; margin-left:10px">
+					Logout
+				</button>	
 			</div>
 		</div>
 		</c:if>
-
 </nav>
 </header>
+

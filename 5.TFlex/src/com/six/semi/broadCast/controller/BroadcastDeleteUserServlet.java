@@ -1,28 +1,29 @@
-package com.six.semi.member.controller;
+package com.six.semi.broadCast.controller;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.six.semi.member.model.service.MemberService;
-import com.six.semi.member.model.vo.Member;
+import com.google.gson.Gson;
 
 /**
- * Servlet implementation class MemberLoginServlet
+ * Servlet implementation class BroadcastDeleteUserServlet
  */
-@WebServlet("/login.me")
-public class MemberLoginServlet extends HttpServlet {
+@WebServlet("/bcDelUser.do")
+public class BroadcastDeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginServlet() {
+    public BroadcastDeleteUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,34 +34,23 @@ public class MemberLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
+		// 현재 삭제하려는 사용자 아이디
+		String user= request.getParameter("chat_id");
 		
-		MemberService ms = new MemberService();
+		// 서블릿 전체 영역의 스코프(범위 지정자)
+		ServletContext application = request.getServletContext();
 		
-		Member m = new Member(userId, userPwd);
+		// 현재 접속자 목록 가져오기
+		Set<String> userList = (HashSet)application.getAttribute("userList");
 		
-		Member result = ms.selectOne(m);
+		// 현재 접속자 목록에서 지금 나가려는 사용자 지우기
+		userList.remove(user);
 		
-		if( result != null ) {
-			
-			HttpSession session = request.getSession();
-			
-			session.setAttribute("member", result);
-			
-			response.sendRedirect("index.jsp");
-			
-			
-		} else {
-			
-			request.setAttribute("msg", "로그인에 실패하셨습니다. 아이디나 비밀번호를 확인해주세요.");
-			
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-			
-			
-		}
+		// 접속자 목록 갱신
+		application.setAttribute("userList", userList);
 		
-		
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(userList, response.getWriter());
 	}
 
 	/**

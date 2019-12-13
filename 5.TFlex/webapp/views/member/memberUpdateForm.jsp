@@ -8,6 +8,84 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
+<style> 
+
+        body{
+
+            margin: 0px;
+
+        }
+
+        
+
+       #footer {
+
+            margin: 0px;
+
+            margin-bottom:10px;
+
+            padding: 0px;
+
+            text-align: center;
+
+        }
+
+
+        #footer ul {
+
+            padding: 0px;
+
+            margin-top: 30px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        #footer ul li {
+
+            list-style: none;
+
+            display: inline;
+
+        }
+
+
+        #footer ul li a {
+
+            text-decoration: none;
+
+            padding: 0 4px;
+
+            border-right: 1px solid #ccc;
+
+
+            font-size: 12px;
+
+            color: #333;
+
+        }
+
+
+        #footer img {
+
+            width: 63px;
+
+            margin-bottom: -4px;
+
+        }
+
+
+        #footer label {
+
+            font-size: 10px;
+
+            color: #333;
+
+        }
+
+</style>
+
 <c:import url="../common/commonUtil.jsp" />
 </head>
 <body>
@@ -130,5 +208,9 @@
 				</script>
 		</div>
 	
+	
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<c:import url="../common/footer.jsp"/>
 </body>
 </html>

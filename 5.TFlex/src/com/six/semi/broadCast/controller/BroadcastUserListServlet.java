@@ -1,24 +1,29 @@
-package com.six.semi.member.controller;
+package com.six.semi.broadCast.controller;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 /**
- * Servlet implementation class MemberLogoutServlet
+ * Servlet implementation class BroadcastUserListServlet
  */
-@WebServlet("/logout.me")
-public class MemberLogoutServlet extends HttpServlet {
+@WebServlet("/bcUserList.do")
+public class BroadcastUserListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLogoutServlet() {
+    public BroadcastUserListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +32,24 @@ public class MemberLogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String user = request.getParameter("chat_id");
 		
-		HttpSession session = request.getSession(false);
+		Set<String> userList = null;
+		ServletContext application = request.getServletContext();
 		
-		if(session != null) session.invalidate();
+		userList = (HashSet<String>)application.getAttribute("userList");
 		
-		response.sendRedirect("index.jsp");
-				
+		if(userList == null || userList.isEmpty()) {
+			userList = new HashSet<String>();
+		}
+		
+		userList.add(user);
+		
+		application.setAttribute("userList", userList);
+		
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(userList, response.getWriter());
 	}
 
 	/**
