@@ -1,16 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
 
 <!DOCTYPE html>
 <html lang="ko">
 <head><title>
 	진기록 명기록 | 자료실 | KBO
-</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome" /><meta name="title" content="KBO" /><meta name="author" content="스포츠투아이" /><meta name="keywords" content="KBO, 한국야구위원회, 프로야구, KBO 리그, 퓨처스리그, 프로야구순위, 프로야구 일정" /><meta name="viewport" content="width=1200" /><meta property="og:type" content="website" /><meta property="og:title" content="KBO 홈페이지" /><meta property="og:description" content="KBO, 한국야구위원회, 프로야구, KBO 리그, 퓨처스리그, 프로야구순위, 프로야구 일정" /><meta property="og:image" content="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/open_graph_kbo.png" /><meta property="og:url" content="//www.koreabaseball.com/" /><link rel="shortcut icon" type="image/x-icon" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/favicon.ico" /><link rel="stylesheet" type="text/css" href="/resources/css/font.css?version=1" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/reset.css?version=201711281" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/common.css?version=201807061" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/layout.css?version=20190723" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/contents.css?version=20190723" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/jquery-ui.css" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/jquery-ui-theme.css" /><link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/jquery.bxslider.css" />
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome" />
+<meta name="title" content="KBO" /><meta name="author" content="스포츠투아이" />
+<meta name="keywords" content="KBO, 한국야구위원회, 프로야구, KBO 리그, 퓨처스리그, 프로야구순위, 프로야구 일정" />
+<meta name="viewport" content="width=1200" /><meta property="og:type" content="website" />
+<meta property="og:title" content="KBO 홈페이지" />
+<meta property="og:description" content="KBO, 한국야구위원회, 프로야구, KBO 리그, 퓨처스리그, 프로야구순위, 프로야구 일정" />
+<meta property="og:image" content="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/open_graph_kbo.png" />
+<meta property="og:url" content="//www.koreabaseball.com/" />
+<link rel="stylesheet" type="text/css" href="/resources/css/font.css?version=1" />
+<link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/reset.css?version=201711281" />
 
 	<script type="text/javascript" charset="utf-8" src="//crdfcowjurxm984864.cdn.ntruss.com/resources/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="//crdfcowjurxm984864.cdn.ntruss.com/resources/js/jquery-migrate-1.1.1.min.js"></script>
@@ -37,378 +47,124 @@
         ga('create', 'UA-15700655-14', 'auto');
         ga('send', 'pageview');
     </script>
-    
-    <link type="text/css" rel="stylesheet" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/common_old.css?version=201901041"/>
-    <link rel="stylesheet" type="text/css" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/sub.css?version=20180418" />
-    
-	<link type="text/css" rel="stylesheet" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/about.css"/>
-	<link type="text/css" rel="stylesheet" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/kbotv.css"/>
-	<link type="text/css" rel="stylesheet" href="//crdfcowjurxm984864.cdn.ntruss.com/resources/css/history.css?version=20191718"/>
-	
+    <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/img/Tflexpabicon.png" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/bootstrap.min.css" />
+<link href="${ pageContext.request.contextPath }/resources/css/bootstrap-3.4.1/bootstrap.min.css" rel="stylesheet">
+	
+	
+<style>
+#contents{
+	position:relative;
+	right: 120px;
+}
+	
+body {width:100%;}
+#wrap {min-width:1090px;margin:0 auto;}
+section {}
+.wrapping {position:relative;overflow:hidden;width:1090px;margin:0 auto;}
+
+
+
+#container {overflow:hidden;margin:0 auto;min-height:800px;padding:50px 0;border-top:1px solid #cdcdcd;}
+#container aside {float:left;width:175px;padding:12px 0 0 14px;margin-right:45px;}
+aside {}
+aside h3 {font-size:20px;width:115px;margin:0 0 30px 15px;padding-bottom:25px;border-bottom:4px solid #000;color:#111;line-height:1.3}
+aside.futures h3 {padding-bottom:17px;border-bottom:4px solid #002373;text-align:center;}
+aside #snb {margin-left:15px;}
+aside #snb li {margin-bottom:18px;}
+aside #snb li a {display:block;font-size:15px;color:#7c7c7c;}
+aside #snb li.on a, aside #snb li a:hover {font-family:"ngb";color:#222;}
+aside .sub-banner {width:143px;height:84px;border:1px solid #ccc;}
+aside .snb-depth {margin-top:30px;padding:20px 14px;background:#f7f7f7;color:#7c7c7c;}
+aside .snb-depth h4 {width:116px;padding-bottom:10px;margin-bottom:15px;font-size:18px;line-height:1.2;border-bottom:4px solid #7c7c7c;}
+aside .snb-depth > #snb {margin:0;}
+
+/* 19.07.10 B together 119 */
+aside .submenu-banner {width:175px;padding:44px 3px 19px 0;background:url('//crdfcowjurxm984864.cdn.ntruss.com/resources/images/sub/submenu_together.png') no-repeat 0 0/175px;text-align:right;box-sizing:border-box;}
+aside .submenu-banner .sub-present {display:initial;color:#1f150b;vertical-align:bottom;letter-spacing:-1px;}
+aside .submenu-banner .sub-present span {display:inline-block;width:14px;padding:2px 0;border-radius:2px;background:#383841;color:#fff;font-size:15px;text-align:center;}
+/* // 19.07.10 B together 119 */
+
+#container #contents {position:relative;float:right;width:838px;}
+#container #futures {margin-top:-50px;}
+#container #futures #contents {width:inherit;}
+#contents {}
+#contents .location {font-family:"dotum","돋움체";font-size:12px;color:#888;text-align:right;vertical-align:middle;}
+#contents .location span a {display:inline-block;font-size:12px;color:#888;vertical-align:middle;}
+#contents .location span a img {vertical-align:middle;}
+#contents .tit-page {margin-bottom:25px;font-family:"ng";font-size:30px;line-height:1.2;letter-spacing:-1px;}
+#contents .tit-ebook {padding:0 0 20px 12px;border-bottom:6px solid #000;}
+#contents .ebook-menu {overflow:hidden;width:384px;margin:0 auto;padding:10px 0;text-align:center;}
+#contents .ebook-menu li {float:left;}
+#contents .ebook-menu li a {padding:7px 37px 10px 38px;font-size:18px;border:1px solid #b9b9b9;}
+#contents .ebook-menu li.on a {background:#000;color:#fff;border:1px solid #000;}
+#contents .menu-list-box {position:relative;width:100%;padding-bottom:35px;border-bottom:1px solid #000;}
+#contents .menu-list-box ul {overflow:hidden;text-align:center;}
+#contents .menu-list-box .txt-tip {padding-top:25px;font-size:15px;text-align:center;}
+#contents .menu-list-box ul li {float:left;width:16.66%;cursor:pointer;}
+#contents .menu-list-box ul li a {display:inline-block;width:100%;padding:13px 0;font-size:14px;}
+#contents .menu-list-box ul li.on a {background:#000;color:#fff;}
+#contents .menu-list-box .menu-type {margin:35px 0 15px;}
+#contents .menu-list-box .menu-type .menu-line {border-bottom:1px solid #000;}
+#contents .menu-list-box .select-box {top:0;}
+/*
+dd
+
+*/
+
+/*wbc table01*/
+/* play rule  */
+.aboutRule {float:left;width:100%;height:530px;position:relative;background:url("//crdfcowjurxm984864.cdn.ntruss.com/client/images/history/img_bg_book.png") no-repeat top center;margin-top:20px}
+.aboutRule h4{padding:15px 0 0 70px}
+.aboutRule span.ribon{position:absolute;right:41px;top:0;}
+.aboutRule .btnDown {display:block; text-align:right;position:absolute;right:122px;top:30px}
+.aboutbook {position:relative; width:100%; height:396px; padding-top:32px;/* background:url("//crdfcowjurxm984864.cdn.ntruss.com/client/images/history/recordbook_bg.gif") no-repeat center center;*/}
+.aboutbook p{margin-top:12px;text-align:center}
+.aboutbook img {width:559px; height:366px;}
+.aboutbook span {position:absolute; right:70px; bottom:10px; width:71px; height:66px; background:url("//crdfcowjurxm984864.cdn.ntruss.com/client/images/history/recordbook_ball.png") no-repeat 0 0;}
+.hTable tbody td{padding:10px 0 8px 0;}
+
+
+
+
+
+</style>
 
 </head>
 <body>
+
     <form method="post" action="./Amazing.aspx" id="mainForm">
 <div class="aspNetHidden">
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE4Mzg2MDgzODdkZOQGTqJPDtibenUquhXJL8fl1NXpMYE4ELiipcMLJA/d" />
+
 </div>
 
 <div class="aspNetHidden">
 
 	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="0854DE2D" />
 </div>
+
 	    <!-- wrap -->
 	    <div id="wrap">
 		    <!-- header -->
-		    <header>	
-			    <div id="gnb" class="bgf3">
-				    <div class="gnb-wrap">
-					    <ul class="menu">
-                            
-						    <li><a href="/Member/Login.aspx">로그인</a></li>
-                            <li><a href="/Member/Join/Accessterms.aspx">회원가입</a></li>
-                            
-						    <li><a href="http://eng.koreabaseball.com/">ENGLISH</a></li>						
-					    </ul>
-					    <div class="search-area">
-						    <div class="search-box">
-							    <input class="ipt-search" type="text" id="txtTopPlayerWord" placeholder="선수 검색하기" />
-							    <a href="#none;" id="btnTopPlayerSearch" class="btn-search"><img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/btn_search.png" alt="검색" /></a>
-						    </div>
-						    <div id="player_search_area" class="search-result">
-							    <!-- <p class="null">검색 결과가 없습니다.</p> -->
-							    
-						    </div>
-					    </div>
-				    </div>
-			    </div>
-			    <div class="wrapping lnb-wrap">
-				    <h1 class="logo"><a href="/Default.aspx"><img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/h1_logo.png" alt="" /></a></h1>
-				    <nav>
-					    <ul id="lnb">
-						    <li>
-							    <a href="/Schedule/GameCenter/Main.aspx">일정/결과</a>
-							    <div class="lnb-sub">
-								    <ul class="lnb01">
-									    <li><a href="/Schedule/GameCenter/Main.aspx">게임센터</a></li>
-									    <li><a href="/Schedule/ScoreBoard.aspx">스코어보드</a></li>
-                                        
-                                        <li><a href="/Schedule/Schedule.aspx">경기일정/결과</a></li>
-                                        
-									    <li><a href="/Schedule/Calendar.aspx">월별일정/결과</a></li>
-									    <li><a href="/Schedule/International/Etc/Premier2019.aspx">국제대회</a></li>
-                                        <li><a href="/Schedule/Allstar/Game/Main2019.aspx">KBO 올스타전</a></li>
-								    </ul>
-							    </div>
-						    </li>
-						    <li>
-							    <a href="/TeamRank/TeamRank.aspx">순위</a>
-							    <div class="lnb-sub">
-								    <ul class="lnb02">
-									    <li><a href="/TeamRank/TeamRank.aspx">팀순위</a></li>
-			                            <li><a href="/TeamRank/GraphDaily.aspx">팀별 순위변동 그래프</a></li>
-								    </ul>
-							    </div>
-						    </li>
-						    <li>
-							    <a href="/Record/Main.aspx">기록</a>
-							    <div class="lnb-sub">
-								    <ul class="lnb03">
-									    <li><a href="/Record/Main.aspx">TOP5</a></li>
-										<li><a href="/Record/Ranking/Week.aspx">주간/월간 랭킹</a></li>
-									    <li><a href="/Record/Player/HitterBasic/Basic1.aspx">기록실</a></li>
-									    <li><a href="/Record/Etc/HitVsPit.aspx">투수 vs 타자</a></li>
-									    <li><a href="/Record/History/Top/Hitter.aspx">역대기록실</a></li>
-                                        <li><a href="/Record/Expectation/WeekList.aspx">주간/일간 예상 달성기록</a></li>
-								    </ul>
-							    </div>
-						    </li>
-						    <li>
-							    <a href="/Player/Search.aspx">선수</a>
-							    <div class="lnb-sub">
-								    <ul class="lnb04">
-									    <li><a href="/Player/Search.aspx">선수조회</a></li>
-									    <li><a href="/Player/Register.aspx">선수등록현황</a></li>
-									    <li><a href="/Player/RegisterAll.aspx">전체등록현황</a></li>
-									    <li><a href="/Player/CareerCertificate.aspx">경력증명서 신청</a></li>
-										<li><a href="/Player/Trade.aspx">선수이동현황</a></li>
-								    </ul>
-							    </div>
-						    </li>						    
-						    <li class="">
-							    <a href="/News/BreakingNews/List.aspx">NEWS</a>
-							    <div class="lnb-sub">
-								    <ul class="lnb05">
-										<li><a href="/News/BreakingNews/List.aspx">NEWS</a></li>
-										<li><a href="/News/Notice/List.aspx">KBO 보도자료</a></li>
-                                        <li><a href="/Futures/KBot/List.aspx">케이봇(KBOT) 기사</a></li>
-                                        <li><a href="/News/CardNews/List.aspx">KBO 카드뉴스</a></li>
-									</ul>
-							    </div>
-						    </li>
-						    <li>
-							    <a href="javascript:;">KBO</a>
-							    <div class="lnb-sub lnb-style-all">
-								    <div class="wrapping lnb-all-wrap">
-									    <h3>KBO</h3>
-									    <div class="lnb-all kbo01">
-										    <h4>HISTORY</h4>
-										    <ul>
-											    <li><a href="/History/Crowd/GraphTeam.aspx">관중현황</a></li>
-											    <li><a href="/History/Etc/PlayerPrize.aspx">역대 개인수상</a></li>
-											    <li><a href="/History/Etc/GoldenGlove.aspx">역대 골든글러브</a></li>
-											    <li><a href="/History/Etc/GameManage.aspx">경기운영제도</a></li>
-											    <li><a href="/History/Etc/TeamHistory.aspx">각 구단 변천사</a></li>
-										    </ul>
-									    </div>
-									    <div class="lnb-all kbo02">
-										    <h4>KBO TV</h4>
-										    <ul>
-											    <li><a href="/KboTv/Highlight/List.aspx">하이라이트</a></li>
-											    <li><a href="/KboTv/MonthMvp/List.aspx">월간MVP</a></li>
-											    <li><a href="/KboTv/Legend/List.aspx">레전드 올스타 동영상</a></li>
-											    <li><a href="/KboTv/Event/List.aspx">KBO 공식 영상</a></li>
-											    <li><a href="/KboTv/VeteranInterview/List.aspx">야구 원로 인터뷰</a></li>
-										    </ul>
-									    </div>	
-									    <div class="lnb-all kbo03">
-										    <h4>게시판</h4>
-										    <ul>
-											    <li><a href="/Board/Notice/List.aspx">NOTICE</a></li>
-											    <li><a href="/Board/Faqs/List.aspx">자주하는질문</a></li>
-											    
-											    
-											    
-												
-												<li><a href="/Board/UnivMarketer/VideoList.aspx">대학생 마케터</a></li>
-										    </ul>
-									    </div>	
-									    <div class="lnb-all kbo04">
-										    <h4>자료실</h4>
-										    <ul>
-											    <li><a href="/Reference/Etc/Amazing.aspx">진기록 명기록</a></li>
-				                                <li><a href="/Reference/Ebook/EbookPublication.aspx">E-BOOK</a></li>
-				                                <li><a href="/Reference/OnlineLecture/List.aspx">초급자용 사이버야구교실</a></li>
-				                                <li><a href="/Reference/Etc/GameRule.aspx">경기규칙</a></li>
-										    </ul>
-									    </div>	
-									    <div class="lnb-all kbo05">
-										    <h4>ABOUT KBO</h4>
-										    <ul>
-											    <li><a href="/About/Etc/TeamInfo.aspx">구단 소개</a></li>
-											    <li><a href="/About/Group/Activity.aspx">조직 및 활동</a></li>
-                                                <li><a href="/Event/Etc/OfficialChannel.aspx">KBO 공식 채널</a></li>
-											    <li><a href="/About/Etc/KboCi.aspx">KBO CI / 캐치프레이즈</a></li>
-											    <li><a href="/About/Etc/Map.aspx">약도 / 관람료</a></li>
-											    <li><a href="/About/Committee/OrganizationChart.aspx">기록위원회</a></li>
-                                                <li><a href="http://www.cleankbo.com/" target="_blank">클린베이스볼센터</a></li>
-										    </ul>
-									    </div>	
-									    <div class="lnb-all kbo06">
-										    <h4>주요 사업/행사</h4>
-										    <ul>
-											    <li><a href="/Event/Etc/TimeLine.aspx">KBO 타임라인</a></li>
-                                                <li><a href="/Event/RecordClass/Professional.aspx">기록강습회</a></li>
-											    <li><a href="/Event/WinterMeeting/WinterMeeting2019.aspx">KBO 윈터미팅</a></li> <!-- 20180417 KBO 요청 임시삭제 -->
-											    <li><a href="/Event/Etc/SafeGuide.aspx">KBO 경기장 안전정책</a></li>                                                
-											    <li><a href="/Event/Contribution/Service2018.aspx">KBO 사회공헌 사업</a></li>
-												<li><a href="/Event/DreamSave/2018/List.aspx">Dream Save</a></li>
-                                                <li><a href="/Event/Etc/SummerFest.aspx" style="font-size:12px;">야구의 날 10주년 기념<br /><span style="letter-spacing:-0.05em;">「KBO SUMMER FEST」</span></a></li>
-                                                <li><a href="/About/Etc/BTogether119.aspx">B TOGETHER 119</a></li>
-										    </ul>
-									    </div>
-								    </div>
-								    
-							    </div>
-						    </li>
-							<li class="futures">
-							    <a href="/Futures/Main.aspx">퓨처스리그</a>
-							    				
-						    </li>
-							<li id="market" class="market"><a href="https://www.kbomarket.com/" target="_blank">KBO 마켓</a></li>
-						    <li id="lnbAll">
-							    <a href="javascript:;">전체 메뉴</a>
-							    <div class="lnb-sub lnb-style-all">
-								    <div class="wrapping lnb-all-wrap">
-									    <div class="line line01">
-										    <h3>전체 메뉴</h3>
-										    <div class="lnb-all menu01">
-											    <h4>일정/결과</h4>
-											    <ul>
-												    <li><a href="/Schedule/GameCenter/Main.aspx">게임센터</a></li>
-									                <li><a href="/Schedule/ScoreBoard.aspx">스코어보드</a></li>
-									                
-                                                    <li><a href="/Schedule/Schedule.aspx">경기일정/결과</a></li>
-                                                    
-									                <li><a href="/Schedule/Calendar.aspx">월별일정/결과</a></li>
-									                <li><a href="/Schedule/International/Etc/Premier2019.aspx">국제대회</a></li>
-                                                    <li><a href="/Schedule/Allstar/Game/Main2019.aspx">올스타전</a></li>
-											    </ul>
-										    </div>
-										    <div class="lnb-all menu02">
-											    <h4>순위</h4>
-											    <ul>
-												    <li><a href="/TeamRank/TeamRank.aspx">팀순위</a></li>
-			                                        <li><a href="/TeamRank/GraphDaily.aspx">팀별 순위변동 그래프</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu03">
-											    <h4>기록</h4>
-											    <ul>
-												    <li><a href="/Record/Main.aspx">TOP5</a></li>
-													<li><a href="/Record/Ranking/Week.aspx">주간/월간 랭킹</a></li>
-									                <li><a href="/Record/Player/HitterBasic/Basic1.aspx">기록실</a></li>
-									                <li><a href="/Record/Etc/HitVsPit.aspx">투수 vs 타자</a></li>
-									                <li><a href="/Record/History/Top/Hitter.aspx">역대기록실</a></li>
-                                                    <li class="menu0305"><a href="/Record/Expectation/WeekList.aspx">주간/일간 예상 달성기록</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu04">
-											    <h4>선수</h4>
-											    <ul>
-												    <li><a href="/Player/Search.aspx">선수조회</a></li>
-									                <li><a href="/Player/Register.aspx">선수등록현황</a></li>
-									                <li><a href="/Player/RegisterAll.aspx">전체등록현황</a></li>
-									                <li><a href="/Player/CareerCertificate.aspx">경력증명서 신청</a></li>
-													<li><a href="/Player/Trade.aspx">선수이동현황</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu05">
-											    <h4>퓨처스리그</h4>
-											    <ul>
-												    <li><a href="/Futures/Schedule/GameList.aspx">경기일정/결과</a></li>
-												    <li><a href="/Futures/TeamRank/North.aspx">팀순위</a></li>
-												    <li><a href="/Futures/Top/Main.aspx">TOP5</a></li>
-												    <li><a href="/Futures/Player/Hitter.aspx">기록실</a></li>
-												    <li><a href="/Futures/InfoGraphic/List.aspx">인포그래픽</a></li>
-                                                    <li><a href="/Futures/CardNews/List.aspx?bdSc=18">퓨처스샷</a></li>
-                                                    <li><a href="/Futures/CardNews/List.aspx?bdSc=19">퓨처스타그램</a></li>
-												    <li><a href="/Futures/Webtoon/List.aspx">웹툰</a></li>
-												    <li><a href="/Futures/GameSketch/List.aspx">경기스케치</a></li>															
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu06">
-											    <h4>NEWS</h4>
-											    <ul>
-												    <li><a href="/News/BreakingNews/List.aspx">NEWS</a></li>
-										            <li><a href="/News/Notice/List.aspx">KBO 보도자료</a></li>
-                                                    <li><a href="/Futures/KBot/List.aspx">케이봇(KBOT) 기사</a></li>
-                                                    <li><a href="/News/CardNews/List.aspx">KBO 카드뉴스</a></li>
-										            
-											    </ul>
-										    </div>
-									    </div>
-									    <div class="line line02">
-										    <h3>KBO</h3>
-										    <div class="lnb-all menu07">
-											    <h4>HISTORY</h4>
-											    <ul>
-                                                    <li><a href="/History/Crowd/GraphTeam.aspx">관중현황</a></li>
-											        <li><a href="/History/Etc/PlayerPrize.aspx">역대 개인수상</a></li>
-											        <li><a href="/History/Etc/GoldenGlove.aspx">역대 골든글러브</a></li>
-											        <li><a href="/History/Etc/GameManage.aspx">경기운영제도</a></li>
-											        <li><a href="/History/Etc/TeamHistory.aspx">각 구단 변천사</a></li>
-											    </ul>
-										    </div>
-										    <div class="lnb-all menu08">
-											    <h4>KBO TV</h4>
-											    <ul>
-												    <li><a href="/KboTv/Highlight/List.aspx">하이라이트</a></li>
-											        <li><a href="/KboTv/MonthMvp/List.aspx">월간MVP</a></li>
-											        <li><a href="/KboTv/Legend/List.aspx">레전드 올스타 동영상</a></li>
-											        <li><a href="/KboTv/Event/List.aspx">KBO 공식 영상</a></li>
-											        <li><a href="/KboTv/VeteranInterview/List.aspx">야구 원로 인터뷰</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu09">
-											    <h4>게시판</h4>
-											    <ul>
-												    <li><a href="/Board/Notice/List.aspx">NOTICE</a></li>
-											        <li><a href="/Board/Faqs/List.aspx">자주하는질문</a></li>
-											       
-											        
-											        
-													
-													<li><a href="/Board/UnivMarketer/VideoList.aspx">대학생 마케터</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu10 ">
-											    <h4>자료실</h4>
-											    <ul>
-												    <li><a href="/Reference/Etc/Amazing.aspx">진기록 명기록</a></li>
-				                                    <li><a href="/Reference/Ebook/EbookPublication.aspx">E-BOOK</a></li>
-				                                    <li><a href="/Reference/OnlineLecture/List.aspx">초급자용 사이버야구교실</a></li>
-				                                    <li><a href="/Reference/Etc/GameRule.aspx">경기규칙</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu11">
-											    <h4>ABOUT KBO</h4>
-											    <ul>
-												    <li><a href="/About/Etc/TeamInfo.aspx">구단 소개</a></li>
-											        <li><a href="/About/Group/Activity.aspx">조직 및 활동</a></li>
-                                                    <li><a href="/Event/Etc/OfficialChannel.aspx">KBO 공식 채널</a></li>
-											        <li><a href="/About/Etc/KboCi.aspx">KBO CI / 캐치프레이즈</a></li>
-											        <li><a href="/About/Etc/Map.aspx">약도 / 관람료</a></li>
-											        <li><a href="/About/Committee/OrganizationChart.aspx">기록위원회</a></li>
-                                                    <li><a href="http://www.cleankbo.com/" target="_blank">클린베이스볼센터</a></li>
-											    </ul>
-										    </div>	
-										    <div class="lnb-all menu12">
-											    <h4>주요 사업/행사</h4>
-											    <ul>
-												    <li><a href="/Event/Etc/TimeLine.aspx">KBO 타임라인</a></li>
-                                                    <li><a href="/Event/RecordClass/Professional.aspx">기록강습회</a></li>
-											         <li><a href="/Event/WinterMeeting/WinterMeeting2019.aspx">KBO 윈터미팅</a></li>  <!-- 20180417 KBO 요청 임시삭제 -->
-											        <li><a href="/Event/Etc/SafeGuide.aspx">KBO 경기장 안전정책</a></li>                                                    
-											        <li><a href="/Event/Contribution/Service2018.aspx">KBO 사회공헌 사업</a></li>
-													<li><a href="/Event/DreamSave/2018/List.aspx">Dream Save</a></li>
-                                                    <li><a href="/Event/Etc/SummerFest.aspx" style="font-size:12px;">야구의 날 10주년 기념<br /><span style="letter-spacing:-0.05em;">「KBO SUMMER FEST」</span></a></li>
-                                                    <li><a href="/About/Etc/BTogether119.aspx">B TOGETHER 119</a></li>
-											    </ul>
-										    </div>
-									    </div>
-								    </div>
-								    <div class="btn-close">
-									    <a href="javascript:;">
-										    <img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/btn_close_fff.png" alt="" />
-										    <span>닫기</span>
-									    </a>									
-								    </div>
-							    </div>
-						    </li>
-					    </ul>
-				    </nav>
-			    </div>
-		    </header>
-		    <!-- // header -->
-		    <hr />
-		    <!-- container -->
 		    
+		    <header><c:import url="../common/header.jsp"/>
+</header>
+		    <!-- // header -->
+		    <!-- container -->
     
 <section id="container">
+
 	<div class="wrapping container-wrap">			
-		<aside>
-			<h3>자료실</h3>
-			<ul id="snb">
-				<li><a href="/Reference/Etc/Amazing.aspx" id="lnb01">진기록 명기록</a></li>
-				<li><a href="/Reference/Ebook/EbookPublication.aspx" id="lnb02">E-BOOK</a></li>
-				<li><a href="/Reference/OnlineLecture/List.aspx" id="lnb03">초급자용 사이버야구교실</a></li>
-				<li><a href="/Reference/Etc/GameRule.aspx" id="lnb04">경기규칙</a></li>
-			</ul>
-			
-		</aside>
+	
+		
 		
 <div id="contents" class="content01"> 
-    <!--sub title & location -->
-	<div class="location">
-		<span class="home"><a href="/Default.aspx"><img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/ico_home.gif" alt="홈으로" /></a></span> &gt;
-		<span class="depth1"><a href="/Reference/Etc/Amazing.aspx">자료실</a></span> &gt;
-		<span class="depth2">진기록 명기록</span>
-	</div>
-	<h4 class="tit-page">진기록 명기록</h4>
-	<!-- // sub title & location -->
-
+<br /><br /><br /><br /><br />
     <div class="sub-content">
 		<div class="aboutRule">
 			<h4><img src="//crdfcowjurxm984864.cdn.ntruss.com/client/images/history/img_title_amazing.png" alt="진기록 명경기" /></h4>
@@ -427,53 +183,13 @@
 
 	</div>
 </section>
-
-
 		    <!-- // container -->	
-		    <hr />
 		    <!-- footer -->
-		    <footer>
-			    <div id="fnb">
-				    <div class="wrapping fnb-wrap">
-					    <ul class="fnb-list">
-						    <li class="privacy"><a href="/Etc/Privacy.aspx">개인정보 처리방침</a></li>
-						    <li><a href="/Schedule/ScoreBoard.aspx">문자중계</a></li>
-						    <li><a href="/Board/Faqs/List.aspx">고객질문</a></li>
-						    <li><a href="/Etc/SiteMap.aspx">사이트맵</a></li>
-						    
-					    </ul>
-					    <div class="btn-kbo"><a href="/About/Etc/TeamInfo.aspx">KBO 리그 구단소개</a></div>
-				    </div>
-			    </div>
-			    <div id="kboInfo" class="wrapping">
-				    <h2><a href="/Etc/PressRelease.aspx"><img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/common/h2_logo.png" alt="KBO" /></a></h2>
-				    <address class="kbo-info">
-					    <div class="address01">
-						    <p>(사)한국야구위원회</p>
-							<p>02) 3460-4600</p>
-							<p>서울시 강남구 강남대로 278</p>					
-					    </div>
-					    
-				    </address>
-				    <div class="copyright">
-					    <span>본 사이트는 스포츠투아이㈜가 KBO 리그 팬을 위해 운영하는 KBO 공식 사이트입니다. </span><br />
-					    <span>Copyrightⓒ KBO, All Rights Reserved.</span>
-				    </div>
-					<div class="certification">
-						<img src="//crdfcowjurxm984864.cdn.ntruss.com/resources/images/main/img_certification.png" alt="w3c xhtml 3.0, Verisign" />
-					</div>
-			    </div>
-		    </footer>
+		    <c:import url="../common/footer.jsp"/>
 		    <!-- // footer -->
 	    </div>
 	    <!-- // wrap -->
     </form>
-    
-    
-
-    
-    
-    
 <script type="text/javascript">
     <!--
     currentLnb("01");
