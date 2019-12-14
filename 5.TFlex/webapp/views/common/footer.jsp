@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%-- <c:set var="chatTime" value= "<%= new java.util.Date() %>"/> --%>
 <c:if test="${ !empty member }">
 <footer >
   <!-- 쫓아오는 푸터 -->
@@ -30,9 +31,12 @@
 					  <div id="chatbox">
 							<fieldset style="display: inline-block; width: 65%;">
 								<div id="messageWindow"></div><br />
-								<textarea placeholder="Write your message here..." id="inputText" style="width:70%; resize: none;" onkeyup="enterKey();"></textarea>
-								<i class="far fa-paper-plane fa-2x" id="sendBtn"></i>
 							</fieldset>
+							<fieldset style="display: inline-block; width: 30%;">
+								<div id="userWindow" ></div><br>
+							</fieldset>
+							<textarea placeholder="Write your message here..." id="inputText" style="width:70%; resize: none;" onkeyup="enterKey();"></textarea>
+							<i class="far fa-paper-plane fa-2x" id="sendBtn"></i>
 					  </div>
 				  </div>
 				</div>
@@ -114,7 +118,7 @@
 		
 		if(!conChk){
 			
-			webSocket = new WebSocket('ws://192.168.20.159:8088${pageContext.request.contextPath}/broadcast');			
+			webSocket = new WebSocket('ws://172.16.100.73:8088${pageContext.request.contextPath}/broadcast');			
 			
 		// 웹 소켓 연결이 이루어 질때 동작할 함수
 			webSocket.onopen = function(event){
@@ -125,6 +129,8 @@
 			}
 			conChk = true;
 		}
+		
+		connection();
 
 	});
 	
@@ -161,6 +167,7 @@
 			webSocket.onclose = function(event){
 				// onClose(event);
 				delUserList();
+				conChk = false;
 			}
 		}
 		// 서버로 메시지를 전달하는 함수
@@ -175,10 +182,11 @@
 				// 메시지가 입력되었을 때
 				$textarea.html(
 						$textarea.html()
-					  + "<p class='chat_content'>나 : "
+					  + "<span class='chat_time'>" + new Date().toLocaleTimeString() + "</span><br>"
+					  +"<p class='chat_content'>나 : "
 					  + changeBr + "</p><br>");
 				
-				webSocket.send($('#chat_id').val() + "|" + $inputMessage.val());
+				webSocket.send(uName + "|" + $inputMessage.val());
 				
 				$inputMessage.val('');
 			}
@@ -205,6 +213,7 @@
 				
 				$textarea.html(
 					$textarea.html()
+				  + "<span class='chat_recieve_time'>" + new Date().toLocaleTimeString() + "</span><br>"
 				  + "<p class='chat_content other-side' >"
 				  + sender + ":" + content + "</p><br>");
 				
@@ -219,19 +228,15 @@
 		function onClose(event){
 			alert(event);
 		}
-		$('#startBtn').on('click', function(){
-			$('#chatbox').css('display','block');
-			$(this).css('display', "none");
-			connection();
-		});
 		
-		$('#endBtn').on('click', function(){
-			$('#chatbox').css('display', 'none');
-			$('#startBtn').css('display', 'inline');
-			
-			webSocket.send($('#chat_id').val() + "| 님께서 퇴장 하셨습니다 ");
+		$('#logoutBtn_btn').on('click', function(){
+			webSocket.send(uName + "| 님께서 퇴장 하셨습니다 ");
 			webSocket.close();
 		});
+		
+		$('#sendBtn').on('click', function(){
+			send();
+		})
 		
 		// 새로운 사용자가 접속할 경우 사용자 명단에
 		// 새로운 사용자 아이디 추가하기
@@ -239,7 +244,7 @@
 		function getUserList(){
 			$.ajax({
 				url : "${pageContext.request.contextPath}/bcUserList.do",
-				data : {chat_id : $('#chat_id').val()},
+				data : {chat_id : uName},
 				type : "POST",
 				success : function(data){
 					$userList = $('#userWindow');
@@ -263,7 +268,7 @@
 		function delUserList(){
 			$.ajax({
 				url : "${pageContext.request.contextPath}/bcDelUser.do",
-				data : {chat_id : $('#chat_id').val()},
+				data : {chat_id : uName},
 				type : "POST",
 				success : function(data){
 					$userList = $('#userWindow');

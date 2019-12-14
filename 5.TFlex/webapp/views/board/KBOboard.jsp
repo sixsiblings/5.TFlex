@@ -35,7 +35,7 @@
     <div align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/KBO.jpg');">
     </div>
-	</div>
+   </div>
       <br /><br />
    
 <div class="tableArea" align="center">
@@ -171,6 +171,6 @@
 
 
    <c:import url="../common/footer.jsp"/>
-   
+   <c:import url="../common/loginUtil.jsp"/>
 </body>
 </html>

@@ -14,7 +14,7 @@
 
 <body>
   
-<c:import url="../common/joinHeader.jsp"/>
+<c:import url="../common/miniHeader.jsp" />
 
 
 <!-- Material form register -->
