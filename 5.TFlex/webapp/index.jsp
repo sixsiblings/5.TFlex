@@ -99,11 +99,13 @@ th, td {
     BORDER-BOTTOM: gray 1px dashed; 
 
   }
-  
-	#loginBtn_btn:hover, #csBtn:hover, #myPageBtn:hover, #logoutBtn_btn:hover {
+/*  --------------------------------------  백혜영꺼 없어지면안된다  ------------------------------------ */
+	#bhy, #logBtn:hover, #bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
 		color : white;
 	}
-  
+	
+	
+/* ---------------------------------------------------------------------------------------------------- */
 hr{
 	position:relative;
 	 left: 380px;

@@ -51,7 +51,7 @@
             <div class="modal-footer d-flex justify-content-center">
             
             <button type="submit" class="btn btn-outline-info"  id="loginBtn_btn" onclick="login();" 
-            		style=" margin-bottom:20px; font-size:30px; width:160px;">
+            		style=" margin-bottom:20px; font-size:25px; width:140px;">
 					<strong>Login</strong>
 				</button>
             </div>            
@@ -61,29 +61,33 @@
 </form>
 
 		<script>
-
+			/* 로그인하기*/
 			function login(){
 				$('#loginPop').submit();
 			}
 
+			/* 회원가입하기 */
 			function memberJoin(){
 				location.href = "${pageContext.request.contextPath}/views/member/memberJoinForm.jsp";
 			} 
 			
-			
+			/*  로그아웃하기 */
 			function logout(){
 				location.href = "${pageContext.request.contextPath}/logout.me";
-			}
+			} 
+
 			
-			
- 			$('#myPageBtn').click(function(){
+			/*  마이페이지로 이동하기  */
+ 			$('#bhy-myPageBtn').click(function(){
  				location.href = "${pageContext.request.contextPath}/views/member/memberMyPage.jsp";
  			});
-			
-			
-			function changeInfo(){
-				location.href = "${pageContext.request.contextPath}/views/member/memberUpdateForm.jsp";
-			}
+ 			
+			/*  고객센터로 이동하기  */ 			
+ 			$('#bhy-csBtn').click(function(){
+ 				location.href = "${pageContext.request.contextPath}/views/csMain/csMain.jsp";
+ 			}); 			
+ 			
+		
 		</script>
 		
 		

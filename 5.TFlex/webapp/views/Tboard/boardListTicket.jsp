@@ -140,5 +140,6 @@
 	<br>
 	<br>
 	<c:import url="../common/footer.jsp" />
+	<c:import url="../common/loginUtil.jsp"/>   	
 </body>
 </html>
