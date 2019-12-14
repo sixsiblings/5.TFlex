@@ -13,7 +13,7 @@
     Paper Dashboard 2 by Creative Tim
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <c:import url="views/common/myPageUtil.jsp"/>
+  <c:import url="../common/myPageUtil.jsp"/>
 </head>
 
 <body class="">
@@ -28,7 +28,7 @@
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="index.jsp" class="simple-text logo-normal">
+        <a href="../../index.jsp" class="simple-text logo-normal">
           	Go to Main Page
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
