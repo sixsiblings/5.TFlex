@@ -38,25 +38,10 @@
 <link href="${ pageContext.request.contextPath }/resources/css/navbar.css" rel="stylesheet">
 <link href="${ pageContext.request.contextPath }/resources/css/solid.min.css" rel="stylesheet">
 
-
-
-<%-- -<link href="${ pageContext.request.contextPath }/resources/scss/_call-to-action.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_footer.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_global.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_icons.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_masthead.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_mixins.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_showcase.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_testimonials.scss" rel="stylesheet">
-<link href="${ pageContext.request.contextPath }/resources/scss/_variables.scss" rel="stylesheet"> --%>
-<%-- <link href="${ pageContext.request.contextPath }/resources/scss/landing-page.scss" rel="stylesheet"> 
- --%>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
 <link href="${ pageContext.request.contextPath }/resources/css/bootstrap-3.4.1/bootstrap-theme.min.css" rel="stylesheet">
 <link href="${ pageContext.request.contextPath }/resources/css/bootstrap-3.4.1/bootstrap.min.css" rel="stylesheet">
-
 
  
 

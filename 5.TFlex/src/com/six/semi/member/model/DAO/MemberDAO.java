@@ -36,19 +36,14 @@ public class MemberDAO {
 		try {
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setInt(1, m.getuNo());
-			pstmt.setString(2, m.getUserId());
-			pstmt.setString(3, m.getnName());
-			pstmt.setString(4, m.getUserPwd());
-			pstmt.setString(5, m.getUserName());
-			pstmt.setString(6, m.getBirthNo());
-			pstmt.setString(7, m.getEmail());
-			pstmt.setInt(8, m.getiNo());
-			pstmt.setString(9, m.getrPerson());
-			pstmt.setString(10, m.getSignal());
-			pstmt.setInt(11, m.getdCount());
-			pstmt.setString(12, m.getuGrade());
-			pstmt.setString(13, m.getuStatus());
+			pstmt.setString(1, m.getUserId());
+			pstmt.setString(2, m.getnName());
+			pstmt.setString(3, m.getUserPwd());
+			pstmt.setString(4, m.getUserName());
+			pstmt.setString(5, m.getBirthNo());
+			pstmt.setString(6, m.getEmail());
+			pstmt.setInt(7,m.getiNo());
+			pstmt.setString(8, m.getrPerson());
 					
 			result = pstmt.executeUpdate();
 
@@ -83,7 +78,8 @@ public class MemberDAO {
 
 				result.setUserId(m.getUserId());
 				result.setUserPwd(m.getUserPwd());
-
+				
+				result.setuNo(rset.getInt(1));
 				result.setnName(rset.getString(3)); 
 				result.setUserName(rset.getString(5));
 				result.setBirthNo(rset.getString(6));
@@ -91,6 +87,9 @@ public class MemberDAO {
 				result.setiNo(rset.getInt(9));
 				result.setrPerson(rset.getString(10));
 				result.setSignal(rset.getString(11));
+				result.setdCount(rset.getInt(12));
+				result.setuGrade(rset.getString(13));
+				result.setuStatus(rset.getString(14));
 				
 				
 				/*

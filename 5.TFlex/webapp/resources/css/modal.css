@@ -100,6 +100,7 @@
 /* chat Box Css */
 
 #messageWindow {
+	font-size: small;
     height:500px;
     overflow:auto;
     border-style: solid;
@@ -118,13 +119,82 @@
     color: blue;
 }
 
+#userWindow {
+	font-size: small;
+	text-align: center;
+	color: green;
+	border-style: solid;
+    border-color: #e0fee0;
+    height:500px;
+    overflow:auto;
+    border-top-right-radius : 10px;
+    border-top-left-radius : 10px;
+    border-bottom-right-radius : 10px;
+    border-bottom-left-radius : 10px;
+	/* background: #e0fee0; */
+ }
+ 
+ .chat_content{
+    background: rgba(255, 255, 102, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    float: right;
+    clear: both;
+ }
+ 
+ .chat_content:after{
+   content: '';
+   position: absolute;
+   right: 0;
+   top: 50%;
+   width: 0;
+   height: 0;
+   border: 20px solid transparent;
+   border-left-color: rgba(255, 255, 102, 0.5);
+   border-right: 0;
+   border-top: 0;
+   margin-top: -3.5px;
+   margin-right: -10px;
+ }
 
-
-
-
-
-
-
+ .other-side {
+    background: green;
+    float:left;
+    clear:both;
+ }
+ 
+ .other-side:after{
+    content: '';
+   position: absolute;
+   left: 0;
+   top: 50%;
+   width: 0;
+   height: 0;
+   border: 20px solid transparent;
+   border-right-color: green;
+   border-left: 0;
+   border-top: 0;
+   margin-top: -3.5px;
+   margin-left: -10px;
+ }
+ 
+ .chat_time{
+ 	font-size: xx-small;
+    display: inline-block;
+    position: relative;
+    float: right;
+    clear: both;
+ }
+ .chat_recieve_time{
+ 	font-size: xx-small;
+    display: inline-block;
+    position: relative;
+    float: left;
+    clear: both;
+ }
 
 
 

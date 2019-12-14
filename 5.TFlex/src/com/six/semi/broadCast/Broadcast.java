@@ -1,5 +1,6 @@
 package com.six.semi.broadCast;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/broadcast")
 public class Broadcast {
+	
 	private static Set<Session> clients
 		= Collections.synchronizedSet(new HashSet<>());
 	
@@ -32,12 +34,25 @@ public class Broadcast {
 		
 		// 기존 사용자 목록에 새로 추가해준다.
 		clients.add(session);
+		
 	}
 	
 	// 서버로 데이터 요청이 왔을 때
 	@OnMessage
 	public void onMessage(String msg, Session session) throws IOException {
 		System.out.println(msg);
+		
+		// FileWriter
+		try(FileWriter fw = new FileWriter("ChatLog.txt", true)){
+			
+			fw.write(msg);
+			fw.write("\n"); // 한줄 띄어쓰기용
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
 		
 		// 사용자가 내용을 전송하는 동안
 		// 다른 사용자가 중간에 나가버리거나 

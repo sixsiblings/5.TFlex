@@ -73,7 +73,7 @@
 </form>
 		</c:if><c:if test="${ !empty member }">
 		<div id="userInfo">
-			<label>${ member.userName }님! 반가워요~!^0^.</label>
+			<label>${ member.nName }님! 반가워요~!^0^.</label>
 			<div class="btnss" align="right" style="display:inline-block">
 			
 				<button type="button" class="btn btn-outline-success"  id="csBtn" onclick="customerService();"
