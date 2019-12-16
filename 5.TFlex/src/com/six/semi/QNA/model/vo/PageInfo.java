@@ -1,4 +1,4 @@
-package com.kh.jsp.board.model.vo;
+package com.six.semi.QNA.model.vo;
 
 import java.io.Serializable;
 

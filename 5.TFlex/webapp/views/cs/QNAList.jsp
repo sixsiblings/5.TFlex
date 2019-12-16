@@ -126,46 +126,68 @@
 				상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. </i>
                 	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;
                 	
-	<c:if test="${ !empty member }">
-		<button type="button" onclick="location.href='QNAInsertForm.jsp';" 
-			class="btn btn-outline-primary btn-rounded btn-sm pull-right">문의글쓰기</button>
-	</c:if>                	
 
-		</div>
-	</div><br />	
+<!-- 		<button type="button" onclick="location.href='QNAInsertForm.jsp';" 
+			class="btn btn-outline-warning btn-rounded btn-sm pull-right">문의하기</button> -->			
+                	
+</div>
+</div>
+<br />	
 <!--  중간 카드 영역 끝 -->	
           
 <!-- 본문 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">
-	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                  
+<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">   
 
+<c:if test="${ !empty member }">
+	<a href="QNAInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">문의하기</a>
+</c:if>             
+	
 <table id="tablePreview" class="table table-hover">				  
 		<thead  id="bhy-table-header">
 			<tr>
 				<th scope="col-md-2">#</th>
 				<th scope="col-md-8">제목</th>
-				<th scope="col-md-2">작성자</th>
+				<th scope="col-md-2">답변 여부</th>
 			</tr>
 		</thead>
 		<tbody id="bhy-table">
 			<tr>
 				<th scope="row">1</th>
 				<td>나의 문의 내용</td>
-				<td>유저</td>
+				<td>N</td>
 			</tr>
 			<tr>
 				<th scope="row">2</th>
 				<td>나의 문의 내용</td>
-				<td>유저</td>
+				<td>N</td>
 			</tr>
 			</tbody>
-		</table>
+		</table>		
+	<!-- 페이징 처리 영역 -->
+<!-- 			<nav aria-label="Page navigation example" >
+ -->			  <ul class="pagination" >
+			    	<li class="page-item">
+			      		<a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+	<!-- 		</nav>	 -->
 	</div>
 </div>
 
 <!-- 본문내용 끝  -->
-		<%-- 페이지 처리 구현하기 --%>
-		<div class="pagingArea" align="center">
+		<%-- 페이지 처리 구현하기 --%>		
+<%-- 		<div class="pagingArea" align="center">
 			<c:url var="selectList" value="selectList.qna"/>
 			
 			<!-- 처음 페이지 버튼 -->
@@ -181,10 +203,10 @@
 				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage - 1}'">
 					&lt;
 				</button>
-			</c:if>
+			</c:if> --%>
 			
 			<!-- 상세 페이지 구현을 위한 반복문 -->
-			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
+<%-- 			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
 				<c:if test="${p eq pi.currentPage }">
 					<button disabled>
 						<b>${p}</b>
@@ -196,9 +218,9 @@
 					</button>
 				</c:if>
 			</c:forEach>
+			 --%>
 			
-			
-			<!-- 다음 페이지 버튼 -->
+<%-- 			<!-- 다음 페이지 버튼 -->
 			<c:if test="${ pi.currentPage ge pi.maxPage }">
 				<button disabled>&gt;</button>
 			</c:if>
@@ -212,7 +234,7 @@
 			<button onclick="location.href='${selectList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
-		</div>
+		</div> --%>
 	
 		<script>
 		$(function(){

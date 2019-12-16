@@ -2,6 +2,7 @@ package com.six.semi.member.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,7 @@ public class MemberDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService ms = new MemberService();
 		HttpSession session = request.getSession(false);
+		ServletContext context = request.getServletContext();
 		
 		Member m = (Member)session.getAttribute("member");
 		
@@ -42,6 +44,7 @@ public class MemberDeleteServlet extends HttpServlet {
 			System.out.println("회원 탈퇴 완료! : "+m);
 			
 			session.invalidate();
+			context.setAttribute(m.getUserId() , null);
 			
 			response.sendRedirect("index.jsp");
 		} else {

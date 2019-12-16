@@ -34,6 +34,7 @@ public class NoticeDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	// 게시글 등록
 	public int insertNotice(Connection con, Notice nt) {
 		int result = 0;
@@ -45,22 +46,18 @@ public class NoticeDAO {
 			
 			pstmt = con.prepareStatement(sql);
 			
-
 			pstmt.setString(1, nt.getNtTitle());
-			pstmt.setString(2, nt.getNtContent());
-			pstmt.setInt(3, nt.getNtFile());
-			pstmt.set
-			
-			
+			pstmt.setString(3, nt.getNtContent());
+			pstmt.setString(2, nt.getGm());
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			
+			System.out.println("dao성공");
+			close(pstmt);
 		}
+		return result;
 	}
-	
-
 }
 
 

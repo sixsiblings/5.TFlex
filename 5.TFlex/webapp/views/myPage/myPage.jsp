@@ -91,6 +91,7 @@
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">회원 정보 수정</h5>
+                <a href="../TradeBoard/tradeBoard.jsp">거래 현황</a>
               </div>
               <div class="card-body">
                 <form>
@@ -106,8 +107,8 @@
                     </div>
                     </form>
                 <form>
-                  <div class="left">
-                    <div class="col-md-3 pr-1">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호</label>
                         <input type="password" class="form-control" placeholder="password" value="password" >
@@ -117,8 +118,8 @@
 				<div class="card-body"></div>
 				</form>
                 <form>
-                  <div class="right">
-                    <div class="col-md-3 pr-1">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호 확인</label>
                         <input type="password" class="form-control" placeholder="password" value="password" >
