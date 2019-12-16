@@ -31,22 +31,7 @@ public class InsertQNAServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		// 데이터 전달용 Board 객체 만들기
-		QNA q = new QNA();
 		
-		int result = new QNAService().insertQNA(q);
-		
-		if( result > 0) {
-			
-			response.sendRedirect("selectList.qna");
-			
-		} else {
-			
-			request.setAttribute("msg", "게시글 작성 실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp")
-			       .forward(request, response);
-			
-		}
 	}
 	
 

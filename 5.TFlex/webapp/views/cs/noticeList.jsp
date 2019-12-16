@@ -121,9 +121,13 @@
 
 		<!-- 본문 테이블 영역 -->
 			<div class="col-md-8" style="margin: auto;">
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                			  
-			<a href="noticeInsertForm.jsp" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</a>
-				
+			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; "> 
+			     
+			     <!-- 관리자에게만 글쓰기 버튼 보이게하기 -->
+					<%-- <c:if test="${ gm == '관리자' }">	 --%>                			  
+				<a href="noticeInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">글쓰기</a>
+				<%-- 	</c:if> --%>     
+					
 				<table id="tablePreview" class="table table-hover">				  
 				  <thead  id="bhy-table-header">
 				    <tr>

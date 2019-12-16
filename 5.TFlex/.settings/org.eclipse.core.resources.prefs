@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/mappers/Notice.properties=UTF-8
+encoding//src/mappers/ONA.properties=UTF-8
 encoding//src/mappers/board.properties=UTF-8
 encoding//src/mappers/comment.properties=UTF-8
