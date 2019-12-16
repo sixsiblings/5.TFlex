@@ -86,9 +86,5 @@ public class Notice implements Serializable {
 		this.gm = gm;
 	}
 
-	
-	
-	
-	
 
 }

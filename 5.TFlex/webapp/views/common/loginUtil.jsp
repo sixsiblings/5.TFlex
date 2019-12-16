@@ -84,7 +84,7 @@
  			
 			/*  고객센터로 이동하기  */ 			
  			$('#bhy-csBtn').click(function(){
- 				location.href = "${pageContext.request.contextPath}/views/csMain/csMain.jsp";
+ 				location.href = "${pageContext.request.contextPath}/views/cs/csMain.jsp";
  			}); 			
  			
 		
