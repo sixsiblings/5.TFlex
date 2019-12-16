@@ -103,12 +103,14 @@ th, td {
     BORDER-BOTTOM: gray 1px dashed; 
 
   }
-/*  --------------------------------------  백혜영꺼 없어지면안된다  ------------------------------------ */
-   #bhy, #logBtn:hover, #bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
-      color : white;
-   }
-   
-/* ---------------------------------------------------------------------------------------------------- */
+/* 백혜영꺼 지우지마세요 제발 */
+#bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
+   color : white;
+}
+
+#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn{
+   color : white;
+}
 hr{
    position:relative;
     left: 380px;

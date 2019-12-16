@@ -16,7 +16,6 @@
   <c:import url="../common/myPageUtil.jsp"/>
 </head>
 
-
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="blue" data-active-color="danger">
@@ -27,7 +26,6 @@
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
-            
             </div>
             </a>
           </div>
@@ -109,8 +107,8 @@
                     </div>
                     </form>
                 <form>
-                  <div class="left">
-                    <div class="col-md-3 pr-1">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호</label>
                         <input type="password" class="form-control" placeholder="password" value="password" >
@@ -120,8 +118,8 @@
 				<div class="card-body"></div>
 				</form>
                 <form>
-                  <div class="right">
-                    <div class="col-md-3 pr-1">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호 확인</label>
                         <input type="password" class="form-control" placeholder="password" value="password" >
