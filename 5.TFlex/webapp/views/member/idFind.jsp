@@ -113,6 +113,51 @@
           </div>
         </div>
       </div>
+      <div class="content" id="PWD_Find" style="display: hidden;">
+	        <div class="row">
+	          <div class="col-md-6" style="margin: auto;">
+	            <div class="col-md-12">
+	            <div class="card card-user">
+	              <div class="card-header">
+	                <h5 class="card-title">PWD 찾기</h5>
+	              </div>
+	              <div class="card-body">
+	                <form>
+	                 <div class="row" style="margin: auto;">
+	                    <div class="col-md-5 pr-1">
+	                      <div class="form-group">
+	                        <label>회원가입시 입력한 이메일</label>
+	                        <input type="text" id="checkEmail" class="form-control" placeholder="example@email.com">
+	                      </div>
+	                    </div>
+	                    <div class="col-md-3 px-1">
+	                      <div class="form-group">
+	                      	<button type="button" id="checkEmailBtn" class="btn btn-success" style="font-size:8px; margin-right:10px; margin-top: 25px;">
+								인증 번호 발송
+							</button>
+	                      </div>
+	                    </div>
+	                    <div class="col-md-5 pr-1">
+	                      <div class="form-group">
+	                        <label>인증번호 입력</label>
+	                        <input type="text" id="checkNumber" class="form-control" placeholder="인증번호 입력">
+	                      </div>
+	                    </div>
+	                    <div class="col-md-3 px-1">
+	                      <div class="form-group">
+	                      	<button type="button" id="checkNumberBtn" class="btn btn-primary" style="font-size:8px; margin-right:10px; margin-top: 25px;">
+								인증번호 확인
+							</button>
+	                      </div>
+	                    </div>
+	                   </div>
+	                </form>
+	              </div>
+	            </div>
+	          </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -124,6 +169,22 @@
 		var $checkNumber = $('#checkNumber');
 		var $checkNumberBtn = $('#checkNumberBtn');
 		
+		var delfunction = function(){
+			$.ajax({
+				url: "${pageContext.request.contextPath}/deleteEmail.em",
+				data: {
+					email: $checkEmail.val()
+				},
+				type: "POST",
+				async: false,
+				success: function(){
+					alert("3초가 지났습니다, 이메일을 다시 발송해주세요");
+				}, error : function(req){
+					console.log(req);
+				}
+			});
+		};
+		
 		$checkEmailBtn.on("click", function(){
 			$.ajax({
 				url: "${pageContext.request.contextPath}/checkEmail.em",
@@ -131,22 +192,22 @@
 					email : $checkEmail.val()
 				},
 				type: "POST",
+				async: false,
 				success: function(data){
 					if(data == "0"){
-						console.log(data);
 						alert("존재하지 않는 이메일입니다 확인부탁드립니다");
 					} else if(data == "1"){
 						$.ajax({
 							url: "${pageContext.request.contextPath}/emailSend.em",
 							data: {
-								email: $checkEmail.val(),
+								email: $checkEmail.val()
 							},
 							type: "POST",
+							async: false,
 							success: function(data){
+								alert("이메일 발송되었습니다. 3초내로 입력해주세요");
 								
-								alert("이메일 발송완료!");
-								// 이메일 데이터 베이스 연결과 3분의 제한시간 설정하기
-								// 오늘은 여기까지 ㅅㅂ
+								setTimeout(delfunction, 180,000);
 							}, error: function(){
 								alert("이메일은 존재하지만 이메일 발송중 문제가 발생했습니다.");
 							}

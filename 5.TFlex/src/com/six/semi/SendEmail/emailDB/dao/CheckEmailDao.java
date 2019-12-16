@@ -1,13 +1,15 @@
 package com.six.semi.SendEmail.emailDB.dao;
 
+import static com.six.semi.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import com.six.semi.SendEmail.emailDB.vo.Email;
 import com.six.semi.member.model.DAO.MemberDAO;
-import static com.six.semi.common.JDBCTemplate.*;
 
 public class CheckEmailDao {
 	
@@ -25,7 +27,7 @@ public class CheckEmailDao {
 
 	}
 
-	public int checkEmail(Connection conn, String email) {
+	public int checkEmail(Connection con, String email) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -34,7 +36,7 @@ public class CheckEmailDao {
 		
 		try {
 			
-			pstmt = conn.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, email);
 			
@@ -55,6 +57,48 @@ public class CheckEmailDao {
 		
 		return result;
 		
+	}
+
+	public int insertIdEmail(Connection con, Email e) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertIdEmail");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, e.getEmail());
+			pstmt.setString(2, e.getContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	public int deleteIdEmail(Connection con, String email) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteIdEmail");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 }

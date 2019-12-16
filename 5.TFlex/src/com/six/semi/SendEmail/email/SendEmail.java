@@ -8,7 +8,6 @@ import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -18,6 +17,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.six.semi.SendEmail.emailDB.service.emailService;
+import com.six.semi.SendEmail.emailDB.vo.Email;
 
 /**
  * Servlet implementation class Test
@@ -88,6 +90,20 @@ public class SendEmail extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		emailService es = new emailService();
+		
+		Email e = new Email();
+		
+		e.setContent(content);
+		e.setEmail(to);
+		
+		int resultInt = es.insertIdEmail(e);
+		
+		if(resultInt > 0) {
+			System.out.println("입력 성공");
+		} else {
+			System.out.println("입력 실패");
+		}
 		
 		
 	}
