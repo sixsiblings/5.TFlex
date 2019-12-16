@@ -33,14 +33,14 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		int bno = Integer.parseInt(request.getParameter("bno"));
+		//System.out.println("bno 확인 : "+bno);
 		
 		Board b = new BoardService().selectOne(bno);
 		
 		// 댓글도 리스트로 가져오기
 		ArrayList<BoardComment> clist
-		   = new CommentService().selectList(bno);
+		   = new CommentService().selectList(bno,b.getCgbno());
 		
 		String page = "";
 		

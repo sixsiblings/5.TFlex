@@ -72,7 +72,7 @@
 <button class="btn btn-primary pull-right" onclick="goMInsert();">글쓰기</button>
 </c:if>
 <br /><br /><br />
-	<table class="table table-hover">
+	<table class="table table-hover" id="listArea">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -85,7 +85,7 @@
   </thead>
   <c:forEach var="board" items="${list}">
   <tr>
-  <td  onclick="goBoardDetail();">
+  <td>
   <input type="hidden" value="${board.bno}"/>
   				${board.bno}
   </td>
@@ -164,20 +164,22 @@
 				$(this).parent().css({"background":"lightblue", "cursor":"pointer"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"rgba(70,70,70,0.5)"});
-			}).click(function(){
+			})*/
+			$(function(){
+				$("#listArea td").click(function(){
 				var bno = $(this).parent().find("input").val();
 				location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
 			});
 		});
-		*/
+		
 		function goMInsert(){
 			location.href = "${pageContext.request.contextPath}/views/board/MLBboardInsertForm.jsp";
 		}
 		
-		function goBoardDetail(){
+		/* function goBoardDetail(){
 			var bno = $(this).parent().find("input").val();
 			location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
-		}
+		} */
 		</script>
 
 	</section>

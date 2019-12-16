@@ -9,63 +9,18 @@ import com.six.semi.boardComment.model.dao.CommentDAO;
 import com.six.semi.boardComment.model.vo.BoardComment;
 
 public class CommentService {
+
 	Connection con;
 	private CommentDAO cdao = new CommentDAO();
 	
-	public int insertComment(BoardComment bco) {
+	public ArrayList<BoardComment> selectList(int bno, int cgbno) {
 		con = getConnection();
 		
-		int result = cdao.insertComment(con, bco);
-		
-		if ( result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
-		
-		close(con);
-		
-		return result;
-	}
-
-	public ArrayList<BoardComment> selectList(int bno) {
-		con = getConnection();
-		
-		ArrayList<BoardComment> list = cdao.selectList(con, bno);
+		ArrayList<BoardComment> list = cdao.selectList(con, bno, cgbno);
 		
 		close(con);
 		
 		return list;
 	}
 
-	public int updateComment(BoardComment bco) {
-		con = getConnection();
-		
-		int result = cdao.updateComment(con, bco);
-		
-		if(result > 0) commit(con);
-		else rollback(con);
-		
-		close(con);
-		
-		return result;
-	}
-	
-	public int deleteComment(int cno) {
-		con = getConnection();
-		
-		int result = cdao.deleteComment(con, cno);
-		
-		if(result > 0) commit(con);
-		else rollback(con);
-		
-		close(con);
-		
-		return result;
-	}
-
 }
-
-
-
-

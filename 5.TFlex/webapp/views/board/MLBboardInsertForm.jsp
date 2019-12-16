@@ -69,9 +69,8 @@
 <c:import url="../common/loginUtil.jsp"/>
 
 <script>
-$(function(){
-	console.log(${member.uNo});
-});
+$(document).ready(function(){
+	
 $('#summernote').summernote({
     placeholder: '내용을 입력하세요.',
     tabsize: 2,
@@ -86,6 +85,7 @@ $('#summernote').summernote({
          }
     }
  });
+});
 	
   $('.dropdown-toggle').dropdown()
  

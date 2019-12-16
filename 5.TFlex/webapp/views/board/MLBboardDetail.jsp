@@ -37,9 +37,9 @@
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td><span>${board.bno}</span></td>
+                  <td><span>${member.uNo}</span></td>
                   <td>작성일</td>
-                  <td><span>${board.bdate}</span></td>
+                  <td><span>${board.bbenrolldate}</span></td>
                   <td>조회수 </td>
                   <td><span>${board.bcount}</span></td>
                </tr>
@@ -64,7 +64,7 @@
       </div>
       <div align="center">
          <button onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
-         <c:if test="${ !empty member and member.userId eq board.writer }">
+         <c:if test="${ !empty member and member.uNo eq board.uno }">
             <c:url var="boardUpdate" value="bUpView.bo">
                <c:param name="bno" value="${board.bno }" />
             </c:url>
@@ -74,7 +74,7 @@
    <div class="replyArea">
    	<div class="replyWriteArea">
          <form action="${pageContext.request.contextPath }/insert.co" method="post">
-            <input type="hidden" name="writer" value="${ member.userId }"/>
+            <input type="hidden" name="uno value="${ member.uNo }"/>
             <input type="hidden" name="bno" value="${board.bno }" />
             <input type="hidden" name="refcno" value="0" />
             <input type="hidden" name="clevel" value="1" />
@@ -96,10 +96,10 @@
              class="replyList${bco.clevel}">
                     <tr>
                        <td rowspan="2"> </td>
-                     <td><b>${bco.cwriter}</b></td>
+                     <td><b>${bco.unor}</b></td>
                      <td>${bco.cdate}</td>
                      <td align="center">
-                     <c:if test="${member.userId eq bco.cwriter }">
+                     <c:if test="${member.uNo eq bco.uno }">
                         <input type="hidden" name="cno" value="${bco.cno}"/>
                              
                         <button type="button" class="updateBtn" 
@@ -113,7 +113,7 @@
                            onclick="deleteReply(this);">삭제하기</button>
                            
                      </c:if><c:if test="${ bco.clevel lt 3 }">
-                        <input type="hidden" name="writer" value="${member.userId}"/>
+                        <input type="hidden" name="writer" value="${member.uNo}"/>
                         <input type="hidden" name="refcno" value="${bco.cno}" />
                         <input type="hidden" name="clevel" value="${bco.clevel}" />
                         <button type="button" class="insertBtn" 
@@ -219,7 +219,7 @@
    var content = siblingsTR.find("textarea").val();
    
    location.href='/myWeb/insert.co?'
-   				+ 'writer=${member.userId}'
+   				+ 'writer=${member.uNo}'
    				+ '&replyContent=' + content
    				+ '&bno=' + bno
    				+ '&refcno=' + refcno

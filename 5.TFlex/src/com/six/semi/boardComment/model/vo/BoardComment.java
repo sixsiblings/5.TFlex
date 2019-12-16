@@ -4,50 +4,54 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class BoardComment implements Serializable {
-	
+
 	private int cno;
+	private int cgbno;
 	private int bno;
+	private int uno;
 	private String ccontent;
-	private String cwriter;
 	private Date cdate;
-	private int ref_cno;
 	private int clevel;
-	private String status;
-	
-	public BoardComment() { }
-	public BoardComment(int cno, int bno, String ccontent, String cwriter, Date cdate, int ref_cno, int clevel,
-			String status) {
+	private int ccount;
+	private String cstatus;
+	private int cno2;
+	public BoardComment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public BoardComment(int cno, int cgbno, int bno, int uno, String ccontent, Date cdate, int clevel, int ccount,
+			String cstatus, int cno2) {
 		super();
 		this.cno = cno;
+		this.cgbno = cgbno;
 		this.bno = bno;
+		this.uno = uno;
 		this.ccontent = ccontent;
-		this.cwriter = cwriter;
 		this.cdate = cdate;
-		this.ref_cno = ref_cno;
 		this.clevel = clevel;
-		this.status = status;
+		this.ccount = ccount;
+		this.cstatus = cstatus;
+		this.cno2 = cno2;
 	}
-
-	public BoardComment(int bno, String ccontent, String cwriter, int ref_cno, int clevel) {
+	public BoardComment(int bno, int uno, String ccontent, int clevel, int cno2) {
 		super();
 		this.bno = bno;
+		this.uno = uno;
 		this.ccontent = ccontent;
-		this.cwriter = cwriter;
-		this.ref_cno = ref_cno;
 		this.clevel = clevel;
+		this.cno2 = cno2;
 	}
-	
-	@Override
-	public String toString() {
-		return "BoardComment [cno=" + cno + ", bno=" + bno + ", ccontent=" + ccontent + ", cwriter=" + cwriter
-				+ ", cdate=" + cdate + ", ref_cno=" + ref_cno + ", clevel=" + clevel + ", status=" + status + "]";
-	}
-	
 	public int getCno() {
 		return cno;
 	}
 	public void setCno(int cno) {
 		this.cno = cno;
+	}
+	public int getCgbno() {
+		return cgbno;
+	}
+	public void setCgbno(int cgbno) {
+		this.cgbno = cgbno;
 	}
 	public int getBno() {
 		return bno;
@@ -55,17 +59,17 @@ public class BoardComment implements Serializable {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
+	public int getUno() {
+		return uno;
+	}
+	public void setUno(int uno) {
+		this.uno = uno;
+	}
 	public String getCcontent() {
 		return ccontent;
 	}
 	public void setCcontent(String ccontent) {
 		this.ccontent = ccontent;
-	}
-	public String getCwriter() {
-		return cwriter;
-	}
-	public void setCwriter(String cwriter) {
-		this.cwriter = cwriter;
 	}
 	public Date getCdate() {
 		return cdate;
@@ -73,22 +77,36 @@ public class BoardComment implements Serializable {
 	public void setCdate(Date cdate) {
 		this.cdate = cdate;
 	}
-	public int getRef_cno() {
-		return ref_cno;
-	}
-	public void setRef_cno(int ref_cno) {
-		this.ref_cno = ref_cno;
-	}
 	public int getClevel() {
 		return clevel;
 	}
 	public void setClevel(int clevel) {
 		this.clevel = clevel;
 	}
-	public String getStatus() {
-		return status;
+	public int getCcount() {
+		return ccount;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setCcount(int ccount) {
+		this.ccount = ccount;
 	}
+	public String getCstatus() {
+		return cstatus;
+	}
+	public void setCstatus(String cstatus) {
+		this.cstatus = cstatus;
+	}
+	public int getCno2() {
+		return cno2;
+	}
+	public void setCno2(int cno2) {
+		this.cno2 = cno2;
+	}
+	@Override
+	public String toString() {
+		return "BoardComment [cno=" + cno + ", cgbno=" + cgbno + ", bno=" + bno + ", uno=" + uno + ", ccontent="
+				+ ccontent + ", cdate=" + cdate + ", clevel=" + clevel + ", ccount=" + ccount + ", cstatus=" + cstatus
+				+ ", cno2=" + cno2 + "]";
+	}
+	
+	
 }
