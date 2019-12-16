@@ -20,13 +20,9 @@
          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                <a class="nav-link" href="${ pageContext.request.contextPath }/index.jsp">
-                 <!--  KBO -->
-                  <button type="button" id="HOMEBtn" class="btn btn-outline-primary"
-                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-                        <strong>HOME</strong>
-                  </button>
                 </a>
             </li>         
+                 <!--  KBO -->
             <li class="nav-item">
                <a class="nav-link"  href="${ pageContext.request.contextPath }/views/board/KBOboard.jsp">
                   <button type="button" id="KBOBtn" class="btn btn-outline-primary"

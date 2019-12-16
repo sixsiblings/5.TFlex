@@ -108,7 +108,7 @@ th, td {
    color : white;
 }
 
-#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn{
+#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn:hover{
    color : white;
 }
 hr{
@@ -658,7 +658,7 @@ hr{
       </div>
    </div>
    
-   <a href="views/board/MLBboard.jsp"><h1 id="h1"><strong>MLB</strong></h1></a>
+   <a href="${pageContext.request.contextPath}/mselectList.bo"><h1 id="h1"><strong>MLB</strong></h1></a>
    <hr />
    <div class="site-section">
       <div class="container">
