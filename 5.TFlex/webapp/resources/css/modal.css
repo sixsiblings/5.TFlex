@@ -135,6 +135,7 @@
  }
  
  .chat_content{
+ 	word-break:break-all;
     background: rgba(255, 255, 102, 0.5);
     padding: 10px;
     border-radius: 10px;
@@ -161,13 +162,14 @@
  }
 
  .other-side {
+	word-break:break-all;
     background: green;
     float:left;
     clear:both;
  }
  
  .other-side:after{
-    content: '';
+   content: '';
    position: absolute;
    left: 0;
    top: 50%;

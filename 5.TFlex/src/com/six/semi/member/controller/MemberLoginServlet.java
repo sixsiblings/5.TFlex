@@ -2,6 +2,7 @@ package com.six.semi.member.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,33 +34,45 @@ public class MemberLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession session = request.getSession();
+		ServletContext context = request.getServletContext();
+		
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		
-		MemberService ms = new MemberService();
+		if(context.getAttribute(userId) == null) {
 		
-		Member m = new Member(userId, userPwd);
-		
-		Member result = ms.selectOne(m);
-		
-		if( result != null ) {
+			MemberService ms = new MemberService();
 			
-			HttpSession session = request.getSession();
+			Member m = new Member(userId, userPwd);
 			
-			session.setAttribute("member", result);
+			Member result = ms.selectOne(m);
 			
-			response.sendRedirect("index.jsp");
+			if( result != null ) {
+				
+				context.setAttribute(userId, userId);
+				
+				session.setAttribute("member", result);
+				
+				response.sendRedirect("index.jsp");
+				
+				
+			} else {
+				
+				request.setAttribute("msg", "로그인에 실패하셨습니다. 아이디나 비밀번호를 확인해주세요.");
+				
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+				
+				
+			}
 			
+		} else if(!(context.getAttribute(userId) == null)) {
 			
-		} else {
-			
-			request.setAttribute("msg", "로그인에 실패하셨습니다. 아이디나 비밀번호를 확인해주세요.");
+			request.setAttribute("msg", userId + "는 이미 로그인 되어 있는 아이디 입니다.");
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
-			
 		}
-		
 		
 	}
 

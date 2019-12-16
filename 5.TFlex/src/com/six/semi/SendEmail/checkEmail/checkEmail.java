@@ -1,28 +1,26 @@
-package com.six.semi.member.controller;
+package com.six.semi.SendEmail.checkEmail;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.six.semi.member.model.vo.Member;
+import com.six.semi.SendEmail.emailDB.service.emailService;
 
 /**
- * Servlet implementation class MemberLogoutServlet
+ * Servlet implementation class checkEmail
  */
-@WebServlet("/logout.me")
-public class MemberLogoutServlet extends HttpServlet {
+@WebServlet("/checkEmail.em")
+public class checkEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLogoutServlet() {
+    public checkEmail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +29,13 @@ public class MemberLogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("email");
 		
-		HttpSession session = request.getSession(false);
-		ServletContext context = request.getServletContext();
+		emailService es = new emailService();
 		
-		String userId = ((Member)(session.getAttribute("member"))).getUserId();
+		int result = es.checkEmail(email);
 		
-		if(session != null) {
-			session.invalidate();
-		}
-		
-		if(!(context.getAttribute(userId) == null)) {
-			context.setAttribute(userId, null);
-		}
-		
-		response.sendRedirect("index.jsp");
-				
+		response.getWriter().print(result);
 	}
 
 	/**

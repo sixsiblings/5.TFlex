@@ -2,7 +2,9 @@ package com.six.semi.broadCast;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +31,8 @@ public class Broadcast {
 	 */
 	
 	@OnOpen
-	public void onOpen(Session session) {
+	public void onOpen(Session session) throws IOException {
+		
 		System.out.println(session);
 		
 		// 기존 사용자 목록에 새로 추가해준다.
@@ -40,11 +43,18 @@ public class Broadcast {
 	// 서버로 데이터 요청이 왔을 때
 	@OnMessage
 	public void onMessage(String msg, Session session) throws IOException {
-		System.out.println(msg);
 		
-		// FileWriter
-		try(FileWriter fw = new FileWriter("ChatLog.txt", true)){
+		Date date = new Date();
+		SimpleDateFormat sday = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat stime = new SimpleDateFormat("HH:mm:ss");
+		
+		String day = sday.format(date);
+		String time = stime.format(date);
+		
+		try(FileWriter fw = new FileWriter(Broadcast.class.getResource("/").getPath() + "chatLog.txt", true)){
 			
+			fw.write(day + "\n");
+			fw.write(time + "\n");
 			fw.write(msg);
 			fw.write("\n"); // 한줄 띄어쓰기용
 			
@@ -53,6 +63,7 @@ public class Broadcast {
 			e.printStackTrace();
 			
 		}
+		System.out.println(msg);
 		
 		// 사용자가 내용을 전송하는 동안
 		// 다른 사용자가 중간에 나가버리거나 

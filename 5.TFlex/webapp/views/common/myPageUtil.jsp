@@ -5,10 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!--   Core JS Files   -->
-<link rel="apple-touch-icon" sizes="76x76" href="${ pageContext.request.contextPath }/resources/test/img/apple-icon.png">
-<link rel="icon" type="image/png" href="${ pageContext.request.contextPath }/resources/test/img/favicon.png">
 
-<script src="${ pageContext.request.contextPath }/resources/test/js/core/jquery.min.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/img/Tflexpabicon.png" />
+
+<script src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/core/popper.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/core/bootstrap.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/plugins/perfect-scrollbar.jquery.min.js"></script>
