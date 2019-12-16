@@ -1,4 +1,4 @@
-package com.kh.jsp.board.model.vo;
+package com.six.semi.notice.model.vo;
 
 import java.io.Serializable;
 

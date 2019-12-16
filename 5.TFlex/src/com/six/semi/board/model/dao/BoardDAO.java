@@ -1,7 +1,8 @@
 package com.six.semi.board.model.dao;
 
 
-import static com.six.semi.common.JDBCTemplate.close;
+
+import static com.six.semi.common.JDBCTemplate.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -37,10 +38,34 @@ public class BoardDAO {
 		}
 	}
 	
-	public int inserBoard(Connection con, Board b) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertBoard(Connection con, Board b) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			String sql = prop.getProperty("insertBoard");
+			
+			pstmt = con.prepareStatement(sql);
+			
+			// pstmt.setInt(1, b.getCgbno());
+			pstmt.setString(1, b.getBtitle());
+			pstmt.setString(2, b.getBcontent());
+			pstmt.setInt(3, b.getUno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
+	
 
 	public int getListCount(Connection con) {
 		int result = 0;
@@ -121,6 +146,71 @@ public class BoardDAO {
 		System.out.println(list.size());
 		
 		return list;
+	}
+
+	public Board selectOne(Connection con, int bno) {
+		Board b = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		try {
+			String sql = prop.getProperty("selectOne");
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				b = new Board();
+				
+				b.setBno(bno);
+				b.setCgbno(rset.getInt(2));
+				b.setBtitle(rset.getString(3));
+				b.setBcontent(rset.getString(4));
+				b.setUno(rset.getInt(5));
+				b.setBcount(rset.getInt(6));
+				b.setBfile(rset.getString(7));
+				b.setBbenrolldate(rset.getDate(8));
+				b.setBstatus(rset.getString(9));
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return b;
+	}
+
+	public int addReadCount(Connection con, int bno) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("addReadCount");
+		
+		try {
+		
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	}
 

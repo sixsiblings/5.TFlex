@@ -1,73 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 상세보기</title>
+<title>Insert title here</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
-   .outer{
-      width:800px;
-      background:rgba(50, 50, 50, 0.5);
-      color:white;
-      margin-left:auto;
-      margin-right:auto;
-      margin-top:50px;
-   }
-   td {
-      border:1px solid black;
-      background : lemon;
-      color: black;
-   }
-
-   .tableArea {
-      border:1px solid black;
-      background : white;
-      color: black;
-      width:800px;
-      height:350px;
-      margin-left:auto;
-      margin-right:auto;
-   }
-   #content {
-      height:230px;
-   }
-      .replyArea {
-      width:800px;
-      color:black;
-      background:ivory;
-      margin-left:auto;
-      margin-right:auto;
-      padding-bottom : 5px;
-   }
-   .replyArea textArea {
-      border-radius: 10px;
-      resize: none;
-   }
-   a:link {
-       color: yellow;
-   }
-   a:active {
-      color: aqua;
-   }
-   table[class*="replyList"] * {
-      color: black;
-      
-   }
-   .replyList1 td{   background : lavenderblush; }
-   .replyList2 td{   background : honeydew; }
-   .replyList3 td{ background : aliceblue; }
-   
+#yu{
+  width:500px;
+  height:200px;
+  background-size: 400px;
+  background-repeat:no-repeat;
+}
 </style>
 </head>
 <body>
-	<c:import url="../common/header.jsp"/>
-	
-	<c:if test="${ !empty member }">
+<c:import url="../common/header.jsp"/>
+
+	<div align="center" >
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
+    </div>
+	</div>
+<c:if test="${ !empty member }">
 	<section class="outer">
       <br>
       <h2 align="center">게시글 내용</h2>
@@ -75,23 +33,30 @@
             <table align="center" width="800px">
                <tr>
                   <td>제목 </td>
-                  <td colspan="5"><span>${Board.btitle}</span></td>
+                  <td colspan="5"><span>${board.btitle}</span></td>
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td><span>${Board.uNo}</span></td>
+                  <td><span>${board.bno}</span></td>
                   <td>작성일</td>
-                  <td><span>${Board.bdate}</span></td>
+                  <td><span>${board.bdate}</span></td>
                   <td>조회수 </td>
-                  <td><span>${Board.bcount}</span></td>
+                  <td><span>${board.bcount}</span></td>
                </tr>
-               
+               <c:if test="${ !empty board.bfile }">
+                  <tr>
+                  <td>첨부파일 </td>
+                  <td colspan="5">
+                  	<a href="resources/bUpFiles/${board.bfile }"download>${board.bfile }</a>
+                  </td>
+               </tr>
+               </c:if>
                <tr>
                   <td colspan="6">내용 </td>
                </tr>
                <tr>
                   <td colspan="6">
-                     <p id="content">${Board.bcontent}
+                     <p id="content">${board.bcontent}
                   </td>
                </tr>
             </table>
@@ -99,7 +64,7 @@
       </div>
       <div align="center">
          <button onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
-         <c:if test="${ !empty member and member.userId eq Board.Uno }">
+         <c:if test="${ !empty member and member.userId eq board.writer }">
             <c:url var="boardUpdate" value="bUpView.bo">
                <c:param name="bno" value="${board.bno }" />
             </c:url>
@@ -109,7 +74,7 @@
    <div class="replyArea">
    	<div class="replyWriteArea">
          <form action="${pageContext.request.contextPath }/insert.co" method="post">
-            <input type="hidden" name="writer" value="${ member.uNo }"/>
+            <input type="hidden" name="writer" value="${ member.userId }"/>
             <input type="hidden" name="bno" value="${board.bno }" />
             <input type="hidden" name="refcno" value="0" />
             <input type="hidden" name="clevel" value="1" />
@@ -271,14 +236,9 @@
 		
 		<c:redirect url="${errorPage }"/>
 	</c:if>
-	
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<c:import url="../common/footer.jsp"/>
-	
 
+
+<c:import url="../common/footer.jsp"/>
+<c:import url="../common/loginUtil.jsp"/>
 </body>
 </html>
