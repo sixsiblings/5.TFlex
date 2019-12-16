@@ -65,7 +65,7 @@
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">장바구니</a>
+            <a class="navbar-brand" href="#pablo">회원 탈퇴</a>
           </div>
         </div>
       </nav>
@@ -82,12 +82,19 @@
             <div class="col-md-8" style="margin: auto;">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">장바구니</h5>
+                <h5 class="card-title">회원탈퇴</h5>
               </div>
               <div class="card-body">
-                <form>
-                  
-
+                <form action="${ pageContext.request.contextPath }/delete.me">
+                <div class="btns" align="center">
+                <input type="password"  id="password" name="password"/>
+                <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">회원 탈퇴</button>
+                    </div>
+                  </div>
+                </div>
+                 
                   
                 </form>
               </div>

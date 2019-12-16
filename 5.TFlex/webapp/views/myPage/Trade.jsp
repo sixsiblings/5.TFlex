@@ -65,7 +65,7 @@
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">장바구니</a>
+            <a class="navbar-brand" href="#pablo">거래 내역</a>
           </div>
         </div>
       </nav>
@@ -82,7 +82,7 @@
             <div class="col-md-8" style="margin: auto;">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">장바구니</h5>
+                <h5 class="card-title">거래 내역</h5>
               </div>
               <div class="card-body">
                 <form>

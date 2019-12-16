@@ -13,173 +13,193 @@ import com.six.semi.member.model.vo.Member;
 
 public class MemberDAO {
 
-	private Properties prop = new Properties();
+   private Properties prop = new Properties();
 
-	public MemberDAO() {
+   public MemberDAO() {
 
-		try {
-			prop.load(new FileReader(MemberDAO.class.getResource("/mappers/member.properties").getPath()));
+      try {
+         prop.load(new FileReader(MemberDAO.class.getResource("/mappers/member.properties").getPath()));
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
 
-	}
+   }
 
-	public int insertMember(Connection con, Member m) {
+   public int insertMember(Connection con, Member m) {
 
-		int result = 0;
+      int result = 0;
 
+      PreparedStatement pstmt = null;
+      String sql = prop.getProperty("insertMember");
+
+      try {
+         pstmt = con.prepareStatement(sql);
+
+         pstmt.setString(1, m.getUserId());
+         pstmt.setString(2, m.getnName());
+         pstmt.setString(3, m.getUserPwd());
+         pstmt.setString(4, m.getUserName());
+         pstmt.setString(5, m.getBirthNo());
+         pstmt.setString(6, m.getEmail());
+         pstmt.setInt(7,m.getiNo());
+         pstmt.setString(8, m.getrPerson());
+               
+         result = pstmt.executeUpdate();
+
+      } catch (Exception e) {
+         e.printStackTrace();
+         System.out.println("에러확인");
+      }
+      return result;
+   }
+
+   public Member selectOne(Connection con, Member m) {
+
+      Member result = null;
+
+      PreparedStatement pstmt = null;
+
+      ResultSet rset = null;
+
+      try {
+
+         String sql = prop.getProperty("selectMember");
+
+         pstmt = con.prepareStatement(sql);
+
+         pstmt.setString(1, m.getUserId());
+         pstmt.setString(2, m.getUserPwd());
+
+         rset = pstmt.executeQuery();
+
+         if (rset.next()) {
+            result = new Member();
+
+            result.setUserId(m.getUserId());
+            result.setUserPwd(m.getUserPwd());
+            
+            result.setuNo(rset.getInt(1));
+            result.setnName(rset.getString(3)); 
+            result.setUserName(rset.getString(5));
+            result.setBirthNo(rset.getString(6));
+            result.setEmail(rset.getString(7)); 
+            result.setiNo(rset.getInt(9));
+            result.setrPerson(rset.getString(10));
+            result.setSignal(rset.getString(11));
+            result.setdCount(rset.getInt(12));
+            result.setuGrade(rset.getString(13));
+            result.setuStatus(rset.getString(14));
+            
+            
+            /*
+             * result.setnName(rset.getString(3)); result.setUserName(rset.getString(5));
+             * result.setBirthNo(rset.getString(6)); result.setEmail(rset.getString(7));
+             * result.setiNo(rset.getInt(9)); result.setrPerson(rset.getString(10));
+             * result.seteStatus(rset.getString(11));
+             * result.setaComment(rset.getString(12)); result.setaItem(rset.getString(13));
+             * result.setaItem(rset.getString(14)); result.setEvent(rset.getString(15));
+             * result.setaChat(rset.getString(16));
+             */
+            
+         }
+
+      } catch (SQLException e) {
+         e.printStackTrace();
+         System.out.println("오류발생");
+
+      } finally {
+         close(rset);
+         close(pstmt);
+      }
+      return result;
+   }
+
+   public int updateMember(Connection con, Member m) {
+
+      return 0;
+   }
+
+   public int deleteMember(Connection con, String userId) {
+
+	   int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertMember");
-
-		try {
-			pstmt = con.prepareStatement(sql);
-
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getnName());
-			pstmt.setString(3, m.getUserPwd());
-			pstmt.setString(4, m.getUserName());
-			pstmt.setString(5, m.getBirthNo());
-			pstmt.setString(6, m.getEmail());
-			pstmt.setInt(7,m.getiNo());
-			pstmt.setString(8, m.getrPerson());
-					
-			result = pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("에러확인");
-		}
-		return result;
-	}
-
-	public Member selectOne(Connection con, Member m) {
-
-		Member result = null;
-
-		PreparedStatement pstmt = null;
-
-		ResultSet rset = null;
 
 		try {
 
-			String sql = prop.getProperty("selectMember");
+			String sql = prop.getProperty("deleteMember");
 
-			pstmt = con.prepareStatement(sql);
-
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPwd());
-
-			rset = pstmt.executeQuery();
-
-			if (rset.next()) {
-				result = new Member();
-
-				result.setUserId(m.getUserId());
-				result.setUserPwd(m.getUserPwd());
-				
-				result.setuNo(rset.getInt(1));
-				result.setnName(rset.getString(3)); 
-				result.setUserName(rset.getString(5));
-				result.setBirthNo(rset.getString(6));
-				result.setEmail(rset.getString(7)); 
-				result.setiNo(rset.getInt(9));
-				result.setrPerson(rset.getString(10));
-				result.setSignal(rset.getString(11));
-				result.setdCount(rset.getInt(12));
-				result.setuGrade(rset.getString(13));
-				result.setuStatus(rset.getString(14));
-				
-				
-				/*
-				 * result.setnName(rset.getString(3)); result.setUserName(rset.getString(5));
-				 * result.setBirthNo(rset.getString(6)); result.setEmail(rset.getString(7));
-				 * result.setiNo(rset.getInt(9)); result.setrPerson(rset.getString(10));
-				 * result.seteStatus(rset.getString(11));
-				 * result.setaComment(rset.getString(12)); result.setaItem(rset.getString(13));
-				 * result.setaItem(rset.getString(14)); result.setEvent(rset.getString(15));
-				 * result.setaChat(rset.getString(16));
-				 */
-				
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("오류발생");
-
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		return result;
-	}
-
-	public int updateMember(Connection con, Member m) {
-
-		return 0;
-	}
-
-	public int deleteMember(Connection con, String userId) {
-
-		return 0;
-	}
-
-	public int idDupCheck(Connection con, String userId) {
-		int result = 0;
-
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		String sql = prop.getProperty("idDupCheck");
-
-		try {
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, userId);
 
-			rset = pstmt.executeQuery();
+			result = pstmt.executeUpdate();
 
-			if (rset.next()) {
-				result = rset.getInt(1);
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(rset);
 			close(pstmt);
 		}
 
 		return result;
-	}
+     
+   }
 
-	public int nNameDupCheck(Connection con, String nName) {
+   public int idDupCheck(Connection con, String userId) {
+      int result = 0;
 
-		int result = 0;
+      PreparedStatement pstmt = null;
+      ResultSet rset = null;
 
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
+      String sql = prop.getProperty("idDupCheck");
 
-		String sql = prop.getProperty("nNameDupCheck");
+      try {
+         pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
+         pstmt.setString(1, userId);
 
-			pstmt.setString(1, nName);
+         rset = pstmt.executeQuery();
 
-			rset = pstmt.executeQuery();
+         if (rset.next()) {
+            result = rset.getInt(1);
+         }
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+         close(rset);
+         close(pstmt);
+      }
 
-			if (rset.next()) {
-				result = rset.getInt(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
+      return result;
+   }
 
-		return result;
-	}
+   public int nNameDupCheck(Connection con, String nName) {
+
+      int result = 0;
+
+      PreparedStatement pstmt = null;
+      ResultSet rset = null;
+
+      String sql = prop.getProperty("nNameDupCheck");
+
+      try {
+         pstmt = con.prepareStatement(sql);
+
+         pstmt.setString(1, nName);
+
+         rset = pstmt.executeQuery();
+
+         if (rset.next()) {
+            result = rset.getInt(1);
+         }
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+         close(rset);
+         close(pstmt);
+      }
+
+      return result;
+   }
 
 }
