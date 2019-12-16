@@ -69,8 +69,9 @@
 			<br>
 			<br>
 <c:if test="${!empty member }">
-<a href="MLBboardInsertForm.jsp" class="btn btn-primary pull-right">글쓰기</a>
+<button class="btn btn-primary pull-right" onclick="goMInsert();">글쓰기</button>
 </c:if>
+<br /><br /><br />
 	<table class="table table-hover">
   <thead>
     <tr>
@@ -84,7 +85,7 @@
   </thead>
   <c:forEach var="board" items="${list}">
   <tr>
-  <td>
+  <td  onclick="goBoardDetail();">
   <input type="hidden" value="${board.bno}"/>
   				${board.bno}
   </td>
@@ -101,7 +102,8 @@
   </c:forEach>
 </table>
 </div>
-<br /><br />
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br />
 
 
 			  
@@ -157,36 +159,37 @@
 		</div>
 	
 		<script>
-		$(function(){
+		/*$(function(){
 			$("#listArea td").mouseenter(function(){
 				$(this).parent().css({"background":"lightblue", "cursor":"pointer"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"rgba(70,70,70,0.5)"});
 			}).click(function(){
 				var bno = $(this).parent().find("input").val();
-				location.href="${pageContext.request.contextPath}/selectOne.bo?bno=" + bno;
+				location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
 			});
 		});
+		*/
+		function goMInsert(){
+			location.href = "${pageContext.request.contextPath}/views/board/MLBboardInsertForm.jsp";
+		}
+		
+		function goBoardDetail(){
+			var bno = $(this).parent().find("input").val();
+			location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
+		}
 		</script>
 
 	</section>
 	<br><br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
+	
+	
 	
 	<c:import url="../common/footer.jsp"/>
-	
-	<c:import url="../common/loginUtil.jsp"/>   	
+	<c:import url="../common/loginUtil.jsp"/>
 </body>
 </html>
 

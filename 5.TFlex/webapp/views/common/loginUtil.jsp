@@ -79,12 +79,12 @@
 			
 			/*  마이페이지로 이동하기  */
  			$('#bhy-myPageBtn').click(function(){
- 				location.href = "${pageContext.request.contextPath}/views/member/memberMyPage.jsp";
+ 				location.href = "${pageContext.request.contextPath}/views/myPage/myPage.jsp";
  			});
  			
 			/*  고객센터로 이동하기  */ 			
  			$('#bhy-csBtn').click(function(){
- 				location.href = "${pageContext.request.contextPath}/views/csMain/csMain.jsp";
+ 				location.href = "${pageContext.request.contextPath}/views/cs/csMain.jsp";
  			}); 			
  			
 		

@@ -5,16 +5,16 @@ import java.sql.Date;
 
 public class QNA implements Serializable {
 	
-	private int uNo;
-	private int qNo;
-	private int qCno;
-	private String qTitle;
-	private String qContent;
-	private String qaStatus;
-	private String qaContent;
-	private Date qDate;
+	private int uNo; //1 작성자
+	private int qNo; //2 문의번호
+	private int qCno; //3 
+	private String qTitle; // 4
+	private String qContent; // 5
+	private String qaStatus; // 6
+	private String qaContent; // 7
+	private Date qDate; // 8
 	private String qStatus;
-	
+
 	
 	// 기본 생성자
 	public QNA() {
@@ -117,7 +117,5 @@ public class QNA implements Serializable {
 	public void setqStatus(String qStatus) {
 		this.qStatus = qStatus;
 	}
-	
-
 
 }

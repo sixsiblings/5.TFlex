@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.six.semi.board.model.dao.BoardDAO;
 import com.six.semi.board.model.vo.Board;
+import com.six.semi.common.PageInfo;
 
 
 public class BoardService {
@@ -18,7 +19,7 @@ public class BoardService {
 	public int insertBoard(Board b) {
 		con = getConnection();
 		
-		int result=bdao.inserBoard(con,b);
+		int result=bdao.insertBoard(con,b);
 		
 		if(result>0)commit(con);
 		else rollback(con);
@@ -38,19 +39,38 @@ public class BoardService {
 		return result;
 	}
 
-	public ArrayList<Board> selectList(int currentPage, int limit) {
+	public ArrayList<Board> selectList(PageInfo pi) {
 		
 		con = getConnection();
 		
 		// 게시글 시작값과 끝값 미리 계산하기
-		int startRow = (currentPage - 1) * limit;
-		int endRow = startRow + 10;
 		
-		ArrayList<Board> list = bdao.selectList(con, startRow, endRow);
 		
+		ArrayList<Board> list = bdao.selectList(con, pi.getStartRow(), pi.getEndRow());
+		//System.out.println(list.get(1).getBno());
 		close(con);
 		
 		return list;
+	}
+
+	
+
+	public Board selectOne(int bno) {
+		con = getConnection();
+		
+		int result = bdao.addReadCount(con, bno);
+		
+		Board b = null;
+		
+		if(result > 0) {
+			b = bdao.selectOne(con, bno);
+			if(b != null) commit(con);
+		}
+		else rollback(con);
+		
+		close(con);
+		
+		return b;
 	}
 
 

@@ -75,38 +75,31 @@
             <table align="center" width="800px">
                <tr>
                   <td>제목 </td>
-                  <td colspan="5"><span>${board.btitle}</span></td>
+                  <td colspan="5"><span>${Board.btitle}</span></td>
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td><span>${board.writer}</span></td>
+                  <td><span>${Board.uNo}</span></td>
                   <td>작성일</td>
-                  <td><span>${board.bdate}</span></td>
+                  <td><span>${Board.bdate}</span></td>
                   <td>조회수 </td>
-                  <td><span>${board.bcount}</span></td>
+                  <td><span>${Board.bcount}</span></td>
                </tr>
-               <c:if test="${ !empty board.bfile }">
-                  <tr>
-                  <td>첨부파일 </td>
-                  <td colspan="5">
-                  	<a href="resources/bUpFiles/${board.bfile }"download>${board.bfile }</a>
-                  </td>
-               </tr>
-               </c:if>
+               
                <tr>
                   <td colspan="6">내용 </td>
                </tr>
                <tr>
                   <td colspan="6">
-                     <p id="content">${board.bcontent}
+                     <p id="content">${Board.bcontent}
                   </td>
                </tr>
             </table>
             <br>
       </div>
       <div align="center">
-         <button onclick="location.href='${pageContext.request.contextPath }/selectList.bo'">메뉴로 돌아가기</button>
-         <c:if test="${ !empty member and member.userId eq board.writer }">
+         <button onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
+         <c:if test="${ !empty member and member.userId eq Board.Uno }">
             <c:url var="boardUpdate" value="bUpView.bo">
                <c:param name="bno" value="${board.bno }" />
             </c:url>
@@ -116,7 +109,7 @@
    <div class="replyArea">
    	<div class="replyWriteArea">
          <form action="${pageContext.request.contextPath }/insert.co" method="post">
-            <input type="hidden" name="writer" value="${ member.userId }"/>
+            <input type="hidden" name="writer" value="${ member.uNo }"/>
             <input type="hidden" name="bno" value="${board.bno }" />
             <input type="hidden" name="refcno" value="0" />
             <input type="hidden" name="clevel" value="1" />

@@ -17,7 +17,7 @@ import com.six.semi.boardComment.model.vo.BoardComment;
 /**
  * Servlet implementation class SelectOneMLBBoardServlet
  */
-@WebServlet("/selectOne.bo")
+@WebServlet("/mselectOne.bo")
 public class SelectOneMLBBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +33,8 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-int bno = Integer.parseInt(request.getParameter("bno"));
+
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		
 		Board b = new BoardService().selectOne(bno);
 		
@@ -44,7 +45,7 @@ int bno = Integer.parseInt(request.getParameter("bno"));
 		String page = "";
 		
 		if(b != null) {
-			page = "views/board/boardDetail.jsp";
+			page = "views/board/MLBboardDetail.jsp";
 			request.setAttribute("board", b);
 			request.setAttribute("clist", clist);
 			

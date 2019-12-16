@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MLB 게시글 작성</title>
 <style>
    .mb-3{
       display:inline-block;
@@ -30,7 +30,6 @@
 <link href="${ pageContext.request.contextPath }/resources/css/summernote.css" rel="stylesheet">
 
 
-
 </head>
 <body>
 <c:import url="../common/header.jsp" />
@@ -41,29 +40,38 @@
     </div>
    </div>
 <div class="mb-2" align="center">
-<div class="input-group mb-3" style="width:900px;">
+<form id="insertForm" action="${ pageContext.request.contextPath }/mInsert.bo"  method="post"  >
+		<div class="input-group mb-3" style="width:900px;">
 
-<br />
-  <input type="text" class="form-control" aria-label="Text input with dropdown button" name="title" placeholder="제목을 입력하세요.">
-</div>
+			<br />
+  				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="title" placeholder="제목을 입력하세요.">
+ 				
+		</div>
 
-<form action="${pageContext.request.contextPath }/mInsert.bo" 
-				method="post" enctype="multipart/form-data">
-<div class="editorArea"  style="margin-top:20px;">
-  <textarea id="summernote" name="editordata" ></textarea>
-</div>
-</div>
+		<div class="editorArea"  style="margin-top:20px;">
+  				<textarea id="summernote" name="editordata"></textarea>
+		</div>
+		<input type="hidden" name="uno"  value="${member.uNo}"/>
+
 <div align="center">
-<a href="MLBboard.jsp" class="btn btn-primary">취소</a>
-<a href="MLBboard.jsp" class="btn btn-primary">확인</a>
+<button type="reset" class="btn btn-primary" onclick="cancelbtn();">취소</button>
+<button type="submit" class="btn btn-primary" onclick="insertbtn();">확인</button>
 </div>
 </form>
+				
+</div>
 </section>
 <br ><br ><br ><br ><br >
 
+
 <c:import url="../common/footer.jsp" />
+<c:import url="../common/loginUtil.jsp"/>
 
 <script>
+$(function(){
+	console.log(${member.uNo});
+});
 $('#summernote').summernote({
     placeholder: '내용을 입력하세요.',
     tabsize: 2,
@@ -78,7 +86,7 @@ $('#summernote').summernote({
          }
     }
  });
-
+	
   $('.dropdown-toggle').dropdown()
  
  function sendFile(file, el) {
@@ -86,11 +94,12 @@ $('#summernote').summernote({
  var form_data = new FormData();
   form_data.append('file', file);
   // console.log(form_data.file);
+
   
   $.ajax({
        data: form_data,
        type: "post",
-       url: '/facehair/insert.tn',
+       url: 'insert.tn',
     cache : false,
     contentType : false,
        enctype: 'multipart/form-data',
@@ -106,6 +115,29 @@ $('#summernote').summernote({
        }
   });
 }
+ 
+  function insertbtn(){
+      if($('#title').val() == ""){
+         alert("제목을 입력하세요.");
+         $('#title').focus();
+      } else if($('#summernote').val() == ""){
+         alert("내용을 입력해 주세요.");
+         $('#summernote').focus();
+      } else {
+         $('#insertForm').submit();
+      }
+      event.preventDefault();   
+      
+   }
+   
+   function cancelbtn(){
+      var answer = confirm("게시글 작성을 취소하시겠습니까?");
+      
+      if(answer == true){
+    	  location.href = "${pageContext.request.contextPath}/mselectList.bo";
+        } 
+   }
+   
  
 </script>
 

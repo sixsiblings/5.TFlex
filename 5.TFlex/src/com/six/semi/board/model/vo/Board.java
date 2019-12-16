@@ -33,11 +33,12 @@ public class Board implements Serializable {
 		this.uno = uno;
 		this.bstatus = bstatus;
 	}
-	public Board(String btitle, String bcontent, String bfile, int uno) {
+	public Board(int cgbno, String btitle, String bcontent, int uno) {
 		super();
+		
+		this.cgbno = cgbno;
 		this.btitle = btitle;
 		this.bcontent = bcontent;
-		this.bfile = bfile;
 		this.uno = uno;
 	}
 	public int getBno() {

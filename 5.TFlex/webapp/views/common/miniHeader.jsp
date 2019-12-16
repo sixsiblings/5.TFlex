@@ -43,7 +43,7 @@
                <a class="nav-link" style="margin-right: 50px;  font-size: 20px; width: 70px; height: 50px;" 
                				href="${ pageContext.request.contextPath }/views/Gboard/GoodsBoard.jsp">
                   Goods
-                    </a>
+               </a>
             </p>
 		</p>
 	</p>
