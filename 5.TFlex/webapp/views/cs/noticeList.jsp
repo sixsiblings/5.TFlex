@@ -121,13 +121,9 @@
 
 		<!-- 본문 테이블 영역 -->
 			<div class="col-md-8" style="margin: auto;">
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; "> 
-			     
-			     <!-- 관리자에게만 글쓰기 버튼 보이게하기 -->
-					<%-- <c:if test="${ gm == '관리자' }">	 --%>                			  
-				<a href="noticeInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">글쓰기</a>
-				<%-- 	</c:if> --%>     
-					
+			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                			  
+			<a href="noticeInsertForm.jsp" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</a>
+				
 				<table id="tablePreview" class="table table-hover">				  
 				  <thead  id="bhy-table-header">
 				    <tr>
@@ -138,49 +134,18 @@
 				  </thead>
 				  <tbody id="bhy-table">
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-					</tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">4</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">5</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">6</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">7</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">8</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">9</th>
-				      <td>공지사항입니다.</td>
-				      <td>관리자</td>
+
+				    	  <c:forEach var="notice" items="${list}">
+							  <tr>
+							  <td  onclick="goBoardDetail();">
+							  <input type="hidden" value="${Notice.ntNo}"/>
+							  ${Notice.ntNo}
+							  </td>
+							  <td>${Notice.ntTitle}</td>
+							  <td>${Notice.ntContent}</td>
+							  <td>${Notice.gm}</td>
+							  </tr>
+						  </c:forEach>
 				    </tr>
 			  	</tbody>
 			</table>
@@ -250,6 +215,15 @@
 				location.href="${pageContext.request.contextPath}/selectOne.nt?qno=" + ntno;
 			});
 		});
+		
+		function goMInsert(){
+			location.href = "${pageContext.request.contextPath}/views/board/MLBboardInsertForm.jsp";
+		}
+		
+		function goBoardDetail(){
+			var bno = $(this).parent().find("input").val();
+			location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
+		}
 		</script>
           
           

@@ -17,6 +17,17 @@ public class Notice implements Serializable {
 	public Notice() {
 		super();
 	}
+	
+	
+
+	public Notice(String ntTitle, String gm, String ntContent) {
+		super();
+		this.ntTitle = ntTitle;
+		this.gm = gm;
+		this.ntContent = ntContent;
+	}
+
+
 
 	// 매개변수 생성자
 	public Notice(int ntNo, String ntTitle, String ntContent, int ntFile, Date ntDate, String gm) {

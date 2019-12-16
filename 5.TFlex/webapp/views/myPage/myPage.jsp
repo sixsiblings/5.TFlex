@@ -16,6 +16,7 @@
   <c:import url="../common/myPageUtil.jsp"/>
 </head>
 
+
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="blue" data-active-color="danger">
@@ -26,6 +27,7 @@
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
+            
             </div>
             </a>
           </div>
@@ -91,6 +93,7 @@
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">회원 정보 수정</h5>
+                <a href="../TradeBoard/tradeBoard.jsp">거래 현황</a>
               </div>
               <div class="card-body">
                 <form>

@@ -5,6 +5,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- <c:set var="chatTime" value= "<%= new java.util.Date() %>"/> --%>
 <c:if test="${ !empty member }">
+<style>
+	#page-content {
+	  flex: 1 0 auto;
+	}
+	
+	#sticky-footer {
+	  flex-shrink: none;
+	}
+</style>
 <footer >
   <!-- 쫓아오는 푸터 -->
   	<button type="button" id="fixedbutton" class="btn btn-circle" data-toggle="modal" data-target="#exampleModalLong">
