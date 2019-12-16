@@ -21,88 +21,87 @@
             <li class="nav-item">
                <a class="nav-link" href="${ pageContext.request.contextPath }/index.jsp">
                  <!--  KBO -->
-            		<button type="button" id="HOMEBtn" class="btn btn-outline-primary"
-            			style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-            				<strong>HOME</strong>
-            		</button>
+                  <button type="button" id="HOMEBtn" class="btn btn-outline-primary"
+                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
+                        <strong>HOME</strong>
+                  </button>
                 </a>
             </li>         
             <li class="nav-item">
                <a class="nav-link"  href="${ pageContext.request.contextPath }/views/board/KBOboard.jsp">
-            		<button type="button" id="KBOBtn" class="btn btn-outline-primary"
-            			style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-            				<strong>KBO</strong>
-            		</button>
+                  <button type="button" id="KBOBtn" class="btn btn-outline-primary"
+                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
+                        <strong>KBO</strong>
+                  </button>
                 </a>
             </li>              
             <li class="nav-item">
-               <a class="nav-link"  href="${ pageContext.request.contextPath }/views/board/MLBboard.jsp">
-            		<button type="button" id="MLBBtn" class="btn btn-outline-primary"
-            			style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-            				<strong>MLB</strong>
-            		</button>
+               <a class="nav-link"  href="${ pageContext.request.contextPath }/mselectList.bo">
+                  <button type="button" id="MLBBtn" class="btn btn-outline-primary"
+                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
+                        <strong>MLB</strong>
+                  </button>
                 </a>
             </li>             
             <li class="nav-item">
                <a class="nav-link"  href="${ pageContext.request.contextPath }/views/Tboard/boardListTicket.jsp">
-            		<button type="button" id="TicketBtn" class="btn btn-outline-primary"
-            			style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-            				<strong>Ticket</strong>
-            		</button>
+                  <button type="button" id="TicketBtn" class="btn btn-outline-primary"
+                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
+                        <strong>Ticket</strong>
+                  </button>
                 </a>
             </li>            
             <li class="nav-item">
                <a class="nav-link"  href="${ pageContext.request.contextPath }/views/Gboard/GoodsBoard.jsp">
-            		<button type="button" id="GoodsBtn" class="btn btn-outline-primary"
-            			style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
-            				<strong>Goods</strong>
-            		</button>
+                  <button type="button" id="GoodsBtn" class="btn btn-outline-primary"
+                     style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
+                        <strong>Goods</strong>
+                  </button>
                 </a>
             </li>            
          </ul>
       </div>
 
 
-	<!--  로그인 버튼 / 로그아웃 버튼 영역 -->	
+   <!--  로그인 버튼 / 로그아웃 버튼 영역 -->   
 <c:if test="${ empty member }">
-		
-	<!--  로그인 창 불러오는 버튼 -->			
-		<div class="col-md-1">
+      
+   <!--  로그인 창 불러오는 버튼 -->         
+      <div class="col-md-1">
          <div class="text-right">
             <a href="" id="loginBtn_btn" class="btn btn-outline-info mb-4"
                data-toggle="modal" data-target="#modalSubscriptionForm"
                style="font-size: 15px; margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
          </div>
-   	  </div>
+        </div>
    </c:if>
 </div>
 
 <c:if test="${ empty member }">
-		<form action="${ pageContext.request.contextPath }/login.me"
-			method="post" id="logBtn">
+      <form action="${ pageContext.request.contextPath }/login.me"
+         method="post" id="logBtn">
 </form>
-		</c:if><c:if test="${ !empty member }">
-		<div id="userInfo">
-			<label>${ member.nName }님! 반가워요~!^0^.</label>
-			<div class="btns" align="right" style="display:inline-block">
-			
-				<button type="button" class="btn btn-outline-success"  id="bhy-csBtn" onclick="cs();"
-						style="font-size:17px; margin-right:10px">
-					Service 
-				</button>			
-			
-				<button type="button" class="btn btn-outline-primary"  id="bhy-myPageBtn" onclick="myPage();"
-						style="font-size:17px; margin-right:10px">
-					MyPage 
-				</button>
+      </c:if><c:if test="${ !empty member }">
+      <div id="userInfo">
+         <label>${ member.nName }님! 반가워요~!^0^.</label>
+         <div class="btns" align="right" style="display:inline-block">
+         
+            <button type="button" class="btn btn-outline-success"  id="bhy-csBtn" onclick="cs();"
+                  style="font-size:17px; margin-right:10px">
+               Service 
+            </button>         
+         
+            <button type="button" class="btn btn-outline-primary"  id="bhy-myPageBtn" onclick="myPage();"
+                  style="font-size:17px; margin-right:10px">
+               MyPage 
+            </button>
 
-				<button type="button" class="btn btn-outline-danger" id="bhy-logoutBtn_btn"  onclick="logout();"
-						style="font-size:17px; margin-left:10px">
-					Logout
-				</button>	
-			</div>
-		</div>
-		</c:if>
+            <button type="button" class="btn btn-outline-danger" id="bhy-logoutBtn_btn"  onclick="logout();"
+                  style="font-size:17px; margin-left:10px">
+               Logout
+            </button>   
+         </div>
+      </div>
+      </c:if>
 </nav>
 </header>
-
