@@ -64,7 +64,22 @@ public class Member implements Serializable {
 	}
 	
 	
+
+	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email, int iNo) {
+		super();
+		this.userId = userId;
+		this.nName = nName;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.birthNo = birthNo;
+		this.email = email;
+		this.iNo = iNo;
+	}
+
+
+
 	
+
 	@Override
 	public String toString() {
 		return "Member [uNo=" + uNo + ", userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName="

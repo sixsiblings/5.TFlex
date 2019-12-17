@@ -207,76 +207,68 @@
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>ID</label>
-                        <input type="text" class="form-control" placeholder="ID" value="ID" disabled>
+                        <input type="text" class="form-control" placeholder="ID" value="${member.userId}" disabled>
                       </div>
                     </div>
                 	</div>    
 	 			
-	 		<div class="card-body">
-                  <div class="left">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호</label>
-                        <input type="password" class="form-control" placeholder="password" value="password" >
+                        <input type="password" class="form-control"  id="password" name="password" required="required">
                       </div>
                     </div>
-                    </div>
-                     </div>
+                 
                      
                     
-				<div class="card-body">
-				<form>
-                  <div class="right">
+
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호 확인</label>
-                        <input type="password" class="form-control" placeholder="password" value="password" >
+                        <input type="password" class="form-control"  id="password2" name="password2" >
+                        <label id="pwdResult"></label>
                       </div>
                     </div>
-                    </div>
-                    </form>
-                    </div>
+                 
                     
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>닉네임</label>
-                        <input type="text" class="form-control" placeholder="Username" value="닉네임">
+                        <input type="text" class="form-control" placeholder="Username" value="${member.nName}"> <br>
+                         <button class="btn btn-info btn-rounded btn-block my-2 waves-effect z-depth-0" 
+                        type="button" id="nNameCheck" >닉네임 중복확인</button>
                       </div>
                     </div>
+                    
+                     <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>이름</label>
+                        <input type="text" class="form-control" placeholder="UserName" value="${member.userName}" disabled>
+                      </div>
+                    </div>
+                    </div>
+                    <br>
+                     <div class="md-form">
+                <input type="text" class="form-control" id="birthNo"  name="birthNo" 
+                      placeholder="생년월일을 입력하세요(yy / mm / dd)"   
+                      aria-describedby="materialRegisterFormPhoneHelpBlock" value="${member.birthNo}" disabled>
+          			</div><br />
                     
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="${member.email}" disabled>
                       </div>
                     </div>
-                    
-                    <form>
-                    <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>성</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="Chet">
-                      </div>
-                    </div>
-                    </div>
-                    
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>이름</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
-                      </div>
-                    </div>
-                    </form>
 
-
-
+	
 	 <label for="materialRegisterFormPhone">관심 구단 선택</label>
    <fieldset class="form-check" style="border: 0.5px solid lightgrey; 
       										padding-top:10px; padding: 10px;border-radius : 5px; text-align : center;">
 	<div class="form-radio">
-		<input type="radio" class="form-radio-input" name="iNo" value="1"  id="두산">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Bears" >두산</label>&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;		
+		<input type="radio" class="form-radio-input" name="iNo" value="1"  id="두산"> &nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Bears" >두산</label> &nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;		
 		
 		<input type="radio" class="form-radio-input" name="iNo" value="2"  id="키움">&nbsp;&nbsp;&nbsp;&nbsp;
 		<label class="form-radio-label" for="Heroes" >키움</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
@@ -309,13 +301,24 @@
 	  </div>
 	  <br />
 	</fieldset>
-                  <div class="row">
+	
+	
+				
+                  <div class="card-body">
+                <div class="btns" align="center">
+                <div class="row">
                     <div class="update ml-auto mr-auto">
                       <button type="submit" class="btn btn-primary btn-round">수정 완료</button>
                     </div>
-                    </div>
-      </form>
-  
+                  </div>
+                </div>
+                
+                  
+               
+              </div>
+              </div>
+      	</form>
+  		
 
 <!-- ------------------------------ -->
 				</div>
