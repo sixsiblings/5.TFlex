@@ -155,8 +155,8 @@
           <!-- 본문내용 끝  -->
           
 		<%-- 페이지 처리 구현하기 --%>
-		<div class="pagingArea" align="center">
-			<c:url var="selectList" value="selectList.qna"/>
+		<div class="pagingArea" align="center" aria-label="Page navigation example">
+			<c:url var="selectList" value="noticelist.do"/>
 			
 			<!-- 처음 페이지 버튼 -->
 			<button onclick="location.href='${selectList}?currentPage=1'">
@@ -216,8 +216,8 @@
 			});
 		});
 		
-		function goMInsert(){
-			location.href = "${pageContext.request.contextPath}/views/board/MLBboardInsertForm.jsp";
+		function goNInsert(){
+			location.href = "${pageContext.request.contextPath}/views/cs/noticeInsertForm.jsp";
 		}
 		
 		function goBoardDetail(){
@@ -225,8 +225,6 @@
 			location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
 		}
 		</script>
-          
-          
           
           
           

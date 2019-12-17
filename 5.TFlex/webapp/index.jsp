@@ -108,10 +108,9 @@ th, td {
    color : white;
 }
 
-#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn:hover{
+#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn{
    color : white;
 }
-
 hr{
    position:relative;
     left: 380px;

@@ -122,12 +122,12 @@
 	
 	<!-- 글쓰기부분 -->
 	  <div class="tableArea" align="center"> 
-         <form action="${pageContext.request.contextPath }/insert.bo" 
-              	 method="post" enctype="multipart/form-data">
+         <form action="${pageContext.request.contextPath }/insertNotice.bo" 
+              	 method="get" enctype="multipart/form-data">
             <table   style="width:600px; height:400px;">
                <tr>
                   <td>제목 </td>
-                  <td colspan="6"><input type="text" size="70"  name="title"></td>
+                  <td><input type="text" size="70"  name="title"></td>
                </tr>
                <br /><br />
                <tr>
