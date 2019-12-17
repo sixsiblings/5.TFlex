@@ -8,7 +8,7 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/img/Tflexpabicon.png" />
 
-<script src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/test/js/core/jquery.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/core/popper.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/core/bootstrap.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/test/js/plugins/perfect-scrollbar.jquery.min.js"></script>

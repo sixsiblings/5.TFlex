@@ -63,14 +63,33 @@ public class emailService {
 		
 		con = getConnection();
 		
-		int result = cdao.selectIdNumber(con, em);
+		int resultNum = cdao.selectIdNumber(con, em);
+		
+		
 		
 		close(con);
 		
-		return result;
+		return resultNum;
+	}
+
+	public String selectNumId(Email em) {
+		con = getConnection();
+		
+		String userId = cdao.selectNumId(con, em);
+		
+		close(con);
+		
+		return userId;
 	}
 
 }
+
+
+
+
+
+
+
 
 
 
