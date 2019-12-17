@@ -123,6 +123,7 @@
         </a>
         <a href="../../index.jsp" class="simple-text logo-normal">T.Flex</a>
       </div>
+      
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">       
           <li class="active ">
@@ -130,19 +131,19 @@
               <i class="fas fa-gem"></i>정보수정
             </a>
           </li>
-          <br />
+          <br>
           <li>
           	 <a href="memberCart.jsp">
 				<i class="fas fa-pencil-alt"></i>장바구니
             </a>
           </li>
-        	<br/>
+        	<br>
           <li>
           	 <a href="memberDeleteForm.jsp">
 				<i class="fas fa-bullhorn"></i>회원탈퇴
             </a>
           </li>
-          <br />   
+          <br>   
           <li>
           	 <a href="Trade.jsp">
 				<i class="fas fa-bullhorn"></i>거래내역
@@ -197,13 +198,129 @@
 	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
 		<br /><br />
 
-<!-- 내용테이블  시작점  -->					
+<!-- 내용테이블  시작점  -->		
+
+	<form id="updateForm" action="${ pageContext.request.contextPath }/update.me" method="post">		
+	
+		<div class="card-body">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" class="form-control" placeholder="ID" value="ID" disabled>
+                      </div>
+                    </div>
+                	</div>    
+	 			
+	 		<div class="card-body">
+                  <div class="left">
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>변경할 비밀번호</label>
+                        <input type="password" class="form-control" placeholder="password" value="password" >
+                      </div>
+                    </div>
+                    </div>
+                     </div>
+                     
+                    
+				<div class="card-body">
+				<form>
+                  <div class="right">
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>변경할 비밀번호 확인</label>
+                        <input type="password" class="form-control" placeholder="password" value="password" >
+                      </div>
+                    </div>
+                    </div>
+                    </form>
+                    </div>
+                    
+                    <div class="col-md-3 px-1">
+                      <div class="form-group">
+                        <label>닉네임</label>
+                        <input type="text" class="form-control" placeholder="Username" value="닉네임">
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" placeholder="Email">
+                      </div>
+                    </div>
+                    
+                    <form>
+                    <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>성</label>
+                        <input type="text" class="form-control" placeholder="First Name" value="Chet">
+                      </div>
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>이름</label>
+                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                      </div>
+                    </div>
+                    </form>
 
 
+
+	 <label for="materialRegisterFormPhone">관심 구단 선택</label>
+   <fieldset class="form-check" style="border: 0.5px solid lightgrey; 
+      										padding-top:10px; padding: 10px;border-radius : 5px; text-align : center;">
+	<div class="form-radio">
+		<input type="radio" class="form-radio-input" name="iNo" value="1"  id="두산">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Bears" >두산</label>&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;		
+		
+		<input type="radio" class="form-radio-input" name="iNo" value="2"  id="키움">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Heroes" >키움</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+		
+		<input type="radio" class="form-radio-input" name="iNo" value="3"  id="NC">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Dinos" >NC</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+
+		<input type="radio" class="form-radio-input" name="iNo" value="4"  id="LG">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Twins" >LG</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+
+		<input type="radio" class="form-radio-input" name="iNo" value="5"  id="삼성">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Lions" >삼성</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;													
+	  </div>                     
+		<br />
+	<div class="form-radio">
+		<input type="radio" class="form-radio-input" name="iNo" value="6"  id="기아">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Tigers" >KIA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+		
+		<input type="radio" class="form-radio-input" name="iNo" value="7"  id="한화">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Eagles" >한화</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+		
+		<input type="radio" class="form-radio-input" name="iNo" value="8"  id="KT">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Wiz" >KT</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+
+		<input type="radio" class="form-radio-input" name="iNo" value="9"  id="롯데">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Giants" >롯데</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+
+		<input type="radio" class="form-radio-input" name="iNo" value="10"  id="SK">&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="form-radio-label" for="Wyverns" >SK</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;														
+	  </div>
+	  <br />
+	</fieldset>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">수정 완료</button>
+                    </div>
+                    </div>
+      </form>
+  
 
 <!-- ------------------------------ -->
 				</div>
 			</div>
+			
 	<!--  내용 테이블 영역 끝  -->	
 		
 		</div>
@@ -212,6 +329,7 @@
 <!-- 본문 영역 끝  -->
 
 		</div>
+	</div>
 	</div>
 </body>
 </html>
