@@ -121,26 +121,26 @@
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">T.Flex</a>
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">T.Flex</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">       
           <li class="active ">
-            <a href="csMain.jsp">
+            <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-gem">FAQ</i>
             </a>
           </li>
           <br />
           <br />
           <li>
-          	 <a href="QNAList.jsp">
+          	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
         	<br/>
         	<br/>
           <li>
-          	 <a href="noticeList.jsp">
+          	 <a href="${pageContext.request.contextPath }/views/cs/noticeList.jsp">
 				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>      
@@ -163,7 +163,7 @@
 				</button>
 			</div>
 		<a class="navbar-brand" href="#pablo">              
-			<i class="fas fa-gem" id="bhy-text" > FAQ</i>
+			<i class="fas fa-gem"  style="font-size : 35px;">&nbsp;&nbsp;자주 찾는 질문 FAQ</i>
 		</a>
 		</div>
 	</div>
@@ -174,16 +174,15 @@
 <div class="content" id="Notice">
 	<div class="row">
 		<div class="col-md-12">
-          
-<!--  카드영역 분리가능한 시작  -->
-	<div class="col-md-8" style="margin: auto;" >
+          <br /><br />
+ <!--  카드영역 분리가능한 시작  -->
+<!-- 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:40px;">                
 			<i class="fas fa-gem" id="bhy-text" > 자주 찾는 질문 FAQ</i>
 		</div>
-	</div><br />
-<!--  카드영역 분리가능한 끝 -->
-          
+	</div><br /> -->
+ <!-- 카드영역 분리가능한 끝  -->
 
 <!-- 내용 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">

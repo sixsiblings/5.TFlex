@@ -11,16 +11,16 @@ import com.six.semi.QNA.model.service.QNAService;
 import com.six.semi.QNA.model.vo.QNA;
 
 /**
- * Servlet implementation class UpdateQNAServlet
+ * Servlet implementation class UpdateViewQNAServlet
  */
-@WebServlet("/update.qna")
-public class UpdateQNAServlet extends HttpServlet {
+@WebServlet("/qUpView.qna")
+public class UpdateViewQNAServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateQNAServlet() {
+    public UpdateViewQNAServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,35 +29,27 @@ public class UpdateQNAServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		QNAService qs = new QNAService();
 		
 		int qNo = Integer.parseInt(request.getParameter("qNo"));
 		
-		QNA q = qs.updateView(qNo);
+		QNA q = new QNAService().updateView(qNo);
 		
-		
-		
-		String qTitle = request.getParameter("qTitle");
-		String qContent = request.getParameter("qContent");
-		
-		q.setqTitle(qTitle);
-		q.setqContent(qContent);
-		
-		
-		int result = qs.updateBoard(q);
-		
-		if( result > 0) {
+		String page = "";
+		if(q != null) {
 			
-			response.sendRedirect("selectList.qna");
+			page = "views/cs/QNAUpdateForm.jsp";
+			request.setAttribute("QNA", q);
 			
 		} else {
 			
-			request.setAttribute("msg", "게시글 수정 중 오류 발생");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 수정 화면 조회 실패!");			
 		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
-
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

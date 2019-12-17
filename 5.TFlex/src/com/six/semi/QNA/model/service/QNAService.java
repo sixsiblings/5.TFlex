@@ -10,77 +10,105 @@ import com.six.semi.QNA.model.vo.QNA;
 public class QNAService {
 
 	private QNAdao qdao = new QNAdao();
-	
+
 	Connection con;
-	
+
 	public int insertQNA(QNA q) {
-		
+
 		con = getConnection();
-		
+
 		int result = qdao.insertQNA(con, q);
-		
-		
-		if( result > 0) {
-			
+
+		if (result > 0) {
+
 			commit(con);
-			
-		}else {
-			
+
+		} else {
+
 			rollback(con);
 		}
 		close(con);
-		
+
 		return result;
 	}
+
+	public ArrayList<QNA> selectList(int currentPage, int limit) {
+
+		con = getConnection();
+
+		// 게시글 시작값과 끝값 미리 계산하기
+		int startRow = (currentPage - 1) * limit;
+		
+		int endRow = startRow + 10;
+
+		ArrayList<QNA> list = qdao.selectList(con, startRow, endRow);
+
+		close(con);
+
+		return list;
+	}
+
 	
 	public int getListCount() {
 		
-	con = getConnection();
+		con = getConnection();
 		
 		int result = qdao.getListCount(con);
 		
 		close(con);
 		
 		return result;
-	}	
+		
 
-
-	public ArrayList<QNA> selectList(PageInfo pi) {
-
-		con = getConnection();
-		
-		// 게시글 시작값과 끝값 미리 계산하기
-		
-		ArrayList<QNA> list = qdao.selectList(con, pi.getStartRow(), pi.getEndRow());
-		
-		close(con);
-		
-		return list;
 	}
 
-	public QNA selectOne(int qno) {
-		
+	
+	 public ArrayList<QNA> selectList(PageInfo pi) {
+ 
+	  con = getConnection();
+	  
+	 // 게시글 시작값과 끝값 미리 계산하기
+	 
+	  ArrayList<QNA> list = qdao.selectList(con, pi.getStartRow(), pi.getEndRow());
+	  
+	  close(con);
+	 
+	 return list; 
+	 
+	 }
+	 
+
+	public QNA selectOne(int qNo) {
+
 		con = getConnection();
-		
-		
+
 		QNA q = null;
-		
-		q = qdao.selectOne(con, qno);
-			
-		if(q != null) {
-			
+
+		q = qdao.selectOne(con, qNo);
+
+		if (q != null) {
+
 			commit(con);
 		}
 
 		else {
-			
+
 			rollback(con);
 		}
-		
+
 		close(con);
-		
+
 		return q;
 	}
 
+	public int updateBoard(QNA q) {
+
+		return 0;
+	}
+
+	public QNA updateView(int qNo) {
+
+		return null;
+	}
 
 }

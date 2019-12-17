@@ -108,7 +108,7 @@ th, td {
    color : white;
 }
 
-#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn{
+#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn:hover{
    color : white;
 }
 hr{

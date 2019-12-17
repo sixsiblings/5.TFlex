@@ -46,12 +46,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -61,19 +61,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="csMain.jsp">
+            <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>
           <br />
           <li>
-          	 <a href="QNAList.jsp">
+          	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
         <br />
           <li class="active ">
-          	 <a href="noticeList.jsp">
+          	 <a href="${pageContext.request.contextPath }/views/cs/noticeList.jsp">
 				<i class="fas fa-bullhorn">Notice</i>
             </a>
           </li>     
@@ -95,7 +95,9 @@
 			                <span class="navbar-toggler-bar bar3"></span>
 			              </button>
 			            </div>
-			            <a class="navbar-brand" href="#pablo">Notice</a>
+			            <a class="navbar-brand" href="#pablo">
+							<i class="fas fa-bullhorn"  style="font-size : 35px;"> 공지사항 </i>
+						</a>
 			          </div>
 			        </div>
 			      </nav>
@@ -108,13 +110,9 @@
       <div class="content" id="Notice">
         <div class="row">
           <div class="col-md-12">
-          
+          <br /><br />
           <!--  카드영역 분리가능한 시작  -->
-			<div class="col-md-8" style="margin: auto;" >
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height: 100px; font-size:40px;">                
-                	<i class="fas fa-bullhorn" id="bhy-text" > 공지사항</i>
-              </div>
-          </div><br />           
+       
       <!--  카드영역 분리가능한 끝 -->
           
 

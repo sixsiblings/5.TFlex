@@ -46,12 +46,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -125,41 +125,38 @@
 	
 	<!-- 글쓰기부분 -->
       <div class="tableArea">
-         <form method="post" enctype="multipart/form-data" id="updateForm">
+         <form action="${pageContext.request.contextPath }/update.qna" 
+              	 method="post" >
             <table>
                <tr>
-                  <td>제목 </td>
-                  <td colspan="3">
+                  <td id="td1">제목 </td>
+                  <td colspan="2">
                   	<input type="text" size="51" 
                   		   name="qtitle" value="${ QNA.qtitle }">
                   	<input type="hidden" name="qno" value="${ QNA.qno }"/>
                   	</td>
                </tr>
                <tr>
-                  <td>작성자 </td>
-                  <td colspan="3">${board.writer}</td>
+                  <td id="td1">작성자 </td>
+                  <td colspan="2">${QNA.nName}</td>
                </tr>
                <tr>
-                  <td>내용 </td>
-                  <td colspan="3">
-                     <textarea name="content" cols="52" rows="15" style="resize:none;">${QNA.qcontent}</textarea>
+                  <td id="td1">내용 </td>
+                  <td colspan="8">
+                     <textarea name="content" cols="52" rows="15" style="resize:none;">${QNA.qContent}</textarea>
                   </td>
                </tr>
             </table>
             <br>
             <div align="center">
                <button onclick="completeUpdate();">수정완료</button>
-               <button onclick="deleteBoard();">삭제하기</button>
             </div>
             <script>
             
             	function completeUpdate(){
-            		$('#updateForm').attr("action", "${pageContext.request.contextPath}/update.bo");
+            		$('#updateForm').attr("action", "${pageContext.request.contextPath}/update.qna");
             	}
-            	function deleteQNA(){
-            		$('#updateForm').attr("action", "${pageContext.request.contextPath}/delete.bo");
-            	}
-            
+
             </script>
          </form>
       </div>

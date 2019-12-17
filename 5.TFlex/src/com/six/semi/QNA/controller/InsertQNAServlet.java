@@ -32,16 +32,18 @@ public class InsertQNAServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		QNAService qs = new QNAService();
+		
 		QNA q = new QNA();
 		
-		q.setqTitle(request.getParameter("qtitle"));
-		q.setqContent(request.getParameter("qcontent"));
+		q.setqTitle(request.getParameter("qTitle"));
+		q.setqContent(request.getParameter("qContent"));
 		q.setuNo(Integer.parseInt(request.getParameter("uNo")));
 		 
 		
 			int result = qs.insertQNA(q);
 			
 			if(result > 0) {
+				System.out.println("InsertServlet_여기왓니?");
 				
 				response.sendRedirect("selectList.qna");
 				
