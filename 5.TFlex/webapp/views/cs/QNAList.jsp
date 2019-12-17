@@ -121,15 +121,13 @@
 <!--  중간 카드 영역 시작 -->
 	<div class="col-md-8" style="margin: auto;">
 		<div class="card-header"  id="bhy-card-shadow" 
-			style="background:white;  height: 80px; font-size:20px;">                
+			style="background:white;  height: 100px; font-size:20px;">                
 			<i class="fas fa-pencil-alt" id="bhy-card-text">  
-				상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. </i>
-                	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;
-                	
-
-<!-- 		<button type="button" onclick="location.href='QNAInsertForm.jsp';" 
-			class="btn btn-outline-warning btn-rounded btn-sm pull-right">문의하기</button> -->			
-                	
+				문의사항의 답변은 회원가입 시 입력하신 이메일로 발송해드립니다. <br /><br />
+&nbsp;&nbsp;	&nbsp;상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. 
+			</i>
+               	
+               	
 </div>
 </div>
 <br />	
@@ -186,56 +184,7 @@
 </div>
 
 <!-- 본문내용 끝  -->
-		<%-- 페이지 처리 구현하기 --%>		
-<%-- 		<div class="pagingArea" align="center">
-			<c:url var="selectList" value="selectList.qna"/>
-			
-			<!-- 처음 페이지 버튼 -->
-			<button onclick="location.href='${selectList}?currentPage=1'">
-				&lt;&lt;
-			</button>
-			
-			<!-- 이전 페이지 버튼 -->
-			<c:if test="${ pi.currentPage le 1 }">
-				<button disabled>&lt;</button>
-			</c:if>
-			<c:if test="${ pi.currentPage gt 1 }">
-				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage - 1}'">
-					&lt;
-				</button>
-			</c:if> --%>
-			
-			<!-- 상세 페이지 구현을 위한 반복문 -->
-<%-- 			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
-				<c:if test="${p eq pi.currentPage }">
-					<button disabled>
-						<b>${p}</b>
-					</button>
-				</c:if>
-				<c:if test="${ p ne pi.currentPage}">
-					<button onclick="location.href='${selectList}?currentPage=${p}'">
-						${p}
-					</button>
-				</c:if>
-			</c:forEach>
-			 --%>
-			
-<%-- 			<!-- 다음 페이지 버튼 -->
-			<c:if test="${ pi.currentPage ge pi.maxPage }">
-				<button disabled>&gt;</button>
-			</c:if>
-			<c:if test="${ pi.currentPage lt pi.maxPage }">
-				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage + 1}'">
-					&gt;
-				</button>
-			</c:if>
-			
-			<!-- 마지막 페이지 버튼 -->
-			<button onclick="location.href='${selectList}?currentPage=${pi.maxPage}'">
-				&gt;&gt;
-			</button>
-		</div> --%>
-	
+
 		<script>
 		$(function(){
 			$("#listArea td").mouseenter(function(){

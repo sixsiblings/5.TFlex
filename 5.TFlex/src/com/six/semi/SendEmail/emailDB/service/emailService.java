@@ -4,13 +4,13 @@ import static com.six.semi.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
-import com.six.semi.SendEmail.emailDB.dao.CheckEmailDao;
+import com.six.semi.SendEmail.emailDB.dao.CheckEmail;
 import com.six.semi.SendEmail.emailDB.vo.Email;
 
 public class emailService {
 	
 	Connection con = null;
-	CheckEmailDao cdao = new CheckEmailDao();
+	CheckEmail cdao = new CheckEmail();
 	
 	public int checkEmail(String email) {
 		
@@ -53,6 +53,17 @@ public class emailService {
 		} else {
 			rollback(con);
 		}
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int selectIdNumber(Email em) {
+		
+		con = getConnection();
+		
+		int result = cdao.selectIdNumber(con, em);
 		
 		close(con);
 		

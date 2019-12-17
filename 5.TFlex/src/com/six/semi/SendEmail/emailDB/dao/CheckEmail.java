@@ -11,11 +11,11 @@ import java.util.Properties;
 import com.six.semi.SendEmail.emailDB.vo.Email;
 import com.six.semi.member.model.DAO.MemberDAO;
 
-public class CheckEmailDao {
+public class CheckEmail {
 	
 	private Properties prop = new Properties();
 
-	public CheckEmailDao() {
+	public CheckEmail() {
 
 		try {
 			
@@ -76,6 +76,8 @@ public class CheckEmailDao {
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
 		
 		return result;
@@ -96,7 +98,40 @@ public class CheckEmailDao {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
+		
+		return result;
+	}
+
+	public int selectIdNumber(Connection con, Email em) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectIdNumber");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, em.getEmail());
+			pstmt.setString(2, em.getContent());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				result = rset.getInt(1);
+				
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		return result;
 	}

@@ -1,11 +1,14 @@
 package com.six.semi.QNA.model.dao;
-
+import static com.six.semi.common.JDBCTemplate.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.six.semi.QNA.model.vo.QNA;
@@ -36,7 +39,7 @@ public class QNAdao {
 
 	public int insertQNA(Connection con, QNA q) {
 		
-		int reuslt = 0;
+		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
@@ -47,16 +50,11 @@ public class QNAdao {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, q.getuNo());
-			pstmt.setInt(2, q.getqNo());
-			pstmt.setInt(3, q.getqCno());
-			pstmt.setString(4, q.getqTitle());
-			pstmt.setString(5, q.getqContent());
-			pstmt.setString(6, q.getQaStatus());
-			pstmt.setString(7, q.getQaContent());
-			pstmt.setDate(8, q.getqDate());
-			pstmt.setString(9, q.getqStatus());
+			pstmt.setString(2, q.getqTitle());
+			pstmt.setString(3, q.getqContent());
 			
-			reuslt = pstmt.executeUpdate();
+			
+			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			
@@ -71,10 +69,43 @@ public class QNAdao {
 	}
 	
 	
-	// 게시글 목록 조회
-	public ArrayList<Board> selectList(Connection con, int startRow, int endRow){
+	public int getListCount(Connection con) {
 		
-		ArrayList<Board> list = null;
+		int result = 0;
+		
+		Statement stmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("listCount");
+		
+		try {
+			
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(sql);
+			
+			if(rset.next()) {
+				
+				result = rset.getInt(2);
+			}
+			
+		} catch(SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return result;
+	}
+
+	// 게시글 목록 조회
+	public ArrayList<QNA> selectList(Connection con, int startRow, int endRow){
+		
+		ArrayList<QNA> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -92,19 +123,19 @@ public class QNAdao {
 			list = new ArrayList<>();
 			
 			while(rset.next()) {
-				Board b = new Board();
+				QNA q = new QNA();
 
-				b.setBno(rset.getInt("bno"));
-				b.setBtype(rset.getInt("btype"));
-				b.setBtitle(rset.getString(3));
-				b.setBcontent(rset.getString(4));
-				b.setWriter(rset.getString(5));
-				b.setBcount(rset.getInt(6));
-				b.setBfile(rset.getString(7));
-				b.setBdate(rset.getDate(8));
-				b.setStatus(rset.getString(9));
+				pstmt.setInt(1, q.getuNo());
+				pstmt.setInt(2, q.getqNo());
+				pstmt.setInt(3, q.getqCno());
+				pstmt.setString(4, q.getqTitle());
+				pstmt.setString(5, q.getqContent());
+				pstmt.setDate(6, q.getqDate());
+				pstmt.setString(7, q.getQaStatus());
+				pstmt.setString(8, q.getQaContent());
+				pstmt.setString(9, q.getqStatus());
 								
-				list.add(b);
+				list.add(q);
 			}
 			
 		} catch(SQLException e) {
@@ -116,13 +147,13 @@ public class QNAdao {
 			close(rset);
 			close(pstmt);
 		}
-		
-		
+			
 		return list;
 	}
 
-	public Board selectOne(Connection con, int bno) {
-		Board b = null;
+	
+	public QNA selectOne(Connection con, int qno) {
+		QNA q = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -131,22 +162,23 @@ public class QNAdao {
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, bno);
+			pstmt.setInt(2, qno);
 			
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				b = new Board();
+				q = new QNA();
 				
-				b.setBno(bno);
-				b.setBtype(rset.getInt(2));
-				b.setBtitle(rset.getString(3));
-				b.setBcontent(rset.getString(4));
-				b.setWriter(rset.getString(5));
-				b.setBcount(rset.getInt(6));
-				b.setBfile(rset.getString(7));
-				b.setBdate(rset.getDate(8));
-				b.setStatus(rset.getString(9));
+				pstmt.setInt(1, q.getuNo());
+				pstmt.setInt(2, q.getqNo());
+				pstmt.setInt(3, q.getqCno());
+				pstmt.setString(4, q.getqTitle());
+				pstmt.setString(5, q.getqContent());
+				pstmt.setDate(6, q.getqDate());
+				pstmt.setString(7, q.getQaStatus());
+				pstmt.setString(8, q.getQaContent());
+				pstmt.setString(9, q.getqStatus());
+				
 			}
 			
 		} catch (SQLException e) {
@@ -155,50 +187,28 @@ public class QNAdao {
 		} finally {
 			close(rset);
 			close(pstmt);
-		}
-		
-		
-		return b;
+		}		
+		return q;
 	}
 
-	// 게시글 조회수 증가
-	public int addReadCount(Connection con, int bno) {
+	public int updateQNA(Connection con, QNA q) {
+		
 		int result = 0;
+		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("addReadCount");
+		String sql = prop.getProperty("updateQNA");
 		
 		try {
-		
+			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, bno);
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-			
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-
-	public int updateBoard(Connection con, Board b) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		
-		String sql = prop.getProperty("updateBoard");
-		try {
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, b.getBtitle());
-			pstmt.setString(2, b.getBcontent());
-			pstmt.setString(3, b.getBfile());
-			pstmt.setInt(4, b.getBno());
+			pstmt.setInt(1, q.getuNo());
+			pstmt.setInt(2, q.getqNo());
+			pstmt.setInt(3, q.getqCno());
+			pstmt.setString(4, q.getqTitle());
+			pstmt.setString(5, q.getqContent());
+			pstmt.setDate(6, q.getqDate());
 						
 			result = pstmt.executeUpdate();
 			
@@ -207,24 +217,29 @@ public class QNAdao {
 			
 		} finally	{
 			close(pstmt);
-		}		
-		
+			
+		}				
 		return result;
 	}
 
-	public int deleteBoard(Connection con, int bno) {
+	public int deleteQNA(Connection con, int qno) {
 		int result = 0;
+		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("deleteBoard");
+		
+		String sql = prop.getProperty("deleteQNA");
+		
 		try {
+			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, bno);
+			pstmt.setInt(2, qno);
 			
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 		} finally {
 			close(pstmt);
 		}
@@ -232,74 +247,4 @@ public class QNAdao {
 		return result;
 	}
 
-	public int getListCount(Connection con) {
-		int result = 0;
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("listCount");
-		
-		try {
-			
-			stmt = con.createStatement();
-			
-			rset = stmt.executeQuery(sql);
-			
-			if(rset.next()) {
-				result = rset.getInt(1);
-			}
-			
-		} catch(SQLException e) {
-			
-			e.printStackTrace();
-			
-		} finally {
-			close(rset);
-			close(stmt);
-		}
-		
-		
-		
-		return result;
-	}
-
-	public ArrayList<Board> top5(Connection con) {
-		ArrayList<Board> list = null;
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectTop5");
-		
-		try {
-		
-			stmt = con.createStatement();
-			
-			rset = stmt.executeQuery(sql);
-			
-			list = new ArrayList<>();
-			
-			while(rset.next()) {
-				Board b = new Board();
-				
-				b.setBno(rset.getInt("BNO"));
-				b.setBtype(rset.getInt("BTYPE"));
-				b.setBtitle(rset.getString("BTITLE"));
-				b.setBcontent(rset.getString("BCONTENT"));
-				b.setWriter(rset.getString("writer"));
-				b.setBcount(rset.getInt("BCOUNT"));
-				b.setBdate(rset.getDate("BDATE"));
-				
-				list.add(b);
-			}		
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		} finally {
-			
-			close(rset);
-			close(stmt);
-		}
-		
-		return list;
-	}
 }

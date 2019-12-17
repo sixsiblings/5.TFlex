@@ -99,7 +99,7 @@ $('#summernote').summernote({
   $.ajax({
        data: form_data,
        type: "post",
-       url: 'insert.tn',
+       url: '/tflex/insert.tn',
     cache : false,
     contentType : false,
        enctype: 'multipart/form-data',

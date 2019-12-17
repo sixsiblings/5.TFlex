@@ -11,7 +11,6 @@
 <c:import url="../common/commonUtil.jsp"/>
 </head>
 <body>
-	<c:import url="../common/joinHeader.jsp"/>
 
 	
 	

@@ -34,7 +34,7 @@
         	margin-top : 20px;
         	margin-left : 20px;
         }
-        
+
 	</style>
 </head>
 
@@ -66,13 +66,13 @@
             </a>
           </li>
         	<br/>
-          <li>
+          <li class="active ">
           	 <a href="memberDeleteForm.jsp">
 				<i class="fas fa-bullhorn"></i>회원탈퇴
             </a>
-          </li>  
-          <br /> 
-          <li  class="active ">
+          </li>   
+          <br />
+          <li>
           	 <a href="Trade.jsp">
 				<i class="fas fa-bullhorn"></i>거래내역
             </a>
@@ -96,7 +96,7 @@
 					</button>
 				</div>
 			<a class="navbar-brand" href="#pablo">              
-				<i class="fas fa-gem" id="bhy-text" >거래내역</i>
+				<i class="fas fa-gem" id="bhy-text" >회원탈퇴</i>
 			</a>
 			</div>
 		</div>
@@ -105,7 +105,7 @@
 
 
 <!--  본문 영역 시작 -->
-<div class="content" id="Trade">
+<div class="content" id="memberDelete">
 	<div class="row">
 		<div class="col-md-12">
           
@@ -114,7 +114,7 @@
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:30px;">                
-			<i class="fas fa-gem" id="bhy-text" >거래 내역</i>
+			<i class="fas fa-gem" id="bhy-text" >회원 탈퇴</i>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->

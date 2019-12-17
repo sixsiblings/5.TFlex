@@ -1,4 +1,4 @@
-package com.six.semi.QNA.controller;
+package com.six.semi.boardComment.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,21 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.QNA.model.service.QNAService;
-import com.six.semi.QNA.model.vo.QNA;
-import com.six.semi.common.PageInfo;
+import com.six.semi.boardComment.model.service.CommentService;
+import com.six.semi.boardComment.model.vo.BoardComment;
 
 /**
- * Servlet implementation class InsertQNAServlet
+ * Servlet implementation class MLBCommentUpdateServlet
  */
-@WebServlet("/insert.qna")
-public class InsertQNAServlet extends HttpServlet {
+@WebServlet("/mupdate.co")
+public class MLBCommentUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertQNAServlet() {
+    public MLBCommentUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,26 +30,28 @@ public class InsertQNAServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		QNAService qs = new QNAService();
-		QNA q = new QNA();
+		int cno = Integer.parseInt(request.getParameter("cno"));
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		String content = request.getParameter("ccontent");
 		
-		q.setqTitle(request.getParameter("qtitle"));
-		q.setqContent(request.getParameter("qcontent"));
-		q.setuNo(Integer.parseInt(request.getParameter("uNo")));
-		 
+		CommentService cs = new CommentService();
+		BoardComment bco = new BoardComment();
+
+		bco.setCno(cno);
+		bco.setBno(bno);
+		bco.setCcontent(content);
 		
-			int result = qs.insertQNA(q);
-			
-			if(result > 0) {
-				
-				response.sendRedirect("selectList.qna");
-				
-			} else {
-				
-				request.setAttribute("msg", "게시글 작성 실패");
-				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-			}
+		int result = cs.updateComment(bco);
+		
+		if(result > 0) {
+			response.sendRedirect("mselectOne.bo?bno="+bno);
+		} else {
+			request.setAttribute("msg", "댓글 수정 중 에러 발생");
+			request.getRequestDispatcher("views/common/errorPage.jsp")
+				   .forward(request, response);
 		}
+		
+	}
 	
 
 	/**

@@ -1,6 +1,7 @@
 package com.six.semi.notice.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,24 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.six.semi.notice.model.service.NoticeService;
 import com.six.semi.notice.model.vo.Notice;
+import com.six.semi.notice.model.vo.PageInfo;
 
 /**
- * Servlet implementation class MLBBoardInsertServlet
+ * Servlet implementation class NoticeListServlet
  */
-@WebServlet("/insertNotice.bo")
-public class NoticeInsertServlet extends HttpServlet {
+@WebServlet("/noticelist.do")
+public class NoticeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeInsertServlet() {
+    public NoticeListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,30 +32,36 @@ public class NoticeInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		ArrayList<Notice> list = null;
 		NoticeService ns = new NoticeService();
-		Notice n = new Notice();
-		String title = request.getParameter("title");
-		String nName = request.getParameter("nName"); 
-		String content = request.getParameter("content");
-		n.setNtTitle(title);
-		n.setGm(nName);
-		n.setNtContent(content);
-			// System.out.println(request.getParameter("cgbno"));
-			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
+		PageInfo pi = new PageInfo();
 		
-			int result = ns.insertNotice(n);
-			if(result > 0) {
-				System.out.println("여기는?");
-				response.sendRedirect("noticelist.do");
-				System.out.println(n);
-				
-			} else {
-				request.setAttribute("msg", "게시글 작성 실패");
-				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-			}
+		if(request.getParameter("currentPage") != null) {
+			pi.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
 		}
-	
+		
+		// 전체 게시글 수
+		
+		pi.calcPage(ns.getListCount());
+		System.out.println("전체 게시글 수 : " + pi.getListCount());
+		
+		list = ns.selectList(pi);
+		
+		String page = "";
+		
+		if(list != null) {
+			System.out.println("여기는 오냐?");
+			page = "views/cs/noticeList.jsp";
+			request.setAttribute("list", list);
+			request.setAttribute("pi", pi);
+			System.out.println(pi);
+		} else {
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 목록 조회 에러!");	
+		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

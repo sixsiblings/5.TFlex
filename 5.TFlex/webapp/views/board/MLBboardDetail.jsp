@@ -71,12 +71,13 @@
             <button onclick="location.href='${boardUpdate}'">수정하기</button>
          </c:if>
       </div>
-   <div class="replyArea">
+   <div class="replyArea" align = "center">
    	<div class="replyWriteArea">
-         <form action="${pageContext.request.contextPath }/insert.co" method="post">
-            <input type="hidden" name="uno value="${ member.uNo }"/>
+         <form action="${pageContext.request.contextPath }/mInsert.co" method="post">
+            <input type="hidden" name="uno" value="${ member.uNo }"/>
             <input type="hidden" name="bno" value="${board.bno }" />
-            <input type="hidden" name="refcno" value="0" />
+            <input type="hidden" name="cgbno" value="${board.cgbno}" />
+            <input type="hidden" name="cno2" value="0" />
             <input type="hidden" name="clevel" value="1" />
             
             <table align="center">
@@ -96,7 +97,7 @@
              class="replyList${bco.clevel}">
                     <tr>
                        <td rowspan="2"> </td>
-                     <td><b>${bco.unor}</b></td>
+                     <td><b>${bco.uno}</b></td>
                      <td>${bco.cdate}</td>
                      <td align="center">
                      <c:if test="${member.uNo eq bco.uno }">
@@ -113,8 +114,8 @@
                            onclick="deleteReply(this);">삭제하기</button>
                            
                      </c:if><c:if test="${ bco.clevel lt 3 }">
-                        <input type="hidden" name="writer" value="${member.uNo}"/>
-                        <input type="hidden" name="refcno" value="${bco.cno}" />
+                        <input type="hidden" name="uno" value="${member.uNo}"/>
+                        <input type="hidden" name="cno2" value="${bco.cno}" />
                         <input type="hidden" name="clevel" value="${bco.clevel}" />
                         <button type="button" class="insertBtn" 
                             onclick="reComment(this);">댓글 달기</button>&nbsp;&nbsp;
@@ -169,7 +170,7 @@
 	   // 댓글 번호 가져오기
 	   var cno = $(obj).siblings('input').val();
 	   
-	   location.href="/myWeb/update.co?cno="+cno+"&bno="+bno
+	   location.href="/tflex/mupdate.co?cno="+cno+"&bno="+bno
 			   		+"&ccontent=" + content;
    }
    
@@ -177,7 +178,7 @@
    	function deleteReply(obj){
    		var cno = $(obj).siblings('input').val();
    		
-   		location.href="/myWeb/delete.co?cno="+cno+"&bno="+bno;
+   		location.href="/tflex/mdelete.co?cno="+cno+"&bno="+bno;
    	}
    // 대댓글 기능 구현 함수
    function reComment(obj){
@@ -205,7 +206,7 @@
    	// 참조한 댓글의 번호
    	
    
-   	var refcno = $(obj).siblings('input[name=refcno]').val();
+   	var cno2 = $(obj).siblings('input[name=cno2]').val();
    	
    	//참조한 댓글의 레벨 +1
    	var clevel = Number($(obj).siblings('input[name=clevel]').val()) + 1;
@@ -216,13 +217,13 @@
    var grandParent = parent.parent();
    var siblingsTR = grandParent.siblings().last();
    
-   var content = siblingsTR.find("textarea").val();
+   var ccontent = siblingsTR.find("textarea").val();
    
-   location.href='/myWeb/insert.co?'
-   				+ 'writer=${member.uNo}'
-   				+ '&replyContent=' + content
+   location.href='/tflex/mInsert.co?'
+   				+ 'uno=${member.uNo}'
+   				+ '&replyContent=' + ccontent
    				+ '&bno=' + bno
-   				+ '&refcno=' + refcno
+   				+ '&cno2=' + cno2
    				+ '&clevel=' + clevel; 
    }
  

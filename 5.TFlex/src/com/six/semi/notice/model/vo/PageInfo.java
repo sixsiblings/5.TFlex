@@ -10,6 +10,8 @@ public class PageInfo implements Serializable {
 		private int  currentPage;
 	    private int  limit;
 	    private int listCount;
+		private int startRow;
+		private int endRow;
 	    
 	    // 기본 생성자
 		public PageInfo() { }
@@ -86,6 +88,22 @@ public class PageInfo implements Serializable {
 		public void setListCount(int listCount) {
 			this.listCount = listCount;
 		}
+		
+		public int getStartRow() {
+			return startRow;
+		}
+
+		public void setStartRow(int startRow) {
+			this.startRow = startRow;
+		}
+
+		public int getEndRow() {
+			return endRow;
+		}
+
+		public void setEndRow(int endRow) {
+			this.endRow = endRow;
+		}
 
 		// 투스트링
 		@Override
@@ -93,6 +111,20 @@ public class PageInfo implements Serializable {
 			return "PageInfo [startPage=" + startPage + ", endPage=" + endPage + ", maxPage=" + maxPage
 					+ ", currentPage=" + currentPage + ", limit=" + limit + ", listCount=" + listCount + "]";
 		}
+
+		public void calcPage(int listCount) {
+			this.listCount = listCount;
+			this.maxPage = (int)((double)listCount/this.limit+0.9);
+			this.startPage = (int)((double)this.currentPage/this.limit+0.9)*limit-9;
+			this.endPage=this.startPage + this.limit -1;
+			if(this.maxPage < this.endPage) {
+				this.endPage = this.maxPage;
+			}
+			this.startRow = (this.currentPage-1)*this.limit;
+			this.endRow = this.startRow + 10;
+			
+		}
+
 		
 		
 	    
