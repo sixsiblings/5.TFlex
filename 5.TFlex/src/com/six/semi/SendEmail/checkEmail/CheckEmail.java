@@ -14,13 +14,13 @@ import com.six.semi.SendEmail.emailDB.service.emailService;
  * Servlet implementation class checkEmail
  */
 @WebServlet("/checkEmail.em")
-public class checkEmail extends HttpServlet {
+public class CheckEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public checkEmail() {
+    public CheckEmail() {
         super();
         // TODO Auto-generated constructor stub
     }

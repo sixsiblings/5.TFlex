@@ -13,7 +13,7 @@ public class QNA implements Serializable {
 	private String qaStatus; // 6 답변여부
 	private String qaContent; // 7 답변내용
 	private Date qDate; // 8 문의일
-	private String qStatus; // 9 
+	private String qStatus; // 9 삭제여부
 
 	
 	// 기본 생성자

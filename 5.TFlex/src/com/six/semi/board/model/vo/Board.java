@@ -15,10 +15,13 @@ public class Board implements Serializable {
 	private Date bbenrolldate;
 	private int uno;
 	private String bstatus;
+	
+	
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Board(int bno, int cgbno, String btitle, String bcontent, int bcount, String bfile, int breportcount,
 			Date bbenrolldate, int uno, String bstatus) {
 		super();

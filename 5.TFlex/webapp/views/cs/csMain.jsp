@@ -114,21 +114,14 @@
   
   <!-- 사이드바 시작 -->
     <div class="sidebar" data-color="blue" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
+
       <div class="logo">
         <a href="${pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
-          	T.Flex
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
-        </a>
+        <a href="../../index.jsp" class="simple-text logo-normal">T.Flex</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">       

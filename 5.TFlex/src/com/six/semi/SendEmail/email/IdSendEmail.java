@@ -24,14 +24,14 @@ import com.six.semi.SendEmail.emailDB.vo.Email;
 /**
  * Servlet implementation class Test
  */
-@WebServlet("/emailSend.em")
-public class SendEmail extends HttpServlet {
+@WebServlet("/IdEmailSend.em")
+public class IdSendEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SendEmail() {
+    public IdSendEmail() {
         super();
     }
 
@@ -92,10 +92,7 @@ public class SendEmail extends HttpServlet {
 		
 		emailService es = new emailService();
 		
-		Email e = new Email();
-		
-		e.setContent(content);
-		e.setEmail(to);
+		Email e = new Email(to, content);
 		
 		int resultInt = es.insertIdEmail(e);
 		

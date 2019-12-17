@@ -111,6 +111,7 @@ th, td {
 #HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn:hover{
    color : white;
 }
+
 hr{
    position:relative;
     left: 380px;

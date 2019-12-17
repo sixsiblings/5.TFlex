@@ -34,77 +34,6 @@
         	margin-top : 20px;
         	margin-left : 20px;
         }
-        
-		/* 아코디언 부분 CSS */
-		.accordion {
-		    font-family:Arial, Helvetica, sans-serif; 
-		    margin:0 auto;
-		    font-size:14px;
-		    width:900px;
-		    padding:5px;
-		    background:white;
-		}
-		.accordion ul {
-		    list-style:none;
-		    margin:0;
-		    padding:0;    
-		}
-		.accordion li {
-		    margin:0;
-		    padding:0;
-		}
-		.accordion [type=radio], .accordion [type=checkbox] {
-		    display:none;
-		}
-		.accordion label {
-		    display:block;
-		    font-size:15px;
-		    line-height:16px;
-		    background:#E5E5E8;
-			color:black;
-		    text-shadow:1px 1px 1px rgba(255,255,255,0.3);
-		    font-weight:700;
-		    cursor:pointer;
-		    text-transform:uppercase;
-		    -webkit-transition: all .2s ease-out;
-		    -moz-transition: all .2s ease-out;
-		}
-		.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
-		    background:#4E4A48;
-		    color: #F89A60;
-  		    text-shadow:1px 1px 1px rgba(0,0,0,0.5) 
-	}
-		.accordion .content {
-		    padding:0 10px;
-		    overflow:hidden;
-		    -webkit-transition: all .5s ease-out;
-		    -moz-transition: all .5s ease-out;
-		}
-		.accordion p {
-		    color:#333;
-		    margin:0 0 30px;
-		}
-
-		
-		/* Vertical */
-		.vertical ul li {
-		    overflow:hidden;
-		    margin:0 0 1px;
-		}
-		.vertical ul li label {
-		    padding:10px;
-		}
-		.vertical [type=radio]:checked ~ label, .vertical [type=checkbox]:checked ~ label {
-		    border-bottom:0;
-		}
-
-		.vertical ul li .content {
-		    height:0px;
-		    border-top:0;
-		}
-		.vertical [type=radio]:checked ~ label ~ .content, .vertical [type=checkbox]:checked ~ label ~ .content {
-		    height:auto;
-		 }   
 
 	</style>
 </head>
@@ -125,7 +54,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">       
-          <li class="active ">
+          <li>
             <a href="myPage.jsp">
               <i class="fas fa-gem"></i>정보수정
             </a>
@@ -137,12 +66,12 @@
             </a>
           </li>
         	<br/>
-          <li>
+          <li class="active ">
           	 <a href="memberDeleteForm.jsp">
 				<i class="fas fa-bullhorn"></i>회원탈퇴
             </a>
-          </li>
-          <br />   
+          </li>   
+          <br />
           <li>
           	 <a href="Trade.jsp">
 				<i class="fas fa-bullhorn"></i>거래내역
@@ -167,7 +96,7 @@
 					</button>
 				</div>
 			<a class="navbar-brand" href="#pablo">              
-				<i class="fas fa-gem" id="bhy-text" >회원 정보 수정</i>
+				<i class="fas fa-gem" id="bhy-text" >회원탈퇴</i>
 			</a>
 			</div>
 		</div>
@@ -176,7 +105,7 @@
 
 
 <!--  본문 영역 시작 -->
-<div class="content" id="userInfo">
+<div class="content" id="memberDelete">
 	<div class="row">
 		<div class="col-md-12">
           
@@ -185,7 +114,7 @@
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:30px;">                
-			<i class="fas fa-gem" id="bhy-text" >  회원 정보 수정</i>
+			<i class="fas fa-gem" id="bhy-text" >회원 탈퇴</i>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->

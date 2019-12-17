@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title> Notice  </title>
+  <title>QNA</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
 
@@ -105,7 +105,7 @@
 			</div> -->
 
 	<!--  본문 내용 영역 -->
-      <div class="content" id="Notice">
+      <div class="content" id="QNA">
         <div class="row">
           <div class="col-md-12">
           
@@ -125,12 +125,12 @@
 	
 	<!-- 글쓰기부분 -->
 	  <div class="tableArea" align="center"> 
-         <form action="${pageContext.request.contextPath }/insert.bo" 
+         <form action="${pageContext.request.contextPath }/insert.qna" 
               	 method="post" enctype="multipart/form-data">
             <table   style="width:600px; height:400px;">
                <tr>
                   <td>제목 </td>
-                  <td colspan="6"><input type="text" size="51" name="title"></td>
+                  <td colspan="6"><input type="text" size="51" name="qtitle"></td>
                </tr>
                <tr>
                   <td>작성자 </td>
@@ -147,7 +147,7 @@
                <tr>
                   <td>내용 </td>
                   <td colspan="3" >
-                     <textarea id="summernote" name="content" cols="52" rows="25" style="resize:none;"></textarea>
+                     <textarea id="summernote" name="qcontent" cols="52" rows="25" style="resize:none;"></textarea>
                   </td>
                </tr>
             </table>
