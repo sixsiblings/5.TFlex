@@ -80,7 +80,6 @@
       <th scope="col">작성자</th>
       <th scope="col">작성일</th>
       <th scope="col">조회수</th>
-      <th scope="col">첨부파일</th>
     </tr>
   </thead>
   <c:forEach var="board" items="${list}">
@@ -93,11 +92,6 @@
   <td>${board.uno}</td>
   <td>${board.bbenrolldate}</td>
   <td>${board.bcount}</td>
-  <c:if test="${!empty board.bfile}">
-  			<td> o </td>
-  </c:if><c:if test="${empty board.bfile}">
-  			<td> x </td>
-  </c:if>
   </tr>
   </c:forEach>
 </table>
