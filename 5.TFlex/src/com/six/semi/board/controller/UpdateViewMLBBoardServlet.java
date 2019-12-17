@@ -1,31 +1,26 @@
 package com.six.semi.board.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.six.semi.board.model.service.BoardService;
 import com.six.semi.board.model.vo.Board;
-import com.six.semi.boardComment.model.service.CommentService;
-import com.six.semi.boardComment.model.vo.BoardComment;
 
 /**
- * Servlet implementation class SelectOneMLBBoardServlet
+ * Servlet implementation class UpdateViewBoardServlet
  */
-@WebServlet("/mselectOne.bo")
-public class SelectOneMLBBoardServlet extends HttpServlet {
+@WebServlet("/mbUpView.bo")
+public class UpdateViewMLBBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectOneMLBBoardServlet() {
+    public UpdateViewMLBBoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,31 +29,25 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int bno = Integer.parseInt(request.getParameter("bno"));
-		//System.out.println("bno 확인 : "+bno);
 		
-		Board b = new BoardService().selectOne(bno);
-		
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("board", b);
-		
-		// 댓글도 리스트로 가져오기
-		ArrayList<BoardComment> clist
-		   = new CommentService().selectList(bno,b.getCgbno());
+		Board b = new BoardService().updateView(bno);
 		
 		String page = "";
-		
 		if(b != null) {
-			page = "views/board/MLBboardDetail.jsp";
-			request.setAttribute("board", b);
-			request.setAttribute("clist", clist);
 			
+			page = "views/board/MLBboardUpdateForm.jsp";
+			request.setAttribute("board", b);
+		} else {
+			
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 수정 화면 조회 실패!");			
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
