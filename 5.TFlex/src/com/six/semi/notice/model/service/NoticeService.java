@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import static com.six.semi.common.JDBCTemplate.*;
 
-import com.six.semi.board.model.vo.Board;
 import com.six.semi.notice.model.dao.NoticeDAO;
 import com.six.semi.notice.model.vo.Notice;
 import com.six.semi.notice.model.vo.PageInfo;
@@ -46,6 +45,33 @@ public class NoticeService {
 		// 게시글 시작값과 끝값 미리 계산하기
 		
 		ArrayList<Notice> list = ndao.selectList(con, pi.getStartRow(), pi.getEndRow());
+		close(con);
+		
+		return list;
+	}
+
+	public Notice selectOne(int ntNo) {
+		con = getConnection();
+		
+		Notice result = ndao.getselelctOne(con, ntNo);
+		
+		Notice n = null;
+		
+		if(result != null) {
+			n = ndao.getselelctOne(con, ntNo);
+			if(n != null) commit(con);
+		} else rollback(con);
+		
+		close(con);
+		
+		return n;
+		
+	}
+
+	public ArrayList<Notice> nTop5() {
+		con = getConnection();
+		ArrayList<Notice> list = ndao.top5(con);
+		
 		close(con);
 		
 		return list;

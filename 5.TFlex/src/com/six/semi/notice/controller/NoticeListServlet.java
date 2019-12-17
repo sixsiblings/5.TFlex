@@ -36,6 +36,7 @@ public class NoticeListServlet extends HttpServlet {
 		NoticeService ns = new NoticeService();
 		PageInfo pi = new PageInfo();
 		
+		System.out.println("커렌트 페이지" + request.getParameter("currentPage"));
 		if(request.getParameter("currentPage") != null) {
 			pi.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
 		}
@@ -44,7 +45,6 @@ public class NoticeListServlet extends HttpServlet {
 		
 		pi.calcPage(ns.getListCount());
 		System.out.println("전체 게시글 수 : " + pi.getListCount());
-		
 		list = ns.selectList(pi);
 		
 		String page = "";
@@ -53,8 +53,6 @@ public class NoticeListServlet extends HttpServlet {
 			System.out.println("여기는 오냐?");
 			page = "views/cs/noticeList.jsp";
 			request.setAttribute("list", list);
-			request.setAttribute("pi", pi);
-			System.out.println(pi);
 		} else {
 			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "게시글 목록 조회 에러!");	

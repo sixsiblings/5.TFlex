@@ -13,7 +13,7 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
 
-	<style>
+		<style>
 		  #bhy-card-shadow{
             border-style : hidden;
             box-shadow : 5px 5px 3px gray;
@@ -25,55 +25,119 @@
         
         #bhy-table, #bhy-table-header{
         	text-align : center;
+        	
         }
 
         #bhy-text{
         	margin-top : 20px;
         	margin-left : 20px;
         }
-                   
-         #bhy-Btn{
-         	margin-left : 80px;
-         }
+        
+		/* 아코디언 부분 CSS */
+		.accordion {
+		    font-family:Arial, Helvetica, sans-serif; 
+		    margin:0 auto;
+		    font-size:14px;
+		    width:900px;
+		    padding:5px;
+		    background:white;
+		}
+		.accordion ul {
+		    list-style:none;
+		    margin:0;
+		    padding:0;    
+		}
+		.accordion li {
+		    margin:0;
+		    padding:0;
+		}
+		.accordion [type=radio], .accordion [type=checkbox] {
+		    display:none;
+		}
+		.accordion label {
+		    display:block;
+		    font-size:15px;
+		    line-height:16px;
+		    background:#E5E5E8;
+			color:black;
+		    text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+		    font-weight:700;
+		    cursor:pointer;
+		    text-transform:uppercase;
+		    -webkit-transition: all .2s ease-out;
+		    -moz-transition: all .2s ease-out;
+		}
+		.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
+		    background:#4E4A48;
+		    color: #F89A60;
+  		    text-shadow:1px 1px 1px rgba(0,0,0,0.5) 
+	}
+		.accordion .content {
+		    padding:0 10px;
+		    overflow:hidden;
+		    -webkit-transition: all .5s ease-out;
+		    -moz-transition: all .5s ease-out;
+		}
+		.accordion p {
+		    color:#333;
+		    margin:0 0 30px;
+		}
+
+		
+		/* Vertical */
+		.vertical ul li {
+		    overflow:hidden;
+		    margin:0 0 1px;
+		}
+		.vertical ul li label {
+		    padding:10px;
+		}
+		.vertical [type=radio]:checked ~ label, .vertical [type=checkbox]:checked ~ label {
+		    border-bottom:0;
+		}
+
+		.vertical ul li .content {
+		    height:0px;
+		    border-top:0;
+		}
+		.vertical [type=radio]:checked ~ label ~ .content, .vertical [type=checkbox]:checked ~ label ~ .content {
+		    height:auto;
+		 }   
+
 	</style>
 
 </head>
 
 <body class="">
   <div class="wrapper ">
+       	<!-- 사이드 바 시작 -->
     <div class="sidebar" data-color="blue" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
       <div class="logo">
-        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
+        <a href="${pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
-          	T.Flex
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
-        </a>
+        <a href="../../index.jsp" class="simple-text logo-normal">
+          	T.Flex</a>
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
-              <i class="fas fa-user"></i>FAQ
+        <ul class="nav" id="bhy-nav-font">
+          <li class="active">
+            <a href="csMain.jsp">
+              <i class="fas fa-gem"></i>FAQ
             </a>
           </li>
           <br />
+          <br />
           <li>
-          	 <a href="${pageContext.request.contextPath }/selectList.qna">
+          	 <a href="QNAList.jsp">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
         <br />
-          <li class="active ">
-          	 <a href="${pageContext.request.contextPath }/views/cs/noticeList.jsp">
+          <li>
+          	 <a href="${ pageContext.request.contextPath }/noticelist.do" >
 				<i class="fas fa-bullhorn">Notice</i>
             </a>
           </li>     
@@ -95,9 +159,7 @@
 			                <span class="navbar-toggler-bar bar3"></span>
 			              </button>
 			            </div>
-			            <a class="navbar-brand" href="#pablo">
-							<i class="fas fa-bullhorn"  style="font-size : 35px;"> 공지사항 </i>
-						</a>
+			            <a class="navbar-brand" href="#pablo">Notice</a>
 			          </div>
 			        </div>
 			      </nav>
@@ -110,9 +172,13 @@
       <div class="content" id="Notice">
         <div class="row">
           <div class="col-md-12">
-          <br /><br />
+          
           <!--  카드영역 분리가능한 시작  -->
-       
+			<div class="col-md-8" style="margin: auto;" >
+			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height: 100px; font-size:40px;">                
+                	<i class="fas fa-bullhorn" id="bhy-text" > 공지사항</i>
+              </div>
+          </div><br />           
       <!--  카드영역 분리가능한 끝 -->
           
 
@@ -120,8 +186,7 @@
 		<!-- 본문 테이블 영역 -->
 			<div class="col-md-8" style="margin: auto;">
 			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                			  
-			<a href="noticeInsertForm.jsp" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</a>
-				
+				<c:if test="${member.uGrade eq 'M'}"><button onclick="goNInsert();" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</button></c:if>
 				<table id="tablePreview" class="table table-hover">				  
 				  <thead  id="bhy-table-header">
 				    <tr>
@@ -135,13 +200,13 @@
 
 				    	  <c:forEach var="notice" items="${list}">
 							  <tr>
-							  <td  onclick="goBoardDetail();">
-							  <input type="hidden" value="${Notice.ntNo}"/>
-							  ${Notice.ntNo}
+							  <td>
+							  <input type="hidden" value="${notice.ntNo}"/>
+							  ${notice.ntNo}
 							  </td>
-							  <td>${Notice.ntTitle}</td>
-							  <td>${Notice.ntContent}</td>
-							  <td>${Notice.gm}</td>
+							  <td>${notice.ntTitle}</td>
+							  <td>${notice.ntContent}</td>
+							  <td>${notice.gm}</td>
 							  </tr>
 						  </c:forEach>
 				    </tr>
@@ -154,10 +219,10 @@
           
 		<%-- 페이지 처리 구현하기 --%>
 		<div class="pagingArea" align="center" aria-label="Page navigation example">
-			<c:url var="selectList" value="noticelist.do"/>
+			<c:url var="selectNList" value="noticelist.do"/>
 			
 			<!-- 처음 페이지 버튼 -->
-			<button onclick="location.href='${selectList}?currentPage=1'">
+			<button onclick="location.href='${selectNList}?currentPage=1'">
 				&lt;&lt;
 			</button>
 			
@@ -166,7 +231,7 @@
 				<button disabled>&lt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage gt 1 }">
-				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage - 1}'">
+				<button onclick="location.href='${selectNList}?currentPage=${pi.currentPage} - 1'">
 					&lt;
 				</button>
 			</c:if>
@@ -179,7 +244,7 @@
 					</button>
 				</c:if>
 				<c:if test="${ p ne pi.currentPage}">
-					<button onclick="location.href='${selectList}?currentPage=${p}'">
+					<button onclick="location.href='${selectNList}?currentPage=${p}'">
 						${p}
 					</button>
 				</c:if>
@@ -191,13 +256,13 @@
 				<button disabled>&gt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage lt pi.maxPage }">
-				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage + 1}'">
+				<button onclick="location.href='${selectNList}?currentPage=${pi.currentPage} + 1'">
 					&gt;
 				</button>
 			</c:if>
 			
 			<!-- 마지막 페이지 버튼 -->
-			<button onclick="location.href='${selectList}?currentPage=${pi.maxPage}'">
+			<button onclick="location.href='${selectNList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
 		</div>
@@ -208,20 +273,23 @@
 				$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"rgba(70,70,70,0.5)"});
-			}).click(function(){
-				var bno = $(this).parent().find("input").val();
-				location.href="${pageContext.request.contextPath}/selectOne.nt?qno=" + ntno;
-			});
+			})
+		});
+		
+		$("td").click(function(){
+			var ntNo = $(this).parent().find("input").val();
+			location.href="${pageContext.request.contextPath}/nselectOne.do?ntNo=" + ntNo;
 		});
 		
 		function goNInsert(){
 			location.href = "${pageContext.request.contextPath}/views/cs/noticeInsertForm.jsp";
 		}
-		
-		function goBoardDetail(){
-			var bno = $(this).parent().find("input").val();
-			location.href="${pageContext.request.contextPath}/mselectOne.bo?bno=" + bno;
+		<!-- 
+		function goNoticeDetail(){
+			var us_no = $(this).parent().find("input").val();
+			location.href="${pageContext.request.contextPath}/nselectOne.do?us_no=" + us_no;
 		}
+		 -->
 		</script>
           
           
