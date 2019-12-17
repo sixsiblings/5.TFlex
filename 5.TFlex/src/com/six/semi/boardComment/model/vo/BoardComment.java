@@ -33,14 +33,6 @@ public class BoardComment implements Serializable {
 		this.cstatus = cstatus;
 		this.cno2 = cno2;
 	}
-	public BoardComment(int bno, int uno, String ccontent, int clevel, int cno2) {
-		super();
-		this.bno = bno;
-		this.uno = uno;
-		this.ccontent = ccontent;
-		this.clevel = clevel;
-		this.cno2 = cno2;
-	}
 	public int getCno() {
 		return cno;
 	}

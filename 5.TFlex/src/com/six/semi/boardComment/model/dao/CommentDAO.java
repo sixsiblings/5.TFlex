@@ -73,4 +73,98 @@ public class CommentDAO {
 		return list;
 	}
 
+	public int insertComment(Connection con, BoardComment bco) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertComment");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, bco.getBno());
+			pstmt.setInt(2, bco.getUno());
+			pstmt.setString(3, bco.getCcontent());
+			pstmt.setInt(4, bco.getClevel());
+			pstmt.setInt(5, bco.getCno2());
+			
+			// 다른 참조하는 댓글이 만약 없다면 null이 들어가고,
+			// 참조하는 댓글이 존재한다면 해당 댓글의 정보가 들어가야 한다.
+			if(bco.getCno2() > 0) {
+				pstmt.setInt(4, bco.getCno2());
+			} else {
+				// pstmt.setNull(4, java.sql.Types.NULL);
+				pstmt.setNull(4, 0);
+			}
+			
+			pstmt.setInt(5, bco.getClevel());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateComment(Connection con, BoardComment bco) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateComment");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, bco.getCcontent());
+			pstmt.setInt(2, bco.getCno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public int deleteComment(Connection con, BoardComment bco ) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteComment");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, bco.getCno());
+			pstmt.setInt(2, bco.getBno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
