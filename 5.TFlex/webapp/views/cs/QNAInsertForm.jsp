@@ -46,12 +46,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -126,28 +126,23 @@
 	<!-- 글쓰기부분 -->
 	  <div class="tableArea" align="center"> 
          <form action="${pageContext.request.contextPath }/insert.qna" 
-              	 method="post" enctype="multipart/form-data">
-            <table   style="width:600px; height:400px;">
+              	 method="post" >
+            <table   style="width:600px; height:400px;">          
                <tr>
                   <td>제목 </td>
-                  <td colspan="6"><input type="text" size="51" name="qtitle"></td>
+                  <td colspan="6"><input type="text" size="51" name="qTitle"></td>
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td colspan="3">${member.userName}
+                  <td colspan="3">${member.nName}
                      <input type="hidden" name="uNo" value="${member.uNo}"/>
                   </td>
                </tr>
                <tr>
- <!--                  <td>첨부파일 </td>
-                  <td colspan="3">
-      				<input type="file" name="bfile"/>
-                  </td>
-               </tr> -->
                <tr>
                   <td>내용 </td>
                   <td colspan="3" >
-                     <textarea id="summernote" name="qcontent" cols="52" rows="25" style="resize:none;"></textarea>
+                     <textarea id="qna" name="qContent" cols="52" rows="25" style="resize:none;"></textarea>
                   </td>
                </tr>
             </table>

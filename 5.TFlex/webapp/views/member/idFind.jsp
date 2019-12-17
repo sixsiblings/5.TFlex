@@ -23,7 +23,7 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="../../index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
@@ -76,7 +76,7 @@
 	              <div class="card-header">
 	                <h5 class="card-title">ID 찾기</h5>
 	              </div>
-	              <div class="card-body">
+	              <div class="card-body" id="cardid">
 	                <form>
 	                 <div class="row" style="margin: auto;">
 	                    <div class="col-md-5 pr-1">
@@ -118,7 +118,7 @@
   
   
 <script>
-
+	
 	var $checkEmail = $('#checkEmail');
 	var $checkEmailBtn = $('#checkEmailBtn');
 	var $checkNumber = $('#checkNumber');
@@ -184,22 +184,29 @@
 			type: "POST",
 			async: false,
 			success: function(data){
-				
-				alert(data);
-				
-				if(data == "인증번호가 일치합니다!"){
+				console.log(data);
+				if(data['resultNum'] == 1){
 					
-					delfunction();
-					location.href = "passwordFind.jsp";
+					alert("인증번호가 일치합니다.");
+					delfunction();	
 					
+					$('#cardid').append("<div class='col-md-5 pr-1'><div class='form-group'><label>회원님의 아이디</label><input disabled type='text' class='form-control' value='" + data['userId'] + "'><button onclick='lastCheck();' type='button' id='lastCheck' class='btn btn-primary' style='font-size:8px; margin-right:10px; margin-top: 25px;'>비밀번호 찾기</button></div></div>");
+
 				}
 				
-				
-			}, error: function(){
-				
+			}, error: function(resp){
+				console.log(resp);
+				console.log("실패");
 			}
 		});
+		
 	});
+	
+	function lastCheck(){
+		
+		location.href = "passwordFind.jsp";
+		
+	};
 	
 </script>
 	

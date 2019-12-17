@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.six.semi.QNA.model.service.QNAService;
+import com.six.semi.QNA.model.vo.QNA;
+
 /**
  * Servlet implementation class UpdateQNAServlet
  */
@@ -26,9 +29,35 @@ public class UpdateQNAServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		QNAService qs = new QNAService();
+		
+		int qNo = Integer.parseInt(request.getParameter("qNo"));
+		
+		QNA q = qs.updateView(qNo);
+		
+		
+		
+		String qTitle = request.getParameter("qTitle");
+		String qContent = request.getParameter("qContent");
+		
+		q.setqTitle(qTitle);
+		q.setqContent(qContent);
+		
+		
+		int result = qs.updateBoard(q);
+		
+		if( result > 0) {
+			
+			response.sendRedirect("selectList.qna");
+			
+		} else {
+			
+			request.setAttribute("msg", "게시글 수정 중 오류 발생");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

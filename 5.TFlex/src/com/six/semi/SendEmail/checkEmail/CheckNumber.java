@@ -2,13 +2,13 @@ package com.six.semi.SendEmail.checkEmail;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.six.semi.SendEmail.emailDB.service.emailService;
@@ -33,21 +33,26 @@ public class CheckNumber extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String email = request.getParameter("email");
 		String number = request.getParameter("number");
 		
 		emailService es = new emailService();
 		Email em = new Email(email, number);
 		
-		int result = es.selectIdNumber(em);
+		int resultNum = es.selectIdNumber(em);
 		
-		if(result == 1) {
+		if(resultNum == 1) {
 			
-			response.getWriter().print("인증번호가 일치합니다!");
+			String result =  es.selectNumId(em);
 			
-		} else {
+			HashMap<String, Object> hmap = new HashMap<>();
 			
-			response.getWriter().print("인증번호가 불일치합니다! \n다시 확인하시고 입력해주세요");
+			hmap.put("resultNum", resultNum);
+			hmap.put("userId", result);
+			
+			response.setContentType("application/json; charset=UTF-8");
+			new Gson().toJson(hmap, response.getWriter());
 			
 		}
 	}

@@ -1,7 +1,5 @@
 package com.six.semi.board.model.dao;
 
-
-
 import static com.six.semi.common.JDBCTemplate.*;
 
 import java.io.FileNotFoundException;
@@ -165,15 +163,16 @@ public class BoardDAO {
 			if(rset.next()) {
 				b = new Board();
 				
-				b.setBno(bno);
+				b.setBno(rset.getInt(1));
 				b.setCgbno(rset.getInt(2));
 				b.setBtitle(rset.getString(3));
 				b.setBcontent(rset.getString(4));
-				b.setUno(rset.getInt(5));
-				b.setBcount(rset.getInt(6));
-				b.setBfile(rset.getString(7));
+				b.setBcount(rset.getInt(5));
+				b.setBfile(rset.getString(6));
+				b.setBreportcount(rset.getInt(7));
 				b.setBbenrolldate(rset.getDate(8));
-				b.setBstatus(rset.getString(9));
+				b.setUno(rset.getInt(9));
+				b.setBstatus(rset.getString(10));
 			}
 			
 		} catch (SQLException e) {
@@ -212,5 +211,50 @@ public class BoardDAO {
 		
 		return result;
 	}
+
+	public int updateBoard(Connection con, Board b) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, b.getBtitle());
+			pstmt.setString(2, b.getBcontent());
+			pstmt.setInt(3, b.getBno());
+						
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally	{
+			close(pstmt);
+		}		
+		
+		return result;
+	
 	}
 
+	public int deleteBoard(Connection con, int bno) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, bno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+}

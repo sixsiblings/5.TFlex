@@ -68,13 +68,10 @@ public class QNAdao {
 		return result;	
 	}
 	
-	
 	public int getListCount(Connection con) {
 		
 		int result = 0;
-		
 		Statement stmt = null;
-		
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("listCount");
@@ -86,8 +83,7 @@ public class QNAdao {
 			rset = stmt.executeQuery(sql);
 			
 			if(rset.next()) {
-				
-				result = rset.getInt(2);
+				result = rset.getInt(1);
 			}
 			
 		} catch(SQLException e) {
@@ -98,6 +94,8 @@ public class QNAdao {
 			close(rset);
 			close(stmt);
 		}
+		
+		
 		
 		return result;
 	}
@@ -124,17 +122,13 @@ public class QNAdao {
 			
 			while(rset.next()) {
 				QNA q = new QNA();
-
-				pstmt.setInt(1, q.getuNo());
-				pstmt.setInt(2, q.getqNo());
-				pstmt.setInt(3, q.getqCno());
-				pstmt.setString(4, q.getqTitle());
-				pstmt.setString(5, q.getqContent());
-				pstmt.setDate(6, q.getqDate());
-				pstmt.setString(7, q.getQaStatus());
-				pstmt.setString(8, q.getQaContent());
-				pstmt.setString(9, q.getqStatus());
-								
+				
+				/* q.setQaContent(rset.getCursorName(1)); */
+				
+				q.setqNo(rset.getInt(2));
+				q.setqTitle(rset.getString(4));
+				q.setQaStatus(rset.getString(5));
+							
 				list.add(q);
 			}
 			
@@ -152,7 +146,7 @@ public class QNAdao {
 	}
 
 	
-	public QNA selectOne(Connection con, int qno) {
+	public QNA selectOne(Connection con, int qNo) {
 		QNA q = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -161,23 +155,18 @@ public class QNAdao {
 			String sql = prop.getProperty("selectOne");
 			
 			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setInt(2, qno);
+
+			pstmt.setInt(1, qNo);
 			
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
 				q = new QNA();
+
+				q.setqNo(rset.getInt(2));
+				q.setqTitle(rset.getString(4));
+				q.setqContent(rset.getString(5));
 				
-				pstmt.setInt(1, q.getuNo());
-				pstmt.setInt(2, q.getqNo());
-				pstmt.setInt(3, q.getqCno());
-				pstmt.setString(4, q.getqTitle());
-				pstmt.setString(5, q.getqContent());
-				pstmt.setDate(6, q.getqDate());
-				pstmt.setString(7, q.getQaStatus());
-				pstmt.setString(8, q.getQaContent());
-				pstmt.setString(9, q.getqStatus());
 				
 			}
 			
@@ -204,11 +193,8 @@ public class QNAdao {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, q.getuNo());
-			pstmt.setInt(2, q.getqNo());
-			pstmt.setInt(3, q.getqCno());
-			pstmt.setString(4, q.getqTitle());
-			pstmt.setString(5, q.getqContent());
-			pstmt.setDate(6, q.getqDate());
+			pstmt.setString(2, q.getqTitle());
+			pstmt.setString(3, q.getqContent());
 						
 			result = pstmt.executeUpdate();
 			
@@ -222,7 +208,7 @@ public class QNAdao {
 		return result;
 	}
 
-	public int deleteQNA(Connection con, int qno) {
+	public int deleteQNA(Connection con, int qNo) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -233,7 +219,7 @@ public class QNAdao {
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(2, qno);
+			pstmt.setInt(2, qNo);
 			
 			result = pstmt.executeUpdate();
 			

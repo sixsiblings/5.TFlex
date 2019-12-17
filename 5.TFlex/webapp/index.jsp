@@ -108,7 +108,7 @@ th, td {
    color : white;
 }
 
-#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn{
+#HOMEBtn:hover, #KBOBtn:hover, #MLBBtn:hover, #TicketBtn:hover , #GoodsBtn:hover{
    color : white;
 }
 hr{
@@ -967,6 +967,42 @@ hr{
 
    <c:import url="views/common/loginUtil.jsp"/>
    
+   <script>
+	$(function(){
+		$.ajax({
+			url : '${pageContext.request.contextPath}/noticetop5.do',
+			type : 'get',
+			success : function(data) {
+				// console.log(data);
+				
+				var $table = $('#boardTop5 tbody');
+				for(var i in data){
+					console.log(data[i].Ndate);
+					var $tr = $('<tr>');
+					var $nt_No = $('<td>').text(data[i].nt_No);
+					var $Ndate = $('<td>').text(data[i].Ndate);
+					var $gm = $('<td>').text(data[i].gm);
+					
+					$tr.append($nt_No);
+					$tr.append($Ndate);
+					$tr.append($gm);
+					
+					$table.append($tr);
+				}
+				
+			}, error : function(request) {
+				console.log("힘내세요");
+				console.log(request);
+			}
+		});
+	});	
+	
+	$("td").click(function(){
+		var ntNo = $(this).parent().find("input").val();
+		location.href="${pageContext.request.contextPath}/nselectOne.do?ntNo=" + ntNo;
+	});
+	
+   </script>
 </body>
 
 </html>

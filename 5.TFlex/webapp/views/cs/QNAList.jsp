@@ -34,6 +34,27 @@
         	margin-left : 20px;
         }
         
+          #outer {
+            width: 100%;
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: blue;
+        }
+
+        td {
+            background-color: red;
+
+        }
+        
+        
 	</style>
 
 </head>
@@ -45,7 +66,7 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
@@ -113,7 +134,7 @@
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:40px;">                
-			<i  class="fas fa-pencil-alt" id="bhy-text" > 1:1 문의 Q&A</i>
+			<i  class="fas fa-pencil-alt" id="bhy-text" > &nbsp; 1:1 문의 Q&A</i>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->
@@ -121,10 +142,10 @@
 <!--  중간 카드 영역 시작 -->
 	<div class="col-md-8" style="margin: auto;">
 		<div class="card-header"  id="bhy-card-shadow" 
-			style="background:white;  height: 100px; font-size:20px;">                
+			style="background:white;  height: 100px; font-size:20px;">     
+					<br />           
 			<i class="fas fa-pencil-alt" id="bhy-card-text">  
-				문의사항의 답변은 회원가입 시 입력하신 이메일로 발송해드립니다. <br /><br />
-&nbsp;&nbsp;	&nbsp;상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. 
+			&nbsp;상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. 
 			</i>
                	
                	
@@ -137,10 +158,8 @@
 <div class="col-md-8" style="margin: auto;">
 <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">   
 
-<c:if test="${ !empty member }">
-	<a href="QNAInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">문의하기</a>
-</c:if>             
-	
+<a href="QNAInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">문의하기</a>
+      	
 <table id="tablePreview" class="table table-hover">				  
 		<thead  id="bhy-table-header">
 			<tr>
@@ -162,6 +181,10 @@
 			</tr>
 			</tbody>
 		</table>		
+		
+		
+		
+		
 	<!-- 페이징 처리 영역 -->
 <!-- 			<nav aria-label="Page navigation example" >
  -->			  <ul class="pagination" >
@@ -196,6 +219,12 @@
 				location.href="${pageContext.request.contextPath}/selectOne.qna?qno=" + qno;
 			});
 		});
+		
+		object.style.wordWrap="break-word"
+
+
+		
+		
 		</script>
 
         </div>

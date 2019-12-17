@@ -7,8 +7,8 @@ public class PageInfo implements Serializable {
 		private int  startPage;
 		private int  endPage;
 		private int  maxPage;
-		private int  currentPage;
-	    private int  limit;
+		private int  currentPage=1;
+	    private int  limit=10;
 	    private int listCount;
 		private int startRow;
 		private int endRow;

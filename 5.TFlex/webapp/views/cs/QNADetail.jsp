@@ -46,12 +46,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -61,19 +61,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="csMain.jsp">
+            <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li><br /><br />
           
           <li class="active ">
-          	 <a href="QNAList.jsp">
+          	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt">Q&A</i>
             </a>
           </li><br /><br />
         
           <li>
-          	 <a href="noticeList.jsp">
+          	 <a href="${pageContext.request.contextPath }/views/cs/noticeList.jsp">
 				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>             
@@ -95,7 +95,9 @@
 			                <span class="navbar-toggler-bar bar3"></span>
 			              </button>
 			            </div>
-			            <a class="navbar-brand" href="#pablo">1:1문의 등록하기</a>
+			            <a class="navbar-brand" href="#pablo">
+			          <i class="fas fa-pencil-alt" style="font-size : 35px;">&nbsp;&nbsp; 1:1문의 등록하기</i>			            
+			            </a>
 			          </div>
 			        </div>
 			      </nav>
@@ -108,15 +110,7 @@
       <div class="content" id="Notice">
         <div class="row">
           <div class="col-md-12">
-          
-          <!--  카드영역 분리 시작  -->
-			<div class="col-md-8" style="margin: auto;" >
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height: 100px; font-size:40px;">                
-                	<i  class="fas fa-pencil-alt" id="bhy-text" > 1:1문의 등록하기</i>
-              </div>
-          </div><br />           
-      <!--  카드영역 분리 끝 -->
-          
+          <br /><br />
 
 
 		<!-- 본문 카드 영역 -->
@@ -124,39 +118,43 @@
 	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">        
 	
 	<!-- 글쓰기부분 -->
-	  <div class="tableArea" align="center"> 
-         <form action="${pageContext.request.contextPath }/insert.bo" 
-              	 method="post" enctype="multipart/form-data">
+	  <div class="h-tableArea" align="center"> 
+		<form action="${pageContext.request.contextPath }/update.qna" method="post">    
+		<div class="h-tableArea" >
             <table   style="width:600px; height:400px;">
-               <tr>
+            
+               <tr id="bhy-tr">
                   <td>제목 </td>
-                  <td colspan="6"><input type="text" size="51" name="title"></td>
+                  <td colspan="3"><input type="text" size="51" name="qTitle" value="${QNA.qTitle }" ></td>
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td colspan="3">${member.userName}
-                     <input type="hidden" name="uNo" value="${member.uNo}"/>
+                  <td colspan="3">${member.nName}
+                     <input type="hidden" name="uNo" value="${member.uNo}"  />
                   </td>
-               </tr>
-               <tr>
- <!--                  <td>첨부파일 </td>
-                  <td colspan="3">
-      				<input type="file" name="bfile"/>
-                  </td>
-               </tr> -->
-               <tr>
+              </tr>
+              <tr>
                   <td>내용 </td>
-                  <td colspan="3" >
-                     <textarea id="summernote" name="content" cols="52" rows="25" style="resize:none;"></textarea>
+                  <td colspan="6S" >
+                     <textarea id="content" name="qContent"  cols="52" rows="25" style="resize:none;"></textarea>
                   </td>
-               </tr>
+               </tr> 
             </table>
             <br>
             <div align="center">
-               <button type="reset" class="btn btn-danger">취소하기</button>
-               <button type="submit" class="btn btn-primary">등록하기</button>
+			<a href="${pageContext.request.contextPath }/views/cs/QNAList.jsp" 
+						class="btn btn-info btn-rounded btn-sm pull-center">목록으로 돌아가기</a>          
+            
+<%-- 			<button onclick="location.href='${pageContext.request.contextPath }/views/cs/QNAList'">메뉴로 돌아가기</button>
+ --%>
+ 				<c:url var="QNAUpdate" value="qUpView.qna">
+					<c:param name="qNo" value="${QNA.qNo}" />
+				</c:url>
+				<button onclick="location.href='${pageContext.request.contextPath}/update.qna'">수정하기</button>
             </div>
-         </form>
+            </div>
+         </form> 
+         </div>
       </div>
               
 

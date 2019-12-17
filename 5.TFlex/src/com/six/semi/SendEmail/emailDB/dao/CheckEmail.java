@@ -136,6 +136,39 @@ public class CheckEmail {
 		return result;
 	}
 
+	public String selectNumId(Connection con, Email em) {
+		
+		String userId = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNumId");
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, em.getEmail());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				userId = rset.getString(1);
+				
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return userId;
+	}
+
 }
 
 

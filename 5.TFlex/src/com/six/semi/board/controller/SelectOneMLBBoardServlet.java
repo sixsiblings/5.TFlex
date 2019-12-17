@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.six.semi.board.model.service.BoardService;
 import com.six.semi.board.model.vo.Board;
@@ -38,6 +39,10 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 		
 		Board b = new BoardService().selectOne(bno);
 		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("board", b);
+		
 		// 댓글도 리스트로 가져오기
 		ArrayList<BoardComment> clist
 		   = new CommentService().selectList(bno,b.getCgbno());
@@ -49,9 +54,6 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 			request.setAttribute("board", b);
 			request.setAttribute("clist", clist);
 			
-		} else {
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "게시글 상세보기 에러!!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);

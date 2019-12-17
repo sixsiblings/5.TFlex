@@ -7,23 +7,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>KBO</title>
+<title>MLB</title>
 <c:import url="../common/commonUtil.jsp"/>
 	
 <style>
+
+body{
+	background-color:rgb(229, 229, 220);
+}
+
 #yu{
-  width:500px;
+  width:450px;
   height:200px;
-  background-size: 400px;
+  background-size: 450px;
   background-repeat:no-repeat;
+  margin:auto;
 }
 .tableArea{
 	
-	    width:750px;
-		height:350px;
+	    width:auto;
+		height:auto;
 		color : navy;
 		margin-left:auto;
 		margin-right:auto;
+		max-width:900px;
+		background-color:white;
 }
 #yuJ{
 	
@@ -34,8 +42,12 @@
 	font-weight: 400px;
 	line-height: 21px;
 	text-size-adjust : 100%;
-	
 }
+
+.pagingArea{
+	width:auto;
+}
+
 	</style>
 	</head>
 	<body>
@@ -43,15 +55,14 @@
 	<c:import url="../common/header.jsp"/>
 	
 	<section>
-   <div align="center" >
+	<div class="sectionarea">
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
     </div>
-	</div>
+	
     <br /><br />
     
 	<div class="tableArea" align="center">
-			<br>
-
+			<br />
 	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
 		<div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
 			<div class="ed flex flex-wrap flex-left flex-middle">
@@ -61,7 +72,6 @@
 			</div>
 		</div>	
 	</div>
-	
 	<span class="badge badge-pill badge-dark">LA다저스</span>
 	<span class="badge badge-pill badge">시카고컵스</span>
 	<span class="badge badge-pill badge-light">뉴욕양키스</span>
@@ -80,34 +90,25 @@
       <th scope="col">작성자</th>
       <th scope="col">작성일</th>
       <th scope="col">조회수</th>
-      <th scope="col">첨부파일</th>
     </tr>
   </thead>
   <c:forEach var="board" items="${list}">
   <tr>
   <td>
   <input type="hidden" value="${board.bno}"/>
-  				${board.bno}
+  				${board.bno} 
   </td>
   <td>${board.btitle}</td>
   <td>${board.uno}</td>
   <td>${board.bbenrolldate}</td>
   <td>${board.bcount}</td>
-  <c:if test="${!empty board.bfile}">
-  			<td> o </td>
-  </c:if><c:if test="${empty board.bfile}">
-  			<td> x </td>
-  </c:if>
   </tr>
   </c:forEach>
 </table>
-</div>
-<br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br />
+<br /><br /><br />
 
 
-			  
-			
+
   <%-- 페이지 처리 구현하기 --%>
 		<div class="pagingArea" align="center" aria-label="Page navigation example">
 			  <c:url var="mselectList" value="mselectList.bo"/>
@@ -156,8 +157,10 @@
 			<button onclick="location.href='${mselectList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
+			<br /><br /><br /><br />
 		</div>
-	
+		</div>
+	</div>
 		<script>
 		/*$(function(){
 			$("#listArea td").mouseenter(function(){

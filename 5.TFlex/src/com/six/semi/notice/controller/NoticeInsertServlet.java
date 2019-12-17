@@ -43,14 +43,11 @@ public class NoticeInsertServlet extends HttpServlet {
 		n.setNtTitle(title);
 		n.setGm(nName);
 		n.setNtContent(content);
-			// System.out.println(request.getParameter("cgbno"));
-			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
 		
 			int result = ns.insertNotice(n);
 			if(result > 0) {
 				System.out.println("여기는?");
 				response.sendRedirect("noticelist.do");
-				System.out.println(n);
 				
 			} else {
 				request.setAttribute("msg", "게시글 작성 실패");

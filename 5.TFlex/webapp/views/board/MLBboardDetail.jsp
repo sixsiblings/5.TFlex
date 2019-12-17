@@ -37,20 +37,12 @@
                </tr>
                <tr>
                   <td>작성자 </td>
-                  <td><span>${member.uNo}</span></td>
+                  <td><span>${board.uno}</span></td>
                   <td>작성일</td>
                   <td><span>${board.bbenrolldate}</span></td>
                   <td>조회수 </td>
                   <td><span>${board.bcount}</span></td>
                </tr>
-               <c:if test="${ !empty board.bfile }">
-                  <tr>
-                  <td>첨부파일 </td>
-                  <td colspan="5">
-                  	<a href="resources/bUpFiles/${board.bfile }"download>${board.bfile }</a>
-                  </td>
-               </tr>
-               </c:if>
                <tr>
                   <td colspan="6">내용 </td>
                </tr>
@@ -64,13 +56,14 @@
       </div>
       <div align="center">
          <button onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
-         <c:if test="${ !empty member and member.uNo eq board.uno }">
-            <c:url var="boardUpdate" value="bUpView.bo">
-               <c:param name="bno" value="${board.bno }" />
+         <c:if test="${!empty member and member.uNo eq board.uno}">
+            <c:url var="boardUpdate" value="mbUpView.bo">
+               <c:param name="bno" value="${board.bno}" />
             </c:url>
             <button onclick="location.href='${boardUpdate}'">수정하기</button>
          </c:if>
       </div>
+      <br />
    <div class="replyArea" align = "center">
    	<div class="replyWriteArea">
          <form action="${pageContext.request.contextPath }/mInsert.co" method="post">
@@ -113,26 +106,28 @@
                         <button type="button" class="deleteBtn"
                            onclick="deleteReply(this);">삭제하기</button>
                            
+			<form action="${pageContext.request.contextPath }/mInsert.co" method="post">
                      </c:if><c:if test="${ bco.clevel lt 3 }">
                         <input type="hidden" name="uno" value="${member.uNo}"/>
                         <input type="hidden" name="cno2" value="${bco.cno}" />
                         <input type="hidden" name="clevel" value="${bco.clevel}" />
+                        <input type="hidden" name="cgbno" value="${board.cgbno}" />
                         <button type="button" class="insertBtn" 
                             onclick="reComment(this);">댓글 달기</button>&nbsp;&nbsp;
                             
                         <button type="button" class="insertConfirm"
                            onclick="reConfirm(this);"
                            style="display:none;" >댓글 추가 완료</button> 
-                           
+            </form>
                      </c:if><c:if test="${bco.clevel ge 3}">
                         <span> 마지막 레벨입니다.</span>
                      </c:if>
                      </td>
                   </tr>
                   <tr class="comment replyList${bco.clevel}">
-                     <td colspan="3" style="background : transparent;">
+                     <td colspan="3" style="background : transparent; resize:none;">
                      <textarea class="reply-content" cols="105" rows="3"
-                      readonly="readonly">${bco.ccontent}</textarea>
+                      readonly="readonly" >${bco.ccontent}</textarea>
                      </td>
                   </tr>
                </table>
@@ -207,7 +202,7 @@
    	
    
    	var cno2 = $(obj).siblings('input[name=cno2]').val();
-   	
+   	var cgbno = $(obj).siblings('input[name=cgbno]').val();
    	//참조한 댓글의 레벨 +1
    	var clevel = Number($(obj).siblings('input[name=clevel]').val()) + 1;
     
@@ -223,6 +218,7 @@
    				+ 'uno=${member.uNo}'
    				+ '&replyContent=' + ccontent
    				+ '&bno=' + bno
+   				+ '&cgbno=' + cgbno
    				+ '&cno2=' + cno2
    				+ '&clevel=' + clevel; 
    }

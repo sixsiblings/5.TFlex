@@ -38,6 +38,10 @@ public class SelectListQNAServlet extends HttpServlet {
 		ArrayList<QNA> list = null;
 		QNAService qs = new QNAService();
 		PageInfo pi = new PageInfo();
+		
+		pi.setCurrentPage(1);
+		
+		System.out.println("커렌트 페이지" + request.getParameter("currentPage"));
 
 		if(request.getParameter("currentPage") != null) {
 			pi.setCurrentPage( Integer.parseInt(request.getParameter("currentPage")));
@@ -46,6 +50,7 @@ public class SelectListQNAServlet extends HttpServlet {
 		// 전체 게시글 수
 	
 		pi.calcPage(qs.getListCount());
+		
 		System.out.println("전체 게시글 수 : " + pi.getListCount());
 		
 		list = qs.selectList(pi);
@@ -53,7 +58,7 @@ public class SelectListQNAServlet extends HttpServlet {
 		String page = "";
 		
 		if(list != null) {
-			
+			System.out.println("selectListServlet_여기왓니?");
 			page = "views/cs/QNAList.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
@@ -67,7 +72,8 @@ public class SelectListQNAServlet extends HttpServlet {
 		
 		request.getRequestDispatcher(page).forward(request, response);		
 	}
-
+	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
