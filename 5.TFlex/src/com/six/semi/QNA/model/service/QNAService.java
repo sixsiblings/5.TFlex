@@ -100,15 +100,46 @@ public class QNAService {
 
 		return q;
 	}
+	
 
 	public int updateBoard(QNA q) {
-
-		return 0;
+		
+		con = getConnection();
+		
+		int result = qdao.updateQNA(con, q);
+		
+		if(result > 0) commit(con);
+		
+		else rollback(con);
+		
+		return result;
 	}
+	
 
 	public QNA updateView(int qNo) {
 
-		return null;
+		con = getConnection();
+
+		QNA q = null;
+
+		q = qdao.selectOne(con, qNo);
+
+		close(con);
+
+		return q;
+	}
+	
+	public int deleteQNA(int qNo) {
+		
+		con = getConnection();
+		
+		int result = qdao.deleteQNA(con, qNo);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		return result;
 	}
 
+	
 }

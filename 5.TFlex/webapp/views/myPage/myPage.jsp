@@ -200,14 +200,15 @@
 
 <!-- 내용테이블  시작점  -->		
 
-	<form id="updateForm" action="${ pageContext.request.contextPath }/update.me" method="post">		
+		
+	<form id="updateForm" action="${ pageContext.request.contextPath }/update.me" method="post">
 	
 		<div class="card-body">
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>ID</label>
-                        <input type="text" class="form-control" placeholder="ID" value="${member.userId}" disabled>
+                        <input type="text" class="form-control" placeholder="ID" id ="userId"  name ="userId" value="${member.userId}" readonly>
                       </div>
                     </div>
                 	</div>    
@@ -215,7 +216,7 @@
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호</label>
-                        <input type="password" class="form-control"  id="password" name="password" required="required">
+                        <input type="password" class="form-control"  id="userPwd" name="userPwd" required="required">
                       </div>
                     </div>
                  
@@ -225,7 +226,7 @@
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>변경할 비밀번호 확인</label>
-                        <input type="password" class="form-control"  id="password2" name="password2" >
+                        <input type="password" class="form-control"  id="userPwd2" name="userPwd2" >
                         <label id="pwdResult"></label>
                       </div>
                     </div>
@@ -234,7 +235,7 @@
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>닉네임</label>
-                        <input type="text" class="form-control" placeholder="Username" value="${member.nName}"> <br>
+                        <input type="text" class="form-control" placeholder="Username" id="nName" name="nName" value="${member.nName}"> <br>
                          <button class="btn btn-info btn-rounded btn-block my-2 waves-effect z-depth-0" 
                         type="button" id="nNameCheck" >닉네임 중복확인</button>
                       </div>
@@ -244,21 +245,21 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>이름</label>
-                        <input type="text" class="form-control" placeholder="UserName" value="${member.userName}" disabled>
+                        <input type="text" class="form-control" placeholder="UserName" id="userName" name ="userName" value="${member.userName}" readonly>
                       </div>
                     </div>
                     </div>
                     <br>
                      <div class="md-form">
-                <input type="text" class="form-control" id="birthNo"  name="birthNo" 
+                <input type="text" class="form-control" id="birthNo" id = "birthNo" name="birthNo" 
                       placeholder="생년월일을 입력하세요(yy / mm / dd)"   
-                      aria-describedby="materialRegisterFormPhoneHelpBlock" value="${member.birthNo}" disabled>
+                      aria-describedby="materialRegisterFormPhoneHelpBlock" value="${member.birthNo}" readonly>
           			</div><br />
                     
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" placeholder="${member.email}" disabled>
+                        <input type="email" class="form-control" id="email" name ="email" placeholder="${member.email}" >
                       </div>
                     </div>
 

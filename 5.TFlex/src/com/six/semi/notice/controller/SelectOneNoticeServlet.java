@@ -34,10 +34,8 @@ public class SelectOneNoticeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ntNo = Integer.parseInt(request.getParameter("ntNo"));
-		System.out.println("확인확인" + ntNo);
 		Notice n = new NoticeService().selectOne(ntNo);
 		String page = "";
-		System.out.println(n);
 		if(n != null) {
 			page = "views/cs/noticeDetail.jsp";
 			request.setAttribute("notice", n);

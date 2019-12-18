@@ -499,22 +499,16 @@ hr{
                   <div class="image">
                      <div class="text p-4">
                      
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#" style="text-decoration:none">2019-12-12 메뉴판 오류 고쳤습니다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-09 신고 버튼 에러들 다 고쳤습니다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-06 공지사항 창을 달아봤어요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-03 버전 업데이트 해주세요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-08-02 굿굿.</a></td>
-                  </tr>
+                  <table id="NoticeTop5" border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
+                  	<thead>
+					<tr>
+						<th>글번호</th>
+						<th>글 제목</th>
+						<th>작성자</th>
+					</tr>
+		</thead>
+		<tbody>
+		</tbody>
                   </table>
                   </div>
                   </div>
@@ -970,17 +964,18 @@ hr{
    <script>
 	$(function(){
 		$.ajax({
-			url : '${pageContext.request.contextPath}/noticetop5.do',
-			type : 'get',
+			url : '${pageContext.request.contextPath}/noticelisttop5.do',
+			type : 'POST',
 			success : function(data) {
 				// console.log(data);
 				
-				var $table = $('#boardTop5 tbody');
+				var $table = $('#NoticeTop5 tbody');
+				
 				for(var i in data){
-					console.log(data[i].Ndate);
+					if(i < 5){
 					var $tr = $('<tr>');
-					var $nt_No = $('<td>').text(data[i].nt_No);
-					var $Ndate = $('<td>').text(data[i].Ndate);
+					var $nt_No = $('<td class="topNotice">').text(data[i].nt_No);
+					var $Ndate = $('<td class="topNotice">').text(data[i].Ndate);
 					var $gm = $('<td>').text(data[i].gm);
 					
 					$tr.append($nt_No);
@@ -988,6 +983,7 @@ hr{
 					$tr.append($gm);
 					
 					$table.append($tr);
+					}
 				}
 				
 			}, error : function(request) {
@@ -997,9 +993,9 @@ hr{
 		});
 	});	
 	
-	$("td").click(function(){
+	$(".topNotice").click(function(){
 		var ntNo = $(this).parent().find("input").val();
-		location.href="${pageContext.request.contextPath}/nselectOne.do?ntNo=" + ntNo;
+		location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
 	});
 	
    </script>

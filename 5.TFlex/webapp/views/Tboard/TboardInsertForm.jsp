@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>티켓 게시글작성</title>
+<title>티켓 판매글 작성</title>
 <style>
    .mb-3{
       display:inline-block;
@@ -36,16 +36,23 @@
 <br />
 <section>
  <div align="center" >
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/ticket4jpg');">
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/MLB.jpg');">
     </div>
    </div>
 <div class="mb-2" align="center">
-<form id="insertForm" action="${ pageContext.request.contextPath }/tinsert.tn"  method="post"  >
+<form id="insertForm" action="${ pageContext.request.contextPath }/tInsert.bo"  method="post"  >
 		<div class="input-group mb-3" style="width:900px;">
 
+	
 			<br />
   				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="title" placeholder="제목을 입력하세요.">
+ 				 name="ttitle" placeholder="제목을 입력하세요.">
+ 				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="tdate" placeholder="경기일자를 입력하세요.">
+ 				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="tprice" placeholder="가격을 입력하세요.">
+ 				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="ticketno" placeholder="티켓 일련번호를 입력하세요.">
  				
 		</div>
 
@@ -99,7 +106,7 @@ $('#summernote').summernote({
   $.ajax({
        data: form_data,
        type: "post",
-       url: '/tflex/Tinsertfile.tn',
+       url: '/tflex/insert.tn',
     cache : false,
     contentType : false,
        enctype: 'multipart/form-data',

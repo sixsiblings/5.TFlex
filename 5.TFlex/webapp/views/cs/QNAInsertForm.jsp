@@ -125,8 +125,7 @@
 	
 	<!-- 글쓰기부분 -->
 	  <div class="tableArea" align="center"> 
-         <form action="${pageContext.request.contextPath }/insert.qna" 
-              	 method="post" >
+         <form action="${pageContext.request.contextPath }/insert.qna" method="post" >
             <table   style="width:600px; height:400px;">          
                <tr>
                   <td>제목 </td>
@@ -162,8 +161,8 @@
      </div>
    </div>
 </div>
-
-     
+</div>
+</div>     
 <!--   </div> -->
 </body>
 

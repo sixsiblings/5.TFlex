@@ -76,5 +76,22 @@ public class NoticeService {
 		
 		return list;
 	}
+
+	public Notice selectOneTop5(int ntNo) {
+		con = getConnection();
+		
+		Notice result = ndao.getselelctOneTop5(con, ntNo);
+		
+		Notice n = null;
+		
+		if(result != null) {
+			n = ndao.getselelctOne(con, ntNo);
+			if(n != null) commit(con);
+		} else rollback(con);
+		
+		close(con);
+		
+		return n;
+	}
 		
 	}

@@ -46,11 +46,11 @@
         }
 
         th {
-            background-color: blue;
+            background-color: white;
         }
 
         td {
-            background-color: red;
+            background-color: white;
 
         }
         
@@ -71,7 +71,7 @@
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -81,19 +81,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="csMain.jsp">
+            <a href="${ pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>
           <br />
           <li class="active ">
-          	 <a href="QNAList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt">Q&A</i>
             </a>
           </li>
         	<br /><br />
           <li>
-          	 <a href="noticeList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>             
@@ -115,7 +115,9 @@
 			                <span class="navbar-toggler-bar bar3"></span>
 			              </button>
 			            </div>
-			            <a class="navbar-brand" href="#pablo">My QNA</a>
+			            <a class="navbar-brand" href="#pablo">
+							<i  class="fas fa-pencil-alt" id="bhy-text" > &nbsp; 1:1 문의 Q&A</i>
+						</a>
 			          </div>
 			        </div>
 			      </nav>
@@ -128,16 +130,7 @@
       <div class="content" id="my_QNA">
         <div class="row">
           <div class="col-md-12">
-          
-          
-<!--  카드영역 분리가능한 시작  -->
-	<div class="col-md-8" style="margin: auto;" >
-		<div class="card-header"  id="bhy-card-shadow" 
-				style="background:white; height: 100px; font-size:40px;">                
-			<i  class="fas fa-pencil-alt" id="bhy-text" > &nbsp; 1:1 문의 Q&A</i>
-		</div>
-	</div><br />
-<!--  카드영역 분리가능한 끝 -->
+
 	
 <!--  중간 카드 영역 시작 -->
 	<div class="col-md-8" style="margin: auto;">
@@ -146,11 +139,9 @@
 					<br />           
 			<i class="fas fa-pencil-alt" id="bhy-card-text">  
 			&nbsp;상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. 
-			</i>
-               	
-               	
-</div>
-</div>
+			</i>               	
+		</div>
+	</div>
 <br />	
 <!--  중간 카드 영역 끝 -->	
           
@@ -158,9 +149,12 @@
 <div class="col-md-8" style="margin: auto;">
 <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">   
 
-<a href="QNAInsertForm.jsp" class="btn btn-info btn-rounded btn-sm pull-right">문의하기</a>
-      	
-<table id="tablePreview" class="table table-hover">				  
+ 
+<button type="button"  class="btn btn-info btn-rounded btn-sm pull-right" onclick="location.href='views/cs/QNAInsertForm.jsp';">
+	문의하기 
+</button> 
+       	
+<table id="listArea" class="table table-hover">				  
 		<thead  id="bhy-table-header">
 			<tr>
 				<th scope="col-md-2">#</th>
@@ -169,64 +163,91 @@
 			</tr>
 		</thead>
 		<tbody id="bhy-table">
+		<c:forEach var="QNA" items="${list}">		
 			<tr>
-				<th scope="row">1</th>
-				<td>나의 문의 내용</td>
-				<td>N</td>
+				<td>
+				<input type="hidden" value="${QNA.qNo}">
+					${QNA.qNo}
+				</td>
+				<td>${QNA.qTitle}</td>
+				<td>${QNA.qaStatus}</td>
 			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>나의 문의 내용</td>
-				<td>N</td>
-			</tr>
+			</c:forEach>
 			</tbody>
 		</table>		
 		
 		
 		
-		
-	<!-- 페이징 처리 영역 -->
-<!-- 			<nav aria-label="Page navigation example" >
- -->			  <ul class="pagination" >
-			    	<li class="page-item">
-			      		<a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-	<!-- 		</nav>	 -->
-	</div>
-</div>
+<%-- 페이지 처리 구현하기 --%>
 
-<!-- 본문내용 끝  -->
-
-		<script>
+		<div class="pagingArea" align="center">
+			<c:url var="selectList" value="selectList.qna"/>
+			
+			<!-- 처음 페이지 버튼 -->
+			<button onclick="location.href='${selectList}?currentPage=1'">
+				&lt;&lt;
+			</button>
+			
+			<!-- 이전 페이지 버튼 -->
+			<c:if test="${ pi.currentPage le 1 }">
+				<button disabled>&lt;</button>
+			</c:if>
+			<c:if test="${ pi.currentPage gt 1 }">
+				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage - 1}'">
+					&lt;
+				</button>
+			</c:if>
+			
+			<!-- 상세 페이지 구현을 위한 반복문 -->
+			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
+				<c:if test="${p eq pi.currentPage }">
+					<button disabled>
+						<b>${p}</b>
+					</button>
+				</c:if>
+				<c:if test="${ p ne pi.currentPage}">
+					<button onclick="location.href='${selectList}?currentPage=${p}'">
+						${p}
+					</button>
+				</c:if>
+			</c:forEach>
+			
+			
+			<!-- 다음 페이지 버튼 -->
+			<c:if test="${ pi.currentPage ge pi.maxPage }">
+				<button disabled>&gt;</button>
+			</c:if>
+			<c:if test="${ pi.currentPage lt pi.maxPage }">
+				<button onclick="location.href='${selectList}?currentPage=${pi.currentPage + 1}'">
+					&gt;
+				</button>
+			</c:if>
+			
+			<!-- 마지막 페이지 버튼 -->
+			<button onclick="location.href='${selectList}?currentPage=${pi.maxPage}'">
+				&gt;&gt;
+			</button>
+		</div>
+	<!-- 본문 카드 영역 끝 -->    
+	
+	<script>
 		$(function(){
-			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
-			}).mouseout(function(){
-				$(this).parent().css({"background":"rgba(70,70,70,0.5)"});
-			}).click(function(){
-				var bno = $(this).parent().find("input").val();
-				location.href="${pageContext.request.contextPath}/selectOne.qna?qno=" + qno;
+			$("#listArea td").click(function(){
+				
+				var qNo = $(this).parent().find("input").val();
+				
+				location.href="${pageContext.request.contextPath}/selectOne.qna?qNo=" + qNo;
 			});
 		});
 		
-		object.style.wordWrap="break-word"
-
-
-		
-		
 		</script>
+	
+	
+	     
+         </div>
+      </div>
 
+     <!-- 본문내용 끝  -->
         </div>
       </div>
      </div>
@@ -234,5 +255,4 @@
 </div>
 
 </body>
-
 </html>

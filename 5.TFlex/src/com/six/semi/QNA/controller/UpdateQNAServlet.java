@@ -36,15 +36,15 @@ public class UpdateQNAServlet extends HttpServlet {
 		
 		QNA q = qs.updateView(qNo);
 		
+		System.out.println("원래 q : " + q);
+		System.out.println("qTitle : "  + request.getParameter("qTitle"));
+		System.out.println("qContent : "  + request.getParameter("qContent"));
+		System.out.println("uNo : "  + request.getParameter("uNo"));
 		
-		
-		String qTitle = request.getParameter("qTitle");
-		String qContent = request.getParameter("qContent");
-		
-		q.setqTitle(qTitle);
-		q.setqContent(qContent);
-		
-		
+		q.setqTitle(request.getParameter("qTitle"));
+		q.setqContent(request.getParameter("qContent"));		
+		q.setuNo(Integer.parseInt(request.getParameter("uNo")));
+				
 		int result = qs.updateBoard(q);
 		
 		if( result > 0) {

@@ -12,18 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.six.semi.notice.model.service.NoticeService;
 import com.six.semi.notice.model.vo.Notice;
+import com.six.semi.notice.model.vo.PageInfo;
 
 /**
- * Servlet implementation class NoticeTop5Servlet
+ * Servlet implementation class NoticeListTop5Servlet
  */
-@WebServlet("/noticetop5.do")
-public class NoticeTop5Servlet extends HttpServlet {
+@WebServlet("/noticelisttop5.do")
+public class NoticeListTop5Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeTop5Servlet() {
+    public NoticeListTop5Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,13 +33,35 @@ public class NoticeTop5Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		ArrayList<Notice> list = null;
 		NoticeService ns = new NoticeService();
+		PageInfo pi = new PageInfo();
 		
-		ArrayList<Notice> list = ns.nTop5();
+		System.out.println("커렌트 페이지" + request.getParameter("currentPage"));
+		if(request.getParameter("urrentPage") != null) {
+			pi.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
+		}
 		
+		// 전체 게시글 수
+		
+		pi.calcPage(ns.getListCount());
+		System.out.println("전체 게시글 수 : " + pi.getListCount());
+		list = ns.selectList(pi);
+		
+		String page = "";
+		
+		if(list != null) {
+			for(Notice n : list) {
+				System.out.println(n);
+			}
+			page = "index.jsp";
+			request.setAttribute("list", list);
+		} else {
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 목록 조회 에러!");	
+		}
 		response.setContentType("application/json; charset=UTF-8");
-		new Gson().toJson(list, response.getWriter());
+		new Gson().toJson(page, response.getWriter());
 	}
 
 	/**
