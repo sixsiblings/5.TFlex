@@ -140,7 +140,7 @@
         	<br/>
         	<br/>
           <li>
-          	 <a href="${pageContext.request.contextPath }/views/cs/noticeList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>      

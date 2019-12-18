@@ -1,30 +1,26 @@
 package com.six.semi.notice.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.boardComment.model.service.CommentService;
-import com.six.semi.boardComment.model.vo.BoardComment;
 import com.six.semi.notice.model.service.NoticeService;
 import com.six.semi.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class SelectOneNoticeServlet
+ * Servlet implementation class SelectOneNoticeTop5Servlet
  */
-@WebServlet("/nselectOne.do")
-public class SelectOneNoticeServlet extends HttpServlet {
+@WebServlet("/selectonenoticetop5.do")
+public class SelectOneNoticeTop5Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectOneNoticeServlet() {
+    public SelectOneNoticeTop5Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,10 +30,12 @@ public class SelectOneNoticeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ntNo = Integer.parseInt(request.getParameter("ntNo"));
-		Notice n = new NoticeService().selectOne(ntNo);
+		System.out.println("확인확인" + ntNo);
+		Notice n = new NoticeService().selectOneTop5(ntNo);
 		String page = "";
+		System.out.println(n);
 		if(n != null) {
-			page = "views/cs/noticeDetail.jsp";
+			page = "{$pageContext.request.contextPath}/views/cs/noticeDetail.jsp";
 			request.setAttribute("notice", n);
 		} else {
 			page = "views/common/errorPage.jsp";

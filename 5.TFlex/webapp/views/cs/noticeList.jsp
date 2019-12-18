@@ -33,6 +33,18 @@
         	margin-left : 20px;
         }
         
+          #outer {
+            width: 100%;
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+        }
+
+        
 		/* 아코디언 부분 CSS */
 		.accordion {
 		    font-family:Arial, Helvetica, sans-serif; 
@@ -118,20 +130,20 @@
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
           	T.Flex</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">
           <li class="active">
-            <a href="csMain.jsp">
+            <a href="${ pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-gem"></i>FAQ
             </a>
           </li>
           <br />
           <br />
           <li>
-          	 <a href="QNAList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>

@@ -48,12 +48,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="${pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="../../index.jsp" class="simple-text logo-normal">
+        <a href="${pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
           	T.Flex
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -63,18 +63,18 @@
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">       
           <li class="active ">
-            <a href="csMain.jsp">
+            <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>
           <br />
           <li>
-          	 <a href="${pageContext.request.contextPath}/views/cs/QNAList.jsp">
+          	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
         <br />
-          <li class="active ">
+          <li>
           	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn">Notice</i>
             </a>

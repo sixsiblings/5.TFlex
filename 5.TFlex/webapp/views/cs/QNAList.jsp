@@ -81,19 +81,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="csMain.jsp">
+            <a href="${ pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>
           <br />
           <li class="active ">
-          	 <a href="QNAList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt">Q&A</i>
             </a>
           </li>
         	<br /><br />
           <li>
-          	 <a href="noticeList.jsp">
+          	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>             
