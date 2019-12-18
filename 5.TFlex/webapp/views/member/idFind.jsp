@@ -38,13 +38,13 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a id="idFind" href="#">
+            <a id="idFind" href="${ pageContext.request.contextPath }/views/member/idFind.jsp">
               <i class="fas fa-user-alt"></i>
               <p>ID 찾기</p>
             </a>
           </li>
           <li>
-            <a id="passwordFind" href="#">
+            <a id="passwordFind" href="${ pageContext.request.contextPath }/views/member/passwordFind.jsp">
               <i class="fas fa-user-alt"></i>
               <p>PWD 찾기</p>
             </a>
