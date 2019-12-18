@@ -65,8 +65,8 @@ td:hover {
   -o-transform: scale(1.1);
 }
 .mb-0 {
-	color: white;
-	vertical-align: middle;
+   color: white;
+   vertical-align: middle;
   display: table-cell;
   vertical-align: middle;
 }
@@ -103,8 +103,8 @@ th, td {
   }
 
  td{
- 	 text-align: center;
- 	 color: rgb(35, 82, 165);
+     text-align: center;
+     color: rgb(35, 82, 165);
  }
 /* 백혜영꺼 지우지마세요 제발 */
 #bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
@@ -434,16 +434,16 @@ hr{
 /*세번째 머릿글*/
 #no3h3{
     width:90px; height:30px;"
-	position:absolute;
-	text-align: justify; 
-	left: 400px;
+   position:absolute;
+   text-align: justify; 
+   left: 400px;
 }
 
 .myung{
-	position: absolute;
-	bottom: 370px;
-	width: 800px;
-	left: 70px;
+   position: absolute;
+   bottom: 370px;
+   width: 800px;
+   left: 70px;
 }
 /*1*/
 @media (min-width:1981px) and (max-width:3000px){
@@ -469,7 +469,7 @@ hr{
   vertical-align: middle;
   display: table-cell;
   font-weight: bold;
-	}
+   }
 }
 </style>
 </head>
@@ -479,23 +479,35 @@ hr{
    <c:import url="views/common/header.jsp"></c:import>
 
 
-   
+   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+       <div class="carousel-inner" role="listbox">
+         <!-- Slide One - Set the background image for this slide in the line below -->
          <div class="carousel-item active" style="height: 800px; background-image: url('resources/img/bhy1.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Two - Set the background image for this slide in the line below -->
          <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field2.jpg');">
-
+           <div class="carousel-caption d-none d-md-block">
+           </div>
+         </div>
+         <!-- Slide Two - Set the background image for this slide in the line below -->
          <div class="carousel-item" style="height: 800px; background-image: url('resources/img/bhy2.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Three - Set the background image for this slide in the line below -->
          <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field3.jpg');">
-
+           <div class="carousel-caption d-none d-md-block">
+           </div>
+         </div>
+         <!-- Slide Three - Set the background image for this slide in the line below -->
          <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field.jpg');">
-
+           <div class="carousel-caption d-none d-md-block">
+           </div>
+         </div>
+       </div>
+    </div>
    <br /><br /><br /><br /><br /><br /><br /><br />
 
    <!-- Icons Grid -->
@@ -510,13 +522,13 @@ hr{
                      <div class="text p-4">
                      
                   <table id="NoticeTop5" border="0" cellpadding="0" cellspacing="0" style="font-size:15px; width:1080px;">
-					<tr>
-						<th style="text-align:center;">글번호</th>
-						<th style="text-align:center;">글 제목</th>
-						<th style="text-align:center;">작성자</th>
-					</tr>
-					<tbody>
-					</tbody>
+               <tr>
+                  <th style="text-align:center;">글번호</th>
+                  <th style="text-align:center;">글 제목</th>
+                  <th style="text-align:center;">작성자</th>
+               </tr>
+               <tbody>
+               </tbody>
                   </table>
                   </div>
                   </div>
@@ -908,45 +920,45 @@ hr{
    <c:import url="views/common/loginUtil.jsp"/>
    
    <script>
-	$(function(){
-		$.ajax({
-			url : '${pageContext.request.contextPath}/noticelisttop5.do',
-			type : 'POST',
-			success : function(data) {
-				// console.log(data);
-				
-				var $table = $('#NoticeTop5');
-				
-				for(var i in data){
-					console.log(data);
-					if(i < 5){
-					var $tr = $('<tr>');
-					var $input = $('<input type="hidden" vlaue="${data[i].ntNo}">').text(data[i].ntNo);
-					var $ntNo = $('<td>').text(i);
-					var $ntTitle = $('<td>').text(data[i].ntTitle);
-					var $gm = $('<td>').text(data[i].gm);
-					
-					$tr.append($input);
-					$tr.append($ntNo);
-					$tr.append($ntTitle);
-					$tr.append($gm);
-					
-					$table.append($tr);
-					}
-				}
-				
-			}, error : function(request) {
-				console.log("힘내세요");
-				console.log(request);
-			}
-		});
-	});	
-	
-	$("td").click(function(){
-		var ntNo = $(this).parent().find("input").val();
-		location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
-	});
-	
+   $(function(){
+      $.ajax({
+         url : '${pageContext.request.contextPath}/noticelisttop5.do',
+         type : 'POST',
+         success : function(data) {
+            // console.log(data);
+            
+            var $table = $('#NoticeTop5');
+            
+            for(var i in data){
+               console.log(data);
+               if(i < 5){
+               var $tr = $('<tr>');
+               var $input = $('<input type="hidden" value="' + data[i].ntNo + '">');
+               var $ntNo = $('<td>').text(i);
+               var $ntTitle = $('<td>').text(data[i].ntTitle);
+               var $gm = $('<td>').text(data[i].gm);
+               
+               $tr.append($input);
+               $tr.append($ntNo);
+               $tr.append($ntTitle);
+               $tr.append($gm);
+               
+               $table.append($tr);
+               }
+            }
+            
+         }, error : function(request) {
+            console.log("힘내세요");
+            console.log(request);
+         }
+      });
+   });   
+   
+   $("td").click(function(){
+      var ntNo = $(this).parent().find("input").val();
+      location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
+   });
+   
    </script>
 </body>
 
