@@ -35,6 +35,7 @@
            margin-left : 20px;
         }
 
+
    </style>
 </head>
 
@@ -54,17 +55,16 @@
       </div>
       
       <div class="sidebar-wrapper">
-        <ul class="nav" id="bhy-nav-font">  
-             
-               <li class="active ">
-            <a href="${pageContext.request.contextPath }/views/myPage/myPage.jsp">
+        <ul class="nav" id="bhy-nav-font">       
+          <li>
+            <a href="myPage.jsp">
               <i class="fas fa-gem"></i>정보수정
             </a>
           </li>
           <br>
-          <li>
+          <li  class="active ">>
               <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-            <i class="fas fa-pencil-alt"></i>찜 목록
+            <i class="fas fa-pencil-alt"></i>찜  목록
             </a>
           </li>
            <br>
@@ -78,7 +78,7 @@
               <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
             <i class="fas fa-bullhorn"></i>거래내역
             </a>
-          </li>                
+          </li>              
         </ul>
       </div>
     </div>
@@ -98,7 +98,7 @@
                </button>
             </div>
          <a class="navbar-brand" href="#pablo">              
-            <i class="fas fa-gem" id="bhy-text" >회원 정보 수정</i>
+            <i class="fas fa-gem" id="bhy-text" >찜 목록</i>
          </a>
          </div>
       </div>
@@ -116,7 +116,7 @@
    <div class="col-md-8" style="margin: auto;" >
       <div class="card-header"  id="bhy-card-shadow" 
             style="background:white; height: 100px; font-size:30px;">                
-         <i class="fas fa-gem" id="bhy-text" >  회원 정보 수정</i>
+         <i class="fas fa-gem" id="bhy-text" >찜 목록</i>
       </div>
    </div><br />
 <!--  카드영역 분리가능한 끝 -->
@@ -131,36 +131,6 @@
 <!-- 내용테이블  시작점  -->      
 
    
-      <div class="content" id="Edit_Profile">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-md-8" style="margin: auto;">
-            <div class="card card-user">
-              <div class="card-header">
-                <h5 class="card-title">회원탈퇴</h5>
-              </div>
-              <div class="card-body">
-                <form action="${ pageContext.request.contextPath }/delete.me">
-                <div class="btns" align="center">
-                <input type="password"  id="password" name="password"/>
-                <div class="row">
-                    <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary btn-round">회원 탈퇴</button>
-                    </div>
-                  </div>
-                </div>
-                 
-                  
-                </form>
-              </div>
-            </div>
-          </div>
-          
-            
-          </div>
-        </div>
-      </div>
-      
   
 
 <!-- ------------------------------ -->
@@ -176,6 +146,6 @@
 
       </div>
    </div>
-   </div>
+   
 </body>
 </html>
