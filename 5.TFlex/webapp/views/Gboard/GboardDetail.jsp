@@ -7,155 +7,80 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사진 게시글 작성 페이지</title>
-<c:import url="../common/commonUtil.jsp"></c:import>
+<title>Insert title here</title>
+<c:import url="../common/commonUtil.jsp"/>
 <style>
-      .outer {
-      width:1000px;
-      height:auto;
-      background:rgba(50, 50, 150, 0.5);
-      color:white;
-      margin-left:auto;
-      margin-right:auto;
-      margin-top:50px;
-   }
-   table {
-      border:1px solid white;
-   }
-   .insertArea {
-      width:800px;
-      height:auto;
-      margin-left:auto;
-      margin-right:auto;
-   }
-   .btnArea {
-      width:400px;
-      margin-left:auto;
-      margin-right:auto;
-   }
-   #titleImgArea {
-      width: 800px;
-      height:200px;
-      border:2px dashed darkgray;
-      text-align:center;
-      display:table-cell;
-      vertical-align:middle;
-   }
-   #titleImgArea:hover, #contentImgArea1:hover, 
-   #contentImgArea2:hover, #contentImgArea3:hover {
-      cursor:pointer;
-   }
-   #contentImgArea1, #contentImgArea2, #contentImgArea3 {
-      width:250px;
-      height:100px;
-      border:2px dashed darkgray;
-      text-align:center;
-      display:table-cell;
-      vertical-align:middle;
-   }
-   [id*=content] > img {
-      height : 150px;
-   }
-   td{
-   	color:black;
-   }
-   input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+#yu{
+  width:500px;
+  height:200px;
+  background-size: 400px;
+  background-repeat:no-repeat;
 }
 </style>
 </head>
 <body>
-   <c:import url="../common/header.jsp"></c:import>
-   
-   <section class="outer">
-      <br />
-      <h2 align="center">게시판 글쓰기</h2>
-      <form action="${ pageContext.request.contextPath }/insert.tn" 
-               method="POST" enctype="multipart/form-data">
-         <div class="insertArea">
-            <input type="hidden" name="userId" value="${member.userId}" />
-            <table align="center">
+<c:import url="../common/header.jsp"/>
+
+	<div align="center" >
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
+    </div>
+	</div>
+<c:if test="${ !empty member }">
+	<section class="outer">
+      <br>
+      <h2 align="center">게시글 내용</h2>
+      <div class="tableArea">
+            <table align="center" width="800px">
                <tr>
-                  <td width="100px">제목</td>000
-                  <td colspan="3"><input type="text" size="45" name="title"></td>
+                  <td>제목 </td>
+                  <td colspan="5"><span>${Gboard.gTitle}</span></td>
                </tr>
                <tr>
-                  <td>대표 이미지</td>
-                  <td colspan="3">
-                     <div id="titleImgArea">
-                        <img id="titleImg" width="350" height="200">
-                     </div>
-                  </td>
+                  <td>작성자 </td>
+                  <td><span>${Gboard.guNo}</span></td>
+                  <td>작성일</td>
+                  <td><span>${Gboard.gEnrolldate}</span></td>
+                  <td>조회수 </td>
+                  <td><span>${Gboard.gCount}</span></td>
+                   <td>가격 </td>
+                  <td><span>${Gboard.gPrice}</span></td>
                </tr>
                <tr>
-               
-               			<td width="100px">가격 : </td>
-               		<td>
-                  		<td colspan="3">
-               				<input id="number"type="number" name="price" min="1" max="30">
-               		</td>
+                  <td colspan="6">내용 </td>
                </tr>
                <tr>
-                  <td width="100px">사진 메모</td>
-                  <td colspan="3">
-                     <textarea name="content" rows="5" cols="50" style="resize:none;"></textarea>
+                  <td colspan="6">
+                     <p id="content">${Gboard.gContent}
                   </td>
                </tr>
             </table>
-            <div id="fileArea">
-               <input type="file" id="thumbnailImg1" name="thumbnailImg1" onchange="LoadImg(this,1)">
-            </div>
-         </div>
-         <div class="btnArea">
-            <input type="submit" class="btn btn-primary" value="작성완료">
-            <input type="reset" class="btn btn-primary" value="작성취소">
-         </div>
-      </form>
-      
-      <script>
-         // 사진을 추가하였을 때, 이미지 태그와 연동하여 바로 보이도록
-         // 미리보기 기능 구현하기
-         $(function(){
-            $('#fileArea').hide();
-            
-            // $('titleImgArea').on('click', function(){});
-            $('#titleImgArea').click(()=>{
-               $('#thumbnailImg1').click();
-            });
-         });
-         
-         function LoadImg(value, num) {
-               if(value.files && value.files[0]) {
-                  var reader = new FileReader();
-                  
-                  reader.onload = function(e){
-                     switch(num){
-                     case 1: $('#titleImg').attr('src', e.target.result);
-                        break;
-                  }
-                  
-                  reader.readAsDataURL(value.files[0]);
-               }
-            }
-      </script>
+            <br>
+      </div>
+      <div align="center">
+         <button onclick="location.href='${pageContext.request.contextPath }/gselectList.bo'">메뉴로 돌아가기</button>
+         <c:if test="${!empty member and member.uNo eq Gboard.guNo}">
+            <c:url var="boardUpdate" value="gbUpView.bo">
+               <c:param name="gNo" value="${Gboard.gNo}" />
+            </c:url>
+            <button onclick="location.href='${boardUpdate}'">수정하기</button>
+         </c:if>
+      </div>
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-   </section>
+   <script>
    
-   <c:import url="../common/footer.jsp"></c:import>
+   </script>
+   </section>
+   <br><br><br><br>
+	</c:if><c:if test="${ empty member }">
+		<c:url var="errorPage" value="views/common/errorPage.jsp">
+		<c:set var="msg" value="회원만 가능한 서비스입니다." scope="session"/>
+		</c:url>
+		
+		<c:redirect url="${errorPage }"/>
+	</c:if>
+
+
+<c:import url="../common/footer.jsp"/>
+<c:import url="../common/loginUtil.jsp"/>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
