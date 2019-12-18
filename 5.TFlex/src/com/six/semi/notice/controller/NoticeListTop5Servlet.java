@@ -37,11 +37,6 @@ public class NoticeListTop5Servlet extends HttpServlet {
 		NoticeService ns = new NoticeService();
 		PageInfo pi = new PageInfo();
 		
-		System.out.println("커렌트 페이지" + request.getParameter("currentPage"));
-		if(request.getParameter("urrentPage") != null) {
-			pi.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
-		}
-		
 		// 전체 게시글 수
 		
 		pi.calcPage(ns.getListCount());
@@ -61,7 +56,7 @@ public class NoticeListTop5Servlet extends HttpServlet {
 			request.setAttribute("msg", "게시글 목록 조회 에러!");	
 		}
 		response.setContentType("application/json; charset=UTF-8");
-		new Gson().toJson(page, response.getWriter());
+		new Gson().toJson(list, response.getWriter());
 	}
 
 	/**

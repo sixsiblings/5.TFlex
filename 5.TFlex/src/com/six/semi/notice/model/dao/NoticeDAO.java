@@ -72,7 +72,7 @@ public class NoticeDAO {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("listCount");
+		String sql = prop.getProperty("listNCount");
 		System.out.println("SQL : " + sql);
 		
 		try {
@@ -119,10 +119,11 @@ public class NoticeDAO {
 			n.setNcgbno(rset.getInt(2));
 			n.setNtTitle(rset.getString(3));
 			n.setNtContent(rset.getString(4));
-			n.setNtFile(rset.getInt(5));
-			n.setNtDate(rset.getDate(6));
-			n.setGm(rset.getString(7));
-			n.setNstatus(rset.getString(8));
+			n.setNtCount(rset.getInt(5));
+			n.setNtFile(rset.getInt(6));
+			n.setNtDate(rset.getDate(7));
+			n.setGm(rset.getString(8));
+			n.setNstatus(rset.getString(9));
 			
 			list.add(n);
 			}
@@ -160,10 +161,11 @@ public class NoticeDAO {
 				n.setNcgbno(rset.getInt(2));
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
-				n.setNtFile(rset.getInt(5));
-				n.setNtDate(rset.getDate(6));
-				n.setGm(rset.getString(7));
-				n.setNstatus(rset.getString(8));
+				n.setNtCount(rset.getInt(5));
+				n.setNtFile(rset.getInt(6));
+				n.setNtDate(rset.getDate(7));
+				n.setGm(rset.getString(8));
+				n.setNstatus(rset.getString(9));
 			}
 			
 		} catch (SQLException e) {
@@ -217,10 +219,11 @@ public class NoticeDAO {
 				n.setNcgbno(rset.getInt(2));
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
-				n.setNtFile(rset.getInt(5));
-				n.setNtDate(rset.getDate(6));
-				n.setGm(rset.getString(7));
-				n.setNstatus(rset.getString(8));
+				n.setNtCount(rset.getInt(5));
+				n.setNtFile(rset.getInt(6));
+				n.setNtDate(rset.getDate(7));
+				n.setGm(rset.getString(8));
+				n.setNstatus(rset.getString(9));
 				
 				list.add(n);
 			}
@@ -257,10 +260,11 @@ public class NoticeDAO {
 				n.setNcgbno(rset.getInt(2));
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
-				n.setNtFile(rset.getInt(5));
-				n.setNtDate(rset.getDate(6));
-				n.setGm(rset.getString(7));
-				n.setNstatus(rset.getString(8));
+				n.setNtCount(rset.getInt(5));
+				n.setNtFile(rset.getInt(6));
+				n.setNtDate(rset.getDate(7));
+				n.setGm(rset.getString(8));
+				n.setNstatus(rset.getString(9));
 			}
 			
 		} catch (SQLException e) {
@@ -274,18 +278,6 @@ public class NoticeDAO {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
