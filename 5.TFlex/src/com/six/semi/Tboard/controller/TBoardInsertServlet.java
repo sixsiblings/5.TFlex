@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Tboard.model.service.TBoardService;
-import com.six.semi.Tboard.model.vo.TBoard;
+import com.six.semi.Tboard.model.service.TboardService;
+import com.six.semi.Tboard.model.vo.Tboard;
 
 /**
  * Servlet implementation class TBoardInsertServlet
  */
-@WebServlet("/tinsert.tn")
+@WebServlet("/tInsert.bo")
 public class TBoardInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,23 +29,30 @@ public class TBoardInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TBoardService ts = new TBoardService();
-		TBoard t = new TBoard();
+		TboardService tbs = new TboardService();
+		Tboard tb = new Tboard();
 		
-		t.setTtitle(request.getParameter("title"));
-		t.setTcontent(request.getParameter("editordata"));
-		t.setTno(Integer.parseInt(request.getParameter("uno")));
+		tb.settTitle(request.getParameter("title"));
+		tb.settContent(request.getParameter("editordata"));
+		tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
+		tb.settDate(request.getParameter("tdate"));
+		tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
+		 
+			// System.out.println(request.getParameter("cgbno"));
+			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
 		
-		int result = ts.insertTBoard(t);
-		
-		if(result>0) {
-			response.sendRedirect("tboardList.to");
-		}else {
+			int result = tbs.insertBoard(tb);
 			
-			request.setAttribute("msg","게시글 작성 실패");
-			request.getRequestDispatcher("vews/common/errorPage.jsp").forward(request,response);
+			if(result > 0) {
+				
+				response.sendRedirect("mselectList.bo");
+				
+			} else {
+				
+				request.setAttribute("msg", "게시글 작성 실패");
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			}
 		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
