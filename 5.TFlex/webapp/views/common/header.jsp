@@ -48,7 +48,7 @@
                 </a>
             </li>            
             <li class="nav-item">
-               <a class="nav-link"  href="${ pageContext.request.contextPath }/views/Gboard/GoodsBoard.jsp">
+               <a class="nav-link"  href="${ pageContext.request.contextPath }/gselectList.bo">
                   <button type="button" id="GoodsBtn" class="btn btn-outline-primary"
                      style="margin-right: 50px; margin-right: 50px; font-size: 30px; width:120px; height: 50px;" >
                         <strong>Goods</strong>

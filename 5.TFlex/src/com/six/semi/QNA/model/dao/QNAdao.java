@@ -43,7 +43,7 @@ public class QNAdao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertQNA");
+		String sql = prop.getProperty("QNAinsertQNA");
 		
 		try {
 			
@@ -74,7 +74,7 @@ public class QNAdao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("listCount");
+		String sql = prop.getProperty("QNAlistCount");
 		
 		try {
 			
@@ -107,7 +107,7 @@ public class QNAdao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectList");
+		String sql = prop.getProperty("QNAselectList");
 		
 		try {
 			
@@ -153,7 +153,7 @@ public class QNAdao {
 		ResultSet rset = null;
 		
 		try {
-			String sql = prop.getProperty("selectOne");
+			String sql = prop.getProperty("QNAselectOne");
 			
 			pstmt = con.prepareStatement(sql);
 
@@ -188,15 +188,16 @@ public class QNAdao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("updateQNA");
+		String sql = prop.getProperty("QNAupdateQNA");
 		
 		try {
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, q.getqNo());
-			pstmt.setString(2, q.getqTitle());
-			pstmt.setString(3, q.getqContent());
+			pstmt.setString(1, q.getqTitle());
+			pstmt.setString(2, q.getqContent());
+			pstmt.setInt(3, q.getqNo());
+			
 						
 			result = pstmt.executeUpdate();
 			
@@ -210,32 +211,6 @@ public class QNAdao {
 		return result;
 	}
 
-	public int deleteQNA(Connection con, int qNo) {
-		
-		int result = 0;
-		
-		PreparedStatement pstmt = null;
-		
-		String sql = prop.getProperty("deleteQNA");
-		
-		try {
-			
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setInt(1, qNo);
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-			
-		} finally {
-			
-			close(pstmt);
-			
-		}
-		return result;
-	}
 
+	
 }

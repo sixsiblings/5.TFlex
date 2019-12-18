@@ -9,6 +9,7 @@ public class Notice implements Serializable {
 	private int ncgbno;
 	private String ntTitle;
 	private String ntContent;
+	private int ntCount;
 	private int ntFile;
 	private Date ntDate;
 	private String gm;
@@ -33,25 +34,24 @@ public class Notice implements Serializable {
 
 
 	// 매개변수 생성자
-	public Notice(int ntNo, int ncgbno, String ntTitle, String ntContent, int ntFile, Date ntDate, String gm, String nstatus) {
+	public Notice(int ntNo, int ncgbno, String ntTitle, String ntContent, int ntCount, int ntFile, Date ntDate, String gm, String nstatus) {
 		super();
 		this.ntNo = ntNo;
 		this.ncgbno = ncgbno;
 		this.ntTitle = ntTitle;
 		this.ntContent = ntContent;
+		this.ntCount = ntCount;
 		this.ntFile = ntFile;
 		this.ntDate = ntDate;
 		this.gm = gm;
 		this.nstatus = nstatus;
 	}
 
-	
-
-	
 	@Override
 	public String toString() {
 		return "Notice [ntNo=" + ntNo + ", ncgbno=" + ncgbno + ", ntTitle=" + ntTitle + ", ntContent=" + ntContent
-				+ ", ntFile=" + ntFile + ", ntDate=" + ntDate + ", gm=" + gm + ", nstatus=" + nstatus + "]";
+				+ ", ntCount=" + ntCount + ", ntFile=" + ntFile + ", ntDate=" + ntDate + ", gm=" + gm + ", nstatus="
+				+ nstatus + "]";
 	}
 
 
@@ -127,6 +127,18 @@ public class Notice implements Serializable {
 
 	public void setNstatus(String nstatus) {
 		this.nstatus = nstatus;
+	}
+
+
+
+	public int getNtCount() {
+		return ntCount;
+	}
+
+
+
+	public void setNtCount(int ntCount) {
+		this.ntCount = ntCount;
 	}
 	
 

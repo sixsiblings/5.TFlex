@@ -7,20 +7,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>티켓 판매글 작성</title>
+<title>굿즈 판매글 작성</title>
 <style>
-body{
-	background-color:rgb(229, 229, 220);
-}
    .mb-3{
       display:inline-block;
    }
    #yu{
-  width:600px;
-  height:200px;
-  background-size: 600px;
+  width:500px;
+  height:150px;
+  background-size: 400px;
   background-repeat:no-repeat;
-  margin:auto;
 }
 </style>
 
@@ -40,23 +36,21 @@ body{
 <br />
 <section>
  <div align="center" >
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/ticket4.jpg');">
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/MLB.jpg');">
     </div>
    </div>
 <div class="mb-2" align="center">
-<form id="insertForm" action="${ pageContext.request.contextPath }/tInsert.bo"  method="post"  >
+<form id="insertForm" action="${ pageContext.request.contextPath }/ginsert.bo"  method="post"  >
 		<div class="input-group mb-3" style="width:900px;">
 
 	
 			<br />
   				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ttitle" placeholder="제목을 입력하세요.">
- 				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tdate" placeholder="경기일자를 입력하세요.">
+ 				 name="gtitle" placeholder="제목을 입력하세요.">
+ 				 
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tprice" placeholder="가격을 입력하세요.">
- 				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ticketno" placeholder="티켓 일련번호를 입력하세요.">
+ 				 name="gprice" placeholder="가격을 입력하세요.">
+ 				
  				
 		</div>
 
@@ -128,9 +122,9 @@ $('#summernote').summernote({
 }
  
   function insertbtn(){
-      if($('#ttitle').val() == ""){
+      if($('#title').val() == ""){
          alert("제목을 입력하세요.");
-         $('#ttitle').focus();
+         $('#title').focus();
       } else if($('#summernote').val() == ""){
          alert("내용을 입력해 주세요.");
          $('#summernote').focus();
@@ -145,7 +139,7 @@ $('#summernote').summernote({
       var answer = confirm("게시글 작성을 취소하시겠습니까?");
       
       if(answer == true){
-    	  location.href = "${pageContext.request.contextPath}/tboardList.to";
+    	  location.href = "${pageContext.request.contextPath}/gboardList.to";
         } 
    }
    

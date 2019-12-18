@@ -37,14 +37,14 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
-            <a id="idFind" href="#">
+          <li>
+            <a id="idFind" href="${ pageContext.request.contextPath }/views/member/idFind.jsp">
               <i class="fas fa-user-alt"></i>
               <p>ID 찾기</p>
             </a>
           </li>
-          <li>
-            <a id="passwordFind" href="#">
+          <li class="active">
+            <a id="passwordFind" href="${ pageContext.request.contextPath }/views/member/passwordFind.jsp">
               <i class="fas fa-user-alt"></i>
               <p>PWD 찾기</p>
             </a>
@@ -74,39 +74,12 @@
 	            <div class="col-md-12">
 	            <div class="card card-user">
 	              <div class="card-header">
-	                <h5 class="card-title">ID 찾기</h5>
+	                <h5 class="card-title">죄송합니다 서비스 준비중입니다</h5>
 	              </div>
 	              <div class="card-body" id="cardid">
-	                <form>
-	                 <div class="row" style="margin: auto;">
-	                    <div class="col-md-5 pr-1">
-	                      <div class="form-group">
-	                        <label>회원가입시 입력한 이메일</label>
-	                        <input type="text" id="checkEmail" class="form-control" placeholder="example@email.com">
-	                      </div>
-	                    </div>
-	                    <div class="col-md-3 px-1">
-	                      <div class="form-group">
-	                      	<button type="button" id="checkEmailBtn" class="btn btn-success" style="font-size:8px; margin-right:10px; margin-top: 25px;">
-								인증 번호 발송
-							</button>
-	                      </div>
-	                    </div>
-	                    <div class="col-md-5 pr-1">
-	                      <div class="form-group">
-	                        <label>인증번호 입력</label>
-	                        <input type="text" id="checkNumber" class="form-control" placeholder="인증번호 입력">
-	                      </div>
-	                    </div>
-	                    <div class="col-md-3 px-1">
-	                      <div class="form-group">
-	                      	<button type="button" id="checkNumberBtn" class="btn btn-primary" style="font-size:8px; margin-right:10px; margin-top: 25px;">
-								인증번호 확인
-							</button>
-	                      </div>
-	                    </div>
-	                   </div>
-	                </form>
+	              
+	              <img src="${ pageContext.request.contextPath }/resources/img/ready.jpg">
+	                
 	              </div>
 	            </div>
 	          </div>

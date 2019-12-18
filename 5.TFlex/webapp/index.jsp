@@ -21,7 +21,7 @@
 .h3{
    position: relative;
    font-size: 40px;
-     color: black;
+     color: white;
      font-weight: bold;
 }
 .lead{
@@ -44,8 +44,7 @@ position: absolute;
    top: 80px;
 }
 #no3h3{
-   position: absolute;
-   right: 300px;
+   margin-right: 500px;
    top: 70px;
 }
 /**/
@@ -66,8 +65,8 @@ td:hover {
   -o-transform: scale(1.1);
 }
 .mb-0 {
-color: black;
-vertical-align: middle;
+   color: white;
+   vertical-align: middle;
   display: table-cell;
   vertical-align: middle;
 }
@@ -101,8 +100,12 @@ th, td {
     border-bottom: 1px solid #444444;
     padding: 10px;
     BORDER-BOTTOM: gray 1px dashed; 
-
   }
+
+ td{
+     text-align: center;
+     color: rgb(35, 82, 165);
+ }
 /* 백혜영꺼 지우지마세요 제발 */
 #bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
    color : white;
@@ -412,26 +415,35 @@ hr{
   left: 200px;
   bottom: 100px;
   font-size: 30px;
-  color: black;
+  color: white;
   vertical-align: middle;
   display: table-cell;
   font-weight: bold;
-  
+  height: 12px;
   
 }
 #no1h3{
-   right: 320px;
+   right: 270px;
 }
 /*두번째 머릿글*/
 #no2h3{
    top: 60px;
    right: 10px;
-   
+   height:80px;
 }
 /*세번째 머릿글*/
 #no3h3{
-   top: 50px;
-   left: 270px;
+    width:90px; height:30px;"
+   position:absolute;
+   text-align: justify; 
+   left: 400px;
+}
+
+.myung{
+   position: absolute;
+   bottom: 370px;
+   width: 800px;
+   left: 70px;
 }
 /*1*/
 @media (min-width:1981px) and (max-width:3000px){
@@ -457,7 +469,7 @@ hr{
   vertical-align: middle;
   display: table-cell;
   font-weight: bold;
-}
+   }
 }
 </style>
 </head>
@@ -470,23 +482,33 @@ hr{
    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
        <div class="carousel-inner" role="listbox">
          <!-- Slide One - Set the background image for this slide in the line below -->
-         <div class="carousel-item active" style="height: 1000px; background-image: url('resources/img/field.jpg');">
+         <div class="carousel-item active" style="height: 800px; background-image: url('resources/img/bhy1.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Two - Set the background image for this slide in the line below -->
-         <div class="carousel-item" style="height: 1000px; background-image: url('resources/img/field2.jpg');">
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field2.jpg');">
+           <div class="carousel-caption d-none d-md-block">
+           </div>
+         </div>
+         <!-- Slide Two - Set the background image for this slide in the line below -->
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/bhy2.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Three - Set the background image for this slide in the line below -->
-         <div class="carousel-item" style="height: 1000px; background-image: url('resources/img/field3.jpg');">
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field3.jpg');">
+           <div class="carousel-caption d-none d-md-block">
+           </div>
+         </div>
+         <!-- Slide Three - Set the background image for this slide in the line below -->
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
        </div>
     </div>
-   <br /><br /><br /><br /><br />
+   <br /><br /><br /><br /><br /><br /><br /><br />
 
    <!-- Icons Grid -->
    <a href="views/Nboard/NoticeBoard.jsp"><h1 id="h1" ><strong>공지사항</strong></h1></a>
@@ -499,66 +521,14 @@ hr{
                   <div class="image">
                      <div class="text p-4">
                      
-                  <table id="NoticeTop5" border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  	<thead>
-					<tr>
-						<th>글번호</th>
-						<th>글 제목</th>
-						<th>작성자</th>
-					</tr>
-		</thead>
-		<tbody>
-		</tbody>
-                  </table>
-                  </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-               <div class="post-entry">
-                  <div class="image">
-                     <div class="text p-4">
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-13 서버 점검을 완료했습니다</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-14 에 로그인이 제한됩니다</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-11-13 서버 이전작업을 완료했습니다</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-10-23 게시판 이용이 가능합니다</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-9-10 회원정보 수정이 가능합니다</a></td>
-                  </tr>
-                  </table>
-                  </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-               <div class="post-entry">
-                  <div class="image">
-                  <div class="text p-4">
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#" style="text-decoration:none">2019-12-12 휴대폰은 저희가 못 고칩니다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-09 허위신고시 강력처벌하겠습니다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-06 자주 이용해주셔서 감사합니다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-12-03 꼭 버전을 업데이트 해주세요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">2019-08-02 쪽지 보내지 말아주세요.</a></td>
-                  </tr>
+                  <table id="NoticeTop5" border="0" cellpadding="0" cellspacing="0" style="font-size:15px; width:1080px;">
+               <tr>
+                  <th style="text-align:center;">글번호</th>
+                  <th style="text-align:center;">글 제목</th>
+                  <th style="text-align:center;">작성자</th>
+               </tr>
+               <tbody>
+               </tbody>
                   </table>
                   </div>
                   </div>
@@ -908,10 +878,10 @@ hr{
          
          <div class="row no-gutters" ">
             <div class="third col-lg-6 order-lg-2 text-white showcase-img" >
-               <div>
-                  <a id="no3h3" class="h3" href="views/jindownload/jingi.jsp"><u>명기록</u></a><br />
+               <div >
+                  <a  href="views/jindownload/jingi.jsp"><u id="no3h3" class="h3">명기록</u></a><br />
                </div>
-               <div>
+               <div class="myung">
                   <p class="lead mb-0 p3">
                      1982년 전두환 당시 대통령의 시구와 함께 시작된 프로야구 개막전과 한국시리즈 <br />
                      6차전에서 나온 드라마같은 만루홈런 두개로 인하여 "이 홈런으로 앞으로 10년은<br />
@@ -942,18 +912,6 @@ hr{
       </div>
       
    </section>
-   <script type="text/javascript">
-        function div2Resize() {
-            var div2 = document.getElementById('div2');
-            div2.style.width = window.innerWidth - 200 + 'px';
-        }
-        window.onload = function() {
-            div2Resize();
- 
-            // 브라우저 크기가 변할 시 동적으로 사이즈를 조절해야 하는경우
-            window.addEventListener('resize', div2Resize);
-        }
-    </script>
    
    <c:import url="views/common/footer.jsp"></c:import>
 
@@ -962,42 +920,45 @@ hr{
    <c:import url="views/common/loginUtil.jsp"/>
    
    <script>
-	$(function(){
-		$.ajax({
-			url : '${pageContext.request.contextPath}/noticelisttop5.do',
-			type : 'POST',
-			success : function(data) {
-				// console.log(data);
-				
-				var $table = $('#NoticeTop5 tbody');
-				
-				for(var i in data){
-					if(i < 5){
-					var $tr = $('<tr>');
-					var $nt_No = $('<td class="topNotice">').text(data[i].nt_No);
-					var $Ndate = $('<td class="topNotice">').text(data[i].Ndate);
-					var $gm = $('<td>').text(data[i].gm);
-					
-					$tr.append($nt_No);
-					$tr.append($Ndate);
-					$tr.append($gm);
-					
-					$table.append($tr);
-					}
-				}
-				
-			}, error : function(request) {
-				console.log("힘내세요");
-				console.log(request);
-			}
-		});
-	});	
-	
-	$(".topNotice").click(function(){
-		var ntNo = $(this).parent().find("input").val();
-		location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
-	});
-	
+   $(function(){
+      $.ajax({
+         url : '${pageContext.request.contextPath}/noticelisttop5.do',
+         type : 'POST',
+         success : function(data) {
+            // console.log(data);
+            
+            var $table = $('#NoticeTop5');
+            
+            for(var i in data){
+               console.log(data);
+               if(i < 5){
+               var $tr = $('<tr>');
+               var $input = $('<input type="hidden" value="' + data[i].ntNo + '">');
+               var $ntNo = $('<td>').text(i);
+               var $ntTitle = $('<td>').text(data[i].ntTitle);
+               var $gm = $('<td>').text(data[i].gm);
+               
+               $tr.append($input);
+               $tr.append($ntNo);
+               $tr.append($ntTitle);
+               $tr.append($gm);
+               
+               $table.append($tr);
+               }
+            }
+            
+         }, error : function(request) {
+            console.log("힘내세요");
+            console.log(request);
+         }
+      });
+   });   
+   
+   $("td").click(function(){
+      var ntNo = $(this).parent().find("input").val();
+      location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
+   });
+   
    </script>
 </body>
 

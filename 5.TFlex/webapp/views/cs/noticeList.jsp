@@ -115,6 +115,11 @@
 		.vertical [type=radio]:checked ~ label ~ .content, .vertical [type=checkbox]:checked ~ label ~ .content {
 		    height:auto;
 		 }   
+		 
+		 .page-link{
+		 	display: inline-block;
+		 	margin: auto;
+		 }
 
 	</style>
 
@@ -209,12 +214,11 @@
 				  </thead>
 				  <tbody id="bhy-table">
 				    <tr>
-
 				    	  <c:forEach var="notice" items="${list}">
 							  <tr>
 							  <td>
 							  <input type="hidden" value="${notice.ntNo}"/>
-							  ${notice.ntNo}
+							  ${(notice.ntNo)-1}
 							  </td>
 							  <td>${notice.ntTitle}</td>
 							  <td>${notice.ntContent}</td>
@@ -228,22 +232,22 @@
           </div>
           
           <!-- 본문내용 끝  -->
-          
+          <br /><br />
 		<%-- 페이지 처리 구현하기 --%>
 		<div class="pagingArea" align="center" aria-label="Page navigation example">
 			<c:url var="selectNList" value="noticelist.do"/>
 			
 			<!-- 처음 페이지 버튼 -->
-			<button onclick="location.href='${selectNList}?currentPage=1'">
+			<button class="page-link"  onclick="location.href='${selectNList}?currentPage=1'">
 				&lt;&lt;
 			</button>
 			
 			<!-- 이전 페이지 버튼 -->
 			<c:if test="${ pi.currentPage le 1 }">
-				<button disabled>&lt;</button>
+				<button class="page-link" disabled>&lt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage gt 1 }">
-				<button onclick="location.href='${selectNList}?currentPage=${pi.currentPage} - 1'">
+				<button class="page-link" onclick="location.href='${selectNList}?currentPage=${pi.currentPage - 1}'">
 					&lt;
 				</button>
 			</c:if>
@@ -251,12 +255,12 @@
 			<!-- 상세 페이지 구현을 위한 반복문 -->
 			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
 				<c:if test="${p eq pi.currentPage }">
-					<button disabled>
+					<button class="page-link" disabled>
 						<b>${p}</b>
 					</button>
 				</c:if>
 				<c:if test="${ p ne pi.currentPage}">
-					<button onclick="location.href='${selectNList}?currentPage=${p}'">
+					<button class="page-link" onclick="location.href='${selectNList}?currentPage=${p}'">
 						${p}
 					</button>
 				</c:if>
@@ -265,16 +269,16 @@
 			
 			<!-- 다음 페이지 버튼 -->
 			<c:if test="${ pi.currentPage ge pi.maxPage }">
-				<button disabled>&gt;</button>
+				<button class="page-link" disabled>&gt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage lt pi.maxPage }">
-				<button onclick="location.href='${selectNList}?currentPage=${pi.currentPage} + 1'">
+				<button class="page-link" onclick="location.href='${selectNList}?currentPage=${pi.currentPage + 1}'">
 					&gt;
 				</button>
 			</c:if>
 			
 			<!-- 마지막 페이지 버튼 -->
-			<button onclick="location.href='${selectNList}?currentPage=${pi.maxPage}'">
+			<button class="page-link" onclick="location.href='${selectNList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
 		</div>

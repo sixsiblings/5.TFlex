@@ -1,30 +1,26 @@
-package com.six.semi.notice.controller;
+package com.six.semi.Tboard.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.six.semi.notice.model.service.NoticeService;
-import com.six.semi.notice.model.vo.Notice;
-import com.six.semi.notice.model.vo.PageInfo;
+import com.six.semi.Tboard.model.service.TboardService;
+import com.six.semi.Tboard.model.vo.Tboard;
 
 /**
- * Servlet implementation class NoticeListTop5Servlet
+ * Servlet implementation class UpdateViewTBoardServlet
  */
-@WebServlet("/noticelisttop5.do")
-public class NoticeListTop5Servlet extends HttpServlet {
+@WebServlet("/tbUpView.bo")
+public class UpdateViewTBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeListTop5Servlet() {
+    public UpdateViewTBoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,30 +29,24 @@ public class NoticeListTop5Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Notice> list = null;
-		NoticeService ns = new NoticeService();
-		PageInfo pi = new PageInfo();
 		
-		// 전체 게시글 수
+		int tNo = Integer.parseInt(request.getParameter("tNo"));
 		
-		pi.calcPage(ns.getListCount());
-		System.out.println("전체 게시글 수 : " + pi.getListCount());
-		list = ns.selectList(pi);
+		Tboard tb = new TboardService().updateView(tNo);
 		
 		String page = "";
-		
-		if(list != null) {
-			for(Notice n : list) {
-				System.out.println(n);
-			}
-			page = "index.jsp";
-			request.setAttribute("list", list);
+		if(tb != null) {
+			
+			page = "views/Tboard/TboardUpdateForm.jsp";
+			request.setAttribute("Tboard", tb);
 		} else {
+			
 			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "게시글 목록 조회 에러!");	
+			request.setAttribute("msg", "게시글 수정 화면 조회 실패!");			
 		}
-		response.setContentType("application/json; charset=UTF-8");
-		new Gson().toJson(list, response.getWriter());
+		
+		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
 
 	/**

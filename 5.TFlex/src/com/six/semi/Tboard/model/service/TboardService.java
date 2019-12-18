@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.six.semi.Tboard.model.dao.TboardDAO;
 import com.six.semi.Tboard.model.vo.Tboard;
+import com.six.semi.board.model.vo.Board;
 import com.six.semi.common.PageInfo;
 
 public class TboardService {
@@ -50,6 +51,45 @@ public class TboardService {
 		else rollback(con);
 		
 		close(con);
+		
+		return result;
+	}
+
+	public Tboard selectOne(int tNo) {
+		con = getConnection();
+		
+		int result = tbdao.addReadCount(con, tNo);
+		
+		Tboard tb = null;
+		
+		if(result > 0) {
+			tb = tbdao.selectOne(con, tNo);
+			if(tb != null) commit(con);
+		}
+		else rollback(con);
+		
+		close(con);
+		
+		return tb;
+	}
+
+	public Tboard updateView(int tNo) {
+		con = getConnection();
+		
+		Tboard tb = tbdao.selectOne(con, tNo);
+		
+		close(con);
+		
+		return tb;
+	}
+
+	public int updateBoard(Tboard tb) {
+		con = getConnection();
+		
+		int result = tbdao.updateBoard(con, tb);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
 		
 		return result;
 	}

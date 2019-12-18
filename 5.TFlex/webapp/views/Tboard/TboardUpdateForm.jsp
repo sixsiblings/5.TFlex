@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>티켓 판매글 작성</title>
+<title>티켓 게시글 수정</title>
 <style>
 body{
 	background-color:rgb(229, 229, 220);
@@ -40,35 +40,38 @@ body{
 <br />
 <section>
  <div align="center" >
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/ticket4.jpg');">
+   <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('../../resources/img/ticket4.jpg');">
     </div>
    </div>
 <div class="mb-2" align="center">
-<form id="insertForm" action="${ pageContext.request.contextPath }/tInsert.bo"  method="post"  >
+<form id="updateForm" action="${ pageContext.request.contextPath }/tUpdate.bo"  method="post"  >
 		<div class="input-group mb-3" style="width:900px;">
 
-	
 			<br />
   				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ttitle" placeholder="제목을 입력하세요.">
+ 				 name="ttitle" placeholder="제목을 입력하세요." value="${Tboard.tTitle}">
+ 				 <br />
+				
  				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tdate" placeholder="경기일자를 입력하세요.">
+ 				 name="tdate" placeholder="경기일자를 입력하세요." value="${Tboard.tDate}">
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tprice" placeholder="가격을 입력하세요.">
+ 				 name="tprice" placeholder="가격을 입력하세요." value="${Tboard.tPrice}">
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ticketno" placeholder="티켓 일련번호를 입력하세요.">
+ 				 name="ticketno" placeholder="티켓 일련번호를 입력하세요." value="${Tboard.ticketNo}">
  				
 		</div>
 
 		<div class="editorArea"  style="margin-top:20px;">
-  				<textarea id="summernote" name="editordata"></textarea>
+  				<textarea id="summernote" name="editordata">${Tboard.tContent}</textarea>
 		</div>
 		<input type="hidden" name="uno"  value="${member.uNo}"/>
+		<input type="hidden" name="tNo"  value="${Tboard.tNo}"/>
 
 <div align="center">
-<button type="reset" class="btn btn-primary" onclick="cancelbtn();">취소</button>
-<button type="submit" class="btn btn-primary" onclick="insertbtn();">확인</button>
-</div>
+               <button onclick="completeUpdate();">수정완료</button>
+               <button onclick="deleteBoard();">삭제하기</button>
+            </div>
+            
 </form>
 				
 </div>
@@ -110,7 +113,7 @@ $('#summernote').summernote({
   $.ajax({
        data: form_data,
        type: "post",
-       url: '/tflex/insert.tn',
+       url: '/tflex/update.tn',
     cache : false,
     contentType : false,
        enctype: 'multipart/form-data',
@@ -127,28 +130,37 @@ $('#summernote').summernote({
   });
 }
  
-  function insertbtn(){
+  function completeUpdate(){
       if($('#ttitle').val() == ""){
          alert("제목을 입력하세요.");
          $('#ttitle').focus();
+      } else if($('#tdate').val() == ""){
+         alert("경기 일자를 입력해주세요");
+         $('#tdate').focus();
+      } else if($('#tprice').val() == ""){
+          alert("가격을 입력해 주세요.");
+          $('#tprice').focus();
+      } else if($('#ticketno').val() == ""){
+          alert("티켓 일련번호를 입력해 주세요.");
+          $('#ticketno').focus();
       } else if($('#summernote').val() == ""){
-         alert("내용을 입력해 주세요.");
-         $('#summernote').focus();
+          alert("내용을 입력해 주세요.");
+          $('#summernote').focus();
       } else {
-         $('#insertForm').submit();
+         $('#updateForm').submit();
       }
       event.preventDefault();   
       
    }
    
-   function cancelbtn(){
-      var answer = confirm("게시글 작성을 취소하시겠습니까?");
+   function deleteBoard(){
+      var answer = confirm("게시글을 삭제 하시겠습니까?");
       
       if(answer == true){
-    	  location.href = "${pageContext.request.contextPath}/tboardList.to";
+    	  $('#updateForm').attr("action", "${pageContext.request.contextPath}/tDelete.bo");
         } 
    }
-   
+  	
  
 </script>
 

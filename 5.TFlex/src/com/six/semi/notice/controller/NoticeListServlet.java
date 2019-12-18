@@ -46,13 +46,14 @@ public class NoticeListServlet extends HttpServlet {
 		pi.calcPage(ns.getListCount());
 		System.out.println("전체 게시글 수 : " + pi.getListCount());
 		list = ns.selectList(pi);
-		
+		System.out.println(list);
 		String page = "";
 		
 		if(list != null) {
 			System.out.println("여기는 오냐?");
 			page = "views/cs/noticeList.jsp";
 			request.setAttribute("list", list);
+			request.setAttribute("pi", pi);
 		} else {
 			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "게시글 목록 조회 에러!");	

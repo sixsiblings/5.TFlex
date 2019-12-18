@@ -102,7 +102,7 @@ public class QNAService {
 	}
 	
 
-	public int updateBoard(QNA q) {
+	public int updateQNA(QNA q) {
 		
 		con = getConnection();
 		
@@ -129,17 +129,8 @@ public class QNAService {
 		return q;
 	}
 	
-	public int deleteQNA(int qNo) {
-		
-		con = getConnection();
-		
-		int result = qdao.deleteQNA(con, qNo);
-		
-		if(result > 0) commit(con);
-		else rollback(con);
-		
-		return result;
-	}
 
+
+	
 	
 }

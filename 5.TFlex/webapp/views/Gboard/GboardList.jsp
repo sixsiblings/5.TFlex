@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ticket</title>
+<title>Goods</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
 
@@ -16,9 +16,9 @@ body{
 }
 
 #yu{
-  width:500px;
+  width:450px;
   height:200px;
-  background-size: 500px;
+  background-size: 450px;
   background-repeat:no-repeat;
   margin:auto;
 }
@@ -76,19 +76,19 @@ body{
       <th scope="col">조회수</th>
     </tr>
   </thead>
- <c:forEach var="Tboard" items="${list}">
+ <c:forEach var="Gboard" items="${list}">
   <tr>
   <td>
-  <input type="hidden" value="${Tboard.tNo}"/>
-  				${Tboard.tNo}
+  <input type="hidden" value="${Gboard.gNo}"/>
+  				${Gboard.gNo}
   </td>
-  <td>${Tboard.tTitle}
-  		${Tboard.tDate}	
+  <td>${Gboard.gTitle}
+  			
   </td>
-  <td>${Tboard.tPrice}</td>
-  <td>${Tboard.tuNo}</td>
-  <td>${Tboard.tEnrolldate}</td>
-  <td>${Tboard.tCount}</td>
+  <td>${Gboard.gPrice}</td>
+  <td>${Gboard.guNo}</td>
+  <td>${Gboard.gEnrolldate}</td>
+  <td>${Gboard.gCount}</td>
   </tr>
   </c:forEach>
 </table>
@@ -100,7 +100,7 @@ body{
 			  <c:url var="tselectList" value="tselectList.bo"/>
 			
 			<!-- 처음 페이지 버튼 -->
-			<button onclick="location.href='${tselectList}?currentPage=1'">
+			<button onclick="location.href='${gselectList}?currentPage=1'">
 				&lt;&lt;
 			</button>
 			
@@ -109,7 +109,7 @@ body{
 				<button disabled>&lt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage gt 1 }">
-				<button onclick="location.href='${tselectList}?currentPage=${pi.currentPage - 1}'">
+				<button onclick="location.href='${gselectList}?currentPage=${pi.currentPage - 1}'">
 					&lt;
 				</button>
 			</c:if>
@@ -122,7 +122,7 @@ body{
 					</button>
 				</c:if>
 				<c:if test="${ p ne pi.currentPage}">
-					<button onclick="location.href='${tselectList}?currentPage=${p}'">
+					<button onclick="location.href='${gselectList}?currentPage=${p}'">
 						${p}
 					</button>
 				</c:if>
@@ -134,13 +134,13 @@ body{
 				<button disabled>&gt;</button>
 			</c:if>
 			<c:if test="${ pi.currentPage lt pi.maxPage }">
-				<button onclick="location.href='${tselectList}?currentPage=${pi.currentPage + 1}'">
+				<button onclick="location.href='${gselectList}?currentPage=${pi.currentPage + 1}'">
 					&gt;
 				</button>
 			</c:if>
 			
 			<!-- 마지막 페이지 버튼 -->
-			<button onclick="location.href='${tselectList}?currentPage=${pi.maxPage}'">
+			<button onclick="location.href='${gselectList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
 <br /><br />
@@ -149,19 +149,18 @@ body{
 
 $(function(){
 	$("#listArea td").click(function(){
-	var tNo = $(this).parent().find("input").val();
-	location.href="${pageContext.request.contextPath}/tselectOne.bo?tNo=" + tNo;
+	var gNo = $(this).parent().find("input").val();
+	location.href="${pageContext.request.contextPath}/gselectOne.bo?gNo=" + gNo;
 });
 });
 
 function goTInsert(){
-	location.href = "${pageContext.request.contextPath}/views/Tboard/TboardInsertForm.jsp";
+	location.href = "${pageContext.request.contextPath}/views/Gboard/GboardInsertForm.jsp";
 }
 
 </script>
 
   <c:import url="../common/footer.jsp"/>
-  <c:import url="../common/loginUtil.jsp"/>
 
 </body>
 </html>
