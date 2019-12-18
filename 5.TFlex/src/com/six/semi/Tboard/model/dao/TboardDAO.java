@@ -152,4 +152,99 @@ public class TboardDAO {
 		return result;
 	}
 
+	public int addReadCount(Connection con, int tNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("taddReadCount");
+		
+		try {
+		
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public Tboard selectOne(Connection con, int tNo) {
+		Tboard tb = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		try {
+			String sql = prop.getProperty("tselectOne");
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				tb = new Tboard();
+				
+				tb.settNo(rset.getInt(1));
+				tb.settTitle(rset.getString(2));
+				tb.settContent(rset.getString(3));
+				tb.settPrice(rset.getInt(4));
+				tb.settCount(rset.getInt(5));
+				tb.settDate(rset.getString(6));
+				tb.setsNo(rset.getInt(7));
+				tb.setTicketNo(rset.getInt(8));
+				tb.settEnrolldate(rset.getDate(9));
+				tb.setTuNo(rset.getInt(10));
+				tb.settStatus(rset.getString(11));
+
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return tb;
+	}
+
+	public int updateBoard(Connection con, Tboard tb) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("tupdateBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, tb.gettTitle());
+			pstmt.setString(2, tb.gettDate());
+			pstmt.setInt(3, tb.gettPrice());
+			pstmt.setInt(4, tb.getTicketNo());
+			pstmt.setString(5, tb.gettContent());
+			pstmt.setInt(6, tb.gettNo());
+						
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally	{
+			close(pstmt);
+		}		
+		
+		return result;
+	
+	}
+
 }

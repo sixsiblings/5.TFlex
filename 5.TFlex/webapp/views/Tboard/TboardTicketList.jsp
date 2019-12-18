@@ -16,9 +16,9 @@ body{
 }
 
 #yu{
-  width:450px;
+  width:500px;
   height:200px;
-  background-size: 450px;
+  background-size: 500px;
   background-repeat:no-repeat;
   margin:auto;
 }
@@ -149,8 +149,8 @@ body{
 
 $(function(){
 	$("#listArea td").click(function(){
-	var bno = $(this).parent().find("input").val();
-	location.href="${pageContext.request.contextPath}/tselectOne.bo?bno=" + bno;
+	var tNo = $(this).parent().find("input").val();
+	location.href="${pageContext.request.contextPath}/tselectOne.bo?tNo=" + tNo;
 });
 });
 
@@ -161,6 +161,7 @@ function goTInsert(){
 </script>
 
   <c:import url="../common/footer.jsp"/>
+  <c:import url="../common/loginUtil.jsp"/>
 
 </body>
 </html>
