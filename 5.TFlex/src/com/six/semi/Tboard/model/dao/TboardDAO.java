@@ -136,7 +136,8 @@ public class TboardDAO {
 			pstmt.setString(2, tb.gettContent());
 			pstmt.setInt(3, tb.gettPrice());
 			pstmt.setString(4, tb.gettDate());
-			pstmt.setInt(5, tb.getTuNo());
+			pstmt.setInt(5, tb.getTicketNo());
+			pstmt.setInt(6, tb.getTuNo());
 			
 			result = pstmt.executeUpdate();
 			

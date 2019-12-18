@@ -32,10 +32,11 @@ public class TBoardInsertServlet extends HttpServlet {
 		TboardService tbs = new TboardService();
 		Tboard tb = new Tboard();
 		
-		tb.settTitle(request.getParameter("title"));
+		tb.settTitle(request.getParameter("ttitle"));
 		tb.settContent(request.getParameter("editordata"));
 		tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
 		tb.settDate(request.getParameter("tdate"));
+		tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
 		tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
 		 
 			// System.out.println(request.getParameter("cgbno"));
@@ -45,7 +46,7 @@ public class TBoardInsertServlet extends HttpServlet {
 			
 			if(result > 0) {
 				
-				response.sendRedirect("mselectList.bo");
+				response.sendRedirect("tselectList.bo");
 				
 			} else {
 				

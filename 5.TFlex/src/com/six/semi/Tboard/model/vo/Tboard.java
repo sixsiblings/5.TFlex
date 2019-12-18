@@ -28,7 +28,6 @@ public class Tboard implements Serializable {
 		this.tContent = tContent;
 		this.tPrice = tPrice;
 		this.tCount = tCount;
-		
 		this.tDate = tDate;
 		this.sNo = sNo;
 		this.ticketNo = ticketNo;

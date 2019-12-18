@@ -81,7 +81,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="csMain.jsp">
+            <a href="${ pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>

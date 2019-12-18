@@ -125,13 +125,13 @@ public class MemberDAO {
 			
 			pstmt = con.prepareStatement(sql);
 
-	         pstmt.setString(1, m.getUserId());
-	         pstmt.setString(2, m.getnName());
-	         pstmt.setString(3, m.getUserPwd());
-	         pstmt.setString(4, m.getUserName());
-	         pstmt.setString(5, m.getBirthNo());
-	         pstmt.setString(6, m.getEmail());
-	         pstmt.setInt(7,m.getiNo());
+	         pstmt.setString(1, m.getnName());
+	         pstmt.setString(2, m.getUserPwd());
+	         pstmt.setString(3, m.getUserName());
+	         pstmt.setString(4, m.getBirthNo());
+	         pstmt.setString(5, m.getEmail());
+	         pstmt.setInt(6,m.getiNo());
+	         pstmt.setString(7, m.getUserId());
 	               
 	         result = pstmt.executeUpdate();
 

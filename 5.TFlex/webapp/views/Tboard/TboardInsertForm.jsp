@@ -46,11 +46,13 @@
 	
 			<br />
   				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="title" placeholder="제목을 입력하세요.">
+ 				 name="ttitle" placeholder="제목을 입력하세요.">
  				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
  				 name="tdate" placeholder="경기일자를 입력하세요.">
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
  				 name="tprice" placeholder="가격을 입력하세요.">
+ 				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="ticketno" placeholder="티켓 일련번호를 입력하세요.">
  				
 		</div>
 
