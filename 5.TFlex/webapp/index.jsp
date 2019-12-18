@@ -470,17 +470,17 @@ hr{
    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
        <div class="carousel-inner" role="listbox">
          <!-- Slide One - Set the background image for this slide in the line below -->
-         <div class="carousel-item active" style="height: 1000px; background-image: url('resources/img/field.jpg');">
+         <div class="carousel-item active" style="height: 800px; background-image: url('resources/img/field.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Two - Set the background image for this slide in the line below -->
-         <div class="carousel-item" style="height: 1000px; background-image: url('resources/img/field2.jpg');">
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field2.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>
          <!-- Slide Three - Set the background image for this slide in the line below -->
-         <div class="carousel-item" style="height: 1000px; background-image: url('resources/img/field3.jpg');">
+         <div class="carousel-item" style="height: 800px; background-image: url('resources/img/field3.jpg');">
            <div class="carousel-caption d-none d-md-block">
            </div>
          </div>

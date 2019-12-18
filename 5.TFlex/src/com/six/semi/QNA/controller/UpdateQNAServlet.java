@@ -45,7 +45,7 @@ public class UpdateQNAServlet extends HttpServlet {
 		q.setqContent(request.getParameter("qContent"));		
 		q.setuNo(Integer.parseInt(request.getParameter("uNo")));
 				
-		int result = qs.updateBoard(q);
+		int result = qs.updateQNA(q);
 		
 		if( result > 0) {
 			

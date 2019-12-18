@@ -15,27 +15,27 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
 
-   <style>
-        #bhy-card-shadow{
+	<style>
+		  #bhy-card-shadow{
             border-style : hidden;
             box-shadow : 5px 5px 3px gray;
         }
         
            #bhy-nav-font{
-           font-size : 15px;
+        	font-size : 15px;
         } 
         
         #bhy-table, #bhy-table-header{
-           text-align : center;
-           
+        	text-align : center;
+        	
         }
 
         #bhy-text{
-           margin-top : 20px;
-           margin-left : 20px;
+        	margin-top : 20px;
+        	margin-left : 20px;
         }
         
-   </style>
+	</style>
 </head>
 
 <body class="">
@@ -62,20 +62,20 @@
           </li>
           <br>
           <li>
-              <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-            <i class="fas fa-pencil-alt"></i>찜 목록
+          	 <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
+				<i class="fas fa-pencil-alt"></i>찜 목록
             </a>
           </li>
-           <br>
+        	<br>
           <li>
-              <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
-            <i class="fas fa-bullhorn"></i>회원탈퇴
+          	 <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
+				<i class="fas fa-bullhorn"></i>회원탈퇴
             </a>
           </li>
           <br>   
           <li  class="active ">
-              <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
-            <i class="fas fa-bullhorn"></i>거래내역
+          	 <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
+				<i class="fas fa-bullhorn"></i>거래내역
             </a>
           </li>                         
         </ul>
@@ -84,64 +84,64 @@
     <!-- 사이드바 끝 !!  -->
     
       <!-- 본문내용영역 헤더 -->
-   <div class="main-panel">
-          <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-      <div class="container-fluid">
-         <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-               <button type="button" class="navbar-toggler">
-                  <span class="navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-               </button>
-            </div>
-         <a class="navbar-brand" href="#pablo">              
-            <i class="fas fa-gem" id="bhy-text" >거래내역</i>
-         </a>
-         </div>
-      </div>
-   </nav>
+	<div class="main-panel">
+			 <!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+		<div class="container-fluid">
+			<div class="navbar-wrapper">
+				<div class="navbar-toggle">
+					<button type="button" class="navbar-toggler">
+						<span class="navbar-toggler-bar bar1"></span>
+						<span class="navbar-toggler-bar bar2"></span>
+						<span class="navbar-toggler-bar bar3"></span>
+					</button>
+				</div>
+			<a class="navbar-brand" href="#pablo">              
+				<i class="fas fa-gem" id="bhy-text" >거래내역</i>
+			</a>
+			</div>
+		</div>
+	</nav>
 <!-- End Navbar -->
 
 
 <!--  본문 영역 시작 -->
 <div class="content" id="Trade">
-   <div class="row">
-      <div class="col-md-12">
+	<div class="row">
+		<div class="col-md-12">
           
           
 <!--  카드영역 분리가능한 시작  -->
-   <div class="col-md-8" style="margin: auto;" >
-      <div class="card-header"  id="bhy-card-shadow" 
-            style="background:white; height: 100px; font-size:30px;">                
-         <i class="fas fa-gem" id="bhy-text" >거래 내역</i>
-      </div>
-   </div><br />
+	<div class="col-md-8" style="margin: auto;" >
+		<div class="card-header"  id="bhy-card-shadow" 
+				style="background:white; height: 100px; font-size:30px;">                
+			<i class="fas fa-gem" id="bhy-text" >거래 내역</i>
+		</div>
+	</div><br />
 <!--  카드영역 분리가능한 끝 -->
           
           
 
 <!-- 내용 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">
-   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
-      <br /><br />
+	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
+		<br /><br />
 
-<!-- 내용테이블  시작점  -->               
+<!-- 내용테이블  시작점  -->					
 
 
 
 <!-- ------------------------------ -->
-            </div>
-         </div>
-   <!--  내용 테이블 영역 끝  -->   
-      
-      </div>
-   </div>
+				</div>
+			</div>
+	<!--  내용 테이블 영역 끝  -->	
+		
+		</div>
+	</div>
 </div>
 <!-- 본문 영역 끝  -->
 
-      </div>
-   </div>
+		</div>
+	</div>
 </body>
 </html>

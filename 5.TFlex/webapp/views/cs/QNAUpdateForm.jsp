@@ -136,7 +136,7 @@
                </tr>
                <tr>
                   <td id="td1">작성자 </td>
-                  <td colspan="2">${QNA.nName}</td>
+                  <td colspan="2" name="uNo">${QNA.uNo}</td>
                </tr>
                <tr>
                   <td id="td1">내용 </td>
