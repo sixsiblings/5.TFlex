@@ -42,20 +42,15 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="blue" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
+
       <div class="logo">
-        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-mini">
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-mini">
           <div class="logo-image-big">
             <img src="${ pageContext.request.contextPath }/resources/test/img/baseball_logo.jpg">
           </div>
         </a>
-        <a href="${ pageContext.request.contextPath }/index.jsp"" class="simple-text logo-normal">
-          	T.Flex
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
+        <a href="${ pageContext.request.contextPath }/index.jsp" class="simple-text logo-normal">
+          	T.FlexS
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -102,9 +97,6 @@
 			        </div>
 			      </nav>
 			      <!-- End Navbar -->
-			      <!-- <div class="panel-header panel-header-lg">
-			  <canvas id="bigDashboardChart"></canvas>
-			</div> -->
 
 	<!--  본문 내용 영역 -->
       <div class="content" id="Notice">
@@ -121,8 +113,10 @@
 	  <div class="h-tableArea" align="center"> 
 		<form action="${pageContext.request.contextPath }/update.qna" method="post">    
 		<div class="h-tableArea" >
+		
+		<input type="hidden" value="${QNA.qNo }" name="qNo" />
+		
             <table   style="width:600px; height:400px;">
-            
                <tr id="bhy-tr">
                   <td>제목 </td>
                   <td colspan="3"><input type="text" size="51" name="qTitle" value="${QNA.qTitle }" ></td>
@@ -135,30 +129,24 @@
               </tr>
               <tr>
                   <td>내용 </td>
-                  <td colspan="6S" >
-                     <textarea id="content" name="qContent"  cols="52" rows="25" style="resize:none;"></textarea>
+                  <td colspan="6" >
+                     <textarea id="content"  name="qContent"  cols="52" rows="25" style="resize:none;">${QNA.qContent}</textarea>
                   </td>
                </tr> 
             </table>
             <br>
             <div align="center">
-			<a href="${pageContext.request.contextPath }/views/cs/QNAList.jsp" 
-						class="btn btn-info btn-rounded btn-sm pull-center">목록으로 돌아가기</a>          
-            
-<%-- 			<button onclick="location.href='${pageContext.request.contextPath }/views/cs/QNAList'">메뉴로 돌아가기</button>
- --%>
- 				<c:url var="QNAUpdate" value="qUpView.qna">
-					<c:param name="qNo" value="${QNA.qNo}" />
-				</c:url>
-				<button onclick="location.href='${pageContext.request.contextPath}/update.qna'">수정하기</button>
+			<a href="${pageContext.request.contextPath }/selectList.qna" class="btn btn-info btn-rounded btn-sm pull-center">목록으로</a>          
+			<button type="submit" class="btn btn-danger btn-rounded btn-sm pull-center">수정하기</button>
             </div>
             </div>
          </form> 
+	<!-- 본문 카드 영역 끝 -->    
+	     
          </div>
       </div>
-              
 
-          <!-- 본문내용 끝  -->
+     <!-- 본문내용 끝  -->
         </div>
       </div>
      </div>
@@ -166,7 +154,22 @@
 </div>
 
      
-<!--   </div> -->
+</div>
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

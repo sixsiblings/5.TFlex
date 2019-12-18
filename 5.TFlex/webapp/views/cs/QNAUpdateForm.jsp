@@ -67,7 +67,7 @@
           </li><br /><br />
           
           <li class="active ">
-          	 <a href="QNAList.jsp">
+          	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt">Q&A</i>
             </a>
           </li><br /><br />
@@ -100,9 +100,7 @@
 			        </div>
 			      </nav>
 			      <!-- End Navbar -->
-			      <!-- <div class="panel-header panel-header-lg">
-			  <canvas id="bigDashboardChart"></canvas>
-			</div> -->
+
 
 	<!--  본문 내용 영역 -->
       <div class="content" id="Notice">
@@ -160,17 +158,18 @@
             </script>
          </form>
       </div>
-              
+       <!--  글쓰기 내용 끝 -->
 
-          <!-- 본문내용 끝  -->
         </div>
       </div>
+          <!-- 본문내용 끝  -->
+                  
      </div>
    </div>
 </div>
+</div>
+<!-- 본문내용영역 헤더 끝-->
 
-     
-<!--   </div> -->
+</div>
 </body>
-
 </html>

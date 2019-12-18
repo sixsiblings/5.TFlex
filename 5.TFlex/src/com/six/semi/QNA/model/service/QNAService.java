@@ -108,7 +108,15 @@ public class QNAService {
 
 	public QNA updateView(int qNo) {
 
-		return null;
+		con = getConnection();
+
+		QNA q = null;
+
+		q = qdao.selectOne(con, qNo);
+
+		close(con);
+
+		return q;
 	}
 
 }
