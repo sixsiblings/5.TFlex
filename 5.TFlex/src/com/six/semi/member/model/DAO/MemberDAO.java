@@ -42,8 +42,7 @@ public class MemberDAO {
          pstmt.setString(4, m.getUserName());
          pstmt.setString(5, m.getBirthNo());
          pstmt.setString(6, m.getEmail());
-         pstmt.setInt(7,m.getiNo());
-         pstmt.setString(8, m.getrPerson());
+         pstmt.setString(7, m.getrPerson());
                
          result = pstmt.executeUpdate();
 
@@ -84,12 +83,10 @@ public class MemberDAO {
             result.setUserName(rset.getString(5));
             result.setBirthNo(rset.getString(6));
             result.setEmail(rset.getString(7)); 
-            result.setiNo(rset.getInt(9));
-            result.setrPerson(rset.getString(10));
-            result.setSignal(rset.getString(11));
-            result.setdCount(rset.getInt(12));
-            result.setuGrade(rset.getString(13));
-            result.setuStatus(rset.getString(14));
+            result.setrPerson(rset.getString(9));
+            result.setdCount(rset.getInt(10));
+            result.setuGrade(rset.getString(11));
+            result.setuStatus(rset.getString(12));
             
             
             /*
@@ -130,7 +127,6 @@ public class MemberDAO {
 	         pstmt.setString(3, m.getUserName());
 	         pstmt.setString(4, m.getBirthNo());
 	         pstmt.setString(5, m.getEmail());
-	         pstmt.setInt(6,m.getiNo());
 	         pstmt.setString(7, m.getUserId());
 	               
 	         result = pstmt.executeUpdate();

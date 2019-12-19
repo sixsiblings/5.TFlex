@@ -1,28 +1,27 @@
-package com.six.semi.Tboard.controller;
+package com.six.semi.Pay;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.six.semi.Tboard.model.service.TboardService;
-import com.six.semi.Tboard.model.vo.Tboard;
+import com.six.semi.Pay.model.service.PayService;
+import com.six.semi.Pay.model.vo.Pay;
+
 /**
- * Servlet implementation class SelectOneTboardServlet
+ * Servlet implementation class PayInsert
  */
-@WebServlet("/tselectOne.bo")
-public class SelectOneTboardServlet extends HttpServlet {
+@WebServlet("/PayInsert.pa")
+public class PayInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectOneTboardServlet() {
+    public PayInsert() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +30,31 @@ public class SelectOneTboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int tNo = Integer.parseInt(request.getParameter("tNo"));
-		//System.out.println("bno 확인 : "+bno);
 		
-		Tboard tb = new TboardService().selectOne(tNo);
+		PayService ps = new PayService();
 		
-		String page = "";
+		int usNo = Integer.parseInt(request.getParameter("US_NO"));
+		int ttno = Integer.parseInt(request.getParameter("ttNo"));
+		String trno = request.getParameter("TR_NO");
+		int ubno = Integer.parseInt(request.getParameter("UB_NO"));
 		
-		if(tb != null) {
-			page = "views/Tboard/TboardDetail.jsp";
-			request.setAttribute("Tboard", tb);
-			
+//		System.out.println("결과확인 : " + usno + " + " + ttno + " + " + trno + " + " + ubno);
+		
+		Pay p = new Pay();
+		
+		p.setUsNo(usNo);
+		p.settNo(ttno);
+		p.setTrNo(trno);
+		p.setUbNo(ubno);
+		
+		int result = ps.insertHistory(p);
+		
+		if(result > 0) {
+			response.sendRedirect("views/myPage/myPage.jsp");
+		} else {
+			response.sendRedirect("views/common/errorPage.jsp");
 		}
 		
-		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	/**

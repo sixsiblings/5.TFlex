@@ -39,10 +39,6 @@ public class SelectOneMLBBoardServlet extends HttpServlet {
 		
 		Board b = new BoardService().selectOne(bno);
 		
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("board", b);
-		
 		// 댓글도 리스트로 가져오기
 		ArrayList<BoardComment> clist
 		   = new CommentService().selectList(bno,b.getCgbno());

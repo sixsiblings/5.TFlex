@@ -50,7 +50,9 @@ body{
 	
       <br>
       <h2 align="center">게시글 내용</h2>
-      <form>
+      <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/tselectList.bo'">메뉴로 돌아가기</button>
+      
+      <form action="${ pageContext.request.contextPath }/views/Pay/Pay.jsp" method="POST">
             <table width="800px" align="center" style="background-color:white; " >
                <tr>
                   <td>제목 </td>
@@ -88,39 +90,42 @@ body{
             <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
  				 name="seller" value="${Tboard.tuNo}">
             <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ttprice" value="${Tboard.tPrice}">
- 				 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tttitle" value="${Tboard.tTitle}">
- 				 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ttEnrolldate" value="${Tboard.tEnrolldate}">
+			 	name="ttprice" value="${Tboard.tPrice}">
+			 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+			 	name="tttitle" value="${Tboard.tTitle}">
+			 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+			 	name="ttEnrolldate" value="${Tboard.tEnrolldate}">
+			 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+			 	name="ttNo" value="${Tboard.tNo}">
  				 
             <div align="center">
-            <button type="submit" class="btn btn-primary" onclick="goBuy();" style="background-color:#74A780; border-color:#74A780;">구매하기</button>
-            <button type="submit" class="btn btn-primary" onclick="goFavorite();" style="background-color:#FF5E47; border-color:#FF5E47;">찜하기</button>
-            </div>
-            <br>
-      </form>
-
-      
-      <div align="center">
-         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/tselectList.bo'">메뉴로 돌아가기</button>
-         <c:if test="${!empty member and member.uNo eq Tboard.tuNo}">
+            <button class="btn btn-primary" type="submit" id="buyBtn" style="background-color:#74A780; border-color:#74A780;">구매하기</button>
+            <button class="btn btn-primary" onclick="goFavorite();" style="background-color:#FF5E47; border-color:#FF5E47;">찜하기</button>
+            <c:if test="${!empty member and member.uNo eq Tboard.tuNo}">
             <c:url var="TboardUpdate" value="tbUpView.bo">
                <c:param name="tNo" value="${Tboard.tNo}" />
             </c:url>
             <button class="btn btn-primary" onclick="location.href='${TboardUpdate}'">수정하기</button>
          </c:if>
+            </div>
+            <br>
+            <div align="center">
+         
       </div>
+      </form>      
+      
+	</c:if>
       </div>
      <br />
       <br />
    
-   <script>
+	<script>
+		
+	</script>
    
-   </script>
    </section>
    <br><br><br><br>
-	</c:if><c:if test="${ empty member }">
+	<c:if test="${ empty member }">
 		<c:url var="errorPage" value="views/common/errorPage.jsp">
 		<c:set var="msg" value="회원만 가능한 서비스입니다." scope="session"/>
 		</c:url>

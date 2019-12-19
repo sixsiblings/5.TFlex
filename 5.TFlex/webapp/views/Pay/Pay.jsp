@@ -14,14 +14,9 @@
 
 </head>
 <body>
-
-<p>아임 서포트 결제 모듈 테스트 해보기</p>
-<button id="check_module" type="button">아임 서포트 결제 모듈 테스트 해보기</button>
-
-
 	<script>
-	
-		$('#check_module').on('click',function(){
+
+		$(function(){
 			
 			var IMP = window.IMP;
 			IMP.init('imp64227396'); // 부여받은 가맹점 식별코드를 사용
@@ -32,7 +27,7 @@
 				pg: 'kakaopay',
 				/*
 				'kakao':카카오페이,
-				html5_inicis':이니시스(웹표준결제)
+				'html5_inicis':이니시스(웹표준결제)
 				'nice':나이스페이
 				'jtnet':제이티넷
 				'uplus':LG유플러스
@@ -57,13 +52,10 @@
 				참고하세요.
 				나중에 포스팅 해볼게요.
 				*/
-				name: 'TFlex: 티켓게시판 티켓 거래', // 결제창에서 보여질 이름
-				amount: 1, // 가격
-				buyer_email: 'test1595@naver.com',
-				buyer_name: '하온',
-				buyer_tel: '010-5759-7547',
-				buyer_addr: '서울특별시 강남구 역삼동 호산빌딩 KH아카데미',
-				buyer_postcode: '823-23'
+				name: '${param.tttitle}', // 결제창에서 보여질 이름
+				amount: '${param.ttprice}', // 가격
+				buyer_email: '${member.email}',
+				buyer_name: '${member.userName}',
 				// m_redirect_url: 'https://www.yourdomain.com/payments/complete'
 				/*
 				모바일 결제시,
@@ -84,11 +76,16 @@
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					msg += '카드 승인번호 : ' + rsp.apply_num;
 					
+					location.href = "${pageContext.request.contextPath}/PayInsert.pa"
+								  + "?US_NO=" + '${param.seller}' + "&ttNo=" + '${param.ttNo}'
+								  + "&TR_NO=" + rsp.merchant_uid + "&UB_NO=" + '${member.uNo}';
+					
 				} else {
 					
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
 					
+					location.href = "${pageContext.request.contextPath}/tselectList.bo";
 				}
 				
 				alert(msg);
