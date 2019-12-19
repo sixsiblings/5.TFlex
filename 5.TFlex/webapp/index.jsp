@@ -547,77 +547,22 @@ hr{
                <div class="post-entry">
                   <div class="image">
                      <div class="text p-4">
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">설날입니다. 다들 잘 다녀오세요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">내일이 설날이래요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">공지사항 창을 달아봤어요.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
+                  <table id="TboardTop5"border="0" cellpadding="0" cellspacing="0" style="font-size:15px; width:1080px;">
+                                 <tr>
+                  <th style="text-align:center;">글번호</th>
+                  <th style="text-align:center;">판매상품</th>
+                  <th style="text-align:center;">가격</th>
+                  <th style="text-align:center;">작성자</th>
+                  <th style="text-align:center;">조회수</th>
+               </tr>
+               <tbody>
+               </tbody>
                   </table>
                   </div>
                   </div>
                </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-               <div class="post-entry">
-                  <div class="image">
-                     <div class="text p-4">
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">오늘은 맥주창고 기기.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">맥창 별룬데....</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">그럼 혼자가서 먹어.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  </table>
-                  </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-               <div class="post-entry">
-                  <div class="image">
-                  <div class="text p-4">
-                  <table border="0" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">아 졸리다.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">점심먹고 몬스터 기기.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  <tr>
-                  <td> <a href="#"style="text-decoration:none">굿굿.</a></td>
-                  </tr>
-                  </table>
-                  </div>
-                  </div>
-               </div>
-            </div>
+
          </div>
       </div>
    </div>
@@ -635,9 +580,10 @@ hr{
                      allowfullscreen></iframe>
                   </div>
                   <div class="text p-4">
-                     <h2 class="h5 text-black">
-                        <a class="redfont" href="https://www.youtube.com/embed/fqp-U-Jq6hg">아니 이게 일주일치?!!???</a>
-                     </h2>
+                     <table id="MboardTop51">
+                     	<tbody>
+               			</tbody>	
+                     </table>
                      <span class="text-uppercase date d-block mb-3"
                         style="color: gray"><small>TFLEX &bullet;
                            2019-12-12</small></span>
@@ -654,7 +600,10 @@ hr{
                   </div>
                   <div class="text p-4">
                      <h2 class="h5 text-black">
-                        <a class="redfont" href="https://www.youtube.com/embed/NU9NjOppqb4">와.... 우리 현진이형 또 사고쳤다...</a>
+                        <table id="MboardTop52">
+                     	<tbody>
+               			</tbody>	
+                     </table>
                      </h2>
                      <span class="text-uppercase date d-block mb-3"
                         style="color: gray"><small>TFLEX &bullet;
@@ -672,7 +621,10 @@ hr{
                   </div>
                   <div class="text p-4">
                      <h2 class="h5 text-black">
-                        <a class="redfont" href="https://www.youtube.com/embed/W8ONve-8ONU">역시 우리 써니형 앞으로 꽃길만~~</a>
+                        <table id="MboardTop53">
+                     	<tbody>
+               			</tbody>	
+                     </table>
                      </h2>
                      <span class="text-uppercase date d-block mb-3"
                         style="color: gray"><small>TFLEX &bullet;
@@ -920,6 +872,7 @@ hr{
    <c:import url="views/common/loginUtil.jsp"/>
    
    <script>
+   
    $(function(){
       $.ajax({
          url : '${pageContext.request.contextPath}/noticelisttop5.do',
@@ -934,9 +887,9 @@ hr{
                if(i < 5){
                var $tr = $('<tr>');
                var $input = $('<input type="hidden" value="' + data[i].ntNo + '">');
-               var $ntNo = $('<td>').text(i);
-               var $ntTitle = $('<td>').text(data[i].ntTitle);
-               var $gm = $('<td>').text(data[i].gm);
+               var $ntNo = $('<td class="selectOne">').text((i));
+               var $ntTitle = $('<td class="selectOne" onclick="selectNOne('+ data[i].ntNo+');">').text(data[i].ntTitle);
+               var $gm = $('<td class="selectOne">').text(data[i].gm);
                
                $tr.append($input);
                $tr.append($ntNo);
@@ -947,19 +900,121 @@ hr{
                }
             }
             
-         }, error : function(request) {
+            
+         } , error : function(request) {
             console.log("힘내세요");
             console.log(request);
          }
       });
-   });   
+      
+	   $.ajax({
+	          url : '${pageContext.request.contextPath}/tboardlisttop5.do',
+	          type : 'POST',
+	          success : function(data) {
+	             // console.log(data);
+	             
+	             var $table = $('#TboardTop5');
+	             
+	             for(var i in data){
+	                console.log("나오냐?"+data[i].tNo);
+	               
+	                var $tr = $('<tr>');
+	                var $input = $('<input type="hidden" value="' + data[i].tNo + '">');
+	                var $tNo = $('<td class="selectOne">').text((i));
+	                var $tTitle = $('<td class="selectOne" onclick="selectTOne('+ data[i].tNo+');">').text(data[i].tTitle);
+	                var $tPrice = $('<td class="selectOne">').text(data[i].tPrice);
+	                var $sNo = $('<td class="selectOne">').text(data[i].sNo);
+	                var $tCount = $('<td class="selectOne">').text(data[i].tCount);
+	                
+	                $tr.append($input);
+	                $tr.append($tNo);
+	                $tr.append($tTitle);
+	                $tr.append($tPrice);
+	                $tr.append($sNo);
+	                $tr.append($tCount);
+	                
+	                $table.append($tr);
+	             }
+	          }, error : function(request) {
+	             console.log("힘내세요");
+	             console.log(request);
+	          }
+	       }); 
+	   
+	   $.ajax({
+	          url : '${pageContext.request.contextPath}/mboardlisttop5.do',
+	          type : 'POST',
+	          success : function(data) {
+	             // console.log(data);
+	             
+	             var $table;
+	             
+	             for(var i in data){
+	               
+	                var $tr = $('<tr>');
+	                var $input = $('<input type="hidden" value="' + data[i].bNo + '">');
+	                var $bno = $('<td class="selectOne">').text((i));
+	                var $btitle = $('<td class="selectOne" onclick="selectTOne('+ data[i].bno+');">').text(data[i].btitle);
+	                
+	                if(i == 1){
+	                	
+		                $table = $('#MboardTop51');
+		                $tr.append($input);
+		                $tr.append($bno);
+		                $tr.append($btitle);
+		                
+		                $table.append($tr);
+		                } else if(i==2){
+		                	
+		                	$table = $('#MboardTop52');
+		                	$tr.append($input);
+			                $tr.append($bno);
+			                $tr.append($btitle);
+			                
+			                $table.append($tr);
+		                } else {
+		                	
+		                	$table = $('#MboardTop53');
+		                	$tr.append($input);
+			                $tr.append($bno);
+			                $tr.append($btitle);
+			                
+			                $table.append($tr);
+		                	}
+	             }
+	          }, error : function(request) {
+	             console.log("힘내세요");
+	             console.log(request);
+	          }
+	       }); 
+   });  
    
-   $("td").click(function(){
-      var ntNo = $(this).parent().find("input").val();
+   
+   function selectNOne(ntNo) {
+
+	   location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
+}
+   
+   function selectTOne(tNo) {
+
+	   location.href="${pageContext.request.contextPath}/selectonetboardtop5.do?tNo=" + tNo;
+}
+   function selectMOne(mNo){
+	
+	   location.href="${pageContext.request.contextPath}/selectonemboardtop5.do?bNo=" + bNo;
+   }
+
+   
+   
+ /*   $(".selectOne").click(function(){
+	   var ntNo = $(this).parent().find("input").val();
+	   <!-- var ntNo = $(this).closest("input").val();  -->
       location.href="${pageContext.request.contextPath}/selectonenoticetop5.do?ntNo=" + ntNo;
-   });
-   
-   </script>
+   		}); */
+   		
+</script>
+
+
 </body>
 
 </html>

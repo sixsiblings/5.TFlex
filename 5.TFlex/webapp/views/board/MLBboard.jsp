@@ -9,8 +9,19 @@
 <meta charset="UTF-8">
 <title>MLB</title>
 <c:import url="../common/commonUtil.jsp"/>
-	
 <style>
+table,th,td{
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+th,td{
+/* 전(상,하,좌,우) 방향  */
+/*padding: 10px;*/
+/* 12-6-3-9 */ /* 두 개의 결과는 같다. */
+/*padding: 10px 20px;*/
+padding: 20px 30px 10px 20px;
+}
 
 body{
 	background-color:rgb(229, 229, 220);
@@ -23,46 +34,33 @@ body{
   background-repeat:no-repeat;
   margin:auto;
 }
+
 .tableArea{
 	
 	    width:auto;
 		height:auto;
 		color : navy;
-		margin-left:auto;
-		margin-right:auto;
-		max-width:900px;
-		background-color:white;
-}
-#yuJ{
-	
-	box-sizing : border-box;
-	color : rgb(85,91,97);
-	display : block;
-	font-size: 14px;
-	font-weight: 400px;
-	line-height: 21px;
-	text-size-adjust : 100%;
+		background:white;
+		margin: 0 20%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+		align:center;
 }
 
 .pagingArea{
 	width:auto;
 }
-
-	</style>
-	</head>
+</style>
+</head>
 	<body>
 	
 	<c:import url="../common/header.jsp"/>
 	
 	<section>
-	<div class="sectionarea">
+	<div class="tableArea" align="center">
+	<br /><br />
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
     </div>
 	
-    <br /><br />
-    
-	<div class="tableArea" align="center">
-			<br />
+    <br /><br /><br />
 	<div class="ed padding-horizontal-small@s" style="display : inline-block;">
 		<div class="ed flex flex-wrap flex-middle margin-top-small margin-bottom-small">
 			<div class="ed flex flex-wrap flex-left flex-middle">
@@ -78,11 +76,12 @@ body{
 	<span class="badge badge-pill badge-light">워싱턴</span>
 			<br>
 			<br>
+			
 <c:if test="${!empty member }">
-<button class="btn btn-primary pull-right" onclick="goMInsert();">글쓰기</button>
+<button class="btn btn-primary pull-right" onclick="goMInsert();" style="margin-right:10px;">글쓰기</button>
 </c:if>
 <br /><br /><br />
-	<table class="table table-hover" id="listArea">
+	<table class="table table-hover" id="listArea" align="center">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -105,8 +104,8 @@ body{
   </tr>
   </c:forEach>
 </table>
-<br /><br /><br />
 
+<br /><br /><br />
 
 
   <%-- 페이지 처리 구현하기 --%>
@@ -157,10 +156,10 @@ body{
 			<button onclick="location.href='${mselectList}?currentPage=${pi.maxPage}'">
 				&gt;&gt;
 			</button>
-			<br /><br /><br /><br />
 		</div>
+		<br /><br />
 		</div>
-	</div>
+		
 		<script>
 		/*$(function(){
 			$("#listArea td").mouseenter(function(){

@@ -10,7 +10,6 @@ public class Board implements Serializable {
 	private String btitle;
 	private String bcontent;
 	private int bcount;
-	private String bfile;
 	private int breportcount;
 	private Date bbenrolldate;
 	private int uno;
@@ -22,7 +21,7 @@ public class Board implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Board(int bno, int cgbno, String btitle, String bcontent, int bcount, String bfile, int breportcount,
+	public Board(int bno, int cgbno, String btitle, String bcontent, int bcount, int breportcount,
 			Date bbenrolldate, int uno, String bstatus) {
 		super();
 		this.bno = bno;
@@ -30,7 +29,6 @@ public class Board implements Serializable {
 		this.btitle = btitle;
 		this.bcontent = bcontent;
 		this.bcount = bcount;
-		this.bfile = bfile;
 		this.breportcount = breportcount;
 		this.bbenrolldate = bbenrolldate;
 		this.uno = uno;
@@ -74,12 +72,6 @@ public class Board implements Serializable {
 	public void setBcount(int bcount) {
 		this.bcount = bcount;
 	}
-	public String getBfile() {
-		return bfile;
-	}
-	public void setBfile(String bfile) {
-		this.bfile = bfile;
-	}
 	public int getBreportcount() {
 		return breportcount;
 	}
@@ -107,7 +99,7 @@ public class Board implements Serializable {
 	@Override
 	public String toString() {
 		return "Board [bno=" + bno + ", cgbno=" + cgbno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bcount="
-				+ bcount + ", bfile=" + bfile + ", breportcount=" + breportcount + ", bbenrolldate=" + bbenrolldate
+				+ bcount + ", breportcount=" + breportcount + ", bbenrolldate=" + bbenrolldate
 				+ ", uno=" + uno + ", bstatus=" + bstatus + "]";
 	}
 	

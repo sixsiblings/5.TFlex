@@ -15,10 +15,10 @@ body{
    .mb-3{
       display:inline-block;
    }
-   #yu{
-  width:600px;
+#yu{
+  width:500px;
   height:200px;
-  background-size: 600px;
+  background-size: 500px;
   background-repeat:no-repeat;
   margin:auto;
 }
@@ -68,8 +68,8 @@ body{
 		<input type="hidden" name="tNo"  value="${Tboard.tNo}"/>
 
 <div align="center">
-               <button onclick="completeUpdate();">수정완료</button>
-               <button onclick="deleteBoard();">삭제하기</button>
+               <button class="btn btn-primary" onclick="completeUpdate();">수정완료</button>
+               <button class="btn btn-primary" onclick="deleteBoard();">삭제하기</button>
             </div>
             
 </form>

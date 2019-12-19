@@ -10,33 +10,51 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    My Page
+    Favorite
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
 
-   <style>
-        #bhy-card-shadow{
+	<style>
+		  #bhy-card-shadow{
             border-style : hidden;
             box-shadow : 5px 5px 3px gray;
         }
         
            #bhy-nav-font{
-           font-size : 15px;
+        	font-size : 15px;
         } 
         
         #bhy-table, #bhy-table-header{
-           text-align : center;
-           
+        	text-align : center;
+        	
         }
 
         #bhy-text{
-           margin-top : 20px;
-           margin-left : 20px;
+        	margin-top : 20px;
+        	margin-left : 20px;
+        	font-size : 30px;
         }
 
+		p{
+			font-size : 20px;
+		}
 
-   </style>
+  table, th, td {
+    border: 1px solid #EAECEE;
+    align : center;
+    
+  }
+  
+  table {
+
+    width: 100%;
+    height: 400px;
+  }
+
+
+</style>
+
 </head>
 
 <body class="">
@@ -63,20 +81,20 @@
           </li>
           <br>
           <li  class="active ">>
-              <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-            <i class="fas fa-pencil-alt"></i>찜  목록
+          	 <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
+				<i class="fas fa-heart" ></i>찜한 상품
             </a>
           </li>
-           <br>
+        	<br>
           <li>
-              <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
-            <i class="fas fa-bullhorn"></i>회원탈퇴
+          	 <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
+				<i class="fas fa-bullhorn"></i>회원탈퇴
             </a>
           </li>
           <br>   
           <li>
-              <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
-            <i class="fas fa-bullhorn"></i>거래내역
+          	 <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
+				<i class="fas fa-bullhorn"></i>거래내역
             </a>
           </li>              
         </ul>
@@ -85,67 +103,94 @@
     <!-- 사이드바 끝 !!  -->
     
       <!-- 본문내용영역 헤더 -->
-   <div class="main-panel">
-          <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-      <div class="container-fluid">
-         <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-               <button type="button" class="navbar-toggler">
-                  <span class="navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-               </button>
-            </div>
-         <a class="navbar-brand" href="#pablo">              
-            <i class="fas fa-gem" id="bhy-text" >찜 목록</i>
-         </a>
-         </div>
-      </div>
-   </nav>
+	<div class="main-panel">
+			 <!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+		<div class="container-fluid">
+			<div class="navbar-wrapper">
+				<div class="navbar-toggle">
+					<button type="button" class="navbar-toggler">
+						<span class="navbar-toggler-bar bar1"></span>
+						<span class="navbar-toggler-bar bar2"></span>
+						<span class="navbar-toggler-bar bar3"></span>
+					</button>
+				</div>
+			<a class="navbar-brand" href="#pablo">              
+				<i class="fas fa-heart" id="bhy-text" > &nbsp; 찜한 상품 목록</i>
+			</a>
+			</div>
+		</div>
+	</nav>
 <!-- End Navbar -->
 
 
 <!--  본문 영역 시작 -->
 <div class="content" id="userInfo">
-   <div class="row">
-      <div class="col-md-12">
-          
+	<div class="row">
+		<div class="col-md-12">
+          <br />
           
 <!--  카드영역 분리가능한 시작  -->
-   <div class="col-md-8" style="margin: auto;" >
-      <div class="card-header"  id="bhy-card-shadow" 
-            style="background:white; height: 100px; font-size:30px;">                
-         <i class="fas fa-gem" id="bhy-text" >찜 목록</i>
-      </div>
-   </div><br />
+	<div class="col-md-8" style="margin: auto;" >
+		<div class="card-header"  id="bhy-card-shadow" 
+				style="background:white; height: 180px; font-size:30px;">                
+			<i class="fas fa-heart" id="bhy-text" >&nbsp;찜</i>
+			<br /><br />
+			<p>&nbsp;<i class="fas fa-check">&nbsp; 찜하신 상품은 등록일로부터 최대 30일간 저장됩니다.</i></p>
+		</div>
+	</div><br />
 <!--  카드영역 분리가능한 끝 -->
-          
-          
-
+     
+     
 <!-- 내용 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">
-   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
-      <br /><br />
+	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
+		<br /><br />
 
-<!-- 내용테이블  시작점  -->      
-
-   
+<!-- 내용테이블  시작점  -->		
+	
+<table class="table"  style="text-align : center;">
+  <thead class="thead-light" >
+    <tr>
+      <th scope="col-md-1">#</th>
+      <th scope="col-md-8">상품정보</th>
+      <th scope="col-md-1">바로가기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+</table>
+		
   
 
 <!-- ------------------------------ -->
-            </div>
-         </div>
-         
-   <!--  내용 테이블 영역 끝  -->   
-      
-      </div>
-   </div>
+				</div>
+			</div>
+			
+	<!--  내용 테이블 영역 끝  -->	
+		
+		</div>
+	</div>
 </div>
 <!-- 본문 영역 끝  -->
 
-      </div>
-   </div>
-   
+		</div>
+	</div>
+	
 </body>
 </html>

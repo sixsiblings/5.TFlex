@@ -10,6 +10,36 @@
 <title>Insert title here</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
+.tableArea{
+	background:white;
+	margin: 0 15%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+}
+
+textarea{
+	resize:none;
+}
+
+.table1{
+	background-color:white;
+}
+
+table,th,td{
+border: 1px solid white;
+border-collapse: collapse;
+}
+            
+th,td{
+/* 전(상,하,좌,우) 방향  */
+/*padding: 10px;*/
+/* 12-6-3-9 */ /* 두 개의 결과는 같다. */
+/*padding: 10px 20px;*/
+padding: 20px 30px 10px 20px;
+float:left;
+
+}
+body{
+	background-color:rgb(229, 229, 220);
+}
 #yu{
   width:500px;
   height:200px;
@@ -21,16 +51,17 @@
 <body>
 <c:import url="../common/header.jsp"/>
 
-	<div align="center" >
+<section class="outer">
+	<div  class="tableArea" align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
     </div>
-	</div>
+
 <c:if test="${ !empty member }">
-	<section class="outer">
+
       <br>
       <h2 align="center">게시글 내용</h2>
-      <div class="tableArea">
-            <table align="center" width="800px">
+      <div>
+            <table align="center" style="background:white;">
                <tr>
                   <td>제목 </td>
                   <td colspan="5"><span>${board.btitle}</span></td>
@@ -53,14 +84,14 @@
                </tr>
             </table>
             <br>
-      </div>
+      
       <div align="center">
-         <button onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
+         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
          <c:if test="${!empty member and member.uNo eq board.uno}">
             <c:url var="boardUpdate" value="mbUpView.bo">
                <c:param name="bno" value="${board.bno}" />
             </c:url>
-            <button onclick="location.href='${boardUpdate}'">수정하기</button>
+            <button class="btn btn-primary" onclick="location.href='${boardUpdate}'">수정하기</button>
          </c:if>
       </div>
       <br />
@@ -73,7 +104,7 @@
             <input type="hidden" name="cno2" value="0" />
             <input type="hidden" name="clevel" value="1" />
             
-            <table align="center">
+            <table class="table1" align="center">
                <tr>
                   <td>댓글 작성</td>
                   <td><textArea rows="3" cols="80" id="replyContent" name="replyContent"></textArea></td>
@@ -81,10 +112,11 @@
                </tr>
             </table>
          </form>
+        </div>
   		 <div id="replySelectArea">
   		 <c:if test="${ !empty clist }">
                <c:forEach var="bco" items="${ clist }">
-                  <table id="replySelectTable"
+                  <table class="table1"   id="replySelectTable"
              style="margin-left : ${(bco.clevel -1) * 15}px;
                    width : ${800 - ((bco.clevel -1) * 15)}px;"
              class="replyList${bco.clevel}">
@@ -105,9 +137,9 @@
                            
                         <button type="button" class="deleteBtn"
                            onclick="deleteReply(this);">삭제하기</button>
-                           
+                     </c:if>
 			<form action="${pageContext.request.contextPath }/mInsert.co" method="post">
-                     </c:if><c:if test="${ bco.clevel lt 3 }">
+                     <c:if test="${ bco.clevel lt 3 }">
                         <input type="hidden" name="uno" value="${member.uNo}"/>
                         <input type="hidden" name="cno2" value="${bco.cno}" />
                         <input type="hidden" name="clevel" value="${bco.clevel}" />
@@ -118,15 +150,16 @@
                         <button type="button" class="insertConfirm"
                            onclick="reConfirm(this);"
                            style="display:none;" >댓글 추가 완료</button> 
+                     </c:if>
             </form>
-                     </c:if><c:if test="${bco.clevel ge 3}">
+                     <c:if test="${bco.clevel ge 3}">
                         <span> 마지막 레벨입니다.</span>
                      </c:if>
                      </td>
                   </tr>
                   <tr class="comment replyList${bco.clevel}">
                      <td colspan="3" style="background : transparent; resize:none;">
-                     <textarea class="reply-content" cols="105" rows="3"
+                     <textarea class="reply-content" cols="80" rows="3"
                       readonly="readonly" >${bco.ccontent}</textarea>
                      </td>
                   </tr>
@@ -136,6 +169,9 @@
   		 </div>
       </div>
    </div>
+   </div>
+   </section>
+   
    <script>
    // 게시글 번호를 전달할 전역 변수 생성
    var bno = ${board.bno};
@@ -224,7 +260,6 @@
    }
  
    </script>
-   </section>
    <br><br><br><br>
 	</c:if><c:if test="${ empty member }">
 		<c:url var="errorPage" value="views/common/errorPage.jsp">

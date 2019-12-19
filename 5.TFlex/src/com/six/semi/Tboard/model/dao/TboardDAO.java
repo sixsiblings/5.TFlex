@@ -247,4 +247,66 @@ public class TboardDAO {
 	
 	}
 
+
+	public int deleteBoard(Connection con, int tNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("tdeleteBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public ArrayList<Tboard> top5(Connection con) {
+		ArrayList<Tboard> list = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("tselectTop5");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(sql);
+			
+			list = new ArrayList<>();
+			
+			while(rset.next()) {
+				Tboard tb = new Tboard();
+				
+				tb.settNo(rset.getInt(1));
+				tb.settTitle(rset.getString(2));
+				tb.settContent(rset.getString(3));
+				tb.settPrice(rset.getInt(4));
+				tb.settCount(rset.getInt(5));
+				tb.settDate(rset.getString(6));
+				tb.setsNo(rset.getInt(7));
+				tb.setTicketNo(rset.getInt(8));
+				tb.settEnrolldate(rset.getDate(9));
+				tb.setTuNo(rset.getInt(10));
+				tb.settStatus(rset.getString(11));
+				
+				list.add(tb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
+
 }

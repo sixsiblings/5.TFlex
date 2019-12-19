@@ -31,17 +31,26 @@ public class SelectOneNoticeTop5Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ntNo = Integer.parseInt(request.getParameter("ntNo"));
 		System.out.println("확인확인" + ntNo);
-		Notice n = new NoticeService().selectOneTop5(ntNo);
+		//Notice n = new NoticeService().selectOneTop5(ntNo);
 		String page = "";
-		System.out.println(n);
-		if(n != null) {
-			page = "{$pageContext.request.contextPath}/views/cs/noticeDetail.jsp";
-			request.setAttribute("notice", n);
-		} else {
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "게시글 상세보기 에러!!");
-		}
-		request.getRequestDispatcher(page).forward(request, response);
+		//System.out.println(n);
+		//if(n != null) {
+		//	page = "{$pageContext.request.contextPath}/views/cs/noticeDetail.jsp";
+		//	request.setAttribute("notice", n);
+		//} else {
+		//	page = "views/common/errorPage.jsp";
+		//	request.setAttribute("msg", "게시글 상세보기 에러!!");
+		//}
+		//request.getRequestDispatcher(page).forward(request, response);
+		// http://localhost:8088/tflex/nselectOne.do?ntNo=9
+		if(ntNo > -1) {
+					page = "nselectOne.do";
+					request.setAttribute("notice", ntNo);
+				} else {
+					page = "views/common/errorPage.jsp";
+					request.setAttribute("msg", "게시글 상세보기 에러!!");
+				}
+				request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	/**
