@@ -38,6 +38,8 @@ public class TBoardInsertServlet extends HttpServlet {
 		tb.settDate(request.getParameter("tdate"));
 		tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
 		tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
+		tb.setsName(request.getParameter("sname"));
+		tb.setsNo(Integer.parseInt(request.getParameter("stadium")));
 		 
 			// System.out.println(request.getParameter("cgbno"));
 			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));

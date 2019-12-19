@@ -136,8 +136,9 @@ public class TboardDAO {
 			pstmt.setString(2, tb.gettContent());
 			pstmt.setInt(3, tb.gettPrice());
 			pstmt.setString(4, tb.gettDate());
-			pstmt.setInt(5, tb.getTicketNo());
-			pstmt.setInt(6, tb.getTuNo());
+			pstmt.setInt(5, tb.getsNo());
+			pstmt.setInt(6, tb.getTicketNo());
+			pstmt.setInt(7, tb.getTuNo());
 			
 			result = pstmt.executeUpdate();
 			
@@ -205,7 +206,9 @@ public class TboardDAO {
 				tb.settEnrolldate(rset.getDate(9));
 				tb.setTuNo(rset.getInt(10));
 				tb.settStatus(rset.getString(11));
-
+				tb.setsName(rset.getString(12));
+				tb.setLat(rset.getString(13));
+				tb.setLng(rset.getString(14));
 			}
 			
 		} catch (SQLException e) {

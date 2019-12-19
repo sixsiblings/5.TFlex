@@ -16,10 +16,59 @@ public class Tboard implements Serializable {
 	private Date tEnrolldate;
 	private int tuNo;
 	private String tStatus;
+	private String sName;
+	private String lat;
+	private String lng;
+	
 	public Tboard() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Tboard(int tNo, String tTitle, String tContent, int tPrice, int tCount, String tDate, int sNo, int ticketNo,
+			Date tEnrolldate, int tuNo, String tStatus, String sName, String lat, String lng) {
+		super();
+		this.tNo = tNo;
+		this.tTitle = tTitle;
+		this.tContent = tContent;
+		this.tPrice = tPrice;
+		this.tCount = tCount;
+		this.tDate = tDate;
+		this.sNo = sNo;
+		this.ticketNo = ticketNo;
+		this.tEnrolldate = tEnrolldate;
+		this.tuNo = tuNo;
+		this.tStatus = tStatus;
+		this.sName = sName;
+		this.lat = lat;
+		this.lng = lng;
+	}
+	
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
 	public Tboard(int tNo, String tTitle, String tContent, int tPrice, int tCount,  String tDate, int sNo,
 			int ticketNo, Date tEnrolldate, int tuNo, String tStatus) {
 		super();
@@ -102,12 +151,15 @@ public class Tboard implements Serializable {
 	public void settStatus(String tStatus) {
 		this.tStatus = tStatus;
 	}
+
 	@Override
 	public String toString() {
 		return "Tboard [tNo=" + tNo + ", tTitle=" + tTitle + ", tContent=" + tContent + ", tPrice=" + tPrice
-				+ ", tCount=" + tCount + ", tDate=" + tDate + ", sNo=" + sNo + ", ticketNo="
-				+ ticketNo + ", tEnrolldate=" + tEnrolldate + ", tuNo=" + tuNo + ", tStatus=" + tStatus + "]";
+				+ ", tCount=" + tCount + ", tDate=" + tDate + ", sNo=" + sNo + ", ticketNo=" + ticketNo
+				+ ", tEnrolldate=" + tEnrolldate + ", tuNo=" + tuNo + ", tStatus=" + tStatus + ", sName=" + sName
+				+ ", lat=" + lat + ", lng=" + lng + "]";
 	}
+	
                                
 	
 	

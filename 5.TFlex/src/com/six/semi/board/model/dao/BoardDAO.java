@@ -255,44 +255,4 @@ public class BoardDAO {
 		
 		return result;
 	}
-
-	public ArrayList<Board> top5(Connection con) {
-		ArrayList<Board> list = null;
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("MselectTop3");
-		
-		try {
-			stmt = con.createStatement();
-			
-			rset = stmt.executeQuery(sql);
-			
-			list = new ArrayList<>();
-			
-			while(rset.next()) {
-				Board b = new Board();
-
-				b.setBno(rset.getInt(1));
-				b.setCgbno(rset.getInt(2));
-				b.setBtitle(rset.getString(3));
-				b.setBcontent(rset.getString(4));
-				b.setBcount(rset.getInt(5));
-				b.setBreportcount(rset.getInt(6));
-				b.setBbenrolldate(rset.getDate(7));
-				b.setUno(rset.getInt(8));
-				b.setBstatus(rset.getString(9));
-								
-				list.add(b);
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(stmt);
-		}
-		return list;
-	}
 }

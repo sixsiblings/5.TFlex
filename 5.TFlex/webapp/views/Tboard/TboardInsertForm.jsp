@@ -58,6 +58,28 @@ body{
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
  				 name="ticketno" placeholder="티켓 일련번호를 입력하세요.">
  				
+ 				<span>경기장 :   </span>
+ 				
+ 				<select name="stadium">
+ 				
+ 				<option value="선택">선택</option>
+
+	 				<optgroup label="서울·경기">
+		     			<option value="1">수원 KT위즈파크</option>
+		     			<option value="2">잠실 야구장</option>
+		     			<option value="3">고척 스카이 돔</option>
+		     			<option value="4">인천 SK 행복드림구장</option>
+	     			</optgroup>
+	     			<optgroup label="남부지역">
+	        			<option value="8">창원 NC 파크</option>
+	        			<option value="9">마산 야구장</option>
+	        			<option value="6">대구 삼성 라이온즈파크</option>
+	        			<option value="5">부산 사직 종합 운동장</option>
+	        			<option value="7">광주 기아 챔피언스 필드</option>
+	     			</optgroup>
+     				
+				</select>
+ 				
 		</div>
 
 		<div class="editorArea"  style="margin-top:20px;">

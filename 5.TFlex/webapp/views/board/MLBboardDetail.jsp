@@ -10,41 +10,57 @@
 <title>Insert title here</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
-.tableArea{
-	background:white;
-	margin: 0 15%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
-}
 
 textarea{
 	resize:none;
 }
 
+table{
+	width:90%;
+	height:100%;
+}
+.contenttable{
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	width:90%;
+	height:100%;
+	border-collapse: collapse;
+}
+.contenttable td{
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
 .table1{
-	background-color:white;
+	border: 1px solid white;
 }
-
-table,th,td{
-border: 1px solid white;
-border-collapse: collapse;
-}
-            
 th,td{
 /* 전(상,하,좌,우) 방향  */
 /*padding: 10px;*/
 /* 12-6-3-9 */ /* 두 개의 결과는 같다. */
 /*padding: 10px 20px;*/
-padding: 20px 30px 10px 20px;
-float:left;
-
+padding: 8px;
 }
+
 body{
 	background-color:rgb(229, 229, 220);
 }
+
 #yu{
-  width:500px;
+  width:450px;
   height:200px;
-  background-size: 400px;
+  background-size: 450px;
   background-repeat:no-repeat;
+  margin:auto;
+}
+
+.tableArea{
+		background:white;
+		margin: 0 20%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+		align:center;
+}
+
+.pagingArea{
+	width:auto;
 }
 </style>
 </head>
@@ -53,15 +69,15 @@ body{
 
 <section class="outer">
 	<div  class="tableArea" align="center" >
+	<br /><br />
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
     </div>
+<br /><br />
 
 <c:if test="${ !empty member }">
 
       <br>
-      <h2 align="center">게시글 내용</h2>
-      <div>
-            <table align="center" style="background:white;">
+            <table class="contenttable" align="center">
                <tr>
                   <td>제목 </td>
                   <td colspan="5"><span>${board.btitle}</span></td>
@@ -83,10 +99,10 @@ body{
                   </td>
                </tr>
             </table>
-            <br>
+            <br><br /><br />
       
       <div align="center">
-         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/mselectList.bo'">메뉴로 돌아가기</button>
+         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/mselectList.bo?cgbno=1'">메뉴로 돌아가기</button>
          <c:if test="${!empty member and member.uNo eq board.uno}">
             <c:url var="boardUpdate" value="mbUpView.bo">
                <c:param name="bno" value="${board.bno}" />
@@ -100,7 +116,7 @@ body{
          <form action="${pageContext.request.contextPath }/mInsert.co" method="post">
             <input type="hidden" name="uno" value="${ member.uNo }"/>
             <input type="hidden" name="bno" value="${board.bno }" />
-            <input type="hidden" name="cgbno" value="${board.cgbno}" />
+            <input type="hidden" name="cgbno" value="1" />
             <input type="hidden" name="cno2" value="0" />
             <input type="hidden" name="clevel" value="1" />
             
@@ -108,7 +124,7 @@ body{
                <tr>
                   <td>댓글 작성</td>
                   <td><textArea rows="3" cols="80" id="replyContent" name="replyContent"></textArea></td>
-                  <td><button type="submit" id="addReply">댓글 등록</button></td>
+                  <td><button class="btn btn-primary" type="submit" id="addReply">댓글 등록</button></td>
                </tr>
             </table>
          </form>
@@ -128,14 +144,14 @@ body{
                      <c:if test="${member.uNo eq bco.uno }">
                         <input type="hidden" name="cno" value="${bco.cno}"/>
                              
-                        <button type="button" class="updateBtn" 
+                        <button type="button" class="btn btn-primary" 
                            onclick="updateReply(this);">수정하기</button>
                            
-                        <button type="button" class="updateConfirm"
+                        <button type="button" class="btn btn-primary"
                            onclick="updateConfirm(this);"
                            style="display:none;" >수정완료</button> &nbsp;&nbsp;
                            
-                        <button type="button" class="deleteBtn"
+                        <button type="button" class="btn btn-primary"
                            onclick="deleteReply(this);">삭제하기</button>
                      </c:if>
 			<form action="${pageContext.request.contextPath }/mInsert.co" method="post">
@@ -144,10 +160,10 @@ body{
                         <input type="hidden" name="cno2" value="${bco.cno}" />
                         <input type="hidden" name="clevel" value="${bco.clevel}" />
                         <input type="hidden" name="cgbno" value="${board.cgbno}" />
-                        <button type="button" class="insertBtn" 
+                        <button type="button" class="btn btn-primary"
                             onclick="reComment(this);">댓글 달기</button>&nbsp;&nbsp;
                             
-                        <button type="button" class="insertConfirm"
+                        <button type="button" class="btn btn-primary"
                            onclick="reConfirm(this);"
                            style="display:none;" >댓글 추가 완료</button> 
                      </c:if>
@@ -169,8 +185,7 @@ body{
   		 </div>
       </div>
    </div>
-   </div>
-   </section>
+   </c:if>
    
    <script>
    // 게시글 번호를 전달할 전역 변수 생성
@@ -260,8 +275,9 @@ body{
    }
  
    </script>
+   </section>
    <br><br><br><br>
-	</c:if><c:if test="${ empty member }">
+	<c:if test="${ empty member }">
 		<c:url var="errorPage" value="views/common/errorPage.jsp">
 		<c:set var="msg" value="회원만 가능한 서비스입니다." scope="session"/>
 		</c:url>
