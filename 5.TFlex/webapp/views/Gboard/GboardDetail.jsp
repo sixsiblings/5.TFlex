@@ -10,6 +10,36 @@
 <title>Insert title here</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
+.tableArea{
+	background:white;
+	margin: 0 15%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+}
+
+textarea{
+	resize:none;
+}
+
+.table1{
+	background-color:white;
+}
+
+table,th,td{
+border: 1px solid white;
+border-collapse: collapse;
+}
+            
+th,td{
+/* 전(상,하,좌,우) 방향  */
+/*padding: 10px;*/
+/* 12-6-3-9 */ /* 두 개의 결과는 같다. */
+/*padding: 10px 20px;*/
+padding: 20px 30px 10px 20px;
+float:left;
+
+}
+body{
+	background-color:rgb(229, 229, 220);
+}
 #yu{
   width:500px;
   height:200px;
@@ -21,10 +51,10 @@
 <body>
 <c:import url="../common/header.jsp"/>
 
-	<div align="center" >
+	<div  class="tableArea" align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/MLB.jpg;">
     </div>
-	</div>
+	
 <c:if test="${ !empty member }">
 	<section class="outer">
       <br>
@@ -56,13 +86,14 @@
             </table>
             <br>
       </div>
+      </div>
       <div align="center">
-         <button onclick="location.href='${pageContext.request.contextPath }/gselectList.bo'">메뉴로 돌아가기</button>
+         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/gselectList.bo'">메뉴로 돌아가기</button>
          <c:if test="${!empty member and member.uNo eq Gboard.guNo}">
             <c:url var="boardUpdate" value="gbUpView.bo">
                <c:param name="gNo" value="${Gboard.gNo}" />
             </c:url>
-            <button onclick="location.href='${boardUpdate}'">수정하기</button>
+            <button class="btn btn-primary" onclick="location.href='${boardUpdate}'">수정하기</button>
          </c:if>
       </div>
       <br />

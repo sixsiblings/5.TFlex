@@ -120,10 +120,9 @@ public class NoticeDAO {
 			n.setNtTitle(rset.getString(3));
 			n.setNtContent(rset.getString(4));
 			n.setNtCount(rset.getInt(5));
-			n.setNtFile(rset.getInt(6));
-			n.setNtDate(rset.getDate(7));
-			n.setGm(rset.getString(8));
-			n.setNstatus(rset.getString(9));
+			n.setNtDate(rset.getDate(6));
+			n.setGm(rset.getString(7));
+			n.setNstatus(rset.getString(8));
 			
 			list.add(n);
 			}
@@ -162,10 +161,9 @@ public class NoticeDAO {
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
 				n.setNtCount(rset.getInt(5));
-				n.setNtFile(rset.getInt(6));
-				n.setNtDate(rset.getDate(7));
-				n.setGm(rset.getString(8));
-				n.setNstatus(rset.getString(9));
+				n.setNtDate(rset.getDate(6));
+				n.setGm(rset.getString(7));
+				n.setNstatus(rset.getString(8));
 			}
 			
 		} catch (SQLException e) {
@@ -220,10 +218,9 @@ public class NoticeDAO {
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
 				n.setNtCount(rset.getInt(5));
-				n.setNtFile(rset.getInt(6));
-				n.setNtDate(rset.getDate(7));
-				n.setGm(rset.getString(8));
-				n.setNstatus(rset.getString(9));
+				n.setNtDate(rset.getDate(6));
+				n.setGm(rset.getString(7));
+				n.setNstatus(rset.getString(8));
 				
 				list.add(n);
 			}
@@ -261,10 +258,9 @@ public class NoticeDAO {
 				n.setNtTitle(rset.getString(3));
 				n.setNtContent(rset.getString(4));
 				n.setNtCount(rset.getInt(5));
-				n.setNtFile(rset.getInt(6));
-				n.setNtDate(rset.getDate(7));
-				n.setGm(rset.getString(8));
-				n.setNstatus(rset.getString(9));
+				n.setNtDate(rset.getDate(6));
+				n.setGm(rset.getString(7));
+				n.setNstatus(rset.getString(8));
 			}
 			
 		} catch (SQLException e) {

@@ -94,4 +94,26 @@ public class TboardService {
 		return result;
 	}
 
+
+	public int deleteBoard(int tNo) {
+		
+		con = getConnection();
+		
+		int result = tbdao.deleteBoard(con, tNo);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		return result;
+	}
+
+	public ArrayList<Tboard> top5() {
+		con = getConnection();
+		ArrayList<Tboard> list = tbdao.top5(con);
+		
+		close(con);
+		
+		return list;
+	}
+
 }

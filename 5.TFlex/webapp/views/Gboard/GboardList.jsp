@@ -10,6 +10,18 @@
 <title>Goods</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style>
+table,th,td{
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+th,td{
+/* 전(상,하,좌,우) 방향  */
+/*padding: 10px;*/
+/* 12-6-3-9 */ /* 두 개의 결과는 같다. */
+/*padding: 10px 20px;*/
+padding: 20px 30px 10px 20px;
+}
 
 body{
 	background-color:rgb(229, 229, 220);
@@ -24,25 +36,13 @@ body{
 }
 .tableArea{
 	
-	    width:auto;
+		width:auto;
 		height:auto;
 		color : navy;
-		margin-left:auto;
-		margin-right:auto;
-		max-width:900px;
-		background-color:white;
+		background:white;
+		margin: 0 25%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+		align:center;
 }
-#yuJ{
-	
-	box-sizing : border-box;
-	color : rgb(85,91,97);
-	display : block;
-	font-size: 14px;
-	font-weight: 400px;
-	line-height: 21px;
-	text-size-adjust : 100%;
-}
-
 .pagingArea{
 	width:auto;
 }
@@ -52,10 +52,10 @@ body{
 <c:import url="../common/header.jsp"/>
 	
 	<section>
-   <div align="center" >
+  <div class="tableArea" align="center">
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/ticket4.jpg;">
     </div>
-	</div>
+	
     <br /><br />
     
 	<div class="tableArea" align="center">
@@ -92,7 +92,7 @@ body{
   </tr>
   </c:forEach>
 </table>
-</div>
+
 <br /><br /><br /><br />
 
 <%-- 페이지 처리 구현하기 --%>
@@ -144,7 +144,7 @@ body{
 				&gt;&gt;
 			</button>
 <br /><br />
-
+</div></div>
 <script>
 
 $(function(){

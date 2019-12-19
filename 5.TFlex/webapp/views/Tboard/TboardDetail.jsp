@@ -10,33 +10,48 @@
 <title>티겟 게시글</title>
 <c:import url="../common/commonUtil.jsp"/>
 <style> 
+.tableArea{
+	background:white;
+	margin: 0 15%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+}
+table,th,td{
+                border: 1px solid white;
+                border-collapse: collapse;
+            }
+            
+            th,td{
+                /* 전(상,하,좌,우) 방향  */
+                /*padding: 10px;*/
+                /* 12-6-3-9 */ /* 두 개의 결과는 같다. */
+                /*padding: 10px 20px;*/
+                padding: 20px 30px 10px 20px;
+            }
 body{
 	background-color:rgb(229, 229, 220);
 }
 #yu{
-  width:700px;
+  width:500px;
   height:200px;
   background-size: 400px;
   background-repeat:no-repeat;
 }
-#detailarea{
-align:center;
-}
+
 </style>
 </head>
 <body>
 <c:import url="../common/header.jsp"/>
 
-	<div id="detailarea">
+<section class="outer">
+	<div class="tableArea" align="center" >
     <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/ticket4.jpg;">
     </div>
 	
 <c:if test="${ !empty member }">
-	<section class="outer">
+	
       <br>
       <h2 align="center">게시글 내용</h2>
-      <div class="tableArea" style="background-color:white; padding:20px;">
-            <table width="800px" align="center"  >
+      <form>
+            <table width="800px" align="center" style="background-color:white; " >
                <tr>
                   <td>제목 </td>
                   <td colspan="5"><span>${Tboard.tTitle}</span></td>
@@ -69,18 +84,35 @@ align:center;
                   </td>
                </tr>
             </table>
+             <br>
+            <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="seller" value="${Tboard.tuNo}">
+            <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="ttprice" value="${Tboard.tPrice}">
+ 				 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="tttitle" value="${Tboard.tTitle}">
+ 				 <input type="hidden" class="form-control" aria-label="Text input with dropdown button" 
+ 				 name="ttEnrolldate" value="${Tboard.tEnrolldate}">
+ 				 
+            <div align="center">
+            <button type="submit" class="btn btn-primary" onclick="goBuy();" style="background-color:#74A780; border-color:#74A780;">구매하기</button>
+            <button type="submit" class="btn btn-primary" onclick="goFavorite();" style="background-color:#FF5E47; border-color:#FF5E47;">찜하기</button>
+            </div>
             <br>
-      </div>
+      </form>
+
+      
       <div align="center">
-         <button onclick="location.href='${pageContext.request.contextPath }/tselectList.bo'">메뉴로 돌아가기</button>
+         <button class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath }/tselectList.bo'">메뉴로 돌아가기</button>
          <c:if test="${!empty member and member.uNo eq Tboard.tuNo}">
             <c:url var="TboardUpdate" value="tbUpView.bo">
                <c:param name="tNo" value="${Tboard.tNo}" />
             </c:url>
-            <button onclick="location.href='${TboardUpdate}'">수정하기</button>
+            <button class="btn btn-primary" onclick="location.href='${TboardUpdate}'">수정하기</button>
          </c:if>
       </div>
       </div>
+     <br />
       <br />
    
    <script>
