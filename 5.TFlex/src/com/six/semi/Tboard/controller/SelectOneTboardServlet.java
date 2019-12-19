@@ -42,6 +42,8 @@ public class SelectOneTboardServlet extends HttpServlet {
 		
 		String page = "";
 		
+		System.out.println(tb);
+		
 		if(tb != null) {
 			page = "views/Tboard/TboardDetail.jsp";
 			request.setAttribute("Tboard", tb);

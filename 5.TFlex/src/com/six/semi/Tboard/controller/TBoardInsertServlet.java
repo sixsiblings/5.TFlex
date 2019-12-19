@@ -15,7 +15,7 @@ import com.six.semi.Tboard.model.vo.Tboard;
  */
 @WebServlet("/tInsert.bo")
 public class TBoardInsertServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -25,42 +25,44 @@ public class TBoardInsertServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TboardService tbs = new TboardService();
-		Tboard tb = new Tboard();
-		
-		tb.settTitle(request.getParameter("ttitle"));
-		tb.settContent(request.getParameter("editordata"));
-		tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
-		tb.settDate(request.getParameter("tdate"));
-		tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
-		tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
-		 
-			// System.out.println(request.getParameter("cgbno"));
-			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
-		
-			int result = tbs.insertBoard(tb);
-			
-			if(result > 0) {
-				
-				response.sendRedirect("tselectList.bo");
-				
-			} else {
-				
-				request.setAttribute("msg", "게시글 작성 실패");
-				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-			}
-		}
+   /**
+    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    */
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      TboardService tbs = new TboardService();
+      Tboard tb = new Tboard();
+      
+      tb.settTitle(request.getParameter("ttitle"));
+      tb.settContent(request.getParameter("editordata"));
+      tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
+      tb.settDate(request.getParameter("tdate"));
+      tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
+      tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
+      tb.setsName(request.getParameter("sname"));
+      tb.setLat(request.getParameter("lat"));
+      tb.setLng(request.getParameter("lng"));
+         // System.out.println(request.getParameter("cgbno"));
+         // b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
+      
+         int result = tbs.insertBoard(tb);
+         
+         if(result > 0) {
+            
+            response.sendRedirect("tselectList.bo");
+            
+         } else {
+            
+            request.setAttribute("msg", "게시글 작성 실패");
+            request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+         }
+      }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+   /**
+    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    */
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      doGet(request, response);
+   }
 
 }

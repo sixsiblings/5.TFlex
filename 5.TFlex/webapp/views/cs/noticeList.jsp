@@ -140,22 +140,19 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="bhy-nav-font">
-          <li class="active">
+          <li>
             <a href="${ pageContext.request.contextPath }/views/cs/csMain.jsp">
               <i class="fas fa-gem"></i>FAQ
             </a>
           </li>
-          <br />
-          <br />
           <li>
           	 <a href="${ pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
-        <br />
-          <li>
+          <li  class="active">
           	 <a href="${ pageContext.request.contextPath }/noticelist.do" >
-				<i class="fas fa-bullhorn">Notice</i>
+				<i class="fas fa-bullhorn"></i>Notice
             </a>
           </li>     
         </ul>
@@ -203,7 +200,7 @@
 		<!-- 본문 테이블 영역 -->
 			<div class="col-md-8" style="margin: auto;">
 			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                			  
-				<c:if test="${member.uGrade eq 'M'}"><button onclick="goNInsert();" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</button></c:if>
+         <c:if test="${!empty member and member.uNo eq 1 }"><button onclick="goNInsert();" class="btn btn-outline-warning btn-rounded btn-sm pull-right">글쓰기</button> </c:if>
 				<table id="tablePreview" class="table table-hover">				  
 				  <thead  id="bhy-table-header">
 				    <tr>

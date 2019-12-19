@@ -12,6 +12,9 @@
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Index 페이지</title>
 
+<script src="https://tistory3.daumcdn.net/tistory/941717/skin/images/jquery.min.js" type="text/javascript"></script> 
+<script src="https://tistory3.daumcdn.net/tistory/941717/skin/images/snowfall.jquery.js" type="text/javascript"></script>
+
 <c:import url="views/common/commonUtil.jsp" />
 <style>/*
 .showcase {
@@ -477,6 +480,13 @@ hr{
 <body>
 
    <c:import url="views/common/header.jsp"></c:import>
+
+<!--  눈내리는 효과 -->
+
+
+
+<!--  눈내리는 효과 -->
+
 
 
    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -1004,6 +1014,15 @@ hr{
 	   location.href="${pageContext.request.contextPath}/selectonemboardtop5.do?bNo=" + bNo;
    }
 
+   
+   
+   $(document).ready(function(){
+	   $(document).snowfall({deviceorientation : true, round : true, minSize: 1, maxSize:8,  flakeCount : 250});
+	   });
+   
+   
+   
+   
    
    
  /*   $(".selectOne").click(function(){

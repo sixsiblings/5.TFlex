@@ -13,7 +13,7 @@
       <div class="col-md-2">
          <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp" style="margin-bottom: 20px;"> 
             <img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png" 
-            style="width: 160px; height: 50px; float: left; margin-bottom: 0px;"/>
+            style="width: 180px; height: 60px; float: left; margin-bottom: 0px;"/>
          </a>   
       </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -100,4 +100,5 @@
       </div>
       </c:if>
 </nav>
+
 </header>

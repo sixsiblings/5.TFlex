@@ -32,7 +32,7 @@
             <!--  아이디  -->
             <div class="md-form">
                 <input type="text"  class="form-control"  id="userId"  name="userId"  required="required"
-                         aria-describedby="materialRegisterFormIdHelpBlock"  placeholder="아이디를 입력하세요">
+                         aria-describedby="materialRegisterFormIdHelpBlock"  placeholder="아이디를 입력하세요(영문 + 숫자)">
                 <button class="btn btn-info btn-rounded btn-block my-2 waves-effect z-depth-0" 
                             type="button"  id="idCheck">아이디 중복확인</button><br />
           </div>
@@ -115,13 +115,13 @@
        
  
        <!--  알림 여부 체크박스  -->
-   <label for="materialRegisterFormPhone">알림 여부 동의</label>
+<!--    <label for="materialRegisterFormPhone">알림 여부 동의</label>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="signal" id="signal" value="N">&nbsp;&nbsp;&nbsp;&nbsp;
                 <label class="form-check-label" for="siganl">알림 수신 여부</label>
               
 			</div>            
-           
+            -->
             
             <!-- Sign up button -->
 
