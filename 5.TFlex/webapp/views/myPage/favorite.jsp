@@ -10,7 +10,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    My Page
+    Favorite
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
@@ -33,10 +33,28 @@
         #bhy-text{
         	margin-top : 20px;
         	margin-left : 20px;
+        	font-size : 30px;
         }
 
+		p{
+			font-size : 20px;
+		}
 
-	</style>
+  table, th, td {
+    border: 1px solid #EAECEE;
+    align : center;
+    
+  }
+  
+  table {
+
+    width: 100%;
+    height: 400px;
+  }
+
+
+</style>
+
 </head>
 
 <body class="">
@@ -64,7 +82,7 @@
           <br>
           <li  class="active ">>
           	 <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-				<i class="fas fa-pencil-alt"></i>찜  목록
+				<i class="fas fa-heart" ></i>찜한 상품
             </a>
           </li>
         	<br>
@@ -98,7 +116,7 @@
 					</button>
 				</div>
 			<a class="navbar-brand" href="#pablo">              
-				<i class="fas fa-gem" id="bhy-text" >찜 목록</i>
+				<i class="fas fa-heart" id="bhy-text" > &nbsp; 찜한 상품 목록</i>
 			</a>
 			</div>
 		</div>
@@ -110,27 +128,54 @@
 <div class="content" id="userInfo">
 	<div class="row">
 		<div class="col-md-12">
-          
+          <br />
           
 <!--  카드영역 분리가능한 시작  -->
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
-				style="background:white; height: 100px; font-size:30px;">                
-			<i class="fas fa-gem" id="bhy-text" >찜 목록</i>
+				style="background:white; height: 180px; font-size:30px;">                
+			<i class="fas fa-heart" id="bhy-text" >&nbsp;찜</i>
+			<br /><br />
+			<p>&nbsp;<i class="fas fa-check">&nbsp; 찜하신 상품은 등록일로부터 최대 30일간 저장됩니다.</i></p>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->
-          
-          
-
+     
+     
 <!-- 내용 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">
 	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">                
 		<br /><br />
 
 <!-- 내용테이블  시작점  -->		
-
 	
+<table class="table"  style="text-align : center;">
+  <thead class="thead-light" >
+    <tr>
+      <th scope="col-md-1">#</th>
+      <th scope="col-md-8">상품정보</th>
+      <th scope="col-md-1">바로가기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+</table>
+		
   
 
 <!-- ------------------------------ -->

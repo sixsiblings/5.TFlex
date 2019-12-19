@@ -67,7 +67,7 @@
          <div class="text-right">
             <a href="" id="loginBtn_btn" class="btn btn-outline-info mb-4"
                data-toggle="modal" data-target="#modalSubscriptionForm"
-               style="font-size: 15px; margin-top:35px; margin-right:15px;"><b>LOGIN</b></a>
+               style="font-size: 15px; margin-top:35px; margin-right:15px;"><b>로그인</b></a>
          </div>
         </div>
    </c:if>
@@ -79,22 +79,22 @@
 </form>
       </c:if><c:if test="${ !empty member }">
       <div id="userInfo">
-         <label>${ member.nName }님! 반가워요~!^0^.</label>
+         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ member.nName }님! 반가워요~!^0^.</label>
          <div class="btns" align="right" style="display:inline-block">
          
             <button type="button" class="btn btn-outline-success"  id="bhy-csBtn" onclick="cs();"
                   style="font-size:17px; margin-right:10px">
-               Service 
+               고객센터 
             </button>         
          
             <button type="button" class="btn btn-outline-primary"  id="bhy-myPageBtn" onclick="myPage();"
                   style="font-size:17px; margin-right:10px">
-               MyPage 
+              	마이페이지 
             </button>
 
             <button type="button" class="btn btn-outline-danger" id="bhy-logoutBtn_btn"  onclick="logout();"
                   style="font-size:17px; margin-left:10px">
-               Logout
+               로그아웃
             </button>   
          </div>
       </div>

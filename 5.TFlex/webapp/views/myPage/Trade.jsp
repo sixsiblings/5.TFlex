@@ -115,7 +115,7 @@
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:30px;">                
-			<i class="fas fa-gem" id="bhy-text" >거래 내역</i>
+			<i class="fas fa-gem" id="bhy-text" >최근 구매/판매한 상품</i>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->
@@ -129,16 +129,42 @@
 
 <!-- 내용테이블  시작점  -->					
 
-
+	
+<table class="table"  style="text-align : center;">
+  <thead class="thead-light" >
+    <tr>
+      <th scope="col-md-1">#</th>
+      <th scope="col-md-8">상품정보</th>
+      <th scope="col-md-1">바로가기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+</table>
+		
 
 <!-- ------------------------------ -->
 				</div>
 			</div>
 	<!--  내용 테이블 영역 끝  -->	
-		
-		</div>
 	</div>
-</div>
+	</div>
+	
 <!-- 본문 영역 끝  -->
 
 		</div>
