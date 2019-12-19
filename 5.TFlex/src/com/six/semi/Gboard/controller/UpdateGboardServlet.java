@@ -35,8 +35,8 @@ public class UpdateGboardServlet extends HttpServlet {
 		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
 		Gboard gb = gbs.updateView(gNo);
-		
 		gb.setgTitle(request.getParameter("gtitle"));
+		gb.setgContent(request.getParameter("editordata"));
 		gb.setgPrice(Integer.parseInt(request.getParameter("gprice")));
 		
 		int result = gbs.updateBoard(gb);

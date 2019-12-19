@@ -154,7 +154,7 @@ $(function(){
 });
 });
 
-function goTInsert(){
+function goGInsert(){
 	location.href = "${pageContext.request.contextPath}/views/Gboard/GboardInsertForm.jsp";
 }
 

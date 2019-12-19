@@ -40,7 +40,7 @@ public class DeleteGboardServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			response.sendRedirect("tselectList.bo");
+			response.sendRedirect("gselectList.bo");
 			
 		} else {
 			

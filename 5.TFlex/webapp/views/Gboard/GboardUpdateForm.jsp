@@ -60,7 +60,7 @@ body{
   				<textarea id="summernote" name="editordata">${Gboard.gContent}</textarea>
 		</div>
 		<input type="hidden" name="uno"  value="${member.uNo}"/>
-		<input type="hidden" name="tNo"  value="${Gboard.gNo}"/>
+		<input type="hidden" name="gNo"  value="${Gboard.gNo}"/>
 
 <div align="center">
                <button class="btn btn-primary" onclick="completeUpdate();">수정완료</button>

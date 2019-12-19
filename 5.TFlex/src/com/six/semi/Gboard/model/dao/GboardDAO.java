@@ -252,6 +252,7 @@ public class GboardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			
 			close(pstmt);
 		}
 		

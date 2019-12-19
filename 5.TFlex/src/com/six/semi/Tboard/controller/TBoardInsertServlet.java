@@ -32,15 +32,20 @@ public class TBoardInsertServlet extends HttpServlet {
 		TboardService tbs = new TboardService();
 		Tboard tb = new Tboard();
 		
+		int test = Integer.parseInt(request.getParameter("stadium"));
+		
 		tb.settTitle(request.getParameter("ttitle"));
 		tb.settContent(request.getParameter("editordata"));
 		tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
 		tb.settDate(request.getParameter("tdate"));
 		tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
 		tb.setTuNo(Integer.parseInt(request.getParameter("uno")));
-		 
-			// System.out.println(request.getParameter("cgbno"));
-			// b.setCgbno(Integer.parseInt(request.getParameter("cgbno")));
+		tb.setsName(request.getParameter("sname"));
+		tb.setsNo(test);
+		
+		System.out.println(tb);
+		
+		System.out.println("test = " + test);
 		
 			int result = tbs.insertBoard(tb);
 			
