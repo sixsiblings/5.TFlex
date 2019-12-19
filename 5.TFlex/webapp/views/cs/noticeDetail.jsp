@@ -111,42 +111,51 @@
         <div class="row">
           <div class="col-md-12">
           
-          <!--  카드영역 분리가능한 시작  -->
-			<div class="col-md-8" style="margin: auto;" >
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height: 100px; font-size:40px;">                
-                	<i class="fas fa-bullhorn" id="bhy-text" > 공지사항</i>
-              </div>
-          </div><br />           
-      <!--  카드영역 분리가능한 끝 -->
-          
-
-
-		<!-- 본문 테이블 영역 -->
-			<div class="col-md-8" style="margin: auto;">
-			   <div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">
-				<table id="tablePreview" class="table table-hover">				  
-				  <thead  id="bhy-table-header">
-				    <tr>
-				      <th scope="col-md-2">#</th>
-				      <th scope="col-md-2">제목</th>
-				      <th scope="col-md-8">내용</th>
-				      <th scope="col-md-2">작성자</th>
-				    </tr>
-				  </thead>
-				  <tbody id="bhy-table">
-				    <tr>
-				    <tr>
-				    		  <td>${notice.ntNo}</td>
-							  <td>${notice.ntTitle}</td>
-							  <td>${notice.ntContent}</td>
-							  <td>${notice.gm}</td>
-					</tr>
-				    </tr>
-			  	</tbody>
-			</table>
+         		<!-- 본문 카드 영역 -->
+<div class="col-md-8" style="margin: auto;">
+	<div class="card-header"  id="bhy-card-shadow" style="background:white; height:auto; ">        
+	
+	<!-- 글쓰기부분 -->
+	  <div class="h-tableArea" align="center"> 
+	  <!-- 폼 부분 -->
+		<form action="${pageContext.request.contextPath }/nupdate.do" method="post">    
+		<div class="h-tableArea" >
+		
+		<input type="hidden" value="${notice.ntNo }" name="ntNo" />
+		
+            <table   style="width:600px; height:400px;">
+               <tr id="bhy-tr">
+                  <td>제목 </td>
+                  <td colspan="3"><input type="text" size="51" name="ntTitle" value="${notice.ntTitle}" ></td>
+               </tr>
+               <tr>
+                  <td>작성자 </td>
+                  <td colspan="3">${notice.gm}
+                     <input type="hidden" name="gm" value="${notice.gm}"  />
+                  </td>
+              </tr>
+              <tr>
+                  <td>내용 </td>
+                  <td colspan="6" >
+                     <textarea id="ntContent"  name="ntContent"  cols="52" rows="25" style="resize:none;" 
+                     value="${notice.ntContent}">${notice.ntContent} </textarea>
+                  </td>
+               </tr> 
+            </table>
+            <br>
+            <div align="center">
+			<a href="${pageContext.request.contextPath }/noticelist.do" class="btn btn-info btn-rounded btn-sm pull-center">목록으로</a>    
+			      
+			<c:if test="${member.uGrade eq 'M'}"><button type="submit" class="btn btn-danger btn-rounded btn-sm pull-center">수정하기</button></c:if>
+            </div>
+            </div>
+         </form> 
+            <!-- 본문 카드 영역 끝 -->    
 			</div>
           </div>
    
+   
+    <!-- 본문내용 끝  -->
         </div>
       </div>
      </div>

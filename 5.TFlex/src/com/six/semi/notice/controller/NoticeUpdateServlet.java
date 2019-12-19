@@ -1,4 +1,4 @@
-package com.six.semi.QNA.controller;
+package com.six.semi.notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.QNA.model.service.QNAService;
-import com.six.semi.QNA.model.vo.QNA;
+import com.six.semi.notice.model.service.NoticeService;
+import com.six.semi.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class UpdateQNAServlet
+ * Servlet implementation class NoticeUpdateServlet
  */
-@WebServlet("/update.qna")
-public class UpdateQNAServlet extends HttpServlet {
+@WebServlet("/nupdate.do")
+public class NoticeUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateQNAServlet() {
+    public NoticeUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,34 +29,24 @@ public class UpdateQNAServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		QNAService qs = new QNAService();
 		
-		int qNo = Integer.parseInt(request.getParameter("qNo"));
+		NoticeService ns = new NoticeService();
+		int ntNo = Integer.parseInt(request.getParameter("ntNo"));
 		
-		QNA q = qs.updateView(qNo);
+		Notice n = ns.updateView(ntNo);
+		n.setNtTitle(request.getParameter("ntTitle"));
+		n.setNtContent(request.getParameter("ntContent"));
 		
-		System.out.println("원래 q : " + q);
-		System.out.println("qTitle : "  + request.getParameter("qTitle"));
-		System.out.println("qContent : "  + request.getParameter("qContent"));
-		System.out.println("uNo : "  + request.getParameter("uNo"));
-		
-		q.setqTitle(request.getParameter("qTitle"));
-		q.setqContent(request.getParameter("qContent"));		
-		q.setuNo(Integer.parseInt(request.getParameter("uNo")));
-				
-		int result = qs.updateQNA(q);
+		int result = ns.updateNotice(n);
 		
 		if( result > 0) {
-			
-			response.sendRedirect("selectList.qna");
-			
+			response.sendRedirect("noticelist.do");
 		} else {
+			
 			request.setAttribute("msg", "게시글 수정 중 오류 발생");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

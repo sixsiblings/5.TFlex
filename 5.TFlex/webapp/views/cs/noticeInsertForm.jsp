@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title> Notice  </title>
+  <title> 공지사항 </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <c:import url="../common/myPageUtil.jsp"/>
 
@@ -132,8 +132,8 @@
                <br /><br />
                <tr>
                   <td>작성자 </td>
-                  <td colspan="3">${member.nName}
-                     <input type="hidden" name="nName" value="${member.nName}"/>
+                  <td colspan="3">${Notice.gm}
+                     <input type="hidden" name="nName" value="${Notice.gm}"/>
                   </td>
                </tr>
                <br />

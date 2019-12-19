@@ -209,6 +209,7 @@
 				    <tr>
 				      <th scope="col-md-2">#</th>
 				      <th scope="col-md-8">제목</th>
+				      <th scope="col-md-8">내용</th>
 				      <th scope="col-md-2">작성자</th>
 				    </tr>
 				  </thead>
