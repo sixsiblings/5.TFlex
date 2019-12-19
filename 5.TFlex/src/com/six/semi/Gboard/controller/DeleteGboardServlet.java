@@ -1,4 +1,4 @@
-package com.six.semi.Tboard.controller;
+package com.six.semi.Gboard.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Tboard.model.service.TboardService;
-import com.six.semi.Tboard.model.vo.Tboard;
+import com.six.semi.Gboard.model.service.GboardService;
+import com.six.semi.Gboard.model.vo.Gboard;
 
 /**
  * Servlet implementation class DeleteTBoardServlet
  */
-@WebServlet("/tDelete.bo")
-public class DeleteTBoardServlet extends HttpServlet {
+@WebServlet("/gDelete.bo")
+public class DeleteGboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTBoardServlet() {
+    public DeleteGboardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,13 +30,13 @@ public class DeleteTBoardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int tNo = Integer.parseInt(request.getParameter("tNo"));
+		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
-		TboardService tbs = new TboardService();
+		GboardService gbs = new GboardService();
 		
-		Tboard tb = tbs.updateView(tNo);
+		Gboard gb = gbs.updateView(gNo);
 		
-		int result = tbs.deleteBoard(tNo);
+		int result = gbs.deleteBoard(gNo);
 		
 		if(result > 0) {
 			

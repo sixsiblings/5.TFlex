@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import com.six.semi.Gboard.model.dao.GboardDAO;
 import com.six.semi.Gboard.model.vo.Gboard;
+
 import com.six.semi.common.PageInfo;
 
 
@@ -68,5 +69,38 @@ public class GboardService {
 			close(con);
 			
 			return gb;
+		}
+
+		public Gboard updateView(int gNo) {
+			con = getConnection();
+			
+			Gboard gb = gbdao.selectOne(con, gNo);
+			
+			close(con);
+			
+			return gb;
+		}
+
+		public int updateBoard(Gboard gb) {
+			con = getConnection();
+			
+			int result = gbdao.updateBoard(con, gb);
+			
+			if(result > 0) commit(con);
+			else rollback(con);
+			
+			return result;
+		}
+
+		public int deleteBoard(int gNo) {
+			
+			con = getConnection();
+			
+			int result = gbdao.deleteBoard(con, gNo);
+			
+			if(result > 0) commit(con);
+			else rollback(con);
+			
+			return result;
 		}
 }

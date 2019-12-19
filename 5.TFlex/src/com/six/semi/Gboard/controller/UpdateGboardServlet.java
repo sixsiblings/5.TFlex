@@ -1,4 +1,4 @@
-package com.six.semi.Tboard.controller;
+package com.six.semi.Gboard.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Tboard.model.service.TboardService;
-import com.six.semi.Tboard.model.vo.Tboard;
+import com.six.semi.Gboard.model.service.GboardService;
+import com.six.semi.Gboard.model.vo.Gboard;
 
 /**
  * Servlet implementation class UpdateTboardServlet
  */
-@WebServlet("/tUpdate.bo")
-public class UpdateTboardServlet extends HttpServlet {
+@WebServlet("/gUpdate.bo")
+public class UpdateGboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateTboardServlet() {
+    public UpdateGboardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,24 +30,20 @@ public class UpdateTboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		TboardService tbs = new TboardService();
+		GboardService gbs = new GboardService();
 		
-		int tNo = Integer.parseInt(request.getParameter("tNo"));
+		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
-		Tboard tb = tbs.updateView(tNo);
+		Gboard gb = gbs.updateView(gNo);
 		
-		tb.settTitle(request.getParameter("ttitle"));
-		tb.settDate(request.getParameter("tdate"));
-		tb.settPrice(Integer.parseInt(request.getParameter("tprice")));
-		tb.setTicketNo(Integer.parseInt(request.getParameter("ticketno")));
-		tb.settContent(request.getParameter("editordata"));
-		tb.setTuNo(Integer.parseInt(request.getParameter("tNo")));
+		gb.setgTitle(request.getParameter("gtitle"));
+		gb.setgPrice(Integer.parseInt(request.getParameter("gprice")));
 		
-		int result = tbs.updateBoard(tb);
+		int result = gbs.updateBoard(gb);
 		
 		if( result > 0) {
 			
-			response.sendRedirect("tselectList.bo");
+			response.sendRedirect("gselectList.bo");
 		} else {
 			
 			request.setAttribute("msg", "게시글 수정 중 오류 발생");

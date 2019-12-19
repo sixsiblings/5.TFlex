@@ -1,4 +1,4 @@
-package com.six.semi.Tboard.controller;
+package com.six.semi.Gboard.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Tboard.model.service.TboardService;
-import com.six.semi.Tboard.model.vo.Tboard;
+import com.six.semi.Gboard.model.service.GboardService;
+import com.six.semi.Gboard.model.vo.Gboard;
 
 /**
  * Servlet implementation class UpdateViewTBoardServlet
  */
-@WebServlet("/tbUpView.bo")
-public class UpdateViewTBoardServlet extends HttpServlet {
+@WebServlet("/gbUpView.bo")
+public class UpdateViewGboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateViewTBoardServlet() {
+    public UpdateViewGboardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,15 +30,15 @@ public class UpdateViewTBoardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int tNo = Integer.parseInt(request.getParameter("tNo"));
+		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
-		Tboard tb = new TboardService().updateView(tNo);
+		Gboard gb = new GboardService().updateView(gNo);
 		
 		String page = "";
-		if(tb != null) {
+		if(gb != null) {
 			
-			page = "views/Tboard/TboardUpdateForm.jsp";
-			request.setAttribute("Tboard", tb);
+			page = "views/Gboard/GboardUpdateForm.jsp";
+			request.setAttribute("Gboard", gb);
 		} else {
 			
 			page = "views/common/errorPage.jsp";

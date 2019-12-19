@@ -212,4 +212,49 @@ public class GboardDAO {
 		
 		return gb;
 }
+	public int updateBoard(Connection con, Gboard gb) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("gupdateBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, gb.getgTitle());
+			pstmt.setInt(2, gb.getgPrice());
+			pstmt.setString(3, gb.getgContent());
+			pstmt.setInt(4, gb.getgNo());
+						
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally	{
+			close(pstmt);
+		}		
+		
+		return result;
+	
+	}
+
+	public int deleteBoard(Connection con, int gNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("gdeleteBoard");
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, gNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

@@ -49,10 +49,10 @@ body{
 
 			<br />
   				<input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="ttitle" placeholder="제목을 입력하세요." value="${Gboard.gTitle}">
+ 				 name="gtitle" placeholder="제목을 입력하세요." value="${Gboard.gTitle}">
  				 <br />
  				 <input type="text" class="form-control" aria-label="Text input with dropdown button" 
- 				 name="tprice" placeholder="가격을 입력하세요." value="${Gboard.gPrice}">
+ 				 name="gprice" placeholder="가격을 입력하세요." value="${Gboard.gPrice}">
  				
 		</div>
 
@@ -126,14 +126,14 @@ $('#summernote').summernote({
 }
  
   function completeUpdate(){
-      if($('#ttitle').val() == ""){
+      if($('#gtitle').val() == ""){
          alert("제목을 입력하세요.");
-         $('#ttitle').focus();
+         $('#gtitle').focus();
        
        
-      } else if($('#tprice').val() == ""){
+      } else if($('#gprice').val() == ""){
           alert("가격을 입력해 주세요.");
-          $('#tprice').focus();
+          $('#gprice').focus();
       
       } else if($('#summernote').val() == ""){
           alert("내용을 입력해 주세요.");
@@ -149,7 +149,7 @@ $('#summernote').summernote({
       var answer = confirm("게시글을 삭제 하시겠습니까?");
       
       if(answer == true){
-    	  $('#updateForm').attr("action", "${pageContext.request.contextPath}/tDelete.bo");
+    	  $('#updateForm').attr("action", "${pageContext.request.contextPath}/gDelete.bo");
         } 
    }
   	

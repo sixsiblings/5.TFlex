@@ -62,7 +62,7 @@ body{
 			<br>
 
 <c:if test="${!empty member }">
-<button class="btn btn-primary pull-right" onclick="goTInsert();">판매글 쓰기</button>
+<button class="btn btn-primary pull-right" onclick="goGInsert();">판매글 쓰기</button>
 </c:if>
 <br /><br /><br />
 	<table class="table table-hover" id="listArea">
