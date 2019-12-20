@@ -33,6 +33,7 @@
         #bhy-text{
         	margin-top : 20px;
         	margin-left : 20px;
+        	font-size : 30px;
         }
         
 	
@@ -58,25 +59,25 @@
         <ul class="nav" id="bhy-nav-font">       
         <li class="active ">
             <a href="${pageContext.request.contextPath }/views/myPage/myPage.jsp">
-              <i class="fas fa-gem"></i>정보수정
+              <i class="fas fa-user-edit"></i>회원정보수정
             </a>
           </li>
           <br>
           <li>
           	 <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-				<i class="fas fa-pencil-alt"></i>찜 목록
+				<i class="fas fa-heart"></i>찜 목록
             </a>
           </li>
         	<br>
           <li>
           	 <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
-				<i class="fas fa-bullhorn"></i>회원탈퇴
+				<i class="fas fa-user-slash"></i>회원탈퇴
             </a>
           </li>
           <br>   
           <li>
           	 <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
-				<i class="fas fa-bullhorn"></i>거래내역
+				<i class="far fa-credit-card"></i>거래내역
             </a>
           </li>              
         </ul>
@@ -98,7 +99,7 @@
 					</button>
 				</div>
 			<a class="navbar-brand" href="#pablo">              
-				<i class="fas fa-gem" id="bhy-text" >회원 정보 수정</i>
+				<i class="fas fa-user-edit" id="bhy-text" >&nbsp;&nbsp;회원 정보 수정</i>
 			</a>
 			</div>
 		</div>
@@ -116,7 +117,7 @@
 	<div class="col-md-8" style="margin: auto;" >
 		<div class="card-header"  id="bhy-card-shadow" 
 				style="background:white; height: 100px; font-size:30px;">                
-			<i class="fas fa-gem" id="bhy-text" >  회원 정보 수정</i>
+			<i class="fas fa-user-edit" id="bhy-text" >  회원 정보 수정</i>
 		</div>
 	</div><br />
 <!--  카드영역 분리가능한 끝 -->

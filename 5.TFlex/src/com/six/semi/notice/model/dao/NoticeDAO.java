@@ -272,6 +272,71 @@ public class NoticeDAO {
 		}
 		return n;
 	}
+
+	public Notice selectOne(Connection con, int ntNo) {
+		Notice n = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("NoticeselectOne");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, ntNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				n = new Notice();
+				
+				n.setNtNo(rset.getInt(1));
+				n.setNcgbno(rset.getInt(2));
+				n.setNtTitle(rset.getString(3));
+				n.setNtContent(rset.getString(4));
+				n.setNtCount(rset.getInt(5));
+				n.setNtDate(rset.getDate(6));
+				n.setGm(rset.getString(7));
+				n.setNstatus(rset.getString(8));
+				
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return n;
+	}
+
+	public int updateNotice(Connection con, Notice n) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("NoticeupdateNotice");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, n.getNtTitle());
+			pstmt.setString(2, n.getNtContent());
+			pstmt.setInt(3, n.getNtNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 }
 

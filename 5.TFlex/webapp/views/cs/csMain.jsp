@@ -22,7 +22,8 @@
         }
         
            #bhy-nav-font{
-        	font-size : 15px;
+        	font-size : 40px;
+        	
         } 
         
         #bhy-table, #bhy-table-header{
@@ -60,7 +61,7 @@
 		    display:block;
 		    font-size:15px;
 		    line-height:16px;
-		    background:#E5E5E8;
+		    background:#FDD7D2;
 			color:black;
 		    text-shadow:1px 1px 1px rgba(255,255,255,0.3);
 		    font-weight:700;
@@ -71,7 +72,7 @@
 		}
 		.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
 		    background:#4E4A48;
-		    color: #F89A60;
+		    color: #FAB7AD;
   		    text-shadow:1px 1px 1px rgba(0,0,0,0.5) 
 	}
 		.accordion .content {
@@ -127,18 +128,16 @@
         <ul class="nav" id="bhy-nav-font">       
           <li class="active ">
             <a href="${pageContext.request.contextPath }/views/cs/csMain.jsp">
-              <i class="fas fa-gem">FAQ</i>
+              <i class="fas fa-gem"></i>FAQ
             </a>
           </li>
-          <br />
-          <br />
+    
           <li>
           	 <a href="${pageContext.request.contextPath }/selectList.qna">
 				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
-        	<br/>
-        	<br/>
+
           <li>
           	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn"></i>Notice

@@ -1,4 +1,4 @@
-package com.six.semi.Gboard.controller;
+package com.six.semi.board.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Gboard.model.service.GboardService;
-import com.six.semi.Gboard.model.vo.Gboard;
-
 /**
- * Servlet implementation class DeleteTBoardServlet
+ * Servlet implementation class SelectOneKBOBoardTop5Servlet
  */
-@WebServlet("/gDelete.bo")
-public class DeleteGboardServlet extends HttpServlet {
+@WebServlet("/selectonekboardtop5.do")
+public class SelectOneKBOBoardTop5Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteGboardServlet() {
+    public SelectOneKBOBoardTop5Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,26 +26,17 @@ public class DeleteGboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int gNo = Integer.parseInt(request.getParameter("gNo"));
+		int bNo = Integer.parseInt(request.getParameter("bNo"));
+		String page = "";
 		
-		GboardService gbs = new GboardService();
-		
-		Gboard gb = gbs.updateView(gNo);
-		
-		int result = gbs.deleteBoard(gNo);
-		
-		if(result > 0) {
-			
-			response.sendRedirect("gselectList.bo");
-			
+		if(bNo > -1) {
+			page = "/kselectOne.bo";
+			request.setAttribute("board", bNo);
 		} else {
-			
-			request.setAttribute("msg", "게시글 삭제 실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp")
-				   .forward(request, response);
-			
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 상세보기 에러!!");
 		}
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	/**

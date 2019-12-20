@@ -136,8 +136,9 @@ public class TboardDAO {
 			pstmt.setString(2, tb.gettContent());
 			pstmt.setInt(3, tb.gettPrice());
 			pstmt.setString(4, tb.gettDate());
-			pstmt.setInt(5, tb.getTicketNo());
-			pstmt.setInt(6, tb.getTuNo());
+			pstmt.setInt(5, tb.getsNo());
+			pstmt.setInt(6, tb.getTicketNo());
+			pstmt.setInt(7, tb.getTuNo());
 			
 			result = pstmt.executeUpdate();
 			
@@ -194,18 +195,21 @@ public class TboardDAO {
 			if(rset.next()) {
 				tb = new Tboard();
 				
-				tb.settNo(rset.getInt(1));
-				tb.settTitle(rset.getString(2));
-				tb.settContent(rset.getString(3));
-				tb.settPrice(rset.getInt(4));
-				tb.settCount(rset.getInt(5));
-				tb.settDate(rset.getString(6));
-				tb.setsNo(rset.getInt(7));
+				tb.setsNo(rset.getInt(1));
+				tb.settNo(rset.getInt(2));
+				tb.settTitle(rset.getString(3));
+				tb.settContent(rset.getString(4));
+				tb.settPrice(rset.getInt(5));
+				tb.settCount(rset.getInt(6));
+				tb.settDate(rset.getString(7));
 				tb.setTicketNo(rset.getInt(8));
 				tb.settEnrolldate(rset.getDate(9));
 				tb.setTuNo(rset.getInt(10));
 				tb.settStatus(rset.getString(11));
-
+				tb.setsName(rset.getString(12));
+				tb.setLat(rset.getString(13));
+				tb.setLng(rset.getString(14));
+				
 			}
 			
 		} catch (SQLException e) {

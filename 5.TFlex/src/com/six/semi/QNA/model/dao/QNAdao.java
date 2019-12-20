@@ -124,10 +124,10 @@ public class QNAdao {
 				QNA q = new QNA();
 				
 				/* q.setQaContent(rset.getCursorName(1)); */
-				
+				 
 				q.setqNo(rset.getInt(2));
-				q.setqTitle(rset.getString(4));
-				q.setQaStatus(rset.getString(6));
+				q.setqTitle(rset.getString(3));
+				q.setQaStatus(rset.getString(5));
 							
 				list.add(q);
 			}
@@ -165,9 +165,9 @@ public class QNAdao {
 				q = new QNA();
 				
 				q.setqNo(rset.getInt(2));
-				q.setqTitle(rset.getString(4));
-				q.setqContent(rset.getString(5));
-				q.setQaStatus(rset.getString(6));				
+				q.setqTitle(rset.getString(3));
+				q.setqContent(rset.getString(4));
+				q.setQaStatus(rset.getString(5));				
 				
 			}
 			

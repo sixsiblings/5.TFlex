@@ -69,7 +69,7 @@ body{
 <button class="btn btn-primary pull-right" onclick="goTInsert();" style="margin-right:10px">판매글 쓰기</button>
 </c:if>
 <br /><br /><br />
-	<table class="table table-hover" id="listArea">
+	<table class="table table-hover" id="listArea" align="center">
   <thead>
     <tr>
       <th scope="col">번호</th>

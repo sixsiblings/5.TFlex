@@ -116,4 +116,15 @@ public class BoardService {
 		return list;
 	}
 
+	public ArrayList<Board> kTop5() {
+		con = getConnection();
+		ArrayList<Board> list = bdao.kTop5(con);
+		
+		close(con);
+		
+		return list;
+	}
+
+
+
 }

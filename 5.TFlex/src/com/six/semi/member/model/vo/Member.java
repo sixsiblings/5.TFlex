@@ -15,9 +15,7 @@ public class Member implements Serializable {
 	private String  birthNo; // 회원 생년월일6
 	private String  email; // 회원 이메일7
 	private Date  enrollDate; // 회원 가입일8
-	private int  iNo; // 관심사 번호9
-	private String  rPerson; // 추천인10
-	private String  signal; //  알림11
+	private String  rPerson; // 추천인9
 	private int  dCount; // 신고 횟수12
 	private String  uGrade; // 회원 등급13
 	private String  uStatus; // 회원 탈퇴 여부14
@@ -31,8 +29,8 @@ public class Member implements Serializable {
 
 	// 매개변수 생성자 - 회원가입용
 	
-	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email, int iNo,
-			String rPerson, String signal) {
+	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email,
+			String rPerson) {
 		super();
 		this.userId = userId;
 		this.nName = nName;
@@ -40,9 +38,7 @@ public class Member implements Serializable {
 		this.userName = userName;
 		this.birthNo = birthNo;
 		this.email = email;
-		this.iNo = iNo;
 		this.rPerson = rPerson;
-		this.signal = signal;
 	}
 
 
@@ -65,7 +61,7 @@ public class Member implements Serializable {
 	
 	
 
-	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email, int iNo) {
+	public Member(String userId, String nName, String userPwd, String userName, String birthNo, String email) {
 		super();
 		this.userId = userId;
 		this.nName = nName;
@@ -73,7 +69,6 @@ public class Member implements Serializable {
 		this.userName = userName;
 		this.birthNo = birthNo;
 		this.email = email;
-		this.iNo = iNo;
 	}
 
 
@@ -83,8 +78,8 @@ public class Member implements Serializable {
 	@Override
 	public String toString() {
 		return "Member [uNo=" + uNo + ", userId=" + userId + ", nName=" + nName + ", userPwd=" + userPwd + ", userName="
-				+ userName + ", birthNo=" + birthNo + ", email=" + email + ", enrollDate=" + enrollDate + ", iNo=" + iNo
-				+ ", rPerson=" + rPerson + ", signal=" + signal + ", dCount=" + dCount + ", uGrade=" + uGrade
+				+ userName + ", birthNo=" + birthNo + ", email=" + email + ", enrollDate=" + enrollDate
+				+ ", rPerson=" + rPerson + ", dCount=" + dCount + ", uGrade=" + uGrade
 				+ ", uStatus=" + uStatus + "]";
 	}
 	
@@ -154,28 +149,12 @@ public class Member implements Serializable {
 		this.enrollDate = enrollDate;
 	}
 
-	public int getiNo() {
-		return iNo;
-	}
-
-	public void setiNo(int iNo) {
-		this.iNo = iNo;
-	}
-
 	public String getrPerson() {
 		return rPerson;
 	}
 
 	public void setrPerson(String rPerson) {
 		this.rPerson = rPerson;
-	}
-
-	public String getSignal() {
-		return signal;
-	}
-
-	public void setSignal(String signal) {
-		this.signal = signal;
 	}
 
 	public int getdCount() {

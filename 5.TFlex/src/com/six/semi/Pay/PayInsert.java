@@ -1,26 +1,27 @@
-package com.six.semi.Gboard.controller;
+package com.six.semi.Pay;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Gboard.model.service.GboardService;
-import com.six.semi.Gboard.model.vo.Gboard;
+import com.six.semi.Pay.model.service.PayService;
+import com.six.semi.Pay.model.vo.Pay;
 
 /**
- * Servlet implementation class DeleteTBoardServlet
+ * Servlet implementation class PayInsert
  */
-@WebServlet("/gDelete.bo")
-public class DeleteGboardServlet extends HttpServlet {
+@WebServlet("/PayInsert.pa")
+public class PayInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteGboardServlet() {
+    public PayInsert() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,26 +30,31 @@ public class DeleteGboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
-		GboardService gbs = new GboardService();
+		PayService ps = new PayService();
 		
-		Gboard gb = gbs.updateView(gNo);
+		int usNo = Integer.parseInt(request.getParameter("US_NO"));
+		int ttno = Integer.parseInt(request.getParameter("ttNo"));
+		String trno = request.getParameter("TR_NO");
+		int ubno = Integer.parseInt(request.getParameter("UB_NO"));
 		
-		int result = gbs.deleteBoard(gNo);
+//		System.out.println("결과확인 : " + usno + " + " + ttno + " + " + trno + " + " + ubno);
+		
+		Pay p = new Pay();
+		
+		p.setUsNo(usNo);
+		p.settNo(ttno);
+		p.setTrNo(trno);
+		p.setUbNo(ubno);
+		
+		int result = ps.insertHistory(p);
 		
 		if(result > 0) {
-			
-			response.sendRedirect("gselectList.bo");
-			
+			response.sendRedirect("views/myPage/myPage.jsp");
 		} else {
-			
-			request.setAttribute("msg", "게시글 삭제 실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp")
-				   .forward(request, response);
-			
+			response.sendRedirect("views/common/errorPage.jsp");
 		}
+		
 	}
 
 	/**

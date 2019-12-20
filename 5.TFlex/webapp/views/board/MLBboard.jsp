@@ -92,16 +92,16 @@ body{
     </tr>
   </thead>
   <c:forEach var="board" items="${list}">
-  <tr>
-  <td>
-  <input type="hidden" value="${board.bno}"/>
-  				${board.bno} 
-  </td>
-  <td>${board.btitle}</td>
-  <td>${board.uno}</td>
-  <td>${board.bbenrolldate}</td>
-  <td>${board.bcount}</td>
-  </tr>
+	  <tr>
+		  <td>
+		  <input type="hidden" value="${board.bno}"/>
+		  				${board.bno} 
+		  </td>
+		  <td>${board.btitle}</td>
+		  <td>${board.uno}</td>
+		  <td>${board.bbenrolldate}</td>
+		  <td>${board.bcount}</td>
+	  </tr>
   </c:forEach>
 </table>
 

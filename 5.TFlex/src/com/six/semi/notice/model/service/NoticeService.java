@@ -93,5 +93,31 @@ public class NoticeService {
 		
 		return n;
 	}
+
+	public Notice updateView(int ntNo) {
+		
+		con = getConnection();
+		
+		Notice n = null;
+		
+		n = ndao.selectOne(con, ntNo);
+		
+		close(con);
+		
+		return n;
+	}
+
+	public int updateNotice(Notice n) {
+		
+		con = getConnection();
+		
+		int result = ndao.updateNotice(con, n);
+		
+		if(result > 0) commit(con);
+		
+		else rollback(con);
+		
+		return result;
+	}
 		
 	}

@@ -1,4 +1,4 @@
-package com.six.semi.Gboard.controller;
+package com.six.semi.notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.six.semi.Gboard.model.service.GboardService;
-import com.six.semi.Gboard.model.vo.Gboard;
+import com.six.semi.notice.model.service.NoticeService;
+import com.six.semi.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class DeleteTBoardServlet
+ * Servlet implementation class NoticeUpdateServlet
  */
-@WebServlet("/gDelete.bo")
-public class DeleteGboardServlet extends HttpServlet {
+@WebServlet("/nupdate.do")
+public class NoticeUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteGboardServlet() {
+    public NoticeUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,25 +29,22 @@ public class DeleteGboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int gNo = Integer.parseInt(request.getParameter("gNo"));
 		
-		GboardService gbs = new GboardService();
+		NoticeService ns = new NoticeService();
+		int ntNo = Integer.parseInt(request.getParameter("ntNo"));
 		
-		Gboard gb = gbs.updateView(gNo);
+		Notice n = ns.updateView(ntNo);
+		n.setNtTitle(request.getParameter("ntTitle"));
+		n.setNtContent(request.getParameter("ntContent"));
 		
-		int result = gbs.deleteBoard(gNo);
+		int result = ns.updateNotice(n);
 		
-		if(result > 0) {
-			
-			response.sendRedirect("gselectList.bo");
-			
+		if( result > 0) {
+			response.sendRedirect("noticelist.do");
 		} else {
 			
-			request.setAttribute("msg", "게시글 삭제 실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp")
-				   .forward(request, response);
-			
+			request.setAttribute("msg", "게시글 수정 중 오류 발생");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

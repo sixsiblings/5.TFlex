@@ -85,13 +85,11 @@
               <i class="fas fa-user"></i>FAQ
             </a>
           </li>
-          <br />
           <li class="active ">
           	 <a href="${ pageContext.request.contextPath }/selectList.qna">
-				<i class="fas fa-pencil-alt">Q&A</i>
+				<i class="fas fa-pencil-alt"></i>Q&A
             </a>
           </li>
-        	<br /><br />
           <li>
           	 <a href="${ pageContext.request.contextPath }/noticelist.do">
 				<i class="fas fa-bullhorn"></i>Notice
@@ -144,6 +142,20 @@
 	</div>
 <br />	
 <!--  중간 카드 영역 끝 -->	
+
+<!--  중간 카드 영역 시작 -->
+	<div class="col-md-8" style="margin: auto;">
+		<div class="card-header"  id="bhy-card-shadow" 
+			style="background:white;  height: 120px; font-size:20px; ">     
+					<br />           
+			<i class="fas fa-check-alt" id="bhy-card-text" style="color:#F5AF2E;">  
+			&nbsp;문의하신 내용의 답변은 회원가입 시 입력하신 메일로 발송해드립니다. <br /><br />
+			&nbsp;답변 올리시기 전에 입력하신 이메일을 먼저 확인해주세요~^0^
+			</i>               	
+		</div>
+	</div>
+<!--  중간 카드 영역 끝 -->
+
           
 <!-- 본문 테이블 영역 -->
 <div class="col-md-8" style="margin: auto;">

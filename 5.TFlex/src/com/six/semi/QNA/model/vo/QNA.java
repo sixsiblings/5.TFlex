@@ -7,13 +7,12 @@ public class QNA implements Serializable {
 	
 	private int uNo; //1 작성자
 	private int qNo; //2 문의번호
-	private int qCno; //3 답변번호
-	private String qTitle; // 4 문의제목
-	private String qContent; // 5문의내용
-	private String qaStatus; // 6 답변여부
-	private String qaContent; // 7 답변내용
-	private Date qDate; // 8 문의일
-	private String qStatus; // 9 삭제여부
+	private String qTitle; // 3 문의제목
+	private String qContent; // 4 문의내용
+	private String qaStatus; // 5 답변여부
+	private String qaContent; // 6 답변내용
+	private Date qDate; // 7 문의일
+	private String qStatus; // 8 삭제여부
 
 	
 	// 기본 생성자
@@ -27,7 +26,6 @@ public class QNA implements Serializable {
 		super();
 		this.uNo = uNo;
 		this.qNo = qNo;
-		this.qCno = qCno;
 		this.qTitle = qTitle;
 		this.qContent = qContent;
 		this.qaStatus = qaStatus;
@@ -39,7 +37,7 @@ public class QNA implements Serializable {
 	// 투스트링
 	@Override
 	public String toString() {
-		return "QNA [uNo=" + uNo + ", qNo=" + qNo + ", qCno=" + qCno + ", qTitle=" + qTitle + ", qContent=" + qContent
+		return "QNA [uNo=" + uNo + ", qNo=" + qNo  + ", qTitle=" + qTitle + ", qContent=" + qContent
 				+ ", qaStatus=" + qaStatus + ", qaContent=" + qaContent + ", qDate=" + qDate + ", qStatus=" + qStatus
 				+ "]";
 	}
@@ -62,13 +60,6 @@ public class QNA implements Serializable {
 		this.qNo = qNo;
 	}
 
-	public int getqCno() {
-		return qCno;
-	}
-
-	public void setqCno(int qCno) {
-		this.qCno = qCno;
-	}
 
 	public String getqTitle() {
 		return qTitle;

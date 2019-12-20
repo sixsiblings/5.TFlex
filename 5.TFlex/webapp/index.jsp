@@ -89,14 +89,14 @@ url(resources/img/base7.jpg);
    left:400px;
    font-size: 50px;
    color: black;
-}
+   }
 -------------------------
 table{
        width: 100%;
     border-top: 1px solid #444444;
     border-collapse: collapse;
 }
-th, td {
+.selectOne {
     border-bottom: 1px solid #444444;
     padding: 10px;
     BORDER-BOTTOM: gray 1px dashed; 
@@ -106,6 +106,13 @@ th, td {
      text-align: center;
      color: rgb(35, 82, 165);
  }
+.selecOne{
+	BORDER-BOTTOM: none; 
+}
+ 
+.selectOne3 {
+	border: none;
+}
 /* 백혜영꺼 지우지마세요 제발 */
 #bhy-loginBtn_btn:hover, #bhy-csBtn:hover, #bhy-myPageBtn:hover, #bhy-logoutBtn_btn:hover {
    color : white;
@@ -471,6 +478,7 @@ hr{
   font-weight: bold;
    }
 }
+
 </style>
 </head>
 
@@ -511,7 +519,7 @@ hr{
    <br /><br /><br /><br /><br /><br /><br /><br />
 
    <!-- Icons Grid -->
-   <a href="views/Nboard/NoticeBoard.jsp"><h1 id="h1" ><strong>공지사항</strong></h1></a>
+   <a href="${ pageContext.request.contextPath }/noticelist.do"><h1 id="h1" ><strong>공지사항</strong></h1></a>
    <hr>
    <div class="site-section">
       <div class="container">
@@ -537,8 +545,8 @@ hr{
          </div>
       </div>
    </div>
-   
-   <a href="views/Tboard/boardListTicket.jsp"><h1 id="h1"><strong>티켓 게시판</strong></h1></a>
+  
+   <a href="${ pageContext.request.contextPath }/tselectList.bo"><h1 id="h1"><strong>티켓 게시판</strong></h1></a>
    <hr />
    <div class="site-section">
       <div class="container">
@@ -637,7 +645,7 @@ hr{
       </div>
    </div>
 
-   <a href="views/board/KBOboard.jsp"><h1 id="h1"><strong>KBO</strong></h1></a>
+   <a href="${ pageContext.request.contextPath }/kselectList.bo"><h1 id="h1"><strong>KBO</strong></h1></a>
    <hr />
    <div class="site-section">
       <div class="container">
@@ -669,7 +677,7 @@ hr{
                   </div>
                   <div class="text p-4">
                      <h2 class="h5 text-black">
-                        <a class="redfont" href="https://www.youtube.com/embed/FeqhJVzlE-4">2019 프로야구 [키움 VS 두산]</a>
+                       <a class="redfont" href="https://www.youtube.com/embed/FeqhJVzlE-4">2019 프로야구 [키움 VS 두산]</a>
                      </h2>
                      <span class="text-uppercase date d-block mb-3"
                         style="color: gray"><small>TFLEX &bullet;
@@ -701,7 +709,7 @@ hr{
    </div>
 
 
-   <a href="views/Gboard/GoodsBoard.jsp"><h1 id="h1"><strong>굿즈</strong></h1></a>
+   <a href="${ pageContext.request.contextPath }/gselectList.bo"><h1 id="h1"><strong>굿즈</strong></h1></a>
    <hr />
    <div class="site-section">
       <div class="container">
@@ -867,8 +875,6 @@ hr{
    
    <c:import url="views/common/footer.jsp"></c:import>
 
-   
-
    <c:import url="views/common/loginUtil.jsp"/>
    
    <script>
@@ -887,7 +893,7 @@ hr{
                if(i < 5){
                var $tr = $('<tr>');
                var $input = $('<input type="hidden" value="' + data[i].ntNo + '">');
-               var $ntNo = $('<td class="selectOne">').text((i));
+               var $ntNo = $('<td class="selectOne">').text(parseInt(i)+parseInt(1));
                var $ntTitle = $('<td class="selectOne" onclick="selectNOne('+ data[i].ntNo+');">').text(data[i].ntTitle);
                var $gm = $('<td class="selectOne">').text(data[i].gm);
                
@@ -920,9 +926,9 @@ hr{
 	               
 	                var $tr = $('<tr>');
 	                var $input = $('<input type="hidden" value="' + data[i].tNo + '">');
-	                var $tNo = $('<td class="selectOne">').text((i));
+	                var $tNo = $('<td class="selectOne">').text(parseInt(i)+parseInt(1));
 	                var $tTitle = $('<td class="selectOne" onclick="selectTOne('+ data[i].tNo+');">').text(data[i].tTitle);
-	                var $tPrice = $('<td class="selectOne">').text(data[i].tPrice);
+	                var $tPrice = $('<td class="selectOne">').text(data[i].tPrice+"원");
 	                var $sNo = $('<td class="selectOne">').text(data[i].sNo);
 	                var $tCount = $('<td class="selectOne">').text(data[i].tCount);
 	                
@@ -952,15 +958,13 @@ hr{
 	             for(var i in data){
 	               
 	                var $tr = $('<tr>');
-	                var $input = $('<input type="hidden" value="' + data[i].bNo + '">');
-	                var $bno = $('<td class="selectOne">').text((i));
-	                var $btitle = $('<td class="selectOne" onclick="selectTOne('+ data[i].bno+');">').text(data[i].btitle);
+	                var $input = $('<input type="hidden" value="' + data[i].bno + '">');
+	                var $btitle = $('<td class="selectOne3" onclick="selectMOne('+ data[i].bno +');">').text(data[i].btitle);
 	                
 	                if(i == 1){
 	                	
 		                $table = $('#MboardTop51');
 		                $tr.append($input);
-		                $tr.append($bno);
 		                $tr.append($btitle);
 		                
 		                $table.append($tr);
@@ -968,7 +972,6 @@ hr{
 		                	
 		                	$table = $('#MboardTop52');
 		                	$tr.append($input);
-			                $tr.append($bno);
 			                $tr.append($btitle);
 			                
 			                $table.append($tr);
@@ -976,7 +979,6 @@ hr{
 		                	
 		                	$table = $('#MboardTop53');
 		                	$tr.append($input);
-			                $tr.append($bno);
 			                $tr.append($btitle);
 			                
 			                $table.append($tr);
@@ -987,6 +989,8 @@ hr{
 	             console.log(request);
 	          }
 	       }); 
+	   
+	  
    });  
    
    
@@ -999,10 +1003,10 @@ hr{
 
 	   location.href="${pageContext.request.contextPath}/selectonetboardtop5.do?tNo=" + tNo;
 }
-   function selectMOne(mNo){
+   function selectMOne(bno){
 	
-	   location.href="${pageContext.request.contextPath}/selectonemboardtop5.do?bNo=" + bNo;
-   }
+	   location.href="${pageContext.request.contextPath}/selectonemboardtop5.do?bno=" + bno;
+   }s
 
    
    

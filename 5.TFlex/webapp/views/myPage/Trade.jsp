@@ -16,7 +16,7 @@
   <c:import url="../common/myPageUtil.jsp"/>
 
 	<style>
-		  #bhy-card-shadow{
+	  #bhy-card-shadow{
             border-style : hidden;
             box-shadow : 5px 5px 3px gray;
         }
@@ -30,11 +30,34 @@
         	
         }
 
+        #bhy-text-bhy{
+        	margin-top : 20px;
+        	margin-left : 300px;
+        	font-size : 20px; 
+        }
+
+		p{
+			font-size : 20px;
+		}
+
+  table, th, td {
+    border: 1px solid #EAECEE;
+    align : center;
+    
+  }
+  
+  table {
+
+    width: 100%;
+    height: 400px;
+  }
         #bhy-text{
         	margin-top : 20px;
         	margin-left : 20px;
+        	font-size : 30px;
         }
         
+
 	</style>
 </head>
 
@@ -57,25 +80,25 @@
              
           <li>
             <a href="myPage.jsp">
-              <i class="fas fa-gem"></i>정보수정
+              <i class="fas fa-user-edit"></i>회원정보수정
             </a>
           </li>
           <br>
           <li>
           	 <a href="${pageContext.request.contextPath }/views/myPage/favorite.jsp">
-				<i class="fas fa-pencil-alt"></i>찜 목록
+				<i class="fas fa-heart"></i>찜 목록
             </a>
           </li>
         	<br>
           <li>
           	 <a href="${pageContext.request.contextPath }/views/myPage/memberDeleteForm.jsp">
-				<i class="fas fa-bullhorn"></i>회원탈퇴
+				<i class="fas fa-user-slash"></i>회원탈퇴
             </a>
           </li>
           <br>   
           <li  class="active ">
           	 <a href="${pageContext.request.contextPath }/views/myPage/Trade.jsp">
-				<i class="fas fa-bullhorn"></i>거래내역
+				<i class="far fa-credit-card"></i>거래내역
             </a>
           </li>                         
         </ul>
@@ -97,7 +120,7 @@
 					</button>
 				</div>
 			<a class="navbar-brand" href="#pablo">              
-				<i class="fas fa-gem" id="bhy-text" >거래내역</i>
+				<i class="far fa-credit-card" id="bhy-text" >&nbsp;&nbsp;거래내역</i>
 			</a>
 			</div>
 		</div>
@@ -161,7 +184,7 @@
 
 
 <!-- Grid row -->
-<div class="row" style="align:center;">
+<div class="row" style="align:center;" id="bhy-text-bhy">
 
   <!-- Grid column -->
   <div class="col-md-8 mb-6">
@@ -173,7 +196,6 @@
       <div class="view">
         <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(125).jpg" class="card-img-top" alt="photo">
         <a href="#">
-          <div class="mask rgba-white-slight"></div>
         </a>
       </div>
 
@@ -206,6 +228,7 @@
 <!-- 본문 영역 끝  -->
 
 		</div>
+	</div>
 	</div>
 </body>
 </html>
