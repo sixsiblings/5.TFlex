@@ -11,8 +11,8 @@
 <c:import url="../common/commonUtil.jsp"/>
 <style>
 table,th,td{
-	border: 1px solid white;
-	border-collapse: collapse;
+   border: 1px solid white;
+   border-collapse: collapse;
 }
 
 th,td{
@@ -24,48 +24,46 @@ padding: 20px 30px 10px 20px;
 }
 
 body{
-	background-color:rgb(229, 229, 220);
+   background-color:rgb(229, 229, 220);
 }
 
 #yu{
-  width:450px;
-  height:200px;
-  background-size: 450px;
+  width:400px;
+  height:400px;
+  background-size: 400px;
   background-repeat:no-repeat;
-  margin:auto;
 }
 .tableArea{
-	
-		width:auto;
-		height:auto;
-		color : navy;
-		background:white;
-		margin: 0 25%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
-		align:center;
+   
+      width:auto;
+      height:auto;
+      color : navy;
+      background:white;
+      margin: 0 25%; /*위 아래는 여백 없고, 좌우만 현재 화면의 15%로 !!*/
+      align:center;
 }
 .pagingArea{
-	width:auto;
+   width:auto;
 }
-	</style>
+   </style>
 </head>
 <body>
 <c:import url="../common/header.jsp"/>
-	
-	<section>
+   <br /><br />
+   <section>
   <div class="tableArea" align="center">
-    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/ticket4.jpg;">
+  <br />
+    <div id="yu" class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('${pageContext.request.contextPath}/resources/img/goods.jpg;">
     </div>
-	
-    <br /><br />
-    
-	<div class="tableArea" align="center">
-			<br>
+   <br />
+   <div class="tableArea" align="center">
+         <br>
 
 <c:if test="${!empty member }">
 <button class="btn btn-primary pull-right" onclick="goGInsert();">판매글 쓰기</button>
 </c:if>
 <br /><br /><br />
-	<table class="table table-hover" id="listArea">
+   <table class="table table-hover" id="listArea">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -80,10 +78,10 @@ body{
   <tr>
   <td>
   <input type="hidden" value="${Gboard.gNo}"/>
-  				${Gboard.gNo}
+              ${Gboard.gNo}
   </td>
   <td>${Gboard.gTitle}
-  			
+           
   </td>
   <td>${Gboard.gPrice}</td>
   <td>${Gboard.guNo}</td>
@@ -96,71 +94,77 @@ body{
 <br /><br /><br /><br />
 
 <%-- 페이지 처리 구현하기 --%>
-		<div class="pagingArea" align="center" aria-label="Page navigation example">
-			  <c:url var="tselectList" value="tselectList.bo"/>
-			
-			<!-- 처음 페이지 버튼 -->
-			<button onclick="location.href='${gselectList}?currentPage=1'">
-				&lt;&lt;
-			</button>
-			
-			<!-- 이전 페이지 버튼 -->
-			<c:if test="${ pi.currentPage le 1 }">
-				<button disabled>&lt;</button>
-			</c:if>
-			<c:if test="${ pi.currentPage gt 1 }">
-				<button onclick="location.href='${gselectList}?currentPage=${pi.currentPage - 1}'">
-					&lt;
-				</button>
-			</c:if>
-			
-			<!-- 상세 페이지 구현을 위한 반복문 -->
-			<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
-				<c:if test="${p eq pi.currentPage }">
-					<button disabled>
-						<b>${p}</b>
-					</button>
-				</c:if>
-				<c:if test="${ p ne pi.currentPage}">
-					<button onclick="location.href='${gselectList}?currentPage=${p}'">
-						${p}
-					</button>
-				</c:if>
-			</c:forEach>
-			
-			
-			<!-- 다음 페이지 버튼 -->
-			<c:if test="${ pi.currentPage ge pi.maxPage }">
-				<button disabled>&gt;</button>
-			</c:if>
-			<c:if test="${ pi.currentPage lt pi.maxPage }">
-				<button onclick="location.href='${gselectList}?currentPage=${pi.currentPage + 1}'">
-					&gt;
-				</button>
-			</c:if>
-			
-			<!-- 마지막 페이지 버튼 -->
-			<button onclick="location.href='${gselectList}?currentPage=${pi.maxPage}'">
-				&gt;&gt;
-			</button>
+      <div class="pagingArea" align="center" aria-label="Page navigation example">
+           <c:url var="tselectList" value="tselectList.bo"/>
+         
+         <!-- 처음 페이지 버튼 -->
+         <button onclick="location.href='${gselectList}?currentPage=1'">
+            &lt;&lt;
+         </button>
+         
+         <!-- 이전 페이지 버튼 -->
+         <c:if test="${ pi.currentPage le 1 }">
+            <button disabled>&lt;</button>
+         </c:if>
+         <c:if test="${ pi.currentPage gt 1 }">
+            <button onclick="location.href='${gselectList}?currentPage=${pi.currentPage - 1}'">
+               &lt;
+            </button>
+         </c:if>
+         
+         <!-- 상세 페이지 구현을 위한 반복문 -->
+         <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage}">
+            <c:if test="${p eq pi.currentPage }">
+               <button disabled>
+                  <b>${p}</b>
+               </button>
+            </c:if>
+            <c:if test="${ p ne pi.currentPage}">
+               <button onclick="location.href='${gselectList}?currentPage=${p}'">
+                  ${p}
+               </button>
+            </c:if>
+         </c:forEach>
+         
+         
+         <!-- 다음 페이지 버튼 -->
+         <c:if test="${ pi.currentPage ge pi.maxPage }">
+            <button disabled>&gt;</button>
+         </c:if>
+         <c:if test="${ pi.currentPage lt pi.maxPage }">
+            <button onclick="location.href='${gselectList}?currentPage=${pi.currentPage + 1}'">
+               &gt;
+            </button>
+         </c:if>
+         
+         <!-- 마지막 페이지 버튼 -->
+         <button onclick="location.href='${gselectList}?currentPage=${pi.maxPage}'">
+            &gt;&gt;
+         </button>
 <br /><br />
 </div></div>
 <script>
 
 $(function(){
-	$("#listArea td").click(function(){
-	var gNo = $(this).parent().find("input").val();
-	location.href="${pageContext.request.contextPath}/gselectOne.bo?gNo=" + gNo;
+   $("#listArea td").click(function(){
+   var gNo = $(this).parent().find("input").val();
+   location.href="${pageContext.request.contextPath}/gselectOne.bo?gNo=" + gNo;
 });
 });
 
 function goGInsert(){
-	location.href = "${pageContext.request.contextPath}/views/Gboard/GboardInsertForm.jsp";
+   location.href = "${pageContext.request.contextPath}/views/Gboard/GboardInsertForm.jsp";
 }
 
 </script>
 
-  <c:import url="../common/footer.jsp"/>
+</div>
+
+<br />
+<br />
+<br />
+
+  <c:import url="../common/footer.jsp"/> 
 
 </body>
 </html>
