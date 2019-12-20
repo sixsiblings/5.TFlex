@@ -93,38 +93,37 @@ body {
 					</table>
 											<!-- 지도 스크립트 영역 -->
 		<div id="map" style="width:500px;height:400px;"></div>									
-		<script type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4386ae6e5b37e1e4f14b37f26635d200"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=031a820b4e39b046d2e52ef28cccc986"></script>
 		<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    	mapOption = { 
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+       mapOption = { 
         center: new kakao.maps.LatLng('${Tboard.lat}', '${Tboard.lng}'), // 지도의 중심좌표
         level: 4 // 지도의 확대 레벨
-    	};
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		// 마커 이미지의 주소
-		var markerImageUrl = '../../resources/while.jsp', 
-		    markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
-		    markerImageOptions = { 
-		        offset : new kakao.maps.Point(34, 16)// 마커 좌표에 일치시킬 이미지 안의 좌표
-		    };
+       };
+      var map = new kakao.maps.Map(mapContainer, mapOption); 
+      // 마커 이미지의 주소
+      var markerImageUrl = '../../resources/while.jsp', 
+          markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
+          markerImageOptions = { 
+              offset : new kakao.maps.Point(34, 16)// 마커 좌표에 일치시킬 이미지 안의 좌표
+          };
 
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng('${Tboard.lat}', '${Tboard.lng}'); 
-		
-		// 마커를 생성합니다
-		var marker = new kakao.maps.Marker({
-		    position: markerPosition
-		});
-		
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
-		
-		// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-		// marker.setMap(null);    
-		</script>
+      // 마커가 표시될 위치입니다 
+      var markerPosition  = new kakao.maps.LatLng('${Tboard.lat}', '${Tboard.lng}'); 
+      
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+          position: markerPosition
+      });
+      
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+      
+      // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+      // marker.setMap(null);    
+      </script>
 					<br> 
 					<input type="hidden" class="form-control"
 						aria-label="Text input with dropdown button" name="seller"

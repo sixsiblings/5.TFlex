@@ -76,8 +76,6 @@
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					msg += '카드 승인번호 : ' + rsp.apply_num;
 					
-					alert('${param.ttNo}');
-					
 					location.href = "${pageContext.request.contextPath}/PayInsert.pa"
 								  + "?US_NO=" + '${param.seller}' + "&ttNo=" + '${param.ttNo}'
 								  + "&TR_NO=" + rsp.merchant_uid + "&UB_NO=" + '${member.uNo}';

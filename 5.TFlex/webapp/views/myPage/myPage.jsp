@@ -190,47 +190,15 @@
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="email" name ="email" placeholder="${member.email}" >
+                        <input type="email" class="form-control" id="email" name ="email" value="${member.email}" >
                       </div>
                     </div>
 
 	
-	 <label for="materialRegisterFormPhone">관심 구단 선택</label>
+	 
    <fieldset class="form-check" style="border: 0.5px solid lightgrey; 
       										padding-top:10px; padding: 10px;border-radius : 5px; text-align : center;">
-	<div class="form-radio">
-		<input type="radio" class="form-radio-input" name="iNo" value="1"  id="두산"> &nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Bears" >두산</label> &nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;		
-		
-		<input type="radio" class="form-radio-input" name="iNo" value="2"  id="키움">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Heroes" >키움</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-		
-		<input type="radio" class="form-radio-input" name="iNo" value="3"  id="NC">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Dinos" >NC</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-
-		<input type="radio" class="form-radio-input" name="iNo" value="4"  id="LG">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Twins" >LG</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-
-		<input type="radio" class="form-radio-input" name="iNo" value="5"  id="삼성">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Lions" >삼성</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;													
-	  </div>                     
-		<br />
-	<div class="form-radio">
-		<input type="radio" class="form-radio-input" name="iNo" value="6"  id="기아">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Tigers" >KIA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-		
-		<input type="radio" class="form-radio-input" name="iNo" value="7"  id="한화">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Eagles" >한화</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-		
-		<input type="radio" class="form-radio-input" name="iNo" value="8"  id="KT">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Wiz" >KT</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-
-		<input type="radio" class="form-radio-input" name="iNo" value="9"  id="롯데">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Giants" >롯데</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-
-		<input type="radio" class="form-radio-input" name="iNo" value="10"  id="SK">&nbsp;&nbsp;&nbsp;&nbsp;
-		<label class="form-radio-label" for="Wyverns" >SK</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;														
-	  </div>
+	
 	  <br />
 	</fieldset>
 	
@@ -265,6 +233,37 @@
 
 		</div>
 	</div>
-	</div>
+	
+	<script>
+	$('#nNameCheck').click(function(){
+        $.ajax({
+           url : "${pageContext.request.contextPath}/nNameDup.me",
+           type : "post",
+           data : { nName : $('#nName').val() },
+           success : function(data){
+             if(data == 'true'  &&  $('#nName').val()  != '') {
+                
+                alert("사용 가능한 닉네임입니다.");
+                
+             } else {
+                
+                alert("닉네임을 입력하지 않았거나, 이미 사용중인 닉네임입니다.");
+                
+                $('#nName').val('');
+             }
+              
+           }, error : function(request, status, error){
+              console.log(request);
+              console.log(status);
+              console.log(error);
+              
+              console.log("에러 발생");
+              
+           }
+        
+        });
+     });
+	</script>
+
 </body>
 </html>

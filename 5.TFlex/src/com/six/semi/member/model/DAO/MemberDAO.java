@@ -122,12 +122,11 @@ public class MemberDAO {
 			
 			pstmt = con.prepareStatement(sql);
 
-	         pstmt.setString(1, m.getnName());
-	         pstmt.setString(2, m.getUserPwd());
-	         pstmt.setString(3, m.getUserName());
-	         pstmt.setString(4, m.getBirthNo());
-	         pstmt.setString(5, m.getEmail());
-	         pstmt.setString(7, m.getUserId());
+	        pstmt.setString(1, m.getnName());
+	        pstmt.setString(2, m.getUserPwd());
+	        pstmt.setString(3, m.getUserName());
+	        pstmt.setString(4, m.getEmail());
+	        pstmt.setString(5, m.getUserId());
 	               
 	         result = pstmt.executeUpdate();
 
