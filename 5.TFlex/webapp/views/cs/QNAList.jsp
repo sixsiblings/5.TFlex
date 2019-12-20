@@ -135,7 +135,7 @@
 		<div class="card-header"  id="bhy-card-shadow" 
 			style="background:white;  height: 100px; font-size:20px;">     
 					<br />           
-			<i class="fas fa-pencil-alt" id="bhy-card-text">  
+			<i class="fas fa-pencil-alt" style="font-size:15px;" id="bhy-card-text">  
 			&nbsp;상담가능 시간(평일 09:00 ~ 18:00)내 답변드릴수 있도록 노력하겠습니다. 
 			</i>               	
 		</div>
@@ -148,7 +148,7 @@
 		<div class="card-header"  id="bhy-card-shadow" 
 			style="background:white;  height: 120px; font-size:20px; ">     
 					<br />           
-			<i class="fas fa-check-alt" id="bhy-card-text" style="color:#F5AF2E;">  
+			<i class="fas fa-check-alt" id="bhy-card-text" style="font-size : 15px;color:#F5AF2E;">  
 			&nbsp;문의하신 내용의 답변은 회원가입 시 입력하신 메일로 발송해드립니다. <br /><br />
 			&nbsp;답변 올리시기 전에 입력하신 이메일을 먼저 확인해주세요~^0^
 			</i>               	
